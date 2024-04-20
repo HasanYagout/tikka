@@ -5,15 +5,15 @@
             <div class="navbar-vertical-footer-offset pb-0">
                 <div class="navbar-brand-wrapper justify-content-between side-logo">
                     <!-- Logo -->
-                    @php($shop=\App\Model\Shop::where(['seller_id'=>auth('seller')->id()])->first())
+                    @php($shop=\App\Models\Shop::where(['seller_id'=>auth('seller')->id()])->first())
                     <a class="navbar-brand" href="{{route('seller.dashboard.index')}}" aria-label="Front">
                         @if (isset($shop))
-                            <img onerror="this.src='{{asset('public/assets/back-end/img/900x400/img1.jpg')}}'"
+                            <img onerror="this.src='{{asset('back-end/img/900x400/img1.jpg')}}'"
                                 class="navbar-brand-logo-mini for-seller-logo"
                                 src="{{asset("storage/app/public/shop/$shop->image")}}" alt="Logo">
                         @else
                             <img class="navbar-brand-logo-mini for-seller-logo"
-                                src="{{asset('public/assets/back-end/img/900x400/img1.jpg')}}" alt="Logo">
+                                src="{{asset('back-end/img/900x400/img1.jpg')}}" alt="Logo">
                         @endif
                     </a>
                     <!-- End Logo -->
@@ -55,7 +55,7 @@
                         @php($seller = auth('seller')->user())
                         <!-- POS -->
                         @php($sellerId = $seller->id)
-                        @php($seller_pos=\App\Model\BusinessSetting::where('type','seller_pos')->first()->value)
+                        @php($seller_pos=\App\Models\BusinessSetting::where('type','seller_pos')->first()->value)
                         @if ($seller_pos==1)
                             @if ($seller->pos_status == 1)
                                 <li class="nav-item">
@@ -96,7 +96,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('All')}}
                                             <span class="badge badge-soft-info badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -107,7 +107,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('Pending')}}
                                             <span class="badge badge-soft-info badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'pending'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'pending'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -119,7 +119,7 @@
                                             {{\App\CPU\translate('confirmed')}}
                                             <span
                                                 class="badge badge-soft-info badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'confirmed'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'confirmed'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -131,7 +131,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('Packaging')}}
                                             <span class="badge badge-soft-warning badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'processing'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'processing'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -144,7 +144,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('Out_For_Delivery')}}
                                             <span class="badge badge-soft-warning badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'out_for_delivery'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'out_for_delivery'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -156,7 +156,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('Delivered')}}
                                             <span class="badge badge-soft-success badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'delivered'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'delivered'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -167,7 +167,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('Returned')}}
                                             <span class="badge badge-soft-danger badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'returned'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'returned'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -178,7 +178,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('Failed To Deliver')}}
                                             <span class="badge badge-soft-danger badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'failed'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'failed'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -189,7 +189,7 @@
                                         <span class="text-truncate">
                                             {{\App\CPU\translate('canceled')}}
                                             <span class="badge badge-soft-danger badge-pill {{Session::get('direction') === "rtl" ? 'mr-1' : 'ml-1'}}">
-                                                {{ \App\Model\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'canceled'])->count()}}
+                                                {{ \App\Models\Order::where(['seller_is'=>'seller'])->where(['seller_id'=>$sellerId])->where(['order_status'=>'canceled'])->count()}}
                                             </span>
                                         </span>
                                     </a>
@@ -214,7 +214,7 @@
                                         <span class="text-truncate">
                                           {{\App\CPU\translate('pending')}}
                                             <span class="badge badge-soft-danger badge-pill ml-1">
-                                                {{\App\Model\RefundRequest::whereHas('order', function ($query) {
+                                                {{\App\Models\RefundRequest::whereHas('order', function ($query) {
                                                     $query->where('seller_is', 'seller')->where('seller_id',auth('seller')->id());
                                                         })->where('status','pending')->count()}}
                                             </span>
@@ -229,7 +229,7 @@
                                         <span class="text-truncate">
                                            {{\App\CPU\translate('approved')}}
                                             <span class="badge badge-soft-info badge-pill ml-1">
-                                                {{\App\Model\RefundRequest::whereHas('order', function ($query) {
+                                                {{\App\Models\RefundRequest::whereHas('order', function ($query) {
                                                     $query->where('seller_is', 'seller')->where('seller_id',auth('seller')->id());
                                                         })->where('status','approved')->count()}}
                                             </span>
@@ -243,7 +243,7 @@
                                         <span class="text-truncate">
                                            {{\App\CPU\translate('refunded')}}
                                             <span class="badge badge-soft-success badge-pill ml-1">
-                                                {{\App\Model\RefundRequest::whereHas('order', function ($query) {
+                                                {{\App\Models\RefundRequest::whereHas('order', function ($query) {
                                                     $query->where('seller_is', 'seller')->where('seller_id',auth('seller')->id());
                                                         })->where('status','refunded')->count()}}
                                             </span>
@@ -257,7 +257,7 @@
                                         <span class="text-truncate">
                                            {{\App\CPU\translate('rejected')}}
                                             <span class="badge badge-danger badge-pill ml-1">
-                                                {{\App\Model\RefundRequest::whereHas('order', function ($query) {
+                                                {{\App\Models\RefundRequest::whereHas('order', function ($query) {
                                                     $query->where('seller_is', 'seller')->where('seller_id',auth('seller')->id());
                                                         })->where('status','rejected')->count()}}
                                             </span>

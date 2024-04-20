@@ -1,7 +1,7 @@
 @extends('layouts.back-end.app')
 @section('title', \App\CPU\translate('Employee Add'))
 @push('css_or_js')
-    <link href="{{asset('public/assets/back-end')}}/css/select2.min.css" rel="stylesheet"/>
+    <link href="{{asset('back-end')}}/css/select2.min.css" rel="stylesheet"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -10,7 +10,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/add-new-employee.png')}}" alt="">
+                <img src="{{asset('/back-end/img/add-new-employee.png')}}" alt="">
                 {{\App\CPU\translate('Add_New_Employee')}}
             </h2>
         </div>
@@ -127,7 +127,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('back-end')}}/js/select2.min.js"></script>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -154,7 +154,7 @@
         });
     </script>
 
-    <script src="{{asset('public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('back-end/js/spartan-multi-image-picker.js')}}"></script>
     <script type="text/javascript">
         $(function () {
             $("#coba").spartanMultiImagePicker({
@@ -164,7 +164,7 @@
                 groupClassName: 'col-6 col-lg-4',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/assets/back-end/img/400x400/img2.jpg')}}',
+                    image: '{{asset('back-end/img/400x400/img2.jpg')}}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",

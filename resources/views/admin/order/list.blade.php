@@ -13,7 +13,7 @@
             <!-- Page Title -->
             <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
                 <h2 class="h1 mb-0">
-                    <img src="{{asset('/public/assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
+                    <img src="{{asset('/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
                     <span class="page-header-title">
                         @if($status =='processing')
                             {{\App\CPU\translate('packaging')}}
@@ -86,7 +86,7 @@
                             <!-- Card -->
                             <a class="order-stats order-stats_pending" href="{{route('admin.orders.list',['pending'])}}">
                                 <div class="order-stats__content">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/pending.png')}}" class="svg" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/pending.png')}}" class="svg" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('pending')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -100,7 +100,7 @@
                             <!-- Card -->
                             <a class="order-stats order-stats_confirmed" href="{{route('admin.orders.list',['confirmed'])}}">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/confirmed.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/confirmed.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('confirmed')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -114,7 +114,7 @@
                             <!-- Card -->
                             <a class="order-stats order-stats_packaging" href="{{route('admin.orders.list',['processing'])}}">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/packaging.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/packaging.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('Packaging')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -128,7 +128,7 @@
                             <!-- Card -->
                             <a class="order-stats order-stats_out-for-delivery" href="{{route('admin.orders.list',['out_for_delivery'])}}">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/out-of-delivery.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/out-of-delivery.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('out_for_delivery')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -142,7 +142,7 @@
                             <div class="order-stats order-stats_delivered cursor-pointer"
                                 onclick="location.href='{{route('admin.orders.list',['delivered'])}}'">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/delivered.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/delivered.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('delivered')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -155,7 +155,7 @@
                             <div class="order-stats order-stats_canceled cursor-pointer"
                                 onclick="location.href='{{route('admin.orders.list',['canceled'])}}'">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/canceled.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/canceled.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('canceled')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -168,7 +168,7 @@
                             <div class="order-stats order-stats_returned cursor-pointer"
                                 onclick="location.href='{{route('admin.orders.list',['returned'])}}'">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/returned.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/returned.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('returned')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -181,7 +181,7 @@
                             <div class="order-stats order-stats_failed cursor-pointer"
                                 onclick="location.href='{{route('admin.orders.list',['failed'])}}'">
                                 <div class="order-stats__content" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <img width="20" src="{{asset('/public/assets/back-end/img/failed-to-deliver.png')}}" alt="">
+                                    <img width="20" src="{{asset('/back-end/img/failed-to-deliver.png')}}" alt="">
                                     <h6 class="order-stats__subtitle">{{\App\CPU\translate('Failed_To_Delivery')}}</h6>
                                 </div>
                                 <span class="order-stats__title">
@@ -223,7 +223,7 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li>
                                         <a type="submit" class="dropdown-item d-flex align-items-center gap-2" href="{{ route('admin.orders.order-bulk-export', ['delivery_man_id' => request('delivery_man_id'), 'status' => $status, 'from' => $from, 'to' => $to, 'filter' => $filter, 'search' => $search]) }}">
-                                            <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+                                            <img width="14" src="{{asset('/back-end/img/excel.png')}}" alt="">
                                             {{\App\CPU\translate('Excel')}}
                                         </a>
                                     </li>
@@ -339,7 +339,7 @@
                                         <div class="d-flex justify-content-center gap-2">
                                             <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{\App\CPU\translate('view')}}"
                                                 href="{{route('admin.orders.details',['id'=>$order['id']])}}">
-                                                <img src="{{asset('/public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+                                                <img src="{{asset('/back-end/img/eye.svg')}}" class="svg" alt="">
                                             </a>
                                             <a class="btn btn-outline-success square-btn btn-sm mr-1" target="_blank" title="{{\App\CPU\translate('invoice')}}"
                                                 href="{{route('admin.orders.generate-invoice',[$order['id']])}}">

@@ -12,7 +12,7 @@ use App\Models\Color;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Order;
 use App\Models\Coupon;
-use App\User;
+use App\Models\User;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;

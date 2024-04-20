@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/all-orders.png')}}" alt="">
+                <img src="{{asset('/back-end/img/all-orders.png')}}" alt="">
                 {{\App\CPU\translate('order_details')}}
             </h2>
         </div>
@@ -168,7 +168,7 @@
                                             <td>
                                                 <div class="media align-items-center gap-10">
                                                     <img class="avatar avatar-60 rounded"
-                                                         onerror="this.src='{{asset('public/assets/back-end/img/160x160/img2.jpg')}}'"
+                                                         onerror="this.src='{{asset('back-end/img/160x160/img2.jpg')}}'"
                                                          src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$detail->product_all_status['thumbnail']}}"
                                                          alt="Image Description">
                                                     <div>
@@ -188,7 +188,7 @@
                                                 {{\App\CPU\BackEndHelper::set_symbol(\App\CPU\BackEndHelper::usd_to_currency($detail['tax']))}}
                                                 @if($detail->product_all_status->tax_model == 'include')
                                                     <span class="ml-2" data-toggle="tooltip" data-placement="top" title="{{\App\CPU\translate('tax_included')}}">
-                                                        <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="img">
+                                                        <img class="info-img" src="{{asset('/back-end/img/info-circle.svg')}}" alt="img">
                                                     </span>
                                                 @endif
                                             </td>
@@ -403,13 +403,13 @@
                     @if($order->customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex gap-2">
-                                <img src="{{asset('/public/assets/back-end/img/seller-information.png')}}" alt="">
+                                <img src="{{asset('/back-end/img/seller-information.png')}}" alt="">
                                 {{\App\CPU\translate('Customer_information')}}
                             </h4>
                             <div class="media flex-wrap gap-3">
                                 <div class="">
                                     <img class="avatar rounded-circle avatar-70"
-                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                         onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                          src="{{asset('storage/app/public/profile/'.$order->customer->image)}}"
                                          alt="Image">
                                 </div>
@@ -439,7 +439,7 @@
                     @if($order->customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex gap-2">
-                                <img src="{{asset('/public/assets/back-end/img/seller-information.png')}}" alt="">
+                                <img src="{{asset('/back-end/img/seller-information.png')}}" alt="">
                                 {{\App\CPU\translate('shipping_address')}}
                             </h4>
 
@@ -468,7 +468,7 @@
                                 </div>
                                 <div class="d-flex align-items-start gap-2">
                                     <!-- <span>{{\App\CPU\translate('address')}} :</span> -->
-                                    <img src="{{asset('/public/assets/back-end/img/location.png')}}" alt="">
+                                    <img src="{{asset('/back-end/img/location.png')}}" alt="">
                                     {{$shipping_address ? $shipping_address->city  : \App\CPU\translate('empty')}}
                                 </div>
                             </div>
@@ -491,7 +491,7 @@
                     @if($order->customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex gap-2">
-                                <img src="{{asset('/public/assets/back-end/img/seller-information.png')}}" alt="">
+                                <img src="{{asset('/back-end/img/seller-information.png')}}" alt="">
                                 {{\App\CPU\translate('billing_address')}}
                             </h4>
 
@@ -520,7 +520,7 @@
                                 </div>
                                 <div class="d-flex align-items-start gap-2">
                                     <!-- <span>{{\App\CPU\translate('address')}} :</span> -->
-                                    <img src="{{asset('/public/assets/back-end/img/location.png')}}" alt="">
+                                    <img src="{{asset('/back-end/img/location.png')}}" alt="">
                                     {{$billing ? $billing->city  : ''}}
                                 </div>
                             </div>
@@ -540,7 +540,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mb-4 d-flex gap-2">
-                            <img src="{{asset('/public/assets/back-end/img/shop-information.png')}}" alt="">
+                            <img src="{{asset('/back-end/img/shop-information.png')}}" alt="">
                             {{\App\CPU\translate('Shop_Information')}}
                         </h4>
 
@@ -548,7 +548,7 @@
                         <div class="media">
                             @if($order->seller_is == 'admin')
                                 <div class="mr-3">
-                                    <img class="avatar rounded avatar-70" onerror="this.src='https://6valley.6amtech.com/public/assets/front-end/img/image-place-holder.png'"
+                                    <img class="avatar rounded avatar-70" onerror="this.src='https://6valley.6amtech.com/front-end/img/image-place-holder.png'"
                                          src="{{asset("storage/app/public/company/$company_web_logo")}}" alt="">
                                 </div>
 
@@ -559,7 +559,7 @@
                             @else
                                 @if(!empty($order->seller->shop))
                                     <div class="mr-3">
-                                        <img class="avatar rounded avatar-70" onerror="this.src='https://6valley.6amtech.com/public/assets/front-end/img/image-place-holder.png'"
+                                        <img class="avatar rounded avatar-70" onerror="this.src='https://6valley.6amtech.com/front-end/img/image-place-holder.png'"
                                              src="{{asset('storage/app/public/shop')}}/{{$order->seller->shop->image}}" alt="">
                                     </div>
                                     <div class="media-body d-flex flex-column gap-2">
@@ -567,7 +567,7 @@
                                         <span class="title-color"><strong>{{ $total_delivered }}</strong> {{\App\CPU\translate('Orders Served')}}</span>
                                         <span class="title-color"> <strong>{{ $order->seller->shop->contact }}</strong></span>
                                         <div class="d-flex align-items-start gap-2">
-                                            <img src="{{asset('/public/assets/back-end/img/location.png')}}" class="mt-1" alt="">
+                                            <img src="{{asset('/back-end/img/location.png')}}" class="mt-1" alt="">
                                             {{ $order->seller->shop->address }}
                                         </div>
                                     </div>
@@ -958,7 +958,7 @@
                 position: new google.maps.LatLng({{$shipping_address->latitude}}, {{$shipping_address->longitude}}),
                 map: map,
                 title: "{{$order->customer['f_name']??""}} {{$order->customer['l_name']??""}}",
-                icon: "{{asset('public/assets/front-end/img/customer_location.png')}}"
+                icon: "{{asset('front-end/img/customer_location.png')}}"
             });
 
             google.maps.event.addListener(marker, 'click', (function (marker) {

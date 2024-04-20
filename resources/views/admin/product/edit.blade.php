@@ -3,8 +3,8 @@
 @section('title', \App\CPU\translate('Product Edit'))
 
 @push('css_or_js')
-    <link href="{{asset('public/assets/back-end/css/tags-input.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('back-end/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -14,7 +14,7 @@
         <!-- Page Title -->
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
-                <img src="{{asset('/public/assets/back-end/img/inhouse-product-list.png')}}" alt="">
+                <img src="{{asset('/back-end/img/inhouse-product-list.png')}}" alt="">
                 {{\App\CPU\translate('Product')}} {{\App\CPU\translate('Edit')}}
             </h2>
         </div>
@@ -394,7 +394,7 @@
                                     <div class="__coba-aspect">
                                         <div class="row g-2" id="meta_img">
                                             <div class="col-sm-6 col-md-12 col-lg-6">
-                                                <img class="w-100" height="auto" onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                <img class="w-100" height="auto" onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                                         src="{{asset("storage/app/public/product/meta")}}/{{$product['meta_image']}}" alt="Meta image">
                                             </div>
                                         </div>
@@ -438,7 +438,7 @@
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <img class="w-100" height="auto"
-                                                                     onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                                     onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                                                      src="{{asset("storage/app/public/product/$photo")}}"
                                                                      alt="Product image">
                                                                 <a href="{{route('admin.product.remove-image',['id'=>$product['id'],'name'=>$photo])}}"
@@ -455,7 +455,7 @@
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <img class="w-100" height="auto"
-                                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                                         onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                                                          src="{{asset("storage/app/public/product/$photo->image_name")}}"
                                                                          alt="Product image">
                                                                     <a href="{{route('admin.product.remove-image',['id'=>$product['id'],'name'=>$photo->image_name,'color'=>'null'])}}"
@@ -471,7 +471,7 @@
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <img class="w-100" height="auto"
-                                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                                         onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                                                          src="{{asset("storage/app/public/product/$photo")}}"
                                                                          alt="Product image">
                                                                     <a href="{{route('admin.product.remove-image',['id'=>$product['id'],'name'=>$photo])}}"
@@ -494,7 +494,7 @@
 
                                     <div class="row gy-3" id="thumbnail">
                                         <div class="col-sm-6 col-md-12 col-lg-6">
-                                            <img class="w-100" height="auto" onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                            <img class="w-100" height="auto" onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                                     src="{{asset("storage/app/public/product/thumbnail")}}/{{$product['thumbnail']}}" alt="Product image">
                                         </div>
                                     </div>
@@ -521,12 +521,12 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/back-end')}}/js/tags-input.min.js"></script>
-    <script src="{{asset('public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('back-end')}}/js/tags-input.min.js"></script>
+    <script src="{{asset('back-end/js/spartan-multi-image-picker.js')}}"></script>
     <script>
         var colors = {{ count($product->colors) }};
         var imageCount = {{10-count(json_decode($product->images))}};
-        var thumbnail = '{{\App\CPU\ProductManager::product_image_path('thumbnail').'/'.$product->thumbnail??asset('public/assets/back-end/img/400x400/img2.jpg')}}';
+        var thumbnail = '{{\App\CPU\ProductManager::product_image_path('thumbnail').'/'.$product->thumbnail??asset('back-end/img/400x400/img2.jpg')}}';
         $(function () {
             if ( imageCount > 0) {
                 $("#coba").spartanMultiImagePicker({
@@ -536,7 +536,7 @@
                     groupClassName: 'col-6 col-lg-6 col-xl-6',
                     maxFileSize: '',
                     placeholderImage: {
-                        image: '{{asset('public/assets/back-end/img/400x400/img2.jpg')}}',
+                        image: '{{asset('back-end/img/400x400/img2.jpg')}}',
                         width: '100%',
                     },
                     dropFileLabel: "Drop Here",
@@ -571,7 +571,7 @@
                 groupClassName: 'col-6',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/assets/back-end/img/400x400/img2.jpg')}}',
+                    image: '{{asset('back-end/img/400x400/img2.jpg')}}',
                     width: '100%',
                 },
                 dropFileLabel: "Drop Here",
@@ -605,7 +605,7 @@
                 groupClassName: 'col-6',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/assets/back-end/img/400x400/img2.jpg')}}',
+                    image: '{{asset('back-end/img/400x400/img2.jpg')}}',
                     width: '100%',
                 },
                 dropFileLabel: "Drop Here",
@@ -779,7 +779,7 @@
                                     <i class="tio-done"></i>
                                     </span>
                                         <img class="w-100" height="auto"
-                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                             onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                              src="{{asset('storage/app/public/product/`+image_name+`')}}"
                                              alt="Product image">
                                         <a href="`+remove_url+`?id=`+product_id+`&name=`+image_name+`&color=`+color_value['color']+`"
@@ -803,7 +803,7 @@
                             <i class="tio-edit"></i>
                                 <input type="file" name="` + input_image_name + `" id="` + value_id + `" class="d-none" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" required="">
                             </span>
-                            <img src="{{ asset('public/assets/back-end/img/400x400/img2.jpg') }}" style="object-fit: cover;aspect-ratio:1"  alt="public/img">
+                            <img src="{{ asset('back-end/img/400x400/img2.jpg') }}" style="object-fit: cover;aspect-ratio:1"  alt="public/img">
                           </label> </div>`;
                     $('#color_wise_image_field').append(html)
 

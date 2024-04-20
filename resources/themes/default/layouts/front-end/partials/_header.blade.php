@@ -93,7 +93,7 @@
                         @foreach(json_decode($language['value'],true) as $data)
                             @if($data['code']==$local)
                                 <img class="{{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}" width="20"
-                                     src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
+                                     src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
                                      alt="Eng">
                                 {{$data['name']}}
                             @endif
@@ -107,7 +107,7 @@
                                     <a class="dropdown-item pb-1" href="{{route('lang',[$data['code']])}}">
                                         <img class="{{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}"
                                              width="20"
-                                             src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
+                                             src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
                                              alt="{{$data['name']}}"/>
                                         <span style="text-transform: capitalize">{{$data['name']}}</span>
                                     </a>
@@ -129,15 +129,15 @@
                 </button>
                 <a class="navbar-brand d-none d-sm-block {{Session::get('direction') === "rtl" ? 'mr-3' : 'mr-3'}} flex-shrink-0 __min-w-7rem" href="{{route('home')}}">
                     <img class="__inline-11"
-                         src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
-                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                         src="{{asset("storage/company")."/".$web_config['web_logo']->value}}"
+{{--                         onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"--}}
                          alt="{{$web_config['name']->value}}"/>
                 </a>
                 <a class="navbar-brand d-sm-none {{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}"
                    href="{{route('home')}}">
                     <img class="mobile-logo-img __inline-12"
-                         src="{{asset("storage/app/public/company")."/".$web_config['mob_logo']->value}}"
-                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                         src="{{asset("storage/company")."/".$web_config['mob_logo']->value}}"
+{{--                         onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"--}}
                          alt="{{$web_config['name']->value}}"/>
                 </a>
                 <!-- Search-->
@@ -186,7 +186,7 @@
                                 <div class="navbar-tool-icon-box bg-secondary">
                                     <div class="navbar-tool-icon-box bg-secondary">
                                         <img  src="{{asset('storage/app/public/profile/'.auth('customer')->user()->image)}}"
-                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+{{--                                             onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"--}}
                                              class="img-profile rounded-circle __inline-14">
                                     </div>
                                 </div>
@@ -285,7 +285,7 @@
                                                     <div class="d-flex">
                                                         <img
                                                             src="{{asset("storage/app/public/category/$category->icon")}}"
-                                                            onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+{{--                                                            onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"--}}
                                                             class="__img-18">
                                                         <span
                                                             class="w-0 flex-grow-1 {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>
@@ -352,7 +352,7 @@
                                                onclick="location.href='{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}'">
                                                 <div class="d-flex">
                                                     <img src="{{asset("storage/app/public/category/$category->icon")}}"
-                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+{{--                                                         onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"--}}
                                                          class="__img-18">
                                                     <span
                                                         class="w-0 flex-grow-1 {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>
@@ -427,7 +427,7 @@
                                             <a <?php if ($category->childes->count() > 0) echo ""?>
                                             href="{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}">
                                             <img src="{{asset("storage/app/public/category/$category->icon")}}"
-                                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+{{--                                                 onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"--}}
                                                  class="__img-18">
                                             <span
                                                 class="{{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>

@@ -11,7 +11,7 @@ use App\Models\Product;
 use App\Models\SellerWallet;
 use App\Models\Shop;
 use App\Models\WithdrawalMethod;
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

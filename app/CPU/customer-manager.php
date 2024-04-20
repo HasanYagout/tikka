@@ -8,7 +8,7 @@ use App\Models\Transaction;
 use App\Models\BusinessSetting;
 use App\Models\WalletTransaction;
 use App\Models\LoyaltyPointTransaction;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\CPU\Helpers;
 use App\Models\OrderDetail;

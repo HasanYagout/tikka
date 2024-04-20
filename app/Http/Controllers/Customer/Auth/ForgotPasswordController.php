@@ -6,7 +6,7 @@ use App\CPU\Helpers;
 use App\CPU\SMS_module;
 use App\Http\Controllers\Controller;
 use App\Models\PasswordReset;
-use App\User;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;

@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-4">
             <h2 class="h1 mb-1 text-capitalize d-flex gap-2">
-                <img src="{{asset('/public/assets/back-end/img/bulk-import.png')}}" alt="">
+                <img src="{{asset('/back-end/img/bulk-import.png')}}" alt="">
                 {{\App\CPU\translate('bulk_Import')}}
             </h2>
         </div>
@@ -43,7 +43,7 @@
                     <div class="card rest-part">
                         <div class="px-3 py-4 d-flex flex-wrap align-items-center gap-10 justify-content-center">
                             <h4 class="mb-0">{{\App\CPU\translate("Don`t_have_the_template_?")}}</h4>
-                            <a href="{{asset('public/assets/product_bulk_format.xlsx')}}" download=""
+                            <a href="{{asset('product_bulk_format.xlsx')}}" download=""
                                class="btn-link text-capitalize fz-16 font-weight-medium">{{\App\CPU\translate('download_here')}}</a>
                         </div>
                         <div class="card-body">
@@ -53,7 +53,7 @@
                                         <div class="upload-file">
                                             <input type="file" name="products_file" accept=".xlsx, .xls" class="upload-file__input">
                                             <div class="upload-file__img_drag upload-file__img">
-                                                <img src="{{asset('/public/assets/back-end/img/drag-upload-file.png')}}" alt="">
+                                                <img src="{{asset('/back-end/img/drag-upload-file.png')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -78,14 +78,14 @@
 
     $('.upload-file__input').on('change', function() {
         $(this).siblings('.upload-file__img').find('img').attr({
-            'src': '{{asset('/public/assets/back-end/img/excel.png')}}',
+            'src': '{{asset('/back-end/img/excel.png')}}',
             'width': 80
         });
     });
 
     function resetImg() {
         $('.upload-file__img img').attr({
-            'src': '{{asset('/public/assets/back-end/img/drag-upload-file.png')}}',
+            'src': '{{asset('/back-end/img/drag-upload-file.png')}}',
             'width': 'auto'
         });
     }

@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/coupon_setup.png')}}" alt="">
+                <img src="{{asset('/back-end/img/coupon_setup.png')}}" alt="">
                 {{\App\CPU\translate('seller_details')}}
             </h2>
         </div>
@@ -185,7 +185,7 @@
                             @if(count($products)==0)
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
-                                         src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
+                                         src="{{asset('back-end')}}/svg/illustrations/sorry.svg"
                                          alt="Image Description">
                                     <p class="mb-0">{{\App\CPU\translate('No_data_to_show')}}</p>
                                 </div>

@@ -19,7 +19,7 @@
                     <i class="tio-shopping-cart" style="font-size: 30px"></i>
                 </div>
             </div>
-            
+
             <div class="js-nav-scroller hs-nav-scroller-horizontal">
             <span class="hs-nav-scroller-arrow-prev" style="display: none;">
               <a class="hs-nav-scroller-arrow-link" href="javascript:;">
@@ -32,7 +32,7 @@
                 <i class="tio-chevron-right"></i>
               </a>
             </span>
-            
+
                 <ul class="nav nav-tabs page-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">{{\App\CPU\translate('order_list')}}</a>
@@ -42,12 +42,12 @@
         </div> -->
         <!-- End Page Header -->
 
-        
-    
+
+
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex flex-wrap align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/inhouse-product-list.png')}}" class="mb-1 mr-1" alt="">
+                <img src="{{asset('/back-end/img/inhouse-product-list.png')}}" class="mb-1 mr-1" alt="">
                 {{\App\CPU\translate('POS_Orders')}}
                 <span class="badge badge-soft-dark radius-50 fz-14">{{$orders->total()}}</span>
             </h2>
@@ -192,7 +192,7 @@
                 </table>
                 @if(count($orders)==0)
                     <div class="text-center p-4">
-                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                        <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                         <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                     </div>
                 @endif

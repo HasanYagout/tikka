@@ -2,7 +2,7 @@
 @section('title', \App\CPU\translate('Brand Add'))
 
 @push('css_or_js')
-    <link href="{{asset('public/assets/back-end')}}/css/select2.min.css" rel="stylesheet"/>
+    <link href="{{asset('back-end')}}/css/select2.min.css" rel="stylesheet"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -11,7 +11,7 @@
     <!-- Page Title -->
     <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
         <h2 class="h1 mb-0 d-flex align-items-center gap-2">
-            <img width="20" src="{{asset('/public/assets/back-end/img/brand.png')}}" alt="">
+            <img width="20" src="{{asset('/back-end/img/brand.png')}}" alt="">
             {{\App\CPU\translate('Brand')}} {{\App\CPU\translate('Setup')}}
         </h2>
     </div>
@@ -98,7 +98,7 @@
             $('#dataTable').DataTable();
         });
     </script>
-    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('back-end')}}/js/select2.min.js"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

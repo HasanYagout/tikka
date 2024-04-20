@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
-                <img src="{{asset('/public/assets/back-end/img/brand-setup.png')}}" alt="">
+                <img src="{{asset('/back-end/img/brand-setup.png')}}" alt="">
                 {{\App\CPU\translate('Sub')}} {{\App\CPU\translate('Category')}} {{\App\CPU\translate('Setup')}}
             </h2>
         </div>
@@ -98,7 +98,7 @@
                                             <img
                                                 class="upload-img-view"
                                                 id="viewer"
-                                                src="{{asset('public/assets/back-end/img/900x400/img1.jpg')}}"
+                                                src="{{asset('back-end/img/900x400/img1.jpg')}}"
                                                 alt="image"/>
                                         </center>
                                     </div>
@@ -162,7 +162,7 @@
                                     <td>{{$category['id']}}</td>
                                     <td class="text-center">
                                         <img class="rounded" width="64"
-                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                             onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                              src="{{asset('storage/app/public/category')}}/{{$category['icon']}}">
                                     </td>
                                     <td>{{$category['name']}}</td>
@@ -196,7 +196,7 @@
 
                     @if(count($categories)==0)
                         <div class="text-center p-4">
-                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Descripti">
+                            <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Descripti">
                             <p class="mb-0">{{\App\CPU\translate('No_data_to_show')}}</p>
                         </div>
                     @endif

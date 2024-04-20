@@ -10,7 +10,7 @@
             <!-- Page Title -->
             <div class="">
                 <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{asset('/public/assets/back-end/img/inhouse-product-list.png')}}" alt="">
+                    <img src="{{asset('/back-end/img/inhouse-product-list.png')}}" alt="">
                     {{$product['name']}}
                 </h2>
             </div>
@@ -90,7 +90,7 @@
                         <div class="d-flex align-items-center">
                             <img
                                 class="avatar avatar-xxl avatar-4by3 {{Session::get('direction') === "rtl" ? 'ml-4' : 'mr-4'}}"
-                                onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                 src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"
                                 alt="Image Description">
 
@@ -251,7 +251,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <img class="width-100"
-                                                    onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                    onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                                     src="{{asset("storage/app/public/product/$photo")}}" alt="Product image">
 
                                             </div>
@@ -291,7 +291,7 @@
                                     <div class="avatar avatar-circle">
                                         <img
                                             class="avatar-img"
-                                            onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                            onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                             src="{{asset('storage/app/public/profile/'.$review->customer->image)}}"
                                             alt="Image Description">
                                     </div>
@@ -343,7 +343,7 @@
 
             @if(count($reviews)==0)
                 <div class="text-center p-4">
-                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                    <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                     <p class="mb-0">{{\App\CPU\translate('No data to show')}}</p>
                 </div>
             @endif
@@ -353,8 +353,8 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/back-end')}}/js/tags-input.min.js"></script>
-    <script src="{{ asset('public/assets/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('back-end')}}/js/tags-input.min.js"></script>
+    <script src="{{ asset('select2/js/select2.min.js')}}"></script>
     <script>
         $('input[name="colors_active"]').on('change', function () {
             if (!$('input[name="colors_active"]').is(':checked')) {

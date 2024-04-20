@@ -6,7 +6,7 @@ use App\CPU\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\OrderTransaction;
 use App\Models\Transaction;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Rap2hpoutre\FastExcel\FastExcel;
 

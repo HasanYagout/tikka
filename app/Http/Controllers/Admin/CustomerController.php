@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\CPU\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use App\User;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

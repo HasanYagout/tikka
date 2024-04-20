@@ -6,7 +6,7 @@ use App\CPU\CartManager;
 use App\CPU\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\CartShipping;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Cart;

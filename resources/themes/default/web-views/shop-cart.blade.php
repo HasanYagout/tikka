@@ -12,7 +12,7 @@
     <meta property="twitter:title" content="{{$web_config['name']->value}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
-    <link rel="stylesheet" href="{{asset('public/assets/front-end')}}/css/shop-cart.css"/>
+    <link rel="stylesheet" href="{{asset('front-end')}}/css/shop-cart.css"/>
 @endpush
 
 @section('content')

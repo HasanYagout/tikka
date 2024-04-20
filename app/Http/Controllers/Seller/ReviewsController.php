@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Seller;
 
-use App\User;
+use App\Models\User;
 use App\CPU\Helpers;
 use App\Models\Review;
 use App\Models\Product;

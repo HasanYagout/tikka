@@ -13,7 +13,7 @@
         <!-- Page Title -->
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/system-setting.png')}}" alt="">
+                <img src="{{asset('/back-end/img/system-setting.png')}}" alt="">
                 {{\App\CPU\translate('System_Setup')}}
             </h2>
         </div>
@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0">
-                            <img width="18" src="{{asset('/public/assets/back-end/img/currency.png')}}" alt="">
+                            <img width="18" src="{{asset('/back-end/img/currency.png')}}" alt="">
                             {{\App\CPU\translate('Add New Currency')}}
                         </h5>
                     </div>
@@ -228,7 +228,7 @@
 
                     @if(count($currencies)==0)
                         <div class="text-center p-4">
-                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
+                            <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg"
                                  alt="Image Description">
                             <p class="mb-0">{{\App\CPU\translate('No data to show')}}</p>
                         </div>
@@ -241,7 +241,7 @@
 
 @push('script')
     <!-- Page level custom scripts -->
-    <script src="{{ asset('public/assets/select2/js/select2.min.js')}}"></script>
+    <script src="{{ asset('select2/js/select2.min.js')}}"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

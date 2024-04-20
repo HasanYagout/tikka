@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{asset('/public/assets/back-end/img/loyalty_point.png')}}" alt="">
+                <img width="20" src="{{asset('/back-end/img/loyalty_point.png')}}" alt="">
                 {{\App\CPU\translate('customer_loyalty_point_report')}}
             </h2>
         </div>
@@ -52,7 +52,7 @@
                                 <div class="col-sm-6 col-12">
                                     <div class="mb-3">
                                         <select id='customer' name="customer_id" data-placeholder="{{\App\CPU\translate('select_customer')}}" class="js-data-example-ajax form-control" title="{{\App\CPU\translate('select_customer')}}">
-                                            @if (request()->get('customer_id') && $customer_info = \App\User::find(request()->get('customer_id')))
+                                            @if (request()->get('customer_id') && $customer_info = \App\Models\User::find(request()->get('customer_id')))
                                                 <option value="{{$customer_info->id}}" selected>{{$customer_info->f_name.' '.$customer_info->l_name}}({{$customer_info->phone}})</option>
                                             @endif
                                         </select>
@@ -186,7 +186,7 @@
             <!-- End Body -->
             @if(count($transactions)==0)
                 <div class="text-center p-4">
-                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                    <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                     <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                 </div>
             @endif

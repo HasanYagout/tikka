@@ -3,8 +3,8 @@
 @section('title', \App\CPU\translate('product_settings'))
 
 @push('css_or_js')
-    <link href="{{ asset('public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/assets/back-end/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('back-end/css/custom.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -13,7 +13,7 @@
         <!-- Page Title -->
         <div class="pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{asset('/back-end/img/business-setup.png')}}" alt="">
                 {{\App\CPU\translate('Business_Setup')}}
             </h2>
         </div>

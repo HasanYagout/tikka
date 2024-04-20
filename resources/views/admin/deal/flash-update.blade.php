@@ -1,8 +1,8 @@
 @extends('layouts.back-end.app')
 @section('title', \App\CPU\translate('Flash Deal Update'))
 @push('css_or_js')
-    <link href="{{asset('public/assets/back-end/css/tags-input.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('back-end/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -12,7 +12,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-            <img width="20" src="{{asset('/public/assets/back-end/img/flash_deal.png')}}" alt="">
+            <img width="20" src="{{asset('/back-end/img/flash_deal.png')}}" alt="">
             {{\App\CPU\translate('flash_deals_update')}}
         </h2>
     </div>
@@ -80,7 +80,7 @@
                                     <div class="form-group">
                                         <center>
                                             <img class="border radius-10 ratio-4:1 max-w-655px img-fit" id="viewer"
-                                            onerror="this.src='{{asset('public/assets/front-end/img/placeholder.png')}}'" src="{{asset('storage/app/public/deal')}}/{{$deal['banner']}}" alt="banner image"/>
+                                            onerror="this.src='{{asset('front-end/img/placeholder.png')}}'" src="{{asset('storage/app/public/deal')}}/{{$deal['banner']}}" alt="banner image"/>
                                         </center>
                                     </div>
                                     <div class="form-group">
@@ -112,7 +112,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('back-end')}}/js/select2.min.js"></script>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {

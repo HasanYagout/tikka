@@ -1,7 +1,7 @@
 @extends('layouts.back-end.app')
 @section('title', \App\CPU\translate('Employee Edit'))
 @push('css_or_js')
-    <link href="{{asset('public/assets/back-end')}}/css/select2.min.css" rel="stylesheet"/>
+    <link href="{{asset('back-end')}}/css/select2.min.css" rel="stylesheet"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -10,7 +10,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img src="{{asset('/public/assets/back-end/img/add-new-employee.png')}}" alt="">
+            <img src="{{asset('/back-end/img/add-new-employee.png')}}" alt="">
             {{\App\CPU\translate('Employee_Update')}}
         </h2>
     </div>
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="text-center">
                                         <img class="upload-img-view" id="viewer"
-                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                        onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                         src="{{asset('storage/app/public/admin')}}/{{$e['image']}}" alt="Employee thumbnail"/>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('back-end')}}/js/select2.min.js"></script>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {

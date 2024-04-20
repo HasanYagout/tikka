@@ -1,8 +1,8 @@
 @extends('layouts.back-end.app')
 @section('title', \App\CPU\translate('Deal Product'))
 @push('css_or_js')
-    <link href="{{ asset('public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/assets/back-end/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('back-end/css/custom.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -11,7 +11,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize">
-            <img src="{{asset('/public/assets/back-end/img/inhouse-product-list.png')}}" class="mb-1 mr-1" alt="">
+            <img src="{{asset('/back-end/img/inhouse-product-list.png')}}" class="mb-1 mr-1" alt="">
             {{\App\CPU\translate('Add_new_product')}}
         </h2>
     </div>
@@ -109,7 +109,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('back-end')}}/js/select2.min.js"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

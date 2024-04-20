@@ -90,9 +90,9 @@
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <a class="logo" href="{{route('home')}}">
                     <img
-                        src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
+                        src="{{asset("storage/company")."/".$web_config['web_logo']->value}}"
                         class="dark-support svg h-45"
-                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
+{{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
                         alt="Logo"
                     />
                 </a>
@@ -148,7 +148,7 @@
                             <img
                                 width="180"
                                 src="{{asset('storage/app/public/banner')}}/{{$web_config['header_banner']['photo']}}"
-                                onerror="this.src='{{theme_asset('assets/img/header-banner-placeholder.png')}}'"
+{{--                                onerror="this.src='{{theme_asset('assets/img/header-banner-placeholder.png')}}'"--}}
                                 loading="lazy"
                                 class="dark-support"
                                 alt=""
@@ -368,8 +368,8 @@
                             <a class="logo" href="{{route('home')}}">
                                 <img
                                     width="123"
-                                    src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
-                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
+                                    src="{{asset("storage/company")."/".$web_config['web_logo']->value}}"
+{{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
                                     class="dark-support"
                                     alt="Logo"
                                 />
@@ -409,7 +409,7 @@
                                             <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">
                                                 <div class="avatar rounded" style="--size: 2.5rem">
                                                     <img
-                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
+{{--                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
                                                         src="{{asset("storage/app/public/shop")}}/{{ $shop->image }}" loading="lazy"
                                                         class="img-fit rounded dark-support" alt=""/>
                                                 </div>
@@ -452,7 +452,7 @@
                                                     <div class="avatar rounded-circle"
                                                         style="--size: 1.25rem">
                                                         <img
-                                                            onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
+{{--                                                            onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
                                                             src="{{asset("storage/app/public/brand")}}/{{ $brand->image }}"
                                                             loading="lazy"
                                                             class="img-fit rounded-circle dark-support"
@@ -500,7 +500,7 @@
                                       <img
                                           loading="lazy"
                                           src="{{asset('storage/app/public/profile/'.auth('customer')->user()->image)}}"
-                                          onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
+{{--                                          onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
                                           class="img-fit"
                                           alt=""
                                       />

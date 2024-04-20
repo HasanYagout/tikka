@@ -3,21 +3,21 @@
         <div class="navbar-nav-wrap">
             <div class="navbar-brand-wrapper">
                 <!-- Logo -->
-                @php($shop=\App\Model\Shop::where(['seller_id'=>auth('seller')->id()])->first())
+                @php($shop=\App\Models\Shop::where(['seller_id'=>auth('seller')->id()])->first())
 
                 <a class="navbar-brand" href="{{route('seller.dashboard.index')}}" aria-label="">
                     @if (isset($shop))
                         <img class="navbar-brand-logo"
-                             onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
-                             src="{{asset("storage/app/public/shop/$shop->image")}}" alt="Logo" height="40">
+{{--                             onerror="this.src='{{asset('back-end/img/160x160/img1.jpg')}}'"--}}
+                             src="{{asset("storage/shop/$shop->image")}}" alt="Logo" height="40">
                         <img class="navbar-brand-logo-mini"
-                             onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
-                             src="{{asset("storage/app/public/shop/$shop->image")}}"
+{{--                             onerror="this.src='{{asset('back-end/img/160x160/img1.jpg')}}'"--}}
+                             src="{{asset("storage/shop/$shop->image")}}"
                              alt="Logo" height="40">
 
                     @else
                         <img class="navbar-brand-logo-mini"
-                             src="{{asset('public/assets/back-end/img/160x160/img1.jpg')}}"
+                             src="{{asset('back-end/img/160x160/img1.jpg')}}"
                              alt="Logo" height="40">
                     @endif
 
@@ -53,7 +53,7 @@
                         <div class="hs-unfold">
                             <div>
                                 @php( $local = session()->has('local')?session('local'):'en')
-                                @php($lang = \App\Model\BusinessSetting::where('type', 'language')->first())
+                                @php($lang = \App\Models\BusinessSetting::where('type', 'language')->first())
                                 <div
                                     class="topbar-text dropdown disable-autohide {{Session::get('direction') === "rtl" ? 'ml-3' : 'm-1'}} text-capitalize">
                                     <a class="topbar-link dropdown-toggle text-black d-flex align-items-center title-color" href="#" data-toggle="dropdown"
@@ -62,7 +62,7 @@
                                             @if($data['code']==$local)
                                                 <img class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                      width="20"
-                                                     src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
+                                                     src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
                                                      alt="Eng">
                                                 {{$data['name']}}
                                             @endif
@@ -77,7 +77,7 @@
                                                         <img
                                                             class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                             width="20"
-                                                            src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
+                                                            src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
                                                             alt="{{$data['name']}}"/>
                                                         <span class="text-capitalize">{{$data['name']}}</span>
                                                     </a>
@@ -114,7 +114,7 @@
                                    }'
                                >
                                 <i class="tio-email"></i>
-                                @php($message=\App\Model\Chatting::where(['seen_by_seller'=>0, 'seller_id'=>auth('seller')->id()])->count())
+                                @php($message=\App\Models\Chatting::where(['seen_by_seller'=>0, 'seller_id'=>auth('seller')->id()])->count())
                                 @if($message!=0)
                                     <span class="btn-status btn-sm-status btn-status-danger">{{ $message }}</span>
                                 @endif
@@ -127,7 +127,7 @@
                                    href="{{route('seller.messages.chat', ['type' => 'customer'])}}">
                                     <span class="text-truncate pr-2"
                                           title="Settings">{{\App\CPU\translate('Customer')}}</span>
-                                    @php($message_customer=\App\Model\Chatting::where(['seen_by_seller'=>0, 'seller_id'=>auth('seller')->id()])->whereNotNull(['user_id'])->count())
+                                    @php($message_customer=\App\Models\Chatting::where(['seen_by_seller'=>0, 'seller_id'=>auth('seller')->id()])->whereNotNull(['user_id'])->count())
                                     @if($message_customer > 0)
                                         <span class="btn-status btn-sm-status-custom btn-status-danger">{{$message_customer}}</span>
                                     @endif
@@ -141,7 +141,7 @@
                                    href="{{route('seller.messages.chat', ['type' => 'delivery-man'])}}">
                                     <span class="text-truncate pr-2"
                                           title="Settings">{{\App\CPU\translate('Delivery_man')}}</span>
-                                    @php($message_d_man =\App\Model\Chatting::where(['seen_by_seller'=>0, 'seller_id'=>auth('seller')->id()])->whereNotNull(['delivery_man_id'])->count())
+                                    @php($message_d_man =\App\Models\Chatting::where(['seen_by_seller'=>0, 'seller_id'=>auth('seller')->id()])->whereNotNull(['delivery_man_id'])->count())
                                     @if($message_d_man > 0)
                                         <span class="btn-status btn-sm-status-custom btn-status-danger">{{ $message_d_man }}</span>
                                     @endif
@@ -159,7 +159,7 @@
                             <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
                                href="{{route('seller.orders.list',['pending'])}}">
                                 <i class="tio-shopping-cart-outlined"></i>
-                                @php($order=\App\Model\Order::where(['seller_is'=>'seller','seller_id'=>auth('seller')->id(), 'order_status'=>'pending'])->count())
+                                @php($order=\App\Models\Order::where(['seller_is'=>'seller','seller_id'=>auth('seller')->id(), 'order_status'=>'pending'])->count())
                                 @if($order!=0)
                                 <span class="btn-status btn-sm-status btn-status-danger">{{ $order }}</span>
                                @endif
@@ -199,8 +199,8 @@
                                 </div>
                                 <div class="avatar avatar-sm avatar-circle">
                                     <img class="avatar-img"
-                                         onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
-                                         src="{{asset('storage/app/public/seller/')}}/{{auth('seller')->user()->image}}"
+{{--                                         onerror="this.src='{{asset('back-end/img/160x160/img1.jpg')}}'"--}}
+                                         src="{{asset('storage/seller/')}}/{{auth('seller')->user()->image}}"
                                          alt="Image Description">
                                     <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                                 </div>
@@ -213,8 +213,8 @@
                                         <div class="avatar avatar-sm avatar-circle mr-2">
 
                                             <img class="avatar-img"
-                                                 onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
-                                                 src="{{asset('storage/app/public/seller/')}}/{{auth('seller')->user()->image}}"
+{{--                                                 onerror="this.src='{{asset('back-end/img/160x160/img1.jpg')}}'"--}}
+                                                 src="{{asset('storage/seller/')}}/{{auth('seller')->user()->image}}"
                                                  alt="Image Description">
                                         </div>
                                         <div class="media-body">
@@ -267,7 +267,7 @@
             <div class="p-3">
                 <div class="bg-white p-1 rounded">
                     @php( $local = session()->has('local')?session('local'):'en')
-                    @php($lang = \App\Model\BusinessSetting::where('type', 'language')->first())
+                    @php($lang = \App\Models\BusinessSetting::where('type', 'language')->first())
                     <div
                         class="topbar-text dropdown disable-autohide {{Session::get('direction') === "rtl" ? 'ml-3' : 'm-1'}} text-capitalize">
                         <a class="topbar-link dropdown-toggle title-color d-flex align-items-center" href="#" data-toggle="dropdown">
@@ -275,7 +275,7 @@
                                 @if($data['code']==$local)
                                     <img class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                          width="20"
-                                         src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
+                                         src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
                                          alt="Eng">
                                     {{$data['name']}}
                                 @endif
@@ -290,7 +290,7 @@
                                             <img
                                                 class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                 width="20"
-                                                src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
+                                                src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
                                                 alt="{{$data['name']}}"/>
                                             <span class="text-capitalize">{{$data['name']}}</span>
                                         </a>
@@ -313,7 +313,7 @@
                        href="{{route('seller.messages.chat', ['type' => 'customer'])}}">
                         <i class="tio-email"></i>
                         {{\App\CPU\translate('message')}}
-                        @php($message=\App\Model\Chatting::where(['seen_by_seller'=>1,'seller_id'=>auth('seller')->id()])->count())
+                        @php($message=\App\Models\Chatting::where(['seen_by_seller'=>1,'seller_id'=>auth('seller')->id()])->count())
                         @if($message!=0)
                             <span class="">({{ $message }})</span>
                         @endif

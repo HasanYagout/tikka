@@ -17,7 +17,7 @@
                     <div class="carousel-item {{$key==0?'active':''}}">
                         <a href="{{$banner['url']}}">
                             <img class="d-block w-100 __slide-img"
-                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                 onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                  src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}"
                                  alt="">
                         </a>

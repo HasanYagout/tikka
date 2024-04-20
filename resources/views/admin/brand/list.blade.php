@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
-                <img width="20" src="{{asset('/public/assets/back-end/img/brand.png')}}" alt="">
+                <img width="20" src="{{asset('/back-end/img/brand.png')}}" alt="">
                 {{\App\CPU\translate('Brand')}} {{\App\CPU\translate('List')}}
                 <span class="badge badge-soft-dark radius-50 fz-14">{{ $br->total() }}</span>
             </h2>
@@ -82,7 +82,7 @@
                                         <td>{{$br->firstItem()+$k}}</td>
                                         <td>
                                             <img class="rounded avatar-60"
-                                                 onerror="this.src='{{asset('public/assets/back-end/img/160x160/img2.jpg')}}'"
+                                                 onerror="this.src='{{asset('back-end/img/160x160/img2.jpg')}}'"
                                                  src="{{asset('storage/app/public/brand')}}/{{$b['image']}}">
                                         </td>
                                         <td>{{$b['defaultname']}}</td>
@@ -123,7 +123,7 @@
                     </div>
                     @if(count($br)==0)
                         <div class="text-center p-4">
-                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                            <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                             <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                         </div>
                     @endif

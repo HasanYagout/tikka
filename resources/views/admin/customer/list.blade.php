@@ -12,9 +12,9 @@
         <!-- Page Title -->
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{asset('/public/assets/back-end/img/customer.png')}}" alt="">
+                <img width="20" src="{{asset('/back-end/img/customer.png')}}" alt="">
                 {{\App\CPU\translate('Customer_list')}}
-                <span class="badge badge-soft-dark radius-50">{{\App\User::count()}}</span>
+                <span class="badge badge-soft-dark radius-50">{{\App\Models\User::count()}}</span>
             </h2>
         </div>
         <!-- End Page Title -->
@@ -85,7 +85,7 @@
                                 <a href="{{route('admin.customer.view',[$customer['id']])}}"
                                    class="title-color hover-c1 d-flex align-items-center gap-10">
                                     <img src="{{asset('storage/app/public/profile')}}/{{$customer->image}}"
-                                         onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
+                                         onerror="this.src='{{asset('back-end/img/160x160/img1.jpg')}}'"
                                          class="avatar rounded-circle" alt="" width="40">
                                     {{\Illuminate\Support\Str::limit($customer['f_name']." ".$customer['l_name'],20)}}
                                 </a>
@@ -146,7 +146,7 @@
 
             @if(count($customers)==0)
                 <div class="text-center p-4">
-                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
+                    <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg"
                          alt="Image Description">
                     <p class="mb-0">{{\App\CPU\translate('No data to show')}}</p>
                 </div>

@@ -14,7 +14,7 @@ use App\Models\RefundTransaction;
 use App\CPU\Helpers;
 use App\Models\OrderDetail;
 Use App\Models\RefundStatus;
-use App\User;
+use App\Models\User;
 use App\CPU\CustomerManager;
 
 class RefundController extends Controller

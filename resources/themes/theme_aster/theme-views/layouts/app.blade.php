@@ -135,8 +135,8 @@
 {{--loader--}}
 <div class="preloader d--none" id="loading">
     <img width="200"
-         src="{{asset('storage/app/public/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}"
-         onerror="this.src='{{theme_asset('assets/img/loader.gif')}}'">
+         src="{{asset('storage/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}"
+{{--         onerror="this.src='{{theme_asset('assets/img/loader.gif')}}'">--}}
 </div>
 {{--loader--}}
 

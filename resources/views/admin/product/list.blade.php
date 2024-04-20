@@ -11,7 +11,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-            <img src="{{asset('/public/assets/back-end/img/inhouse-product-list.png')}}" alt="">
+            <img src="{{asset('/back-end/img/inhouse-product-list.png')}}" alt="">
             @if($type == 'in_house')
                 {{\App\CPU\translate('In-House_Product_List')}}
             @elseif($type == 'seller')
@@ -93,7 +93,7 @@
                                 <td>
                                     <a href="{{route('admin.product.view',[$p['id']])}}" class="media align-items-center gap-2">
                                         <img src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$p['thumbnail']}}"
-                                             onerror="this.src='{{asset('/public/assets/back-end/img/brand-logo.png')}}'"class="avatar border" alt="">
+                                             onerror="this.src='{{asset('/back-end/img/brand-logo.png')}}'"class="avatar border" alt="">
                                         <span class="media-body title-color hover-c1">
                                             {{\Illuminate\Support\Str::limit($p['name'],20)}}
                                         </span>
@@ -162,7 +162,7 @@
 
                 @if(count($pro)==0)
                     <div class="text-center p-4">
-                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                        <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                         <p class="mb-0">{{\App\CPU\translate('No data to show')}}</p>
                     </div>
                 @endif
@@ -174,8 +174,8 @@
 
 @push('script')
     <!-- Page level plugins -->
-    <script src="{{asset('public/assets/back-end')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="{{asset('back-end')}}/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{asset('back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <!-- Page level custom scripts -->
     <script>
         // Call the dataTables jQuery plugin

@@ -10,7 +10,7 @@ use App\Models\Order;
 use App\Models\OrderTransaction;
 use App\Models\Product;
 use App\Models\Shop;
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;

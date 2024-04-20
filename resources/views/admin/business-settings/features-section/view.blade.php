@@ -84,7 +84,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img width="20" src="{{asset('/public/assets/back-end/img/Pages.png')}}" alt="">
+            <img width="20" src="{{asset('/back-end/img/Pages.png')}}" alt="">
             {{ translate('pages') }}
         </h2>
     </div>
@@ -222,7 +222,7 @@
                                             <div class="mb-3 d-flex">
                                                 <div class="custom_img_upload">
                                                     <img id="pre_img_header_logo{{ $card_index }}" src="{{asset('storage/app/public/banner')}}/{{$item->icon}}"
-                                                        onerror="this.src='{{asset('public/assets/front-end/img/placeholder.png')}}'">
+                                                        onerror="this.src='{{asset('front-end/img/placeholder.png')}}'">
                                                 </div>
                                             </div>
 
@@ -256,7 +256,7 @@
                                                         <i class="tio-add-to-trash"></i>
                                                     </span>
                                                     <img id="pre_img_header_logo" src=""
-                                                        onerror="this.src='{{asset('public/assets/front-end/img/placeholder.png')}}'">
+                                                        onerror="this.src='{{asset('front-end/img/placeholder.png')}}'">
                                                 </div>
                                                 <div class="custom_img_upload_grp">
                                                         <label for="img_header_logo" class="form-label text-center">
@@ -368,7 +368,7 @@
                                             <i class="tio-add-to-trash"></i>
                                         </span>
                                         <img id="pre_img_header_logo${index}" src=""
-                                            onerror="this.src='{{asset('public/assets/front-end/img/placeholder.png')}}'">
+                                            onerror="this.src='{{asset('front-end/img/placeholder.png')}}'">
                                     </div>
                                     <div class="custom_img_upload_grp">
                                             <label for="img_header_logo${index}" class="form-label text-center">

@@ -35,7 +35,7 @@ use App\Models\Order;
 use App\Models\Transaction;
 use App\Models\Translation;
 use App\Traits\CommonTrait;
-use App\User;
+use App\Models\User;
 use App\Models\Wishlist;
 use App\Models\ShopFollower;
 use Brian2694\Toastr\Facades\Toastr;

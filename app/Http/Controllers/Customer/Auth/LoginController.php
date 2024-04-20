@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BusinessSetting;
 use App\Models\ProductCompare;
 use App\Models\Wishlist;
-use App\User;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;

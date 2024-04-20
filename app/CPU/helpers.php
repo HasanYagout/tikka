@@ -14,7 +14,7 @@ use App\Models\Review;
 use App\Models\Seller;
 use App\Models\ShippingMethod;
 use App\Models\Shop;
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;

@@ -12,7 +12,7 @@
         <!-- Page Title -->
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{asset('/back-end/img/business-setup.png')}}" alt="">
                 {{\App\CPU\translate('Business_Setup')}}
             </h2>
         </div>
@@ -48,7 +48,7 @@
                                 <span class="title-color">{{\App\CPU\translate('refund_to_wallet')}}<span
                                         class="input-label-secondary"
                                         title="{{\App\CPU\translate('refund_to_wallet_hint')}}"><img
-                                            src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+                                            src="{{asset('/back-end/img/info-circle.svg')}}"
                                             alt="{{\App\CPU\translate('show_hide_food_menu')}}"></span> :</span>
 
                                 <label class="switcher" for="refund_to_wallet">

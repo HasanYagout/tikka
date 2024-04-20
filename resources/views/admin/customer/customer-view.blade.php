@@ -16,7 +16,7 @@
                     <!-- Page Title -->
                     <div class="mb-3">
                         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-                            <img width="20" src="{{asset('/public/assets/back-end/img/customer.png')}}" alt="">
+                            <img width="20" src="{{asset('/back-end/img/customer.png')}}" alt="">
                             {{\App\CPU\translate('customer_details')}}
                         </h2>
                     </div>
@@ -100,7 +100,7 @@
                         </table>
                         @if(count($orders)==0)
                             <div class="text-center p-4">
-                                <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                                <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                                 <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                             </div>
                         @endif
@@ -120,7 +120,7 @@
                     @if($customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex align-items-center gap-2">
-                                <img src="{{asset('/public/assets/back-end/img/seller-information.png')}}" alt="">
+                                <img src="{{asset('/back-end/img/seller-information.png')}}" alt="">
                                 {{\App\CPU\translate('Customer')}}
                             </h4>
 
@@ -128,7 +128,7 @@
                                 <div class="mr-3">
                                     <img
                                         class="avatar rounded-circle avatar-70"
-                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                        onerror="this.src='{{asset('front-end/img/image-place-holder.png')}}'"
                                         src="{{asset('storage/app/public/profile/'.$customer->image??'')}}"
                                         alt="Image">
                                 </div>

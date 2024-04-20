@@ -38,7 +38,7 @@
                 <div class="col-lg-4">
                     <div class="widget widget--about text-center text-lg-start absolute-white">
                         <img class="mb-3" width="180" src="{{asset("storage/app/public/company/")}}/{{ $web_config['footer_logo']->value }}"
-                        onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"
+{{--                        onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"--}}
                         loading="lazy" alt="">
                         <p>{{ \App\CPU\Helpers::get_business_settings('shop_address')}}</p>
                         <a href="mailto:{{$web_config['email']->value}}">{{$web_config['email']->value}}</a>

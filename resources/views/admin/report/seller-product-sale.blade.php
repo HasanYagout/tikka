@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{asset('/public/assets/back-end/img/seller-reports.png')}}" alt="">
+                <img width="20" src="{{asset('/back-end/img/seller-reports.png')}}" alt="">
                 {{\App\CPU\translate('Seller Reports')}}
             </h2>
         </div>
@@ -66,14 +66,14 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
-                    <img src="{{asset('/public/assets/back-end/img/products.svg')}}" alt="back-end/img">
+                    <img src="{{asset('/back-end/img/products.svg')}}" alt="back-end/img">
                     <div class="info">
                         <h4 class="subtitle">{{ $total_product }}</h4>
                         <h6 class="subtext">{{\App\CPU\translate('products')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{asset('/public/assets/back-end/img/cart.svg')}}" alt="back-end/img">
+                    <img src="{{asset('/back-end/img/cart.svg')}}" alt="back-end/img">
                     <div class="info">
                         <h4 class="subtitle">{{ $canceled_order+$ongoing_order+$delivered_order }}</h4>
                         <h6 class="subtext">{{\App\CPU\translate('Total_Orders')}}</h6>
@@ -84,7 +84,7 @@
                             <div class="d-flex">
                                 <span>{{\App\CPU\translate('canceled')}}</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top" title="{{\App\CPU\translate('this_count_is_the_summation_of')}} {{\App\CPU\translate('failed_to_deliver')}}, {{\App\CPU\translate('canceled')}}, {{\App\CPU\translate('and')}} {{\App\CPU\translate('returned_orders')}}">
-                                    <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="img">
+                                    <img class="info-img" src="{{asset('/back-end/img/info-circle.svg')}}" alt="img">
                                 </span>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                             <div class="d-flex">
                                 <span>{{\App\CPU\translate('ongoing')}}</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top" title="{{\App\CPU\translate('this_count_is_the_summation_of')}} {{\App\CPU\translate('pending')}}, {{\App\CPU\translate('confirmed')}}, {{\App\CPU\translate('packaging')}}, {{\App\CPU\translate('out_for_delivery_orders')}}">
-                                    <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="img">
+                                    <img class="info-img" src="{{asset('/back-end/img/info-circle.svg')}}" alt="img">
                                 </span>
                             </div>
                         </div>
@@ -102,14 +102,14 @@
                             <div class="d-flex">
                                 <span>{{\App\CPU\translate('completed')}}</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top" title="{{\App\CPU\translate('this_count_is_the_summation_of_delivered_orders')}}">
-                                    <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="img">
+                                    <img class="info-img" src="{{asset('/back-end/img/info-circle.svg')}}" alt="img">
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{asset('/public/assets/back-end/img/deliveryman.svg')}}" alt="back-end/img">
+                    <img src="{{asset('/back-end/img/deliveryman.svg')}}" alt="back-end/img">
                     <div class="info">
                         <h4 class="subtitle">
                             {{ $deliveryman }}
@@ -189,7 +189,7 @@
                 <div class="card h-100 bg-white payment-statistics-shadow">
                     <div class="card-body d-flex flex-column justify-content-center">
                         <div class="earning-statistics-content">
-                            <img class="mb-4" src="{{asset('/public/assets/back-end/img/earnings.svg')}}" alt="back-end/img">
+                            <img class="mb-4" src="{{asset('/back-end/img/earnings.svg')}}" alt="back-end/img">
                             <h6 class="subtitle">{{\App\CPU\translate('Total_Shop_Earnings')}}</h6>
                             <h3 class="title">
                                 {{ \App\CPU\BackEndHelper::set_symbol(\App\CPU\BackEndHelper::usd_to_currency($total_store_earning)) }}
@@ -306,7 +306,7 @@
                             <tr>
                                 <td colspan="7">
                                     <div class="text-center p-4">
-                                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
+                                        <img class="mb-3 w-160" src="{{asset('back-end')}}/svg/illustrations/sorry.svg"
                                              alt="Image Description">
                                         <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                                     </div>
@@ -331,9 +331,9 @@
 @push('script')
 
     <!-- Chart JS -->
-    <script src="{{ asset('public/assets/back-end') }}/js/chart.js/dist/Chart.min.js"></script>
-    <script src="{{ asset('public/assets/back-end') }}/js/chart.js.extensions/chartjs-extensions.js"></script>
-    <script src="{{ asset('public/assets/back-end') }}/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js">
+    <script src="{{ asset('back-end') }}/js/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ asset('back-end') }}/js/chart.js.extensions/chartjs-extensions.js"></script>
+    <script src="{{ asset('back-end') }}/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js">
     </script>
     <!-- Chart JS -->
 @endpush

@@ -6,11 +6,12 @@
             <div class="navbar-vertical-footer-offset pb-0">
                 <div class="navbar-brand-wrapper justify-content-between side-logo">
                     <!-- Logo -->
-                    @php($e_commerce_logo=\App\Model\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)
+                    @php($e_commerce_logo=\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)
                     <a class="navbar-brand" href="{{route('admin.dashboard.index')}}" aria-label="Front">
-                        <img onerror="this.src='{{asset('public/assets/back-end/img/900x400/img1.jpg')}}'"
+                        <img
+{{--                            onerror="this.src='{{asset('back-end/img/900x400/img1.jpg')}}'"--}}
                              class="navbar-brand-logo-mini for-web-logo max-h-30"
-                             src="{{asset("storage/app/public/company/$e_commerce_logo")}}" alt="Logo">
+                             src="{{asset("storage/company/$e_commerce_logo")}}" alt="Logo">
                     </a>
                     <!-- Navbar Vertical Toggle -->
                     <button type="button"
@@ -98,7 +99,7 @@
                                             <span class="text-truncate">
                                                 {{\App\CPU\translate('All')}}
                                                 <span class="badge badge-soft-info badge-pill ml-1">
-                                                    {{\App\Model\Order::count()}}
+                                                    {{\App\Models\Order::count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -110,7 +111,7 @@
                                             <span class="text-truncate">
                                             {{\App\CPU\translate('pending')}}
                                             <span class="badge badge-soft-info badge-pill ml-1">
-                                                {{\App\Model\Order::where(['order_status'=>'pending'])->count()}}
+                                                {{\App\Models\Order::where(['order_status'=>'pending'])->count()}}
                                             </span>
                                         </span>
                                         </a>
@@ -122,7 +123,7 @@
                                             <span class="text-truncate">
                                                 {{\App\CPU\translate('confirmed')}}
                                                 <span class="badge badge-soft-success badge-pill ml-1">
-                                                    {{\App\Model\Order::where(['order_status'=>'confirmed'])->count()}}
+                                                    {{\App\Models\Order::where(['order_status'=>'confirmed'])->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -134,7 +135,7 @@
                                             <span class="text-truncate">
                                             {{\App\CPU\translate('Packaging')}}
                                                 <span class="badge badge-soft-warning badge-pill ml-1">
-                                                    {{\App\Model\Order::where(['order_status'=>'processing'])->count()}}
+                                                    {{\App\Models\Order::where(['order_status'=>'processing'])->count()}}
                                                 </span>
                                         </span>
                                         </a>
@@ -146,7 +147,7 @@
                                             <span class="text-truncate">
                                             {{\App\CPU\translate('out_for_delivery')}}
                                                 <span class="badge badge-soft-warning badge-pill ml-1">
-                                                    {{\App\Model\Order::where(['order_status'=>'out_for_delivery'])->count()}}
+                                                    {{\App\Models\Order::where(['order_status'=>'out_for_delivery'])->count()}}
                                                 </span>
                                         </span>
                                         </a>
@@ -158,7 +159,7 @@
                                             <span class="text-truncate">
                                             {{\App\CPU\translate('delivered')}}
                                                 <span class="badge badge-soft-success badge-pill ml-1">
-                                                    {{\App\Model\Order::where(['order_status'=>'delivered'])->count()}}
+                                                    {{\App\Models\Order::where(['order_status'=>'delivered'])->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -170,7 +171,7 @@
                                             <span class="text-truncate">
                                                 {{\App\CPU\translate('returned')}}
                                                     <span class="badge badge-soft-danger badge-pill ml-1">
-                                                    {{\App\Model\Order::where('order_status','returned')->count()}}
+                                                    {{\App\Models\Order::where('order_status','returned')->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -182,7 +183,7 @@
                                             <span class="text-truncate">
                                                 {{\App\CPU\translate('Failed_to_Deliver')}}
                                                 <span class="badge badge-soft-danger badge-pill ml-1">
-                                                    {{\App\Model\Order::where(['order_status'=>'failed'])->count()}}
+                                                    {{\App\Models\Order::where(['order_status'=>'failed'])->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -195,7 +196,7 @@
                                             <span class="text-truncate">
                                                 {{\App\CPU\translate('canceled')}}
                                                     <span class="badge badge-soft-danger badge-pill ml-1">
-                                                    {{\App\Model\Order::where(['order_status'=>'canceled'])->count()}}
+                                                    {{\App\Models\Order::where(['order_status'=>'canceled'])->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -221,7 +222,7 @@
                                             <span class="text-truncate">
                                               {{\App\CPU\translate('pending')}}
                                                 <span class="badge badge-soft-danger badge-pill ml-1">
-                                                    {{\App\Model\RefundRequest::where('status','pending')->count()}}
+                                                    {{\App\Models\RefundRequest::where('status','pending')->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -235,7 +236,7 @@
                                             <span class="text-truncate">
                                                {{\App\CPU\translate('approved')}}
                                                 <span class="badge badge-soft-info badge-pill ml-1">
-                                                    {{\App\Model\RefundRequest::where('status','approved')->count()}}
+                                                    {{\App\Models\RefundRequest::where('status','approved')->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -248,7 +249,7 @@
                                             <span class="text-truncate">
                                                {{\App\CPU\translate('refunded')}}
                                                 <span class="badge badge-soft-success badge-pill ml-1">
-                                                    {{\App\Model\RefundRequest::where('status','refunded')->count()}}
+                                                    {{\App\Models\RefundRequest::where('status','refunded')->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -261,7 +262,7 @@
                                             <span class="text-truncate">
                                                {{\App\CPU\translate('rejected')}}
                                                 <span class="badge badge-soft-danger badge-pill ml-1">
-                                                    {{\App\Model\RefundRequest::where('status','rejected')->count()}}
+                                                    {{\App\Models\RefundRequest::where('status','rejected')->count()}}
                                                 </span>
                                             </span>
                                         </a>
@@ -528,7 +529,7 @@
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                                 <span class="position-relative">
                                     {{\App\CPU\translate('messages')}}
-                                    @php($message=\App\Model\Contact::where('seen',0)->count())
+                                    @php($message=\App\Models\Contact::where('seen',0)->count())
                                     @if($message!=0)
                                         <span
                                             class="btn-status btn-xs-status btn-status-danger position-absolute top-0 menu-status"></span>
@@ -545,7 +546,7 @@
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                                 <span class="position-relative">
                                     {{\App\CPU\translate('Support_Ticket')}}
-                                    @if(\App\Model\SupportTicket::where('status','open')->count()>0)
+                                    @if(\App\Models\SupportTicket::where('status','open')->count()>0)
                                         <span
                                             class="btn-status btn-xs-status btn-status-danger position-absolute top-0 menu-status"></span>
                                     @endif
