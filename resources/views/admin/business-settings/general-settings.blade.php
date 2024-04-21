@@ -75,8 +75,8 @@
 
 @push('script')
     <!-- Page level plugins -->
-    <script src="{{asset('public/back-end')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{asset('public/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="{{asset('public/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('public/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
     <script>

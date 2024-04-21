@@ -18,10 +18,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="">
     <link rel="stylesheet" href="{{asset('public/back-end')}}/css/toastr.css"/>
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{{asset('front-end')}}/css/theme.min.css">
-    <link rel="stylesheet" media="screen" href="{{asset('front-end')}}/css/slick.css">
+    <link rel="stylesheet" media="screen" href="{{asset('public/front-end')}}/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="{{asset('public/front-end')}}/css/slick.css">
     <link rel="stylesheet" href="{{asset('public/back-end')}}/css/toastr.css"/>
-    <link rel="stylesheet" href="{{asset('front-end')}}/css/master.css"/>
+    <link rel="stylesheet" href="{{asset('public/front-end')}}/css/master.css"/>
 </head>
 <!-- Body-->
 <body class="toolbar-enabled">
@@ -50,16 +50,16 @@
 </a>
 
 <!-- Vendor scrits: js libraries and plugins-->
-{{--<script src="{{asset('front-end')}}/vendor/jquery/dist/jquery.slim.min.js"></script>--}}
-<script src="{{asset('front-end')}}/vendor/jquery/dist/jquery-2.2.4.min.js"></script>
-<script src="{{asset('front-end')}}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+{{--<script src="{{asset('public/front-end')}}/vendor/jquery/dist/jquery.slim.min.js"></script>--}}
+<script src="{{asset('public/front-end')}}/vendor/jquery/dist/jquery-2.2.4.min.js"></script>
+<script src="{{asset('public/front-end')}}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 {{--Toastr--}}
 <script src={{asset("back-end/js/toastr.js")}}></script>
 <!-- Main theme script-->
-<script src="{{asset('front-end')}}/js/theme.min.js"></script>
-<script src="{{asset('front-end')}}/js/slick.min.js"></script>
+<script src="{{asset('public/front-end')}}/js/theme.min.js"></script>
+<script src="{{asset('public/front-end')}}/js/slick.min.js"></script>
 
-<script src="{{asset('front-end')}}/js/sweet_alert.js"></script>
+<script src="{{asset('public/front-end')}}/js/sweet_alert.js"></script>
 {{--Toastr--}}
 <script src={{asset("back-end/js/toastr.js")}}></script>
 {!! Toastr::message() !!}

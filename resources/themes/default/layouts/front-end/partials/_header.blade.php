@@ -129,14 +129,14 @@
                 </button>
                 <a class="navbar-brand d-none d-sm-block {{Session::get('direction') === "rtl" ? 'mr-3' : 'mr-3'}} flex-shrink-0 __min-w-7rem" href="{{route('home')}}">
                     <img class="__inline-11"
-                         src="{{asset("storage/company")."/".$web_config['web_logo']->value}}"
+                         src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
 {{--                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
                          alt="{{$web_config['name']->value}}"/>
                 </a>
                 <a class="navbar-brand d-sm-none {{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}"
                    href="{{route('home')}}">
                     <img class="mobile-logo-img __inline-12"
-                         src="{{asset("storage/company")."/".$web_config['mob_logo']->value}}"
+                         src="{{asset("public/storage/company")."/".$web_config['mob_logo']->value}}"
 {{--                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
                          alt="{{$web_config['name']->value}}"/>
                 </a>
@@ -185,7 +185,7 @@
                                aria-expanded="false">
                                 <div class="navbar-tool-icon-box bg-secondary">
                                     <div class="navbar-tool-icon-box bg-secondary">
-                                        <img  src="{{asset('storage/app/public/profile/'.auth('customer')->user()->image)}}"
+                                        <img  src="{{asset('storage/profile/'.auth('customer')->user()->image)}}"
 {{--                                             onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
                                              class="img-profile rounded-circle __inline-14">
                                     </div>
@@ -284,7 +284,7 @@
                                                    onclick="location.href='{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}'">
                                                     <div class="d-flex">
                                                         <img
-                                                            src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                            src="{{asset("storage/category/$category->icon")}}"
 {{--                                                            onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
                                                             class="__img-18">
                                                         <span
@@ -351,7 +351,7 @@
                                                <?php if ($category->childes->count() > 0) echo "data-toggle='dropdown'"?> href="javascript:"
                                                onclick="location.href='{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}'">
                                                 <div class="d-flex">
-                                                    <img src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                    <img src="{{asset("storage/category/$category->icon")}}"
 {{--                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
                                                          class="__img-18">
                                                     <span
@@ -426,7 +426,7 @@
 
                                             <a <?php if ($category->childes->count() > 0) echo ""?>
                                             href="{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}">
-                                            <img src="{{asset("storage/app/public/category/$category->icon")}}"
+                                            <img src="{{asset("storage/category/$category->icon")}}"
 {{--                                                 onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
                                                  class="__img-18">
                                             <span
@@ -484,21 +484,21 @@
                                data-toggle="dropdown">{{ \App\CPU\translate('brand') }}</a>
                             <ul class="dropdown-menu __dropdown-menu-sizing dropdown-menu-{{Session::get('direction') === "rtl" ? 'right' : 'left'}} scroll-bar"
                                 style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                @foreach(\App\CPU\BrandManager::get_active_brands() as $brand)
-                                    <li class="__inline-17">
-                                        <div>
-                                            <a class="dropdown-item"
-                                               href="{{route('products',['id'=> $brand['id'],'data_from'=>'brand','page'=>1])}}">
-                                                {{$brand['name']}}
-                                            </a>
-                                        </div>
-                                        <div class="align-baseline">
-                                            @if($brand['brand_products_count'] > 0 )
-                                                <span class="count-value px-2">( {{ $brand['brand_products_count'] }} )</span>
-                                            @endif
-                                        </div>
-                                    </li>
-                                @endforeach
+{{--                                @foreach(\App\CPU\BrandManager::get_active_brands() as $brand)--}}
+{{--                                    <li class="__inline-17">--}}
+{{--                                        <div>--}}
+{{--                                            <a class="dropdown-item"--}}
+{{--                                               href="{{route('products',['id'=> $brand['id'],'data_from'=>'brand','page'=>1])}}">--}}
+{{--                                                {{$brand['name']}}--}}
+{{--                                            </a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="align-baseline">--}}
+{{--                                            @if($brand['brand_products_count'] > 0 )--}}
+{{--                                                <span class="count-value px-2">( {{ $brand['brand_products_count'] }} )</span>--}}
+{{--                                            @endif--}}
+{{--                                        </div>--}}
+{{--                                    </li>--}}
+{{--                                @endforeach--}}
                                 <li class="__inline-17">
                                     <div>
                                         <a class="dropdown-item" href="{{route('brands')}}"
@@ -510,12 +510,12 @@
                             </ul>
                         </li>
                         @endif
-                        @php($discount_product = App\Models\Product::with(['reviews'])->active()->where('discount', '!=', 0)->count())
-                        @if ($discount_product>0)
-                            <li class="nav-item dropdown {{request()->is('/')?'active':''}}">
-                                <a class="nav-link text-capitalize" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">{{ \App\CPU\translate('discounted_products')}}</a>
-                            </li>
-                        @endif
+{{--                        @php($discount_product = App\Models\Product::with(['reviews'])->active()->where('discount', '!=', 0)->count())--}}
+{{--                        @if ($discount_product>0)--}}
+{{--                            <li class="nav-item dropdown {{request()->is('/')?'active':''}}">--}}
+{{--                                <a class="nav-link text-capitalize" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">{{ \App\CPU\translate('discounted_products')}}</a>--}}
+{{--                            </li>--}}
+{{--                        @endif--}}
 
                         @php($business_mode=\App\CPU\Helpers::get_business_settings('business_mode'))
                         @if ($business_mode == 'multi')

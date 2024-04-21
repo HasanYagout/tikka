@@ -76,7 +76,7 @@
                                 <div class="text-center">
                                     <img class="upload-img-view" id="viewer"
                                         onerror="this.src='{{asset('public/back-end/img/160x160/img2.jpg')}}'"
-                                        src="{{asset('storage/app/public/brand')}}/{{$b['image']}}" alt="banner image"/>
+                                        src="{{asset('storage/brand')}}/{{$b['image']}}" alt="banner image"/>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
             $('#dataTable').DataTable();
         });
     </script>
-    <script src="{{asset('public/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('public/back-end/js/select2.min.js')}}"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

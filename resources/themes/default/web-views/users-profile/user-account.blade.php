@@ -25,7 +25,7 @@
                                     <img id="blah"
                                         class="rounded-circle border __inline-48"
                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset('storage/app/public/profile')}}/{{$customerDetail['image']}}">
+                                        src="{{asset('storage/profile')}}/{{$customerDetail['image']}}">
 
                                     <div class="{{Session::get('direction') === "rtl" ? 'pr-2' : 'pl-2'}}">
                                         <h5 class="font-name">{{$customerDetail->f_name. ' '.$customerDetail->l_name}}</h5>
@@ -127,7 +127,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('front-end')}}/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.js"></script>
     <script src="{{asset('public/back-end/js/croppie.js')}}"></script>
     <script>
         function checkPasswordMatch() {

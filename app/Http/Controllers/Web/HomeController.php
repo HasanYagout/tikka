@@ -53,10 +53,11 @@ class HomeController extends Controller
     {
         $brand_setting = BusinessSetting::where('type', 'product_brand')->first()->value;
         $home_categories = Category::where('home_status', true)->priority()->get();
+
         $home_categories->map(function ($data) {
             $id = '"' . $data['id'] . '"';
-            $data['products'] = Product::active()
-                ->where('category_ids', 'like', "%{$id}%")
+            $data['products'] = Product::
+                where('category_id', 'like', "%{$id}%")
                 ->inRandomOrder()->take(12)->get();
         });
         //products based on top seller
@@ -65,54 +66,54 @@ class HomeController extends Controller
         //end
 
         //feature products finding based on selling
-        $featured_products = Product::with(['reviews'])->active()
-            ->where('featured', 1)
-            ->withCount(['order_details'])->orderBy('order_details_count', 'DESC')
-            ->take(12)
-            ->get();
+//        $featured_products = Product::with(['reviews'])->active()
+//            ->where('featured', 1)
+//            ->withCount(['order_details'])->orderBy('order_details_count', 'DESC')
+//            ->take(12)
+//            ->get();
         //end
 
-        $latest_products = Product::with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
+//        $latest_products = Product::with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
         $categories = Category::with('childes.childes')->where(['position' => 0])->priority()->take(11)->get();
         $brands = Brand::active()->take(15)->get();
         //best sell product
-        $bestSellProduct = OrderDetail::with('product.reviews')
-            ->whereHas('product', function ($query) {
-                $query->active();
-            })
-            ->select('product_id', DB::raw('COUNT(product_id) as count'))
-            ->groupBy('product_id')
-            ->orderBy("count", 'desc')
-            ->take(4)
-            ->get();
+//        $bestSellProduct = OrderDetail::with('product.reviews')
+//            ->whereHas('product', function ($query) {
+//                $query->active();
+//            })
+//            ->select('product_id', DB::raw('COUNT(product_id) as count'))
+//            ->groupBy('product_id')
+//            ->orderBy("count", 'desc')
+//            ->take(4)
+//            ->get();
 
         //Top-rated
-        $topRated = Review::with('product')
-            ->whereHas('product', function ($query) {
-                $query->active();
-            })
-            ->select('product_id', DB::raw('AVG(rating) as count'))
-            ->groupBy('product_id')
-            ->orderBy("count", 'desc')
-            ->take(4)
-            ->get();
+//        $topRated = Review::with('product')
+//            ->whereHas('product', function ($query) {
+//                $query->active();
+//            })
+//            ->select('product_id', DB::raw('AVG(rating) as count'))
+//            ->groupBy('product_id')
+//            ->orderBy("count", 'desc')
+//            ->take(4)
+//            ->get();
 
-        if ($bestSellProduct->count() == 0) {
-            $bestSellProduct = $latest_products;
-        }
+//        if ($bestSellProduct->count() == 0) {
+//            $bestSellProduct = $latest_products;
+//        }
+//
+//        if ($topRated->count() == 0) {
+//            $topRated = $bestSellProduct;
+//        }
 
-        if ($topRated->count() == 0) {
-            $topRated = $bestSellProduct;
-        }
-
-        $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
+//        $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
         $main_banner = Banner::where('banner_type', 'Main Banner')->where('published', 1)->latest()->get();
         $main_section_banner = \App\Models\Banner::where('banner_type', 'Main Section Banner')->where('published', 1)->orderBy('id', 'desc')->latest()->first();
 
         return view(VIEW_FILE_NAMES['home'],
             compact(
-                'featured_products', 'topRated', 'bestSellProduct', 'latest_products', 'categories', 'brands',
-                'deal_of_the_day', 'top_sellers', 'home_categories', 'brand_setting', 'main_banner', 'main_section_banner'
+                 'categories', 'brands',
+                 'top_sellers', 'home_categories', 'brand_setting', 'main_banner', 'main_section_banner'
             )
         );
     }

@@ -114,8 +114,8 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/back-end')}}/js/tags-input.min.js"></script>
-    <script src="{{ asset('select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('public/back-end/js/tags-input.min.js')}}"></script>
+    <script src="{{ asset('public/select2/js/select2.min.js')}}"></script>
     <script>
 
         $("#customFileUploadShop").change(function () {

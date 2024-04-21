@@ -228,7 +228,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('public/back-end') }}/js/tags-input.min.js"></script>
+    <script src="{{ asset('public/back-end/js/tags-input.min.js') }}"></script>
     <script>
 
         $(".js-example-responsive").select2({

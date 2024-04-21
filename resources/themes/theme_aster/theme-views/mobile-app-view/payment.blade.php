@@ -19,8 +19,8 @@
 
     {{-- <link rel="stylesheet" href="{{asset('public/back-end')}}/css/toastr.css"/> --}}
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{{asset('front-end')}}/css/theme.min.css">
-    <link rel="stylesheet" media="screen" href="{{asset('front-end')}}/css/slick.css">
+    <link rel="stylesheet" media="screen" href="{{asset('public/front-end')}}/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="{{asset('public/front-end')}}/css/slick.css">
     <link rel="stylesheet" href="{{asset('public/back-end')}}/css/toastr.css"/>
     @stack('css_or_js')
 
@@ -39,7 +39,7 @@
             <div id="loading" style="display: none;">
                 <div style="position: fixed;z-index: 9999; left: 40%;top: 37% ;width: 100%">
                     <img width="200"
-                         src="{{asset('storage/app/public/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}"
+                         src="{{asset('storage/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}"
                          onerror="this.src='{{asset('public/front-end/img/loader.gif')}}'">
                 </div>
             </div>
@@ -142,7 +142,7 @@
                                     data-buttontext="Pay {{(\App\CPU\Convert::usdToinr($amount))*100}} INR"
                                     data-name="{{\App\Models\BusinessSetting::where(['type'=>'company_name'])->first()->value}}"
                                     data-description=""
-                                    data-image="{{asset('storage/app/public/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)}}"
+                                    data-image="{{asset('storage/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)}}"
                                     data-prefill.name="{{$user->f_name}}"
                                     data-prefill.email="{{$user->email}}"
                                     data-theme.color="#ff7529">
@@ -349,11 +349,11 @@
     </div>
 </div>
 
-<script src="{{asset('front-end')}}/vendor/jquery/dist/jquery-2.2.4.min.js"></script>
-<script src="{{asset('front-end')}}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('public/front-end')}}/vendor/jquery/dist/jquery-2.2.4.min.js"></script>
+<script src="{{asset('public/front-end')}}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 {{--Toastr--}}
 <script src={{asset("back-end/js/toastr.js")}}></script>
-<script src="{{asset('front-end')}}/js/sweet_alert.js"></script>
+<script src="{{asset('public/front-end')}}/js/sweet_alert.js"></script>
 {!! Toastr::message() !!}
 
 <script>

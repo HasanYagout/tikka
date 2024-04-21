@@ -3,17 +3,17 @@
 @section('title',\App\CPU\translate('Track Order Result'))
 
 @push('css_or_js')
-    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="og:image" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="{{$web_config['name']->value}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
 
-    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="twitter:card" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="twitter:title" content="{{$web_config['name']->value}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
     <link rel="stylesheet" media="screen"
-          href="{{asset('front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
+          href="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
     <style>
        .closet{
             float: {{Session::get('direction') === "rtl" ? 'left' : 'right'}};
@@ -59,6 +59,6 @@
 
 
 @push('script')
-    <script src="{{asset('front-end')}}/vendor/nouislider/distribute/nouislider.min.js">
+    <script src="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.js">
     </script>
 @endpush

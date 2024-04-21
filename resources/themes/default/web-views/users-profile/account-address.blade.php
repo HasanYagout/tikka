@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <link rel="stylesheet" media="screen"
-          href="{{asset('front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
+          href="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
     <link rel="stylesheet" href="{{ asset('front-end/css/bootstrap-select.min.css') }}">
 
     <style>

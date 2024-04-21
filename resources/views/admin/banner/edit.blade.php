@@ -127,8 +127,8 @@
                                             <img
                                                 class="ratio-4:1"
                                                 id="mbImageviewer"
-                                                src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}"
-                                                onerror='this.src="{{asset('front-end/img/placeholder.png')}}"'
+                                                src="{{asset('public/storage/banner')}}/{{$banner['photo']}}"
+                                                onerror='this.src="{{asset('public/front-end/img/placeholder.png')}}"'
                                                 alt=""/>
                                         </center>
                                         <label for="name" class="mt-3">{{ \App\CPU\translate('Image')}}</label><span

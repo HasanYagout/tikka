@@ -183,9 +183,9 @@
                                             @if($review->attachment)
                                                 <div class="d-flex flex-wrap">
                                                     @foreach (json_decode($review->attachment) as $img)
-                                                        <a href="{{ asset('storage/app/public/review') }}/{{ $img }}"
+                                                        <a href="{{ asset('public/storage/review') }}/{{ $img }}"
                                                            data-lightbox="mygallery">
-                                                            <img width="60" height="60" src="{{ asset('storage/app/public/review') }}/{{ $img }}"
+                                                            <img width="60" height="60" src="{{ asset('public/storage/review') }}/{{ $img }}"
                                                                  alt="Image">
                                                         </a>
                                                     @endforeach

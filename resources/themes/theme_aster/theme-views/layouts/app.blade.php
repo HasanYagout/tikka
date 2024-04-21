@@ -19,7 +19,7 @@
     <meta name="_token" content="{{csrf_token()}}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+    <link rel="shortcut icon" href="{{asset('storage/company')}}/{{$web_config['fav_icon']->value}}"/>
 
 
     <!-- Web Fonts -->

@@ -98,7 +98,7 @@
             $('#dataTable').DataTable();
         });
     </script>
-    <script src="{{asset('public/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('public/back-end/js/select2.min.js')}}"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

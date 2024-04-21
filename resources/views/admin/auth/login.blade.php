@@ -162,11 +162,11 @@
 
 
 <!-- JS Implementing Plugins -->
-<script src="{{asset('public/back-end')}}/js/vendor.min.js"></script>
+<script src="{{asset('public/back-end/js/vendor.min.js')}}"></script>
 
 <!-- JS Front -->
-<script src="{{asset('public/back-end')}}/js/theme.min.js"></script>
-<script src="{{asset('public/back-end')}}/js/toastr.js"></script>
+<script src="{{asset('public/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/back-end/js/toastr.js')}}"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())

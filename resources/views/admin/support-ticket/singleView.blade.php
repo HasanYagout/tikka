@@ -27,7 +27,7 @@
                 $admin = \App\Models\Admin::get();
                 ?>
                 <div class="media d-flex gap-3">
-                    <img class="rounded-circle avatar" src="{{asset('storage/app/public/profile')}}/{{isset($userDetails)?$userDetails['image']:''}}"
+                    <img class="rounded-circle avatar" src="{{asset('storage/profile')}}/{{isset($userDetails)?$userDetails['image']:''}}"
                             onerror="this.src='{{asset('public/back-end/img/160x160/img1.jpg')}}"
                             alt="{{isset($userDetails)?$userDetails['name']:'not found'}}"/>
                     <div class="media-body">

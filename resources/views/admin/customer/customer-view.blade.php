@@ -129,7 +129,7 @@
                                     <img
                                         class="avatar rounded-circle avatar-70"
                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset('storage/app/public/profile/'.$customer->image??'')}}"
+                                        src="{{asset('storage/profile/'.$customer->image??'')}}"
                                         alt="Image">
                                 </div>
                                 <div class="media-body d-flex flex-column gap-1">

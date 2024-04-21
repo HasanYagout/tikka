@@ -13,13 +13,13 @@
     <!-- Viewport-->
 
     @if($product['meta_image']!=null)
-        <meta property="og:image" content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+        <meta property="og:image" content="{{asset("storage/product/meta")}}/{{$product->meta_image}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+              content="{{asset("storage/product/meta")}}/{{$product->meta_image}}"/>
     @else
-        <meta property="og:image" content="{{asset("storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
+        <meta property="og:image" content="{{asset("storage/product/thumbnail")}}/{{$product->thumbnail}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+              content="{{asset("storage/product/thumbnail/")}}/{{$product->thumbnail}}"/>
     @endif
 
     @if($product['meta_title']!=null)
@@ -145,8 +145,8 @@
                                                          id="image{{$photo->color}}">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                              onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                             src="{{asset("storage/app/public/product/$photo->image_name")}}"
-                                                             data-zoom="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                             src="{{asset("storage/product/$photo->image_name")}}"
+                                                             data-zoom="{{asset("storage/product/$photo->image_name")}}"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -155,8 +155,8 @@
                                                          id="image{{$key}}">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                              onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                             src="{{asset("storage/app/public/product/$photo->image_name")}}"
-                                                             data-zoom="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                             src="{{asset("storage/product/$photo->image_name")}}"
+                                                             data-zoom="{{asset("storage/product/$photo->image_name")}}"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -168,8 +168,8 @@
                                                      id="image{{$key}}">
                                                     <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                          onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                         src="{{asset("storage/app/public/product/$photo")}}"
-                                                         data-zoom="{{asset("storage/app/public/product/$photo")}}"
+                                                         src="{{asset("storage/product/$photo")}}"
+                                                         data-zoom="{{asset("storage/product/$photo")}}"
                                                          alt="Product image" width="">
                                                     <div class="cz-image-zoom-pane"></div>
                                                 </div>
@@ -189,7 +189,7 @@
                                                                    id="preview-img{{$photo->color}}" href="#image{{$photo->color}}">
                                                                     <img
                                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                                        src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                        src="{{asset("storage/product/$photo->image_name")}}"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -199,7 +199,7 @@
                                                                    id="preview-img{{$key}}" href="#image{{$key}}">
                                                                     <img
                                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                                        src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                        src="{{asset("storage/product/$photo->image_name")}}"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -212,7 +212,7 @@
                                                                id="preview-img{{$key}}" href="#image{{$key}}">
                                                                 <img
                                                                     onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                                    src="{{asset("storage/app/public/product/$photo")}}"
+                                                                    src="{{asset("storage/product/$photo")}}"
                                                                     alt="Product thumb">
                                                             </a>
                                                         </div>
@@ -645,7 +645,7 @@
                     <div class="product-details-shipping-details">
                         <div class="shipping-details-bottom-border">
                             <div class="px-3 py-3">
-                                <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"  src="{{asset("front-end/png/Payment.png")}}"
+                                <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"  src="{{asset("public/front-end/png/Payment.png")}}"
                                         alt="">
                                 <span>{{\App\CPU\translate('Safe Payment')}}</span>
                             </div>
@@ -653,7 +653,7 @@
                         <div  class="shipping-details-bottom-border">
                             <div class="px-3 py-3">
                                 <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"
-                                    src="{{asset("front-end/png/money.png")}}"
+                                    src="{{asset("public/front-end/png/money.png")}}"
                                         alt="">
                                 <span>{{ \App\CPU\translate('7 Days Return Policy')}}</span>
                             </div>
@@ -661,7 +661,7 @@
                         <div class="shipping-details-bottom-border">
                         <div class="px-3 py-3">
                                 <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"
-                                    src="{{asset("front-end/png/Genuine.png")}}"
+                                    src="{{asset("public/front-end/png/Genuine.png")}}"
                                     alt="">
                                 <span>{{ \App\CPU\translate('100% Authentic Products')}}</span>
                         </div>
@@ -675,7 +675,7 @@
                                     <div class="col-12 position-relative">
                                         <div class="d-flex __seller-author align-items-center">
                                             <div>
-                                                <img class="__img-60 img-circle" src="{{asset('storage/app/public/shop')}}/{{$product->seller->shop->image}}"
+                                                <img class="__img-60 img-circle" src="{{asset('storage/shop')}}/{{$product->seller->shop->image}}"
                                                     onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
                                                     alt="">
                                             </div>
@@ -780,7 +780,7 @@
                                     <div class="row d-flex ">
                                         <div>
                                             <img class="__inline-32"
-                                                src="{{asset("storage/app/public/company")}}/{{$web_config['fav_icon']->value}}"
+                                                src="{{asset("storage/company")}}/{{$web_config['fav_icon']->value}}"
                                                 onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
                                                 alt="">
                                         </div>

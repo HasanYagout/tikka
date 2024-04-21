@@ -62,7 +62,7 @@
                                             @if($data['code']==$local)
                                                 <img class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                      width="20"
-                                                     src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
+                                                     src="{{asset('public/front-end')}}/img/flags/{{$data['code']}}.png"
                                                      alt="Eng">
                                                 {{$data['name']}}
                                             @endif
@@ -77,7 +77,7 @@
                                                         <img
                                                             class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                             width="20"
-                                                            src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
+                                                            src="{{asset('public/front-end')}}/img/flags/{{$data['code']}}.png"
                                                             alt="{{$data['name']}}"/>
                                                         <span class="text-capitalize">{{$data['name']}}</span>
                                                     </a>
@@ -275,7 +275,7 @@
                                 @if($data['code']==$local)
                                     <img class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                          width="20"
-                                         src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
+                                         src="{{asset('public/front-end')}}/img/flags/{{$data['code']}}.png"
                                          alt="Eng">
                                     {{$data['name']}}
                                 @endif
@@ -290,7 +290,7 @@
                                             <img
                                                 class="{{Session::get('direction') === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                 width="20"
-                                                src="{{asset('front-end')}}/img/flags/{{$data['code']}}.png"
+                                                src="{{asset('public/front-end')}}/img/flags/{{$data['code']}}.png"
                                                 alt="{{$data['name']}}"/>
                                             <span class="text-capitalize">{{$data['name']}}</span>
                                         </a>

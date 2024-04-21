@@ -136,7 +136,7 @@
                                             <img
                                                 class="ratio-4:1"
                                                 id="mbImageviewer"
-                                                src="{{asset('front-end/img/placeholder.png')}}"
+                                                src="{{asset('public/front-end/img/placeholder.png')}}"
                                                 alt="banner image"/>
                                         </center>
                                         <label for="name"
@@ -243,8 +243,8 @@
                                     <td class="pl-xl-5">{{$banners->firstItem()+$key}}</td>
                                     <td>
                                         <img class="ratio-4:1" width="80"
-                                             onerror="this.src='{{asset('front-end/img/placeholder.png')}}'"
-                                             src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}">
+                                             onerror="this.src='{{asset('public/front-end/img/placeholder.png')}}'"
+                                             src="{{asset('public/storage/banner')}}/{{$banner['photo']}}">
                                     </td>
                                     <td>{{\App\CPU\translate(str_replace('_',' ',$banner->banner_type))}}</td>
                                     <td>

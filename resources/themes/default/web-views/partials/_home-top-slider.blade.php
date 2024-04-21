@@ -18,7 +18,7 @@
                         <a href="{{$banner['url']}}">
                             <img class="d-block w-100 __slide-img"
                                  onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                 src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}"
+                                 src="{{asset('storage/banner')}}/{{$banner['photo']}}"
                                  alt="">
                         </a>
                     </div>

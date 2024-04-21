@@ -99,7 +99,7 @@
                                             <img class="upload-img-view"
                                                     id="viewer"
                                                     onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                    src="{{asset('storage/app/public/category')}}/{{$category['icon']}}"
+                                                    src="{{asset('storage/category')}}/{{$category['icon']}}"
                                                     alt=""/>
                                         </center>
                                     </div>

@@ -152,7 +152,7 @@
                                     <td class="text-center">
                                         <img class="rounded" width="64"
                                                 onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                src="{{asset('storage/app/public/category')}}/{{$category['icon']}}">
+                                                src="{{asset('public/storage/category')}}/{{$category['icon']}}">
                                     </td>
                                     <td>{{$category['defaultname']}}</td>
                                     <td>

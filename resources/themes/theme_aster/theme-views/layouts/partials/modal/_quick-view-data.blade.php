@@ -54,7 +54,7 @@
                                             @elseif($product->discount > 0)
                                                 <span class="product__discount-badge">-{{\App\CPU\Helpers::currency_converter($product->discount)}}</span>
                                             @endif
-                                            <img src="{{asset("storage/app/public/product/$photo->image_name")}}" class="dark-support rounded" alt=""
+                                            <img src="{{asset("storage/product/$photo->image_name")}}" class="dark-support rounded" alt=""
                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                         </div>
                                         @else
@@ -64,7 +64,7 @@
                                                 @elseif($product->discount > 0)
                                                     <span class="product__discount-badge">-{{\App\CPU\Helpers::currency_converter($product->discount)}}</span>
                                                 @endif
-                                                <img src="{{asset("storage/app/public/product/$photo->image_name")}}" class="dark-support rounded" alt=""
+                                                <img src="{{asset("storage/product/$photo->image_name")}}" class="dark-support rounded" alt=""
                                                 onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                             </div>
                                         @endif
@@ -77,7 +77,7 @@
                                             @elseif($product->discount > 0)
                                                 <span class="product__discount-badge">-{{\App\CPU\Helpers::currency_converter($product->discount)}}</span>
                                             @endif
-                                            <img src="{{asset("storage/app/public/product/$photo")}}" class="dark-support rounded" alt=""
+                                            <img src="{{asset("storage/product/$photo")}}" class="dark-support rounded" alt=""
                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                         </div>
                                     @endforeach
@@ -94,12 +94,12 @@
                                         @foreach (json_decode($product->color_image) as $key => $photo)
                                             @if($photo->color != null)
                                             <div class="swiper-slide m-2" id="preview-img{{$key}}" onclick="focus_preview_image_by_color('{{$key}}')">
-                                                <img src="{{asset("storage/app/public/product/$photo->image_name")}}" class="dark-support rounded border" alt="Product thumb"
+                                                <img src="{{asset("storage/product/$photo->image_name")}}" class="dark-support rounded border" alt="Product thumb"
                                                 onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                             </div>
                                             @else
                                             <div class="swiper-slide m-2" onclick="slider_thumb_img_preview('thumb_{{$key}}')">
-                                                <img src="{{asset("storage/app/public/product/$photo->image_name")}}" class="dark-support rounded border" alt="Product thumb"
+                                                <img src="{{asset("storage/product/$photo->image_name")}}" class="dark-support rounded border" alt="Product thumb"
                                                 onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                             </div>
                                             @endif
@@ -107,7 +107,7 @@
                                     @else
                                         @foreach (json_decode($product->images) as $key => $photo)
                                         <div class="swiper-slide m-2" id="preview-img{{$key}}" onclick="slider_thumb_img_preview('thumb_{{$key}}')">
-                                            <img src="{{asset("storage/app/public/product/$photo")}}" class="dark-support rounded border"
+                                            <img src="{{asset("storage/product/$photo")}}" class="dark-support rounded border"
                                                 alt="Product thumb"
                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                         </div>

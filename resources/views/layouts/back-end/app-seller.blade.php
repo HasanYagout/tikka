@@ -56,7 +56,7 @@
             <div id="loading" style="display: none;">
                 <center>
                     <img width="200"
-                        src="{{ asset('storage/company') }}/{{ \App\CPU\Helpers::get_business_settings('loader_gif') }}"
+                        src="{{ asset('public/storage/company') }}/{{ \App\CPU\Helpers::get_business_settings('loader_gif') }}"
                         onerror="this.src='{{ asset('public/front-end/img/loader.gif') }}'">
                 </center>
             </div>
