@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
+    protected $fillable=['review_count'];
     protected $casts = [
         'user_id' => 'integer',
         'brand_id' => 'integer',

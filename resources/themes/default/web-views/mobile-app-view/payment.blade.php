@@ -324,7 +324,7 @@
 
                             <button class="btn btn-block click-if-alone" type="submit">
                                 <img width="200"
-                                    src="{{asset('front-end/img/fluterwave.png')}}"/>
+                                    src="{{asset('public/front-end/img/fluterwave.png')}}"/>
                             </button>
                         </form>
                     </div>

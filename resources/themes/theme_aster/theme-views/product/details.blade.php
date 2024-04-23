@@ -42,7 +42,7 @@
               content="@foreach(explode(' ',$product['name']) as $keyword) {{$keyword.' , '}} @endforeach">
     @endif
     <meta property="twitter:url" content="{{route('product',[$product->slug])}}">
-    <link rel="stylesheet" href="{{ theme_asset('assets/css/lightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset('public/css/lightbox.min.css') }}">
 @endpush
 
 @section('content')
@@ -818,5 +818,5 @@
         getVariantPrice();
     </script>
 
-    <script src="{{ theme_asset('assets/js/lightbox.min.js') }}"></script>
+    <script src="{{ theme_asset('public/js/lightbox.min.js') }}"></script>
 @endpush

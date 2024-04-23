@@ -473,6 +473,7 @@ class OrderManager
 
         foreach (CartManager::get_cart($data['cart_group_id']) as $c) {
             $product = Product::where(['id' => $c['product_id']])->first();
+
             $price = $c['tax_model']=='include' ? $c['price']-$c['tax'] : $c['price'];
             $or_d = [
                 'order_id' => $order_id,
@@ -509,7 +510,8 @@ class OrderManager
             }
 
             Product::where(['id' => $product['id']])->update([
-                'current_stock' => $product['current_stock'] - $c['quantity']
+                'current_stock' => $product['current_stock'] - $c['quantity'],
+                'order_count'=>$product['product_count']+1
             ]);
 
             DB::table('order_details')->insert($or_d);

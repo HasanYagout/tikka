@@ -3645,7 +3645,4 @@
   'No Country Found' => 'No Country Found',
   'No Zip Code Found' => 'No Zip Code Found',
   'search_by_brands' => 'Search by brands',
-  'Proceed To Checkout' => 'Proceed To Checkout',
-  'Proceed' => 'Proceed',
-  'Company Vehicle' => 'Company Vehicle',
 );

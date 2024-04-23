@@ -19,7 +19,6 @@
           href="{{asset('public/front-end/vendor/drift-zoom/dist/drift-basic.min.css')}}"/>
     <link rel="stylesheet" media="screen"
           href="{{asset('public/front-end/vendor/lightgallery.js/dist/css/lightgallery.min.css')}}"/>
-    <link rel="stylesheet" href="{{asset('public/back-end/css/toastr.css')}}"/>
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="{{asset('public/front-end/css/theme.min.css')}}">
     <link rel="stylesheet" media="screen" href="{{asset('public/front-end/css/slick.css')}}">
@@ -39,6 +38,7 @@
 
 
     <link rel="stylesheet" href="{{asset('public/front-end/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/back-end/css/toastr.css')}}"/>
     {{--dont touch this--}}
     <meta name="_token" content="{{csrf_token()}}">
     {{--dont touch this--}}
@@ -255,7 +255,7 @@
                <center>
                 <img width="200"
                      src="{{asset('storage/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}"
-{{--                     onerror="this.src='{{asset('public/front-end/img/loader.gif')}}'">--}}
+                     onerror="this.src='{{asset('public/front-end/img/loader.gif')}}'">
                </center>
             </div>
         </div>
@@ -308,14 +308,13 @@
 <script src="{{asset('public/front-end')}}/vendor/lightgallery.js/dist/js/lightgallery.min.js"></script>
 <script src="{{asset('public/front-end')}}/vendor/lg-video.js/dist/lg-video.min.js"></script>
 {{--Toastr--}}
-<script src={{asset("back-end/js/toastr.js")}}></script>
+<script src={{asset("public/back-end/js/toastr.js")}}></script>
 <!-- Main theme script-->
 <script src="{{asset('public/front-end')}}/js/theme.min.js"></script>
 <script src="{{asset('public/front-end')}}/js/slick.min.js"></script>
 
 <script src="{{asset('public/front-end')}}/js/sweet_alert.js"></script>
 {{--Toastr--}}
-<script src={{asset("back-end/js/toastr.js")}}></script>
 {!! Toastr::message() !!}
 
 <script>

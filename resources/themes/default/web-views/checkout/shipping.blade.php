@@ -3,7 +3,7 @@
 @section('title',\App\CPU\translate('Shipping Address Choose'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ asset('front-end/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/front-end/css/bootstrap-select.min.css') }}">
 
     <style>
         .btn-outline {
@@ -737,6 +737,7 @@
                 },
                 error: function (data) {
                     let error_msg = data.responseJSON.errors;
+
                     toastr.error(error_msg, {
                         CloseButton: true,
                         ProgressBar: true

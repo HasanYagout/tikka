@@ -43,7 +43,7 @@
                                         <form action="{{route('checkout-complete')}}" method="get" class="needs-validation">
                                             <input type="hidden" name="payment_method" value="cash_on_delivery">
                                             <button class="btn btn-block click-if-alone" type="submit">
-                                                <img width="150" class="__mt-n-10" src="{{asset('front-end/img/cod.png')}}"/>
+                                                <img width="150" class="__mt-n-10" src="{{asset('public/front-end/img/cod.png')}}"/>
                                             </button>
                                         </form>
                                     </div>
@@ -319,7 +319,7 @@
                                         <div class="card-body pt-2 __h-100px">
                                             <a class="btn btn-block click-if-alone" href="{{route('mercadopago.index')}}">
                                                 <img width="150"
-                                                    src="{{asset('front-end/img/MercadoPago_(Horizontal).svg')}}"/>
+                                                    src="{{asset('public/front-end/img/MercadoPago_(Horizontal).svg')}}"/>
                                             </a>
                                         </div>
                                     </div>
@@ -335,7 +335,7 @@
 
                                                 <button class="btn btn-block click-if-alone" type="submit">
                                                     <img width="200"
-                                                        src="{{asset('front-end/img/fluterwave.png')}}"/>
+                                                        src="{{asset('public/front-end/img/fluterwave.png')}}"/>
                                                 </button>
                                             </form>
                                         </div>
@@ -375,6 +375,12 @@
                             <a class="btn btn-secondary btn-block" href="{{route('checkout-details')}}">
                                 <span class="d-none d-sm-inline">{{\App\CPU\translate('Back to Shipping')}}</span>
                                 <span class="d-inline d-sm-none">{{\App\CPU\translate('Back')}}</span>
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-center mt-5">
+                            <a class="btn btn-secondary btn-block" href="{{route('checkout-complete')}}">
+                                <span class="d-none d-sm-inline">{{\App\CPU\translate('Proceed To Checkout')}}</span>
+                                <span class="d-inline d-sm-none">{{\App\CPU\translate('Proceed')}}</span>
                             </a>
                         </div>
                     </div>

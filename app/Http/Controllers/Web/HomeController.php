@@ -66,11 +66,12 @@ class HomeController extends Controller
         //end
 
         //feature products finding based on selling
-//        $featured_products = Product::with(['reviews'])->active()
-//            ->where('featured', 1)
-//            ->withCount(['order_details'])->orderBy('order_details_count', 'DESC')
-//            ->take(12)
-//            ->get();
+        $featured_products = Product::where('review_count','>','0')->active()
+            ->where('featured', 1)
+            ->orderBy('review_count', 'DESC')
+            ->take(12)
+            ->get();
+
         //end
 
 //        $latest_products = Product::with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
@@ -88,15 +89,10 @@ class HomeController extends Controller
 //            ->get();
 
         //Top-rated
-//        $topRated = Review::with('product')
-//            ->whereHas('product', function ($query) {
-//                $query->active();
-//            })
-//            ->select('product_id', DB::raw('AVG(rating) as count'))
-//            ->groupBy('product_id')
-//            ->orderBy("count", 'desc')
-//            ->take(4)
-//            ->get();
+        $topRated = Product::where('review_count','>',0)
+            ->orderBy('review_count', 'desc')
+            ->take(6)
+            ->get();
 
 //        if ($bestSellProduct->count() == 0) {
 //            $bestSellProduct = $latest_products;
@@ -112,7 +108,7 @@ class HomeController extends Controller
 
         return view(VIEW_FILE_NAMES['home'],
             compact(
-                 'categories', 'brands',
+                 'categories', 'brands','topRated','featured_products',
                  'top_sellers', 'home_categories', 'brand_setting', 'main_banner', 'main_section_banner'
             )
         );

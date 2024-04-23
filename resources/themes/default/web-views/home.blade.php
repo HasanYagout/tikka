@@ -312,30 +312,30 @@
         @endif
 
         <!-- Products grid (featured products)-->
-{{--        @if ($featured_products->count() > 0 )--}}
-{{--            <div class="container mb-4">--}}
-{{--                <div class="row __inline-62">--}}
-{{--                    <div class="col-md-12">--}}
-{{--                        <div class="feature-product-title">--}}
-{{--                            {{ \App\CPU\translate('featured_products')}}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-md-12">--}}
-{{--                        <div class="feature-product">--}}
-{{--                            <div class="carousel-wrap p-1">--}}
-{{--                                <div class="owl-carousel owl-theme " id="featured_products_list">--}}
-{{--                                    @foreach($featured_products as $product)--}}
-{{--                                        <div>--}}
-{{--                                            @include('web-views.partials._feature-product',['product'=>$product, 'decimal_point_settings'=>$decimal_point_settings])--}}
-{{--                                        </div>--}}
-{{--                                    @endforeach--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        @endif--}}
+        @if ($featured_products->count() > 0 )
+            <div class="container mb-4">
+                <div class="row __inline-62">
+                    <div class="col-md-12">
+                        <div class="feature-product-title">
+                            {{ \App\CPU\translate('featured_products')}}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="feature-product">
+                            <div class="carousel-wrap p-1">
+                                <div class="owl-carousel owl-theme " id="featured_products_list">
+                                    @foreach($featured_products as $product)
+                                        <div>
+                                            @include('web-views.partials._feature-product',['product'=>$product, 'decimal_point_settings'=>$decimal_point_settings])
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
 
         {{--featured deal--}}
 
@@ -818,68 +818,69 @@
                                 </div>
                             </div>
                             <div>
-{{--                                @foreach($topRated as $key=>$top)--}}
-{{--                                    @if($top->product && $key<3)--}}
-{{--                                        <a class="__best-selling" href="{{route('product',$top->product->slug)}}">--}}
-{{--                                            @if($top->product->discount > 0)--}}
-{{--                                                <div class="d-flex"--}}
-{{--                                                     style="top:0;position:absolute;{{Session::get('direction') === "rtl" ? 'right:0;' : 'left:0;'}}">--}}
-{{--                                                    <span class="for-discoutn-value p-1 pl-2 pr-2"--}}
-{{--                                                          style="{{Session::get('direction') === "rtl" ? 'border-radius:0px 5px' : 'border-radius:5px 0px'}};">--}}
-{{--                                                        @if ($top->product->discount_type == 'percent')--}}
-{{--                                                            {{round($top->product->discount)}}%--}}
-{{--                                                        @elseif($top->product->discount_type =='flat')--}}
-{{--                                                            {{\App\CPU\Helpers::currency_converter($top->product->discount)}}--}}
-{{--                                                        @endif {{\App\CPU\translate('off')}}--}}
-{{--                                                    </span>--}}
-{{--                                                </div>--}}
-{{--                                            @endif--}}
-{{--                                            <div class="d-flex flex-wrap p-2">--}}
-{{--                                                <div class="top-rated-image">--}}
-{{--                                                    <img class="rounded"--}}
-{{--                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
-{{--                                                         src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$top->product['thumbnail']}}"--}}
-{{--                                                         alt="Product"/>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="top-rated-details">--}}
-{{--                                                    <h6 class="widget-product-title">--}}
-{{--                                                    <span class="ptr">--}}
-{{--                                                        {{\Illuminate\Support\Str::limit($top->product['name'],100)}}--}}
-{{--                                                    </span>--}}
-{{--                                                    </h6>--}}
-{{--                                                    @php($top_overallRating = \App\CPU\ProductManager::get_overall_rating($top->product['reviews']))--}}
-{{--                                                    <div class="rating-show">--}}
-{{--                                                    <span class="d-inline-block font-size-sm text-body">--}}
-{{--                                                        @for($inc=0;$inc<5;$inc++)--}}
-{{--                                                            @if($inc<$top_overallRating[0])--}}
-{{--                                                                <i class="p-0 sr-star czi-star-filled active"></i>--}}
-{{--                                                            @else--}}
-{{--                                                                <i class="p-0 sr-star czi-star __color-fea569"></i>--}}
-{{--                                                            @endif--}}
-{{--                                                        @endfor--}}
-{{--                                                        <label--}}
-{{--                                                            class="badge-style">( {{$top->product->reviews_count}} )</label>--}}
-{{--                                                    </span>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div>--}}
-{{--                                                        @if($top->product->discount > 0)--}}
-{{--                                                            <strike class="__text-12px __color-E96A6A">--}}
-{{--                                                                {{\App\CPU\Helpers::currency_converter($top->product->unit_price)}}--}}
-{{--                                                            </strike>--}}
-{{--                                                        @endif--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="widget-product-meta">--}}
-{{--                                                    <span class="text-accent">--}}
-{{--                                                        {{\App\CPU\Helpers::currency_converter(--}}
-{{--                                                        $top->product->unit_price-(\App\CPU\Helpers::get_product_discount($top->product,$top->product->unit_price))--}}
-{{--                                                        )}}--}}
-{{--                                                    </span>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    @endif--}}
-{{--                                @endforeach--}}
+
+                                @foreach($topRated as $key=>$top)
+                                    @if($top->product && $key<3)
+                                        <a class="__best-selling" href="{{route('product',$top->product->slug)}}">
+                                            @if($top->product->discount > 0)
+                                                <div class="d-flex"
+                                                     style="top:0;position:absolute;{{Session::get('direction') === "rtl" ? 'right:0;' : 'left:0;'}}">
+                                                    <span class="for-discoutn-value p-1 pl-2 pr-2"
+                                                          style="{{Session::get('direction') === "rtl" ? 'border-radius:0px 5px' : 'border-radius:5px 0px'}};">
+                                                        @if ($top->product->discount_type == 'percent')
+                                                            {{round($top->product->discount)}}%
+                                                        @elseif($top->product->discount_type =='flat')
+                                                            {{\App\CPU\Helpers::currency_converter($top->product->discount)}}
+                                                        @endif {{\App\CPU\translate('off')}}
+                                                    </span>
+                                                </div>
+                                            @endif
+                                            <div class="d-flex flex-wrap p-2">
+                                                <div class="top-rated-image">
+                                                    <img class="rounded"
+                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                         src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$top->product['thumbnail']}}"
+                                                         alt="Product"/>
+                                                </div>
+                                                <div class="top-rated-details">
+                                                    <h6 class="widget-product-title">
+                                                    <span class="ptr">
+                                                        {{\Illuminate\Support\Str::limit($top->product['name'],100)}}
+                                                    </span>
+                                                    </h6>
+                                                    @php($top_overallRating = \App\CPU\ProductManager::get_overall_rating($top->product['reviews']))
+                                                    <div class="rating-show">
+                                                    <span class="d-inline-block font-size-sm text-body">
+                                                        @for($inc=0;$inc<5;$inc++)
+                                                            @if($inc<$top_overallRating[0])
+                                                                <i class="p-0 sr-star czi-star-filled active"></i>
+                                                            @else
+                                                                <i class="p-0 sr-star czi-star __color-fea569"></i>
+                                                            @endif
+                                                        @endfor
+                                                        <label
+                                                            class="badge-style">( {{$top->product->reviews_count}} )</label>
+                                                    </span>
+                                                    </div>
+                                                    <div>
+                                                        @if($top->product->discount > 0)
+                                                            <strike class="__text-12px __color-E96A6A">
+                                                                {{\App\CPU\Helpers::currency_converter($top->product->unit_price)}}
+                                                            </strike>
+                                                        @endif
+                                                    </div>
+                                                    <div class="widget-product-meta">
+                                                    <span class="text-accent">
+                                                        {{\App\CPU\Helpers::currency_converter(
+                                                        $top->product->unit_price-(\App\CPU\Helpers::get_product_discount($top->product,$top->product->unit_price))
+                                                        )}}
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @endif
+                                @endforeach
                             </div>
 
                         </div>

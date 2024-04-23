@@ -130,7 +130,7 @@
                 <a class="navbar-brand d-none d-sm-block {{Session::get('direction') === "rtl" ? 'mr-3' : 'mr-3'}} flex-shrink-0 __min-w-7rem" href="{{route('home')}}">
                     <img class="__inline-11"
                          src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
-{{--                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
                          alt="{{$web_config['name']->value}}"/>
                 </a>
                 <a class="navbar-brand d-sm-none {{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}"
@@ -277,6 +277,7 @@
                             @if(request()->is('/'))
                                 <ul class="dropdown-menu __dropdown-menu" style="{{Session::get('direction') === "rtl" ? 'margin-right: 1px!important;text-align: right;' : 'margin-left: 1px!important;text-align: left;'}}padding-bottom: 0px!important;">
                                     @foreach($categories as $key=>$category)
+
                                         @if($key<8)
                                             <li class="dropdown">
                                                 <a class="dropdown-item flex-between"
@@ -285,7 +286,7 @@
                                                     <div class="d-flex">
                                                         <img
                                                             src="{{asset("storage/category/$category->icon")}}"
-{{--                                                            onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                                                            onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
                                                             class="__img-18">
                                                         <span
                                                             class="w-0 flex-grow-1 {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>
@@ -346,13 +347,15 @@
                                 <ul class="dropdown-menu __dropdown-menu-2"
                                     style="right: 0; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
                                     @foreach($categories as $category)
+
                                         <li class="dropdown">
                                             <a class="dropdown-item flex-between <?php if ($category->childes->count() > 0) echo "data-toggle='dropdown"?> "
                                                <?php if ($category->childes->count() > 0) echo "data-toggle='dropdown'"?> href="javascript:"
                                                onclick="location.href='{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}'">
                                                 <div class="d-flex">
+
                                                     <img src="{{asset("storage/category/$category->icon")}}"
-{{--                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
                                                          class="__img-18">
                                                     <span
                                                         class="w-0 flex-grow-1 {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>

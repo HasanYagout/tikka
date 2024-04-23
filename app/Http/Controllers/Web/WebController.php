@@ -398,6 +398,7 @@ class WebController extends Controller
 
     public function checkout_complete(Request $request)
     {
+
         if($request->payment_method != 'cash_on_delivery'){
             return back()->with('error', 'Something went wrong!');
         }

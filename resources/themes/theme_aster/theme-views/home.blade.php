@@ -19,9 +19,9 @@
         @include('theme-views.partials._main-banner')
 
         <!-- Flash Deal -->
-        @if ($web_config['flash_deals'])
-            @include('theme-views.partials._flash-deals')
-        @endif
+{{--        @if ($web_config['flash_deals'])--}}
+{{--            @include('theme-views.partials._flash-deals')--}}
+{{--        @endif--}}
 
         <!-- Find What You Need -->
         @include('theme-views.partials._find-what-you-need')
@@ -32,9 +32,9 @@
         @endif
 
         <!-- Featured Deals -->
-        @if ($web_config['featured_deals']->count()>0)
-            @include('theme-views.partials._featured-deals')
-        @endif
+{{--        @if ($web_config['featured_deals']->count()>0)--}}
+{{--            @include('theme-views.partials._featured-deals')--}}
+{{--        @endif--}}
 
         <!-- Recommended For You -->
         @include('theme-views.partials._recommended-product')

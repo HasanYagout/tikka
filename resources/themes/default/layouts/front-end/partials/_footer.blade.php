@@ -74,7 +74,7 @@
                     <div class="col-md-3 footer-web-logo" >
                         <a class="d-block" href="{{route('home')}}">
                             <img class="{{Session::get('direction') === "rtl" ? 'rightalign' : ''}}" src="{{asset("storage/company/")}}/{{ $web_config['footer_logo']->value }}"
-{{--                                onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                                onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
                                 alt="{{ $web_config['name']->value }}"/>
                         </a>
 

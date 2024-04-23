@@ -87,9 +87,9 @@
                             <div class="widget widget--nav absolute-white">
                                 <h4 class="widget__title">{{translate('Quick_Links')}}</h4>
                                 <ul class="d-flex flex-column gap-3">
-                                    @if($web_config['flash_deals'])
-                                        <li><a href="{{route('flash-deals',[$web_config['flash_deals']['id']])}}">{{translate('Flash_Deals')}}</a></li>
-                                    @endif
+{{--                                    @if($web_config['flash_deals'])--}}
+{{--                                        <li><a href="{{route('flash-deals',[$web_config['flash_deals']['id']])}}">{{translate('Flash_Deals')}}</a></li>--}}
+{{--                                    @endif--}}
                                     <li><a href="{{route('products',['data_from'=>'featured','page'=>1])}}">{{translate('Featured_Products')}}</a></li>
                                     <li><a href="{{route('sellers')}}">{{translate('Top_Stores')}}</a></li>
                                     <li><a href="{{route('products',['data_from'=>'latest'])}}">{{translate('Latest_Products')}}</a></li>

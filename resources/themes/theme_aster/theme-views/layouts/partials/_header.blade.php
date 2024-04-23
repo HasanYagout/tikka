@@ -222,31 +222,31 @@
                             <li>
                                 <a href="{{route('home')}}">{{ translate('Home') }}</a>
                             </li>
-                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])
-                            <li>
-                                <a href="javascript:">{{ translate('Offers')}}</a>
-                                <ul class="sub_menu">
-                                    @if($web_config['featured_deals']->count()>0)
-                                    <li><a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a></li>
-                                    @endif
+{{--                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])--}}
+{{--                            <li>--}}
+{{--                                <a href="javascript:">{{ translate('Offers')}}</a>--}}
+{{--                                <ul class="sub_menu">--}}
+{{--                                    @if($web_config['featured_deals']->count()>0)--}}
+{{--                                    <li><a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a></li>--}}
+{{--                                    @endif--}}
 
-                                    @if($web_config['flash_deals'])
-                                    <li><a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                            @endif
+{{--                                    @if($web_config['flash_deals'])--}}
+{{--                                    <li><a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a></li>--}}
+{{--                                    @endif--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                            @endif--}}
 
                             @if($web_config['business_mode'] == 'multi')
                             <li>
                                 <a href="javascript:">{{ translate('stores') }}</a>
                                 <!-- Sub Menu -->
                                 <ul class="sub_menu">
-                                    @foreach($web_config['shops'] as $shop)
-                                        <li>
-                                            <a href="{{route('shopView',['id'=>$shop['id']])}}">{{Str::limit($shop->name, 14)}}</a>
-                                        </li>
-                                    @endforeach
+{{--                                    @foreach($web_config['shops'] as $shop)--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}">{{Str::limit($shop->name, 14)}}</a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
                                 </ul>
                             </li>
                             @endif
@@ -379,24 +379,24 @@
                             <li class="{{request()->is('/')?'active':''}}">
                                 <a href="{{route('home')}}">{{ translate('Home')}}</a>
                             </li>
-                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])
-                            <li>
-                                <a class="cursor-pointer">{{ translate('Offers')}}</a>
-                                <ul class="sub-menu">
-                                    @if($web_config['featured_deals']->count()>0)
-                                        <li>
-                                            <a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a>
-                                        </li>
-                                    @endif
+{{--                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])--}}
+{{--                            <li>--}}
+{{--                                <a class="cursor-pointer">{{ translate('Offers')}}</a>--}}
+{{--                                <ul class="sub-menu">--}}
+{{--                                    @if($web_config['featured_deals']->count()>0)--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a>--}}
+{{--                                        </li>--}}
+{{--                                    @endif--}}
 
-                                    @if($web_config['flash_deals'])
-                                    <li>
-                                        <a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a>
-                                    </li>
-                                    @endif
-                                </ul>
-                            </li>
-                            @endif
+{{--                                    @if($web_config['flash_deals'])--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a>--}}
+{{--                                    </li>--}}
+{{--                                    @endif--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                            @endif--}}
                             @if($web_config['business_mode'] == 'multi')
                             <li>
                                 <a class="cursor-pointer">{{ translate('stores') }}</a>
@@ -405,19 +405,19 @@
                                     style="--bs-dropdown-min-width: max-content"                                >
                                     <div class="d-flex gap-5">
                                         <div class="column-2 row-gap-3">
-                                            @foreach($web_config['shops'] as $shop)
-                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">
-                                                <div class="avatar rounded" style="--size: 2.5rem">
-                                                    <img
+{{--                                            @foreach($web_config['shops'] as $shop)--}}
+{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">--}}
+{{--                                                <div class="avatar rounded" style="--size: 2.5rem">--}}
+{{--                                                    <img--}}
 {{--                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
-                                                        src="{{asset("storage/shop")}}/{{ $shop->image }}" loading="lazy"
-                                                        class="img-fit rounded dark-support" alt=""/>
-                                                </div>
-                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">
-                                                    {{Str::limit($shop->name, 14)}}
-                                                </div>
-                                            </a>
-                                            @endforeach
+{{--                                                        src="{{asset("storage/shop")}}/{{ $shop->image }}" loading="lazy"--}}
+{{--                                                        class="img-fit rounded dark-support" alt=""/>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">--}}
+{{--                                                    {{Str::limit($shop->name, 14)}}--}}
+{{--                                                </div>--}}
+{{--                                            </a>--}}
+{{--                                            @endforeach--}}
                                             <div class="d-flex">
                                                 <a href="{{route('sellers')}}" class="fw-bold text-primary d-flex justify-content-center">
                                                     {{ translate('view_all') }}...
@@ -475,13 +475,13 @@
                                 </div>
                             </li>
                             @endif
-                            @if ($web_config['discount_product']>0)
-                                <li class="">
-                                    <a class="d-flex gap-2 align-items-center discount-product-menu {{request()->is('/')?'active':''}}" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">
-                                        {{ translate('discounted_products') }}
-                                        <i class="bi bi-patch-check-fill text-warning"></i></a>
-                                </li>
-                            @endif
+{{--                            @if ($web_config['discount_product']>0)--}}
+{{--                                <li class="">--}}
+{{--                                    <a class="d-flex gap-2 align-items-center discount-product-menu {{request()->is('/')?'active':''}}" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">--}}
+{{--                                        {{ translate('discounted_products') }}--}}
+{{--                                        <i class="bi bi-patch-check-fill text-warning"></i></a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
                         </ul>
                     </div>
                     <!-- End Main Nav -->

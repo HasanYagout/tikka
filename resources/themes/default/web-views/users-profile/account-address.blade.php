@@ -5,7 +5,7 @@
 @push('css_or_js')
     <link rel="stylesheet" media="screen"
           href="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
-    <link rel="stylesheet" href="{{ asset('front-end/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/front-end/css/bootstrap-select.min.css') }}">
 
     <style>
         .cz-sidebar-body h3:hover + .divider-role {

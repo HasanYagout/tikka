@@ -74,6 +74,7 @@ class ProductController extends BaseController
 
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'name'                 => 'required',
             'category_id'          => 'required',
@@ -111,7 +112,6 @@ class ProductController extends BaseController
                 );
             });
         }
-
         $brand_setting = BusinessSetting::where('type', 'product_brand')->first()->value;
         if ($brand_setting && empty($request->brand_id)) {
             $validator->after(function ($validator) {
@@ -151,6 +151,7 @@ class ProductController extends BaseController
         $p->slug     = Str::slug($request->name[array_search('en', $request->lang)], '-') . '-' . Str::random(6);
 
         $product_images = [];
+
         if ($request->has('colors_active') && $request->has('colors') && count($request->colors) > 0) {
             foreach ($request->colors as $color) {
                 $color_ = str_replace('#','',$color);
@@ -193,9 +194,8 @@ class ProductController extends BaseController
                 'position' => 3,
             ]);
         }
-
         $p->category_ids         = json_encode($category);
-        $p->category_id          = $request->category_id;
+        $p->category_id       = $request->category_id;
         $p->sub_category_id      = $request->sub_category_id;
         $p->sub_sub_category_id  = $request->sub_sub_category_id;
         $p->brand_id             = $request->brand_id;
@@ -211,6 +211,7 @@ class ProductController extends BaseController
             $p->colors = $request->product_type == 'physical' ? json_encode($colors) : json_encode([]);
         }
         $choice_options = [];
+
         if ($request->has('choice')) {
             foreach ($request->choice_no as $key => $no) {
                 $str = 'choice_options_' . $no;
@@ -223,6 +224,7 @@ class ProductController extends BaseController
         $p->choice_options = $request->product_type == 'physical' ? json_encode($choice_options) : json_encode([]);
         //combinations start
         $options = [];
+
         if ($request->has('colors_active') && $request->has('colors') && count($request->colors) > 0) {
             $colors_active = 1;
             array_push($options, $request->colors);
@@ -317,6 +319,7 @@ class ProductController extends BaseController
             $p->meta_title       = $request->meta_title;
             $p->meta_description = $request->meta_description;
             $p->meta_image       = ImageManager::upload('product/meta/', 'png', $request->meta_image);
+
             $p->save();
 
             $tag_ids = [];

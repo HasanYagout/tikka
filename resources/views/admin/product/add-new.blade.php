@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <link href="{{ asset('public/back-end/css/tags-input.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('select2/css/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/select2/css/select2.min.css') }}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -751,6 +751,7 @@
                         CKEDITOR.instances[instance].updateElement();
                     }
                     var formData = new FormData(document.getElementById('product_form'));
+
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -847,8 +848,8 @@
     </script>
 
     {{-- ck editor --}}
-    <script src="{{ asset('/') }}vendor/ckeditor/ckeditor/ckeditor.js"></script>
-    <script src="{{ asset('/') }}vendor/ckeditor/ckeditor/adapters/jquery.js"></script>
+    <script src="{{ asset('/vendor/ckeditor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/vendor/ckeditor/ckeditor/adapters/jquery.js') }}"></script>
     <script>
         $('.textarea').ckeditor({
             contentsLangDirection: '{{ Session::get('direction') }}',

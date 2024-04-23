@@ -260,7 +260,7 @@
                                                     @csrf
                                                     <label>
                                                         <button type="submit" class="payment-method border-0 d-flex align-iems-center gap-3">
-                                                            <img width="100" src="{{ theme_asset('assets/img/payment/fluterwave.png') }}" class="dark-support" alt="">
+                                                            <img width="100" src="{{ theme_asset('public/img/payment/fluterwave.png') }}" class="dark-support" alt="">
                                                         </button>
                                                     </label>
                                                 </form>

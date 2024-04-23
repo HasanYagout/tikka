@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\ActivationCheckMiddleware;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\CustomerMiddleware;
 use App\Http\Middleware\MaintenanceModeMiddleware;
 use App\Http\Middleware\ModulePermissionMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -73,6 +74,8 @@ class Kernel extends HttpKernel
        'maintenance_mode'=>MaintenanceModeMiddleware::class,
         'actch' => ActivationCheckMiddleware::class,
         'module' => ModulePermissionMiddleware::class,
+        'customer' => CustomerMiddleware::class,
+
 
     ];
 }
