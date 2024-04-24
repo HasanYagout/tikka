@@ -136,7 +136,7 @@
                                                     data-buttontext="Pay {{(\App\CPU\Convert::usdToinr($amount))*100}} INR"
                                                     data-name="{{\App\Models\BusinessSetting::where(['type'=>'company_name'])->first()->value}}"
                                                     data-description=""
-                                                    data-image="{{asset('storage/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)}}"
+                                                    data-image="{{asset('storage/app/public/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)}}"
                                                     data-prefill.name="{{auth('customer')->user()->f_name}}"
                                                     data-prefill.email="{{auth('customer')->user()->email}}"
                                                     data-theme.color="#ff7529">
@@ -260,7 +260,7 @@
                                                     @csrf
                                                     <label>
                                                         <button type="submit" class="payment-method border-0 d-flex align-iems-center gap-3">
-                                                            <img width="100" src="{{ theme_asset('public/img/payment/fluterwave.png') }}" class="dark-support" alt="">
+                                                            <img width="100" src="{{ theme_asset('assets/img/payment/fluterwave.png') }}" class="dark-support" alt="">
                                                         </button>
                                                     </label>
                                                 </form>

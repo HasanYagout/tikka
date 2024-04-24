@@ -5,22 +5,22 @@
 
 @push('css_or_js')
     @if($shop['id'] != 0)
-        <meta property="og:image" content="{{asset('storage/shop')}}/{{$shop->image}}"/>
+        <meta property="og:image" content="{{asset('storage/app/public/shop')}}/{{$shop->image}}"/>
         <meta property="og:title" content="{{ $shop->name}} "/>
         <meta property="og:url" content="{{route('shopView',[$shop['id']])}}">
     @else
-        <meta property="og:image" content="{{asset('storage/company')}}/{{$web_config['fav_icon']->value}}"/>
+        <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
         <meta property="og:title" content="{{ $shop['name']}} "/>
         <meta property="og:url" content="{{route('shopView',[$shop['id']])}}">
     @endif
     <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
     @if($shop['id'] != 0)
-        <meta property="twitter:card" content="{{asset('storage/shop')}}/{{$shop->image}}"/>
+        <meta property="twitter:card" content="{{asset('storage/app/public/shop')}}/{{$shop->image}}"/>
         <meta property="twitter:title" content="{{route('shopView',[$shop['id']])}}"/>
         <meta property="twitter:url" content="{{route('shopView',[$shop['id']])}}">
     @else
         <meta property="twitter:card"
-              content="{{asset('storage/company')}}/{{$web_config['fav_icon']->value}}"/>
+              content="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
         <meta property="twitter:title" content="{{route('shopView',[$shop['id']])}}"/>
         <meta property="twitter:url" content="{{route('shopView',[$shop['id']])}}">
     @endif
@@ -35,13 +35,13 @@
             <div class="rounded ov-hidden mb-3">
                 @if($shop['id'] != 0)
                     <div class="store-banner dark-support bg-badge overflow-hidden" data-bg-img="">
-                        <img class="w-100" src="{{asset('storage/shop/banner')}}/{{$shop->banner}}"
+                        <img class="w-100" src="{{asset('storage/app/public/shop/banner')}}/{{$shop->banner}}"
                         onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'" alt="">
                     </div>
                 @else
                     @php($banner=\App\CPU\Helpers::get_business_settings('shop_banner'))
                         <div class="store-banner dark-support bg-badge overflow-hidden" data-bg-img="">
-                            <img class="w-100" src="{{asset("storage/shop")}}/{{$banner??""}}"
+                            <img class="w-100" src="{{asset("storage/app/public/shop")}}/{{$banner??""}}"
                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'" alt="">
                         </div>
                 @endif
@@ -53,7 +53,7 @@
                             <div class="media gap-3">
                                 <div class="avatar rounded store-avatar">
                                     <div class="position-relative">
-                                        <img src="{{asset('storage/shop')}}/{{$shop->image}}"
+                                        <img src="{{asset('storage/app/public/shop')}}/{{$shop->image}}"
                                         onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'" class="dark-support rounded img-fit" alt="">
 
                                         @if($seller_temporary_close || $inhouse_temporary_close)
@@ -95,7 +95,7 @@
                             <div class="media gap-3">
                                 <div class="avatar rounded store-avatar">
                                     <div class="position-relative">
-                                        <img src="{{asset('storage/company')}}/{{$web_config['fav_icon']->value}}"
+                                        <img src="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"
                                         onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'" class="dark-support rounded img-fit" alt="">
 
                                         @if($seller_temporary_close || $inhouse_temporary_close)
@@ -181,7 +181,7 @@
 
             @if($shop['id'] != 0 && $shop->bottom_banner)
                 <div class="">
-                    <img src="{{asset('storage/shop/banner')}}/{{$shop->bottom_banner}}" class="dark-support rounded img-fit"
+                    <img src="{{asset('storage/app/public/shop/banner')}}/{{$shop->bottom_banner}}" class="dark-support rounded img-fit"
                     onerror="this.src='{{theme_asset('assets/img/image-place-holder-4:1.png')}}'"
                     alt="">
                 </div>
@@ -189,7 +189,7 @@
                 @php($bottom_banner=\App\CPU\Helpers::get_business_settings('bottom_banner'))
                 @if($bottom_banner)
                 <div class="">
-                    <img src="{{asset('storage/shop')}}/{{$bottom_banner ?? ""}}" class="dark-support rounded img-fit"
+                    <img src="{{asset('storage/app/public/shop')}}/{{$bottom_banner ?? ""}}" class="dark-support rounded img-fit"
                          onerror="this.src='{{theme_asset('assets/img/image-place-holder-4:1.png')}}'"
                          alt="">
                 </div>

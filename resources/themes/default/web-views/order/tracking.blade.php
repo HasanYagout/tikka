@@ -3,18 +3,18 @@
 @section('title','Track Order')
 
 @push('css_or_js')
-    <meta property="og:image" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="{{$web_config['name']->value}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
 
-    <meta property="twitter:card" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="twitter:title" content="{{$web_config['name']->value}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
 
     <link rel="stylesheet" media="screen"
-          href="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
+          href="{{asset('public/assets/front-end')}}/vendor/nouislider/distribute/nouislider.min.css"/>
 @endpush
 
 @section('content')
@@ -47,7 +47,7 @@
                                 <a class="d-inline-block mx-auto mr-sm-4 w-10rem"
                                    href="{{route('product',$productDetails->slug)}}">
                                     <img
-                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                         src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$productDetails['thumbnail']}}">
                                 </a>
                                 <div class="media-body pt-2">
@@ -295,5 +295,5 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="{{asset('public/assets/front-end')}}/vendor/nouislider/distribute/nouislider.min.js"></script>
 @endpush

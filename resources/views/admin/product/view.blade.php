@@ -215,7 +215,7 @@
 
                         @if(($product->product_type == 'digital') && ($product->digital_product_type == 'ready_product'))
                             <div>
-                                <a href="{{asset("storage/product/digital-product/$product->digital_file_ready")}}" class="btn btn--primary py-1 mt-3" download>{{\App\CPU\translate('download')}}</a>
+                                <a href="{{asset("public/storage/product/digital-product/$product->digital_file_ready")}}" class="btn btn--primary py-1 mt-3" download>{{\App\CPU\translate('download')}}</a>
                             </div>
                         @endif
 
@@ -252,7 +252,7 @@
                                             <div class="card-body">
                                                 <img class="width-100"
                                                     onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                    src="{{asset("storage/product/$photo")}}" alt="Product image">
+                                                    src="{{asset("public/storage/product/$photo")}}" alt="Product image">
 
                                             </div>
                                         </div>

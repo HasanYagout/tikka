@@ -13,13 +13,13 @@
     <!-- Viewport-->
 
     @if($product['meta_image']!=null)
-        <meta property="og:image" content="{{asset("storage/product/meta")}}/{{$product->meta_image}}"/>
+        <meta property="og:image" content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/product/meta")}}/{{$product->meta_image}}"/>
+              content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
     @else
-        <meta property="og:image" content="{{asset("storage/product/thumbnail")}}/{{$product->thumbnail}}"/>
+        <meta property="og:image" content="{{asset("storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+              content="{{asset("storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
     @endif
 
     @if($product['meta_title']!=null)
@@ -42,7 +42,7 @@
     @endif
     <meta property="twitter:url" content="{{route('product',[$product->slug])}}">
 
-    <link rel="stylesheet" href="{{asset('front-end/css/product-details.css')}}"/>
+    <link rel="stylesheet" href="{{asset('public/assets/front-end/css/product-details.css')}}"/>
     <style>
         .btn-number:hover {
             color: {{$web_config['secondary_color']}};
@@ -144,9 +144,9 @@
                                                     <div class="cz-preview-item d-flex align-items-center justify-content-center {{$key==0?'active':''}}"
                                                          id="image{{$photo->color}}">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
-                                                             onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                             src="{{asset("storage/product/$photo->image_name")}}"
-                                                             data-zoom="{{asset("storage/product/$photo->image_name")}}"
+                                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                             src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                             data-zoom="{{asset("storage/app/public/product/$photo->image_name")}}"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -154,9 +154,9 @@
                                                     <div class="cz-preview-item d-flex align-items-center justify-content-center {{$key==0?'active':''}}"
                                                          id="image{{$key}}">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
-                                                             onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                             src="{{asset("storage/product/$photo->image_name")}}"
-                                                             data-zoom="{{asset("storage/product/$photo->image_name")}}"
+                                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                             src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                             data-zoom="{{asset("storage/app/public/product/$photo->image_name")}}"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -167,9 +167,9 @@
                                                 <div class="cz-preview-item d-flex align-items-center justify-content-center {{$key==0?'active':''}}"
                                                      id="image{{$key}}">
                                                     <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
-                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                         src="{{asset("storage/product/$photo")}}"
-                                                         data-zoom="{{asset("storage/product/$photo")}}"
+                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                         src="{{asset("storage/app/public/product/$photo")}}"
+                                                         data-zoom="{{asset("storage/app/public/product/$photo")}}"
                                                          alt="Product image" width="">
                                                     <div class="cz-image-zoom-pane"></div>
                                                 </div>
@@ -188,8 +188,8 @@
                                                                 <a class="cz-thumblist-item  {{$key==0?'active':''}} d-flex align-items-center justify-content-center"
                                                                    id="preview-img{{$photo->color}}" href="#image{{$photo->color}}">
                                                                     <img
-                                                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                                        src="{{asset("storage/product/$photo->image_name")}}"
+                                                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                                        src="{{asset("storage/app/public/product/$photo->image_name")}}"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -198,8 +198,8 @@
                                                                 <a class="cz-thumblist-item  {{$key==0?'active':''}} d-flex align-items-center justify-content-center"
                                                                    id="preview-img{{$key}}" href="#image{{$key}}">
                                                                     <img
-                                                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                                        src="{{asset("storage/product/$photo->image_name")}}"
+                                                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                                        src="{{asset("storage/app/public/product/$photo->image_name")}}"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -211,8 +211,8 @@
                                                             <a class="cz-thumblist-item  {{$key==0?'active':''}} d-flex align-items-center justify-content-center"
                                                                id="preview-img{{$key}}" href="#image{{$key}}">
                                                                 <img
-                                                                    onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                                                    src="{{asset("storage/product/$photo")}}"
+                                                                    onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                                                    src="{{asset("storage/app/public/product/$photo")}}"
                                                                     alt="Product thumb">
                                                             </a>
                                                         </div>
@@ -645,7 +645,7 @@
                     <div class="product-details-shipping-details">
                         <div class="shipping-details-bottom-border">
                             <div class="px-3 py-3">
-                                <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"  src="{{asset("public/front-end/png/Payment.png")}}"
+                                <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"  src="{{asset("public/assets/front-end/png/Payment.png")}}"
                                         alt="">
                                 <span>{{\App\CPU\translate('Safe Payment')}}</span>
                             </div>
@@ -653,7 +653,7 @@
                         <div  class="shipping-details-bottom-border">
                             <div class="px-3 py-3">
                                 <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"
-                                    src="{{asset("public/front-end/png/money.png")}}"
+                                    src="{{asset("public/assets/front-end/png/money.png")}}"
                                         alt="">
                                 <span>{{ \App\CPU\translate('7 Days Return Policy')}}</span>
                             </div>
@@ -661,7 +661,7 @@
                         <div class="shipping-details-bottom-border">
                         <div class="px-3 py-3">
                                 <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"
-                                    src="{{asset("public/front-end/png/Genuine.png")}}"
+                                    src="{{asset("public/assets/front-end/png/Genuine.png")}}"
                                     alt="">
                                 <span>{{ \App\CPU\translate('100% Authentic Products')}}</span>
                         </div>
@@ -675,8 +675,8 @@
                                     <div class="col-12 position-relative">
                                         <div class="d-flex __seller-author align-items-center">
                                             <div>
-                                                <img class="__img-60 img-circle" src="{{asset('storage/shop')}}/{{$product->seller->shop->image}}"
-                                                    onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                <img class="__img-60 img-circle" src="{{asset('storage/app/public/shop')}}/{{$product->seller->shop->image}}"
+                                                    onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                     alt="">
                                             </div>
                                             <div class="{{Session::get('direction') === "rtl" ? 'mr-2' : 'ml-2'}} w-0 flex-grow">
@@ -709,7 +709,7 @@
 
                                             @if(($product->added_by == 'seller' && ($seller_temporary_close || ($product->seller->shop->vacation_status && $current_date >= $seller_vacation_start_date && $current_date <= $seller_vacation_end_date))))
                                                 <span class="chat-seller-info" style="position: absolute; inset-inline-end: 24px; inset-block-start: -4px" data-toggle="tooltip" title="{{\App\CPU\translate('this_shop_is_temporary_closed_or_on_vacation._You_cannot_add_product_to_cart_from_this_shop_for_now')}}">
-                                                    <img src="{{asset('/front-end/img/info.png')}}" alt="i">
+                                                    <img src="{{asset('/public/assets/front-end/img/info.png')}}" alt="i">
                                                 </span>
                                             @endif
                                         </div>
@@ -780,8 +780,8 @@
                                     <div class="row d-flex ">
                                         <div>
                                             <img class="__inline-32"
-                                                src="{{asset("storage/company")}}/{{$web_config['fav_icon']->value}}"
-                                                onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                src="{{asset("storage/app/public/company")}}/{{$web_config['fav_icon']->value}}"
+                                                onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                 alt="">
                                         </div>
                                         <div class="{{Session::get('direction') === "rtl" ? 'right' : 'ml-3'}}">
@@ -793,7 +793,7 @@
                                         @if($product->added_by == 'admin' && ($inhouse_temporary_close || ($inhouse_vacation_status && $current_date >= $inhouse_vacation_start_date && $current_date <= $inhouse_vacation_end_date)))
                                             <div class="{{Session::get('direction') === "rtl" ? 'right' : 'ml-3'}}">
                                                 <span class="chat-seller-info" data-toggle="tooltip" title="{{\App\CPU\translate('this_shop_is_temporary_closed_or_on_vacation._You_cannot_add_product_to_cart_from_this_shop_for_now')}}">
-                                                    <img src="{{asset('/front-end/img/info.png')}}" alt="i">
+                                                    <img src="{{asset('/public/assets/front-end/img/info.png')}}" alt="i">
                                                 </span>
                                             </div>
                                         @endif

@@ -8,10 +8,10 @@
                 <a class="navbar-brand" href="{{route('admin.dashboard.index')}}" aria-label="">
                     <img class="navbar-brand-logo"
                          onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                         src="{{asset("storage/company/$e_commerce_logo")}}" alt="Logo">
+                         src="{{asset("public/storage/company/$e_commerce_logo")}}" alt="Logo">
                     <img class="navbar-brand-logo-mini"
                          onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                         src="{{asset("storage/company/$e_commerce_logo")}}"
+                         src="{{asset("public/storage/company/$e_commerce_logo")}}"
                          alt="Logo">
                 </a>
                 <!-- End Logo -->

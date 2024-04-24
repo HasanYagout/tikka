@@ -15,7 +15,7 @@
                             <div class="media flex-wrap gap-3">
                                 <div class="avatar avatar-lg rounded-circle">
                                     <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                         src="{{asset('storage/profile')}}/{{\App\CPU\customer_info()->image}}" loading="lazy" class="img-fit rounded-circle dark-support" alt="">
+                                         src="{{asset('storage/app/public/profile')}}/{{\App\CPU\customer_info()->image}}" loading="lazy" class="img-fit rounded-circle dark-support" alt="">
                                 </div>
                                 <div class="media-body">
                                     <div class="d-flex flex-column gap-1">

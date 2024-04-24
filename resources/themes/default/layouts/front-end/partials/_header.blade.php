@@ -93,7 +93,7 @@
                         @foreach(json_decode($language['value'],true) as $data)
                             @if($data['code']==$local)
                                 <img class="{{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}" width="20"
-                                     src="{{asset('public/front-end')}}/img/flags/{{$data['code']}}.png"
+                                     src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
                                      alt="Eng">
                                 {{$data['name']}}
                             @endif
@@ -107,7 +107,7 @@
                                     <a class="dropdown-item pb-1" href="{{route('lang',[$data['code']])}}">
                                         <img class="{{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}"
                                              width="20"
-                                             src="{{asset('public/front-end')}}/img/flags/{{$data['code']}}.png"
+                                             src="{{asset('public/assets/front-end')}}/img/flags/{{$data['code']}}.png"
                                              alt="{{$data['name']}}"/>
                                         <span style="text-transform: capitalize">{{$data['name']}}</span>
                                     </a>
@@ -129,15 +129,15 @@
                 </button>
                 <a class="navbar-brand d-none d-sm-block {{Session::get('direction') === "rtl" ? 'mr-3' : 'mr-3'}} flex-shrink-0 __min-w-7rem" href="{{route('home')}}">
                     <img class="__inline-11"
-                         src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
-                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                         src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
+                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                          alt="{{$web_config['name']->value}}"/>
                 </a>
                 <a class="navbar-brand d-sm-none {{Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'}}"
                    href="{{route('home')}}">
                     <img class="mobile-logo-img __inline-12"
-                         src="{{asset("public/storage/company")."/".$web_config['mob_logo']->value}}"
-{{--                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                         src="{{asset("storage/app/public/company")."/".$web_config['mob_logo']->value}}"
+                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                          alt="{{$web_config['name']->value}}"/>
                 </a>
                 <!-- Search-->
@@ -185,8 +185,8 @@
                                aria-expanded="false">
                                 <div class="navbar-tool-icon-box bg-secondary">
                                     <div class="navbar-tool-icon-box bg-secondary">
-                                        <img  src="{{asset('storage/profile/'.auth('customer')->user()->image)}}"
-{{--                                             onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                                        <img  src="{{asset('storage/app/public/profile/'.auth('customer')->user()->image)}}"
+                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                              class="img-profile rounded-circle __inline-14">
                                     </div>
                                 </div>
@@ -277,7 +277,6 @@
                             @if(request()->is('/'))
                                 <ul class="dropdown-menu __dropdown-menu" style="{{Session::get('direction') === "rtl" ? 'margin-right: 1px!important;text-align: right;' : 'margin-left: 1px!important;text-align: left;'}}padding-bottom: 0px!important;">
                                     @foreach($categories as $key=>$category)
-
                                         @if($key<8)
                                             <li class="dropdown">
                                                 <a class="dropdown-item flex-between"
@@ -285,8 +284,8 @@
                                                    onclick="location.href='{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}'">
                                                     <div class="d-flex">
                                                         <img
-                                                            src="{{asset("storage/category/$category->icon")}}"
-                                                            onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                            src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                            onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                             class="__img-18">
                                                         <span
                                                             class="w-0 flex-grow-1 {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>
@@ -347,15 +346,13 @@
                                 <ul class="dropdown-menu __dropdown-menu-2"
                                     style="right: 0; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
                                     @foreach($categories as $category)
-
                                         <li class="dropdown">
                                             <a class="dropdown-item flex-between <?php if ($category->childes->count() > 0) echo "data-toggle='dropdown"?> "
                                                <?php if ($category->childes->count() > 0) echo "data-toggle='dropdown'"?> href="javascript:"
                                                onclick="location.href='{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}'">
                                                 <div class="d-flex">
-
-                                                    <img src="{{asset("storage/category/$category->icon")}}"
-                                                         onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                    <img src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                          class="__img-18">
                                                     <span
                                                         class="w-0 flex-grow-1 {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>
@@ -429,8 +426,8 @@
 
                                             <a <?php if ($category->childes->count() > 0) echo ""?>
                                             href="{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}">
-                                            <img src="{{asset("storage/category/$category->icon")}}"
-{{--                                                 onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
+                                            <img src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                  class="__img-18">
                                             <span
                                                 class="{{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}}">{{$category['name']}}</span>
@@ -487,21 +484,21 @@
                                data-toggle="dropdown">{{ \App\CPU\translate('brand') }}</a>
                             <ul class="dropdown-menu __dropdown-menu-sizing dropdown-menu-{{Session::get('direction') === "rtl" ? 'right' : 'left'}} scroll-bar"
                                 style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-{{--                                @foreach(\App\CPU\BrandManager::get_active_brands() as $brand)--}}
-{{--                                    <li class="__inline-17">--}}
-{{--                                        <div>--}}
-{{--                                            <a class="dropdown-item"--}}
-{{--                                               href="{{route('products',['id'=> $brand['id'],'data_from'=>'brand','page'=>1])}}">--}}
-{{--                                                {{$brand['name']}}--}}
-{{--                                            </a>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="align-baseline">--}}
-{{--                                            @if($brand['brand_products_count'] > 0 )--}}
-{{--                                                <span class="count-value px-2">( {{ $brand['brand_products_count'] }} )</span>--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
-{{--                                    </li>--}}
-{{--                                @endforeach--}}
+                                @foreach(\App\CPU\BrandManager::get_active_brands() as $brand)
+                                    <li class="__inline-17">
+                                        <div>
+                                            <a class="dropdown-item"
+                                               href="{{route('products',['id'=> $brand['id'],'data_from'=>'brand','page'=>1])}}">
+                                                {{$brand['name']}}
+                                            </a>
+                                        </div>
+                                        <div class="align-baseline">
+                                            @if($brand['brand_products_count'] > 0 )
+                                                <span class="count-value px-2">( {{ $brand['brand_products_count'] }} )</span>
+                                            @endif
+                                        </div>
+                                    </li>
+                                @endforeach
                                 <li class="__inline-17">
                                     <div>
                                         <a class="dropdown-item" href="{{route('brands')}}"
@@ -513,12 +510,12 @@
                             </ul>
                         </li>
                         @endif
-{{--                        @php($discount_product = App\Models\Product::with(['reviews'])->active()->where('discount', '!=', 0)->count())--}}
-{{--                        @if ($discount_product>0)--}}
-{{--                            <li class="nav-item dropdown {{request()->is('/')?'active':''}}">--}}
-{{--                                <a class="nav-link text-capitalize" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">{{ \App\CPU\translate('discounted_products')}}</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
+                        @php($discount_product = App\Models\Product::with(['reviews'])->active()->where('discount', '!=', 0)->count())
+                        @if ($discount_product>0)
+                            <li class="nav-item dropdown {{request()->is('/')?'active':''}}">
+                                <a class="nav-link text-capitalize" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">{{ \App\CPU\translate('discounted_products')}}</a>
+                            </li>
+                        @endif
 
                         @php($business_mode=\App\CPU\Helpers::get_business_settings('business_mode'))
                         @if ($business_mode == 'multi')

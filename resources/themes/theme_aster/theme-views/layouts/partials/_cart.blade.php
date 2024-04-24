@@ -17,7 +17,7 @@
                 <div class="avatar avatar-xxl">
                     <img
                     src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$cartItem['thumbnail']}}"
-{{--                    onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
+                    onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
                      loading="lazy" alt="Product" class="img-fit dark-support rounded img-fluid overflow-hidden" />
                 </div>
                 <div class="media-body">

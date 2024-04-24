@@ -55,7 +55,7 @@
                                 @php( $local = \App\CPU\Helpers::default_lang())
                                 @foreach(json_decode($language['value'],true) as $data)
                                     @if($data['code']==$local)
-                                        <img width="20" src="{{theme_asset('public/img/flags')}}/{{ $data['code'].'.png' }}" class="dark-support" alt="Eng"/>
+                                        <img width="20" src="{{theme_asset('assets/img/flags')}}/{{ $data['code'].'.png' }}" class="dark-support" alt="Eng"/>
                                         {{ ucwords($data['name']) }}
                                     @endif
                                 @endforeach
@@ -65,7 +65,7 @@
                                     @if($data['status']==1)
                                         <li>
                                             <a class="d-flex gap-2 align-items-center" href="{{route('lang',[$data['code']])}}">
-                                                <img width="20" src="{{theme_asset('public/img/flags')}}/{{ $data['code'].'.png' }}" loading="lazy" class="dark-support" alt="{{$data['name']}}"/>
+                                                <img width="20" src="{{theme_asset('assets/img/flags')}}/{{ $data['code'].'.png' }}" loading="lazy" class="dark-support" alt="{{$data['name']}}"/>
                                                 {{ ucwords($data['name']) }}
                                             </a>
                                         </li>
@@ -90,9 +90,9 @@
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <a class="logo" href="{{route('home')}}">
                     <img
-                        src="{{asset("storage/company")."/".$web_config['web_logo']->value}}"
+                        src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
                         class="dark-support svg h-45"
-{{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
                         alt="Logo"
                     />
                 </a>
@@ -147,8 +147,8 @@
                         <a href="{{ $web_config['header_banner']['url'] }}">
                             <img
                                 width="180"
-                                src="{{asset('storage/banner')}}/{{$web_config['header_banner']['photo']}}"
-{{--                                onerror="this.src='{{theme_asset('assets/img/header-banner-placeholder.png')}}'"--}}
+                                src="{{asset('storage/app/public/banner')}}/{{$web_config['header_banner']['photo']}}"
+                                onerror="this.src='{{theme_asset('assets/img/header-banner-placeholder.png')}}'"
                                 loading="lazy"
                                 class="dark-support"
                                 alt=""
@@ -222,31 +222,31 @@
                             <li>
                                 <a href="{{route('home')}}">{{ translate('Home') }}</a>
                             </li>
-{{--                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])--}}
-{{--                            <li>--}}
-{{--                                <a href="javascript:">{{ translate('Offers')}}</a>--}}
-{{--                                <ul class="sub_menu">--}}
-{{--                                    @if($web_config['featured_deals']->count()>0)--}}
-{{--                                    <li><a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a></li>--}}
-{{--                                    @endif--}}
+                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])
+                            <li>
+                                <a href="javascript:">{{ translate('Offers')}}</a>
+                                <ul class="sub_menu">
+                                    @if($web_config['featured_deals']->count()>0)
+                                    <li><a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a></li>
+                                    @endif
 
-{{--                                    @if($web_config['flash_deals'])--}}
-{{--                                    <li><a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a></li>--}}
-{{--                                    @endif--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                            @endif--}}
+                                    @if($web_config['flash_deals'])
+                                    <li><a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a></li>
+                                    @endif
+                                </ul>
+                            </li>
+                            @endif
 
                             @if($web_config['business_mode'] == 'multi')
                             <li>
                                 <a href="javascript:">{{ translate('stores') }}</a>
                                 <!-- Sub Menu -->
                                 <ul class="sub_menu">
-{{--                                    @foreach($web_config['shops'] as $shop)--}}
-{{--                                        <li>--}}
-{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}">{{Str::limit($shop->name, 14)}}</a>--}}
-{{--                                        </li>--}}
-{{--                                    @endforeach--}}
+                                    @foreach($web_config['shops'] as $shop)
+                                        <li>
+                                            <a href="{{route('shopView',['id'=>$shop['id']])}}">{{Str::limit($shop->name, 14)}}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
                             @endif
@@ -368,8 +368,8 @@
                             <a class="logo" href="{{route('home')}}">
                                 <img
                                     width="123"
-                                    src="{{asset("storage/company")."/".$web_config['web_logo']->value}}"
-{{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+                                    src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
+                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
                                     class="dark-support"
                                     alt="Logo"
                                 />
@@ -379,24 +379,24 @@
                             <li class="{{request()->is('/')?'active':''}}">
                                 <a href="{{route('home')}}">{{ translate('Home')}}</a>
                             </li>
-{{--                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])--}}
-{{--                            <li>--}}
-{{--                                <a class="cursor-pointer">{{ translate('Offers')}}</a>--}}
-{{--                                <ul class="sub-menu">--}}
-{{--                                    @if($web_config['featured_deals']->count()>0)--}}
-{{--                                        <li>--}}
-{{--                                            <a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a>--}}
-{{--                                        </li>--}}
-{{--                                    @endif--}}
+                            @if($web_config['featured_deals']->count()>0 || $web_config['flash_deals'])
+                            <li>
+                                <a class="cursor-pointer">{{ translate('Offers')}}</a>
+                                <ul class="sub-menu">
+                                    @if($web_config['featured_deals']->count()>0)
+                                        <li>
+                                            <a href="{{route('products',['data_from'=>'featured_deal'])}}">{{ translate('Featured_Deal') }}</a>
+                                        </li>
+                                    @endif
 
-{{--                                    @if($web_config['flash_deals'])--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a>--}}
-{{--                                    </li>--}}
-{{--                                    @endif--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-{{--                            @endif--}}
+                                    @if($web_config['flash_deals'])
+                                    <li>
+                                        <a href="{{route('flash-deals',[$web_config['flash_deals']?$web_config['flash_deals']['id']:0])}}">{{ translate('Flash_Deal') }}</a>
+                                    </li>
+                                    @endif
+                                </ul>
+                            </li>
+                            @endif
                             @if($web_config['business_mode'] == 'multi')
                             <li>
                                 <a class="cursor-pointer">{{ translate('stores') }}</a>
@@ -405,19 +405,19 @@
                                     style="--bs-dropdown-min-width: max-content"                                >
                                     <div class="d-flex gap-5">
                                         <div class="column-2 row-gap-3">
-{{--                                            @foreach($web_config['shops'] as $shop)--}}
-{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">--}}
-{{--                                                <div class="avatar rounded" style="--size: 2.5rem">--}}
-{{--                                                    <img--}}
-{{--                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
-{{--                                                        src="{{asset("storage/shop")}}/{{ $shop->image }}" loading="lazy"--}}
-{{--                                                        class="img-fit rounded dark-support" alt=""/>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">--}}
-{{--                                                    {{Str::limit($shop->name, 14)}}--}}
-{{--                                                </div>--}}
-{{--                                            </a>--}}
-{{--                                            @endforeach--}}
+                                            @foreach($web_config['shops'] as $shop)
+                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">
+                                                <div class="avatar rounded" style="--size: 2.5rem">
+                                                    <img
+                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
+                                                        src="{{asset("storage/app/public/shop")}}/{{ $shop->image }}" loading="lazy"
+                                                        class="img-fit rounded dark-support" alt=""/>
+                                                </div>
+                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">
+                                                    {{Str::limit($shop->name, 14)}}
+                                                </div>
+                                            </a>
+                                            @endforeach
                                             <div class="d-flex">
                                                 <a href="{{route('sellers')}}" class="fw-bold text-primary d-flex justify-content-center">
                                                     {{ translate('view_all') }}...
@@ -452,8 +452,8 @@
                                                     <div class="avatar rounded-circle"
                                                         style="--size: 1.25rem">
                                                         <img
-{{--                                                            onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
-                                                            src="{{asset("storage/brand")}}/{{ $brand->image }}"
+                                                            onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
+                                                            src="{{asset("storage/app/public/brand")}}/{{ $brand->image }}"
                                                             loading="lazy"
                                                             class="img-fit rounded-circle dark-support"
                                                             alt=""/>
@@ -475,13 +475,13 @@
                                 </div>
                             </li>
                             @endif
-{{--                            @if ($web_config['discount_product']>0)--}}
-{{--                                <li class="">--}}
-{{--                                    <a class="d-flex gap-2 align-items-center discount-product-menu {{request()->is('/')?'active':''}}" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">--}}
-{{--                                        {{ translate('discounted_products') }}--}}
-{{--                                        <i class="bi bi-patch-check-fill text-warning"></i></a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
+                            @if ($web_config['discount_product']>0)
+                                <li class="">
+                                    <a class="d-flex gap-2 align-items-center discount-product-menu {{request()->is('/')?'active':''}}" href="{{route('products',['data_from'=>'discounted','page'=>1])}}">
+                                        {{ translate('discounted_products') }}
+                                        <i class="bi bi-patch-check-fill text-warning"></i></a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                     <!-- End Main Nav -->
@@ -499,8 +499,8 @@
                                     <span class="avatar overflow-hidden header-avatar rounded-circle" style="--size: 1.5rem">
                                       <img
                                           loading="lazy"
-                                          src="{{asset('storage/profile/'.auth('customer')->user()->image)}}"
-{{--                                          onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
+                                          src="{{asset('storage/app/public/profile/'.auth('customer')->user()->image)}}"
+                                          onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
                                           class="img-fit"
                                           alt=""
                                       />

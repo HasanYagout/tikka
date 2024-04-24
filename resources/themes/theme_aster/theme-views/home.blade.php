@@ -2,12 +2,12 @@
 
 @section('title', $web_config['name']->value.' '.translate('Online Shopping').' | '.$web_config['name']->value.' '.translate(' Ecommerce'))
 @push('css_or_js')
-    <meta property="og:image" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="Welcome To {{$web_config['name']->value}} Home"/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
 
-    <meta property="twitter:card" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="twitter:title" content="Welcome To {{$web_config['name']->value}} Home"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
@@ -19,9 +19,9 @@
         @include('theme-views.partials._main-banner')
 
         <!-- Flash Deal -->
-{{--        @if ($web_config['flash_deals'])--}}
-{{--            @include('theme-views.partials._flash-deals')--}}
-{{--        @endif--}}
+        @if ($web_config['flash_deals'])
+            @include('theme-views.partials._flash-deals')
+        @endif
 
         <!-- Find What You Need -->
         @include('theme-views.partials._find-what-you-need')
@@ -32,9 +32,9 @@
         @endif
 
         <!-- Featured Deals -->
-{{--        @if ($web_config['featured_deals']->count()>0)--}}
-{{--            @include('theme-views.partials._featured-deals')--}}
-{{--        @endif--}}
+        @if ($web_config['featured_deals']->count()>0)
+            @include('theme-views.partials._featured-deals')
+        @endif
 
         <!-- Recommended For You -->
         @include('theme-views.partials._recommended-product')
@@ -58,7 +58,7 @@
         <section class="">
             <div class="container">
                 <div class="py-5 rounded position-relative">
-                    <img src="{{asset('storage/banner')}}/{{$main_section_banner ? $main_section_banner['photo'] : ''}}"
+                    <img src="{{asset('storage/app/public/banner')}}/{{$main_section_banner ? $main_section_banner['photo'] : ''}}"
                          onerror="this.src='{{theme_asset('assets/img/main-section-banner-placeholder.png')}}'"
                          alt="" class="rounded position-absolute dark-support img-fit start-0 top-0 index-n1 flipX-in-rtl">
                     <div class="row justify-content-center">

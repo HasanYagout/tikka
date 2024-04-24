@@ -9,10 +9,10 @@
                     @if (isset($shop))
                         <img class="navbar-brand-logo"
 {{--                             onerror="this.src='{{asset('public/back-end/img/160x160/img1.jpg')}}'"--}}
-                             src="{{asset("storage/shop/$shop->image")}}" alt="Logo" height="40">
+                             src="{{asset("public/storage/shop/$shop->image")}}" alt="Logo" height="40">
                         <img class="navbar-brand-logo-mini"
 {{--                             onerror="this.src='{{asset('public/back-end/img/160x160/img1.jpg')}}'"--}}
-                             src="{{asset("storage/shop/$shop->image")}}"
+                             src="{{asset("public/storage/shop/$shop->image")}}"
                              alt="Logo" height="40">
 
                     @else

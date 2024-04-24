@@ -68,46 +68,46 @@ class AppServiceProvider extends ServiceProvider
                     'loyalty_point_status' => Helpers::get_business_settings('loyalty_point_status'),
                 ];
                 if (!Request::is('admin') && !Request::is('admin/*') && !Request::is('seller/*')) {
-//                    $flash_deals = FlashDeal::with(['products.product.reviews', 'products.product' => function ($query) {
-//                        $query->active();
-//                    }])->where(['deal_type' => 'flash_deal', 'status' => 1])
-//                        ->whereDate('start_date', '<=', date('Y-m-d'))
-//                        ->whereDate('end_date', '>=', date('Y-m-d'))
-//                        ->first();
+                    $flash_deals = FlashDeal::with(['products.product.reviews', 'products.product' => function ($query) {
+                        $query->active();
+                    }])->where(['deal_type' => 'flash_deal', 'status' => 1])
+                        ->whereDate('start_date', '<=', date('Y-m-d'))
+                        ->whereDate('end_date', '>=', date('Y-m-d'))
+                        ->first();
 
-//                    $featured_deals = Product::active()
-//                        ->with([
-//                            'seller.shop',
-//                            'flash_deal_product.feature_deal',
-//                            'flash_deal_product.flash_deal' => function ($query) {
-//                                return $query->whereDate('start_date', '<=', date('Y-m-d'))
-//                                    ->whereDate('end_date', '>=', date('Y-m-d'));
-//                            }
-//                        ])
-//                        ->whereHas('flash_deal_product.feature_deal', function ($query) {
-//                            $query->whereDate('start_date', '<=', date('Y-m-d'))
-//                                ->whereDate('end_date', '>=', date('Y-m-d'));
-//                        })
-//                        ->get();
+                    $featured_deals = Product::active()
+                        ->with([
+                            'seller.shop',
+                            'flash_deal_product.feature_deal',
+                            'flash_deal_product.flash_deal' => function ($query) {
+                                return $query->whereDate('start_date', '<=', date('Y-m-d'))
+                                    ->whereDate('end_date', '>=', date('Y-m-d'));
+                            }
+                        ])
+                        ->whereHas('flash_deal_product.feature_deal', function ($query) {
+                            $query->whereDate('start_date', '<=', date('Y-m-d'))
+                                ->whereDate('end_date', '>=', date('Y-m-d'));
+                        })
+                        ->get();
 
-//                    if ($featured_deals) {
-//                        foreach ($featured_deals as $product) {
-//                            $flash_deal_status = 0;
-//                            $flash_deal_end_date = 0;
-//
-//                            foreach ($product->flash_deal_product as $deal) {
-//                                $flash_deal_status = $deal->flash_deal ? 1 : $flash_deal_status;
-//                                $flash_deal_end_date = isset($deal->flash_deal->end_date) ? date('Y-m-d H:i:s', strtotime($deal->flash_deal->end_date)) : $flash_deal_end_date;
-//                            }
-//
-//                            $product['flash_deal_status'] = $flash_deal_status;
-//                            $product['flash_deal_end_date'] = $flash_deal_end_date;
-//                        }
-//                    }
+                    if ($featured_deals) {
+                        foreach ($featured_deals as $product) {
+                            $flash_deal_status = 0;
+                            $flash_deal_end_date = 0;
 
-//                    $shops = Shop::whereHas('seller', function ($query) {
-//                        return $query->approved();
-//                    })->take(9)->get();
+                            foreach ($product->flash_deal_product as $deal) {
+                                $flash_deal_status = $deal->flash_deal ? 1 : $flash_deal_status;
+                                $flash_deal_end_date = isset($deal->flash_deal->end_date) ? date('Y-m-d H:i:s', strtotime($deal->flash_deal->end_date)) : $flash_deal_end_date;
+                            }
+
+                            $product['flash_deal_status'] = $flash_deal_status;
+                            $product['flash_deal_end_date'] = $flash_deal_end_date;
+                        }
+                    }
+
+                    $shops = Shop::whereHas('seller', function ($query) {
+                        return $query->approved();
+                    })->take(9)->get();
 
                     $recaptcha = Helpers::get_business_settings('recaptcha');
                     $socials_login = Helpers::get_business_settings('social_login');
@@ -140,11 +140,11 @@ class AppServiceProvider extends ServiceProvider
                         'refund_policy' => Helpers::get_business_settings('refund-policy'),
                         'return_policy' => Helpers::get_business_settings('return-policy'),
                         'cancellation_policy' => Helpers::get_business_settings('cancellation-policy'),
-//                        'flash_deals' => $flash_deals,
-//                        'featured_deals' => $featured_deals,
-//                        'shops' => $shops,
+                        'flash_deals' => $flash_deals,
+                        'featured_deals' => $featured_deals,
+                        'shops' => $shops,
                         'brand_setting' => Helpers::get_business_settings('product_brand'),
-//                        'discount_product' => Product::with(['reviews'])->active()->where('discount', '!=', 0)->count(),
+                        'discount_product' => Product::with(['reviews'])->active()->where('discount', '!=', 0)->count(),
                         'recaptcha' => $recaptcha,
                         'socials_login' => $socials_login,
                         'social_login_text' => $social_login_text,

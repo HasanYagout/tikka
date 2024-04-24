@@ -20,7 +20,7 @@
                                         <div class="media gap-2 gap-sm-3">
                                             <div class="avatar overflow-hidden rounded store-avatar2">
                                                 <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                                     src="{{ asset('public/storage/delivery-man/'.$order->delivery_man->image)}}" class="dark-support rounded img-fit" alt="">
+                                                     src="{{ asset('storage/app/public/delivery-man/'.$order->delivery_man->image)}}" class="dark-support rounded img-fit" alt="">
                                             </div>
                                             <div class="media-body d-flex flex-column gap-2">
                                                 <h4>{{$order->delivery_man->f_name}}&nbsp{{$order->delivery_man->l_name}}</h4>

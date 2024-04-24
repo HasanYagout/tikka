@@ -549,7 +549,7 @@
                             @if($order->seller_is == 'admin')
                                 <div class="mr-3">
                                     <img class="avatar rounded avatar-70" onerror="this.src='https://6valley.6amtech.com/public/front-end/img/image-place-holder.png'"
-                                         src="{{asset("storage/company/$company_web_logo")}}" alt="">
+                                         src="{{asset("public/storage/company/$company_web_logo")}}" alt="">
                                 </div>
 
                                 <div class="media-body d-flex flex-column gap-2">

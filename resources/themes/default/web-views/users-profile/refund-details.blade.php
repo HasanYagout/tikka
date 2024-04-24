@@ -3,8 +3,8 @@
 @section('title',\App\CPU\translate('Refund Details'))
 
 @push('css_or_js')
-    <link href="{{asset('public/back-end/css/tags-input.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/back-end/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @endpush
@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-6 col-sm-6 col-md-2">
                                     <div>
-                                        <img  class="__w-70px __h-70p" onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                        <img  class="__w-70px __h-70p" onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                         src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$refund->product!=null?$refund->product->thumbnail:''}}"
                                         alt="VR Collection">
                                     </div>
@@ -168,8 +168,8 @@
                             @if ($refund->images !=null)
                                 <div class="gallery">
                                     @foreach (json_decode($refund->images) as $key => $photo)
-                                        <a href="{{asset('storage/refund')}}/{{$photo}}" data-lightbox="mygallery">
-                                            <img src="{{asset('storage/refund')}}/{{$photo}}" alt="">
+                                        <a href="{{asset('storage/app/public/refund')}}/{{$photo}}" data-lightbox="mygallery">
+                                            <img src="{{asset('storage/app/public/refund')}}/{{$photo}}" alt="">
                                         </a>
                                     @endforeach
                             </div>

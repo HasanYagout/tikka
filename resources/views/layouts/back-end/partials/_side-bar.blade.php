@@ -11,7 +11,7 @@
                         <img
 {{--                            onerror="this.src='{{asset('public/back-end/img/900x400/img1.jpg')}}'"--}}
                              class="navbar-brand-logo-mini for-web-logo max-h-30"
-                             src="{{asset("storage/company/$e_commerce_logo")}}" alt="Logo">
+                             src="{{asset("public/storage/company/$e_commerce_logo")}}" alt="Logo">
                     </a>
                     <!-- Navbar Vertical Toggle -->
                     <button type="button"

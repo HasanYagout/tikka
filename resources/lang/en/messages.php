@@ -3648,4 +3648,5 @@
   'Proceed To Checkout' => 'Proceed To Checkout',
   'Proceed' => 'Proceed',
   'Company Vehicle' => 'Company Vehicle',
+  'dasdasdasd' => 'Dasdasdasd',
 );

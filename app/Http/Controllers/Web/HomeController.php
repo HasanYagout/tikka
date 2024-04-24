@@ -66,50 +66,54 @@ class HomeController extends Controller
         //end
 
         //feature products finding based on selling
-        $featured_products = Product::where('review_count','>','0')->active()
+        $featured_products = \App\Models\Product::with(['reviews'])->active()
             ->where('featured', 1)
-            ->orderBy('review_count', 'DESC')
+            ->withCount(['order_details'])->orderBy('order_details_count', 'DESC')
             ->take(12)
             ->get();
 
         //end
 
-//        $latest_products = Product::with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
+        $latest_products = Product::with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
         $categories = Category::with('childes.childes')->where(['position' => 0])->priority()->take(11)->get();
         $brands = Brand::active()->take(15)->get();
         //best sell product
-//        $bestSellProduct = OrderDetail::with('product.reviews')
-//            ->whereHas('product', function ($query) {
-//                $query->active();
-//            })
-//            ->select('product_id', DB::raw('COUNT(product_id) as count'))
-//            ->groupBy('product_id')
-//            ->orderBy("count", 'desc')
-//            ->take(4)
-//            ->get();
-
-        //Top-rated
-        $topRated = Product::where('review_count','>',0)
-            ->orderBy('review_count', 'desc')
-            ->take(6)
+        $bestSellProduct = OrderDetail::with('product.reviews')
+            ->whereHas('product', function ($query) {
+                $query->active();
+            })
+            ->select('product_id', DB::raw('COUNT(product_id) as count'))
+            ->groupBy('product_id')
+            ->orderBy("count", 'desc')
+            ->take(4)
             ->get();
 
-//        if ($bestSellProduct->count() == 0) {
-//            $bestSellProduct = $latest_products;
-//        }
-//
-//        if ($topRated->count() == 0) {
-//            $topRated = $bestSellProduct;
-//        }
+        //Top-rated
+        $topRated = \App\Models\Review::with('product')
+            ->whereHas('product', function ($query) {
+                $query->active();
+            })
+            ->select('product_id', DB::raw('AVG(rating) as count'))
+            ->groupBy('product_id')
+            ->orderBy("count", 'desc')
+            ->take(4)
+            ->get();
+        if ($bestSellProduct->count() == 0) {
+            $bestSellProduct = $latest_products;
+        }
 
-//        $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
+        if ($topRated->count() == 0) {
+            $topRated = $bestSellProduct;
+        }
+
+        $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
         $main_banner = Banner::where('banner_type', 'Main Banner')->where('published', 1)->latest()->get();
         $main_section_banner = \App\Models\Banner::where('banner_type', 'Main Section Banner')->where('published', 1)->orderBy('id', 'desc')->latest()->first();
 
         return view(VIEW_FILE_NAMES['home'],
             compact(
-                 'categories', 'brands','topRated','featured_products',
-                 'top_sellers', 'home_categories', 'brand_setting', 'main_banner', 'main_section_banner'
+                'featured_products', 'topRated', 'bestSellProduct', 'latest_products', 'categories', 'brands',
+                'deal_of_the_day', 'top_sellers', 'home_categories', 'brand_setting', 'main_banner', 'main_section_banner'
             )
         );
     }
@@ -383,66 +387,68 @@ class HomeController extends Controller
         });
 
         // Just for you portion
-        if (auth('customer')->check()) {
-            $orders = $this->order->where(['customer_id' => auth('customer')->id()])->with(['details'])->get();
-
-            if ($orders) {
-                $orders = $orders?->map(function ($order) {
-                    $order_details = $order->details->map(function ($detail) {
-                        $product = json_decode($detail->product_details);
-                        $category = json_decode($product->category_ids)[0]->id;
-                        $detail['category_id'] = $category;
-                        return $detail;
-                    });
-                    $order['id'] = $order_details[0]->id;
-                    $order['category_id'] = $order_details[0]->category_id;
-
-                    return $order;
-                });
-
-                $categories = [];
-                foreach ($orders as $order) {
-                    $categories[] = ($order['category_id']);;
-                }
-                $ids = array_unique($categories);
-
-
-                $just_for_you = $this->product->with([
-                    'wish_list'=>function($query){
-                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                    },
-                    'compare_list'=>function($query){
-                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                    }
-                ])->active()
-                ->where(function ($query) use ($ids) {
-                    foreach ($ids as $id) {
-                        $query->orWhere('category_ids', 'like', "%{$id}%");
-                    }
-                })
-                ->inRandomOrder()
-                ->take(8)
-                ->get();
-            } else {
-                $just_for_you = $this->product->with([
-                    'wish_list'=>function($query){
-                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                    },
-                    'compare_list'=>function($query){
-                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                    }
-                ])->active()->inRandomOrder()->take(8)->get();
-            }
-        } else {
-            $just_for_you = $this->product->with([
-                'wish_list'=>function($query){
-                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                },
-                'compare_list'=>function($query){
-                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                }
-            ])->active()->inRandomOrder()->take(8)->get();
-        }
+//        if (auth('customer')->check()) {
+//            $orders = $this->order->where(['customer_id' => auth('customer')->id()])->with(['details'])->get();
+//
+//            if ($orders) {
+//                $orders = $orders?->map(function ($order) {
+//
+//                    $order_details = $order->details->map(function ($detail) {
+//                        $product = json_decode($detail->product_details);
+//                        $category = json_decode($product->category_ids)[0]->id;
+//                        $detail['category_id'] = $category;
+//                        return $detail;
+//                    });
+//
+//                    $order['id'] = $order_details[0]->id;
+//                    $order['category_id'] = $order_details[0]->category_id;
+//
+//                    return $order;
+//                });
+//
+//                $categories = [];
+//                foreach ($orders as $order) {
+//                    $categories[] = ($order['category_id']);;
+//                }
+//                $ids = array_unique($categories);
+//
+//
+//                $just_for_you = $this->product->with([
+//                    'wish_list'=>function($query){
+//                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+//                    },
+//                    'compare_list'=>function($query){
+//                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+//                    }
+//                ])->active()
+//                ->where(function ($query) use ($ids) {
+//                    foreach ($ids as $id) {
+//                        $query->orWhere('category_ids', 'like', "%{$id}%");
+//                    }
+//                })
+//                ->inRandomOrder()
+//                ->take(8)
+//                ->get();
+//            } else {
+//                $just_for_you = $this->product->with([
+//                    'wish_list'=>function($query){
+//                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+//                    },
+//                    'compare_list'=>function($query){
+//                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+//                    }
+//                ])->active()->inRandomOrder()->take(8)->get();
+//            }
+//        } else {
+//            $just_for_you = $this->product->with([
+//                'wish_list'=>function($query){
+//                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+//                },
+//                'compare_list'=>function($query){
+//                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+//                }
+//            ])->active()->inRandomOrder()->take(8)->get();
+//        }
         // end just for you
 
         $topRated = $this->review->with([
@@ -519,7 +525,7 @@ class HomeController extends Controller
         return view(VIEW_FILE_NAMES['home'],
             compact(
                 'topRated', 'bestSellProduct', 'latest_products', 'featured_products', 'deal_of_the_day', 'top_sellers',
-                'home_categories', 'main_banner', 'footer_banner', 'random_product', 'decimal_point_settings', 'just_for_you', 'more_seller',
+                'home_categories', 'main_banner', 'footer_banner', 'random_product', 'decimal_point_settings', 'more_seller',
                 'final_category', 'category_slider', 'order_again', 'sidebar_banner', 'main_section_banner', 'random_coupon', 'top_side_banner',
                 'featured_deals', 'flash_deals', 'categories'
             )

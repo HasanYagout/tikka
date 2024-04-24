@@ -82,5 +82,5 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/front-end')}}/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="{{asset('public/assets/front-end')}}/vendor/nouislider/distribute/nouislider.min.js"></script>
 @endpush

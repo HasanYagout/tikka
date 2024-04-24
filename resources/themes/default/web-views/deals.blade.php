@@ -3,12 +3,12 @@
 @section('title',\App\CPU\translate('Flash Deal Products'))
 
 @push('css_or_js')
-    <meta property="og:image" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="Deals of {{$web_config['name']->value}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
 
-    <meta property="twitter:card" content="{{asset('storage/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="twitter:title" content="Deals of {{$web_config['name']->value}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
@@ -42,8 +42,8 @@
     <div class="for-banner container">
 
         <img class="d-block for-image"
-{{--             onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"--}}
-             src="{{asset('storage/deal')}}/{{$deal['banner']}}"
+             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+             src="{{asset('storage/app/public/deal')}}/{{$deal['banner']}}"
              alt="Shop Converse">
 
     </div>

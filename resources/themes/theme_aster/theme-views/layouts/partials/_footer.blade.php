@@ -37,8 +37,8 @@
             <div class="row gy-5">
                 <div class="col-lg-4">
                     <div class="widget widget--about text-center text-lg-start absolute-white">
-                        <img class="mb-3" width="180" src="{{asset("storage/company/")}}/{{ $web_config['footer_logo']->value }}"
-{{--                        onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"--}}
+                        <img class="mb-3" width="180" src="{{asset("storage/app/public/company/")}}/{{ $web_config['footer_logo']->value }}"
+                        onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"
                         loading="lazy" alt="">
                         <p>{{ \App\CPU\Helpers::get_business_settings('shop_address')}}</p>
                         <a href="mailto:{{$web_config['email']->value}}">{{$web_config['email']->value}}</a>
@@ -87,9 +87,9 @@
                             <div class="widget widget--nav absolute-white">
                                 <h4 class="widget__title">{{translate('Quick_Links')}}</h4>
                                 <ul class="d-flex flex-column gap-3">
-{{--                                    @if($web_config['flash_deals'])--}}
-{{--                                        <li><a href="{{route('flash-deals',[$web_config['flash_deals']['id']])}}">{{translate('Flash_Deals')}}</a></li>--}}
-{{--                                    @endif--}}
+                                    @if($web_config['flash_deals'])
+                                        <li><a href="{{route('flash-deals',[$web_config['flash_deals']['id']])}}">{{translate('Flash_Deals')}}</a></li>
+                                    @endif
                                     <li><a href="{{route('products',['data_from'=>'featured','page'=>1])}}">{{translate('Featured_Products')}}</a></li>
                                     <li><a href="{{route('sellers')}}">{{translate('Top_Stores')}}</a></li>
                                     <li><a href="{{route('products',['data_from'=>'latest'])}}">{{translate('Latest_Products')}}</a></li>
