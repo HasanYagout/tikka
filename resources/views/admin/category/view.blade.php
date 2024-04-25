@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-10">
-                <img src="{{asset('public/back-end/img/brand-setup.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/brand-setup.png')}}" alt="">
                 {{\App\CPU\translate('Category')}} {{\App\CPU\translate('Setup')}}
             </h2>
         </div>
@@ -85,7 +85,7 @@
                                             <img
                                                 class="upload-img-view"
                                                 id="viewer"
-                                                src="{{asset('public/back-end/img/900x400/img1.jpg')}}"
+                                                src="{{asset('public/assets/back-end/img/900x400/img1.jpg')}}"
                                                 alt="image"/>
                                         </center>
                                     </div>
@@ -194,7 +194,7 @@
                     </div>
                     @if(count($categories)==0)
                         <div class="text-center p-4">
-                            <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                             <p class="mb-0">{{\App\CPU\translate('no_data_found')}}</p>
                         </div>
                     @endif

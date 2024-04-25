@@ -13,7 +13,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/earning_statictics.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/earning_statictics.png')}}" alt="">
                 {{\App\CPU\translate('Collect_Cash')}}
             </h2>
         </div>
@@ -105,7 +105,7 @@
                                 <tr>
                                     <td colspan="4">
                                         <div class="text-center p-4">
-                                            <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                                             <p class="mb-0">{{\App\CPU\translate('No Country Found')}}</p>
                                         </div>
                                     </td>

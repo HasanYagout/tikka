@@ -1,7 +1,7 @@
 <!-- Header -->
 <div class="card-header gap-10">
     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-        <img width="20" src="{{asset('public/back-end/img/shop-info.png')}}" alt="">
+        <img width="20" src="{{asset('public/assets/back-end/img/shop-info.png')}}" alt="">
         {{\App\CPU\translate('top_selling_store')}}
     </h4>
 </div>
@@ -19,14 +19,14 @@
                         <div class="grid-item">
                             <div class="d-flex align-items-center gap-10">
                                 <img class="avatar rounded-circle avatar-sm"
-                                     onerror="this.src='{{asset('public/back-end/img/160x160/img1.jpg')}}'"
+                                     onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
                                      src="{{asset('storage/shop/'.$shop->image??'')}}">
 
                                 <h5 class="shop-name">{{$shop['name']??'Not exist'}}</h5>
                             </div>
                             <div class="d-flex align-items-center gap-2">
                                 <h5 class="shop-sell">{{\App\CPU\Helpers::currency_converter($item['count'])}}</h5>
-                                <img src="{{asset('public/back-end/img/cart.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/cart.png')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
         @else
             <div class="text-center">
                 <p class="text-muted">{{\App\CPU\translate('No_Top_Selling_Products')}}</p>
-                <img class="w-75" src="{{asset('public/back-end/img/no-data.png')}}" alt="">
+                <img class="w-75" src="{{asset('public/assets/back-end/img/no-data.png')}}" alt="">
             </div>
         @endif
     </div>

@@ -10,7 +10,7 @@
             <!-- Page Title -->
             <div class="">
                 <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{asset('public/back-end/img/inhouse-product-list.png')}}" alt="">
+                    <img src="{{asset('public/assets/back-end/img/inhouse-product-list.png')}}" alt="">
                     {{$product['name']}}
                 </h2>
             </div>
@@ -343,7 +343,7 @@
 
             @if(count($reviews)==0)
                 <div class="text-center p-4">
-                    <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                     <p class="mb-0">{{\App\CPU\translate('No data to show')}}</p>
                 </div>
             @endif
@@ -353,7 +353,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/back-end')}}/js/tags-input.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/js/tags-input.min.js"></script>
     <script src="{{ asset('select2/js/select2.min.js')}}"></script>
     <script>
         $('input[name="colors_active"]').on('change', function () {

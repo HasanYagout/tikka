@@ -1,7 +1,7 @@
 @extends('layouts.back-end.app')
 @section('title', $product->name . ' barcode ' . date('Y/m/d'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ asset('public/back-end') }}/css/barcode.css" />
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/css/barcode.css" />
 @endpush
 @section('content')
     <div class="row m-2 show-div pt-3">
@@ -9,7 +9,7 @@
             <!-- Page Title -->
             <div class="mb-3">
                 <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-                    <img src="{{asset('public/back-end/img/inhouse-product-list.png')}}" alt="">
+                    <img src="{{asset('public/assets/back-end/img/inhouse-product-list.png')}}" alt="">
                     {{\App\CPU\translate('generate_barcode')}}
                 </h2>
             </div>

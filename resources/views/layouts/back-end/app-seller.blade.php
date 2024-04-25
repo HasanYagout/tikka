@@ -16,17 +16,17 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('public/back-end') }}/css/vendor.min.css">
-    <link rel="stylesheet" href="{{ asset('public/back-end') }}/css/custom.css">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/css/vendor.min.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/css/custom.css">
 
 
-    <link rel="stylesheet" href="{{ asset('public/back-end') }}/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{ asset('public/back-end') }}/css/theme.minc619.css?v=1.0">
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/style.css">
     @if (Session::get('direction') === 'rtl')
-        <link rel="stylesheet" href="{{ asset('public/back-end') }}/css/menurtl.css">
+        <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/css/menurtl.css">
     @endif
     {{-- light box --}}
     <link rel="stylesheet" href="{{ asset('public/css/lightbox.css') }}">
@@ -41,9 +41,9 @@
         }
     </style> -->
     <script
-        src="{{ asset('public/back-end') }}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js">
+        src="{{ asset('public/assets/back-end') }}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js">
     </script>
-    <link rel="stylesheet" href="{{ asset('public/back-end') }}/css/toastr.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end') }}/css/toastr.css">
 </head>
 
 <body class="footer-offset">
@@ -84,17 +84,17 @@
     <!-- ========== END MAIN CONTENT ========== -->
 
     <!-- ========== END SECONDARY CONTENTS ========== -->
-    <script src="{{ asset('public/back-end') }}/js/custom.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/custom.js"></script>
     <!-- JS Implementing Plugins -->
 
     @stack('script')
 
 
     <!-- JS Front -->
-    <script src="{{ asset('public/back-end') }}/js/vendor.min.js"></script>
-    <script src="{{ asset('public/back-end') }}/js/theme.min.js"></script>
-    <script src="{{ asset('public/back-end') }}/js/sweet_alert.js"></script>
-    <script src="{{ asset('public/back-end') }}/js/toastr.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/vendor.min.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/theme.min.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/sweet_alert.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/toastr.js"></script>
     {!! Toastr::message() !!}
 
     <script>
@@ -253,11 +253,11 @@
     @stack('script_2')
 
 
-    <script src="{{ asset('public/back-end') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/bootstrap.min.js"></script>
     {{-- light box --}}
     <script src="{{ asset('public/js/lightbox.min.js') }}"></script>
     <audio id="myAudio">
-        <source src="{{ asset('public/back-end/sound/notification.mp3') }}" type="audio/mpeg">
+        <source src="{{ asset('public/assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
     </audio>
     <script>
         var audio = document.getElementById("myAudio");
@@ -370,7 +370,7 @@
     <!-- IE Support -->
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(
-            '<script src="{{ asset('public/back-end') }}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+            '<script src="{{ asset('public/assets/back-end') }}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
     </script>
     @stack('script')
 

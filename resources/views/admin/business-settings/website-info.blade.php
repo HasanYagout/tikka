@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/back-end/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/assets/back-end/css/custom.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -13,7 +13,7 @@
         <!-- Page Title -->
         <div class="pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/business-setup.png')}}" alt="">
                 {{\App\CPU\translate('Business_Setup')}}
             </h2>
         </div>
@@ -933,7 +933,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/website-color.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/website-color.png')}}" alt="">
                                 {{\App\CPU\translate('Website_Color')}}
                             </h5>
                         </div>
@@ -988,7 +988,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/header-logo.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/header-logo.png')}}" alt="">
                                 {{\App\CPU\translate('Website Header Logo')}}
                             </h5>
                             <span class="badge badge-soft-info">( 250x60 px )</span>
@@ -1013,7 +1013,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{\App\CPU\translate('Website_Footer_Logo')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{\App\CPU\translate('250x60 px')}})</span>
@@ -1038,7 +1038,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{\App\CPU\translate('Website Favicon')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{\App\CPU\translate('ratio 1:1 ')}})</span>
@@ -1063,7 +1063,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{\App\CPU\translate('Loading Gif')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{\App\CPU\translate('ratio 1:1 ')}}  )</span>
@@ -1088,7 +1088,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{\App\CPU\translate('App_Logo')}}
                             </h5>
                             <span class="badge badge-soft-info">( 100X60 px )</span>
@@ -1118,7 +1118,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/back-end/js/tags-input.min.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/js/tags-input.min.js')}}"></script>
     <script src="{{ asset('public/select2/js/select2.min.js')}}"></script>
     <script>
 

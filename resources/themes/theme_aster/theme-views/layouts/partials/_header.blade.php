@@ -92,7 +92,7 @@
                     <img
                         src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
                         class="dark-support svg h-45"
-                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
+{{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
                         alt="Logo"
                     />
                 </a>
@@ -369,7 +369,7 @@
                                 <img
                                     width="123"
                                     src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
-                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
+{{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
                                     class="dark-support"
                                     alt="Logo"
                                 />

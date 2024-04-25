@@ -12,7 +12,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/business-setup.png')}}" alt="">
                 {{\App\CPU\translate('Business_Setup')}}
             </h2>
         </div>
@@ -45,7 +45,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0 d-flex gap-2 flex-wrap">
-                            <img src="{{asset('public/back-end/img/footer-logo.png')}}" alt="">
+                            <img src="{{asset('public/assets/back-end/img/footer-logo.png')}}" alt="">
                         </h5>
                         <div class="d-inline-flex gap-2">
                             <button class="btn btn-block __inline-70" data-toggle="modal" data-target="#balance-modal">
@@ -61,7 +61,7 @@
                                 <div class="col-md-6">
                                     <center>
                                         <img class="upload-img-view upload-img-view__banner" id="viewerBanner"
-                                             onerror="this.src='{{asset('public/back-end/img/400x400/img2.jpg')}}'"
+                                             onerror="this.src='{{asset('public/assets/back-end/img/400x400/img2.jpg')}}'"
                                              src="{{asset('storage/shop')}}/{{\App\CPU\Helpers::get_business_settings('shop_banner')}}"alt="banner image"/>
                                     </center>
                                     <div class="position-relative mt-4">
@@ -84,7 +84,7 @@
                                     <div class="col-lg-6 form-group">
                                         <center>
                                             <img class="upload-img-view upload-img-view__banner" id="viewerBottomBanner"
-                                                 onerror="this.src='{{asset('public/back-end/img/400x400/img2.jpg')}}'"
+                                                 onerror="this.src='{{asset('public/assets/back-end/img/400x400/img2.jpg')}}'"
                                                  src="{{asset('storage/shop')}}/{{\App\CPU\Helpers::get_business_settings('bottom_banner')}}"alt="banner image"/>
                                         </center>
 

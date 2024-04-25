@@ -15,7 +15,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img width="20" src="{{asset('public/back-end/img/refund_transaction.png')}}" alt="">
+            <img width="20" src="{{asset('public/assets/back-end/img/refund_transaction.png')}}" alt="">
             {{\App\CPU\translate('refund_details')}}
         </h2>
     </div>
@@ -234,7 +234,7 @@
                     </table>
                     @if(count($refund->refund_status)==0)
                         <div class="text-center p-4">
-                            <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                             <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                         </div>
                     @endif

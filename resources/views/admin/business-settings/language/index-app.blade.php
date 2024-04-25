@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/back-end/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/assets/back-end/css/custom.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')

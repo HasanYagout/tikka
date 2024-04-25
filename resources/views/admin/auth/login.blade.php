@@ -15,13 +15,13 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/vendor.min.css">
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/vendor.min.css">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/theme.minc619.css?v=1.0">
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/style.css">
-    <link rel="stylesheet" href="{{asset('public/back-end')}}/css/toastr.css">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/style.css">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end')}}/css/toastr.css">
 </head>
 
 <body>
@@ -162,11 +162,11 @@
 
 
 <!-- JS Implementing Plugins -->
-<script src="{{asset('public/back-end/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
 
 <!-- JS Front -->
-<script src="{{asset('public/back-end/js/theme.min.js')}}"></script>
-<script src="{{asset('public/back-end/js/toastr.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())

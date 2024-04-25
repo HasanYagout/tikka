@@ -3,7 +3,7 @@
 @section('title', \App\CPU\translate('Order Details'))
 
 @push('css_or_js')
-    <link href="{{asset('public/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 
 @section('content')

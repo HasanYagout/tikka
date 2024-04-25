@@ -10,7 +10,7 @@
             <!-- Page Title -->
             <div class="">
                 <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{asset('public/back-end/img/deliveryman.png')}}" width="20" alt="">
+                    <img src="{{asset('public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
                     {{$delivery_man['f_name']. ' '. $delivery_man['l_name']}}
                 </h2>
             </div>
@@ -279,7 +279,7 @@
                             <td colspan="4">
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
-                                         src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg"
+                                         src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
                                          alt="Image Description">
                                     <p class="mb-0">{{\App\CPU\translate('No data to show')}}</p>
                                 </div>

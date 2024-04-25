@@ -1,7 +1,7 @@
 @extends('layouts.back-end.app')
 @section('title', \App\CPU\translate('Flash Deal Update'))
 @push('css_or_js')
-    <link href="{{asset('public/back-end/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/back-end/css/tags-input.min.css')}}" rel="stylesheet">
     <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
@@ -12,7 +12,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-            <img width="20" src="{{asset('public/back-end/img/flash_deal.png')}}" alt="">
+            <img width="20" src="{{asset('public/assets/back-end/img/flash_deal.png')}}" alt="">
             {{\App\CPU\translate('flash_deals_update')}}
         </h2>
     </div>
@@ -112,7 +112,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
