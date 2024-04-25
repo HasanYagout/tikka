@@ -91,12 +91,15 @@
 @push('script')
     <!-- Page level plugins -->
     <script src="{{asset('public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+
     <!-- Page level custom scripts -->
     <script>
         // Call the dataTables jQuery plugin
         $(document).ready(function () {
             $('#dataTable').DataTable({
-                "pageLength": {{\App\CPU\Helpers::pagination_limit()}}
+                "pageLength": {{\App\CPU\Helpers::pagination_limit()}},
+                "searching":true
             });
         });
 

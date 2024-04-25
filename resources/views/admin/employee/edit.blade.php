@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="text-center">
                                         <img class="upload-img-view" id="viewer"
-                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                         src="{{asset('storage/admin')}}/{{$e['image']}}" alt="Employee thumbnail"/>
                                     </div>
                                 </div>

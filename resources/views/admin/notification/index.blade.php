@@ -46,7 +46,7 @@
                                     <div class="form-group">
                                         <center>
                                             <img class="upload-img-view mb-4" id="viewer"
-                                                 onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                  src="{{asset('admin/img/900x400/img1.jpg')}}"
                                                  alt="image"/>
                                         </center>

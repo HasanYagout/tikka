@@ -996,8 +996,8 @@
                         <div class="card-body d-flex flex-column justify-content-around">
                             <center>
                                 <img height="60" id="viewerWL"
-                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset('storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_web_logo'])->pluck('value')[0]}}">
+                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                        src="{{asset('public/storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_web_logo'])->pluck('value')[0]}}">
                             </center>
                             <div class="mt-4 position-relative">
                                 <input type="file" name="company_web_logo" id="customFileUploadWL"
@@ -1021,8 +1021,8 @@
                         <div class="card-body d-flex flex-column justify-content-around">
                             <center>
                                 <img height="60" id="viewerWFL"
-                                    onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                    src="{{asset('storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_footer_logo'])->pluck('value')[0]}}">
+                                    onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                    src="{{asset('public/storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_footer_logo'])->pluck('value')[0]}}">
                             </center>
                             <div class="position-relative mt-4">
                                 <input type="file" name="company_footer_logo" id="customFileUploadWFL"
@@ -1046,8 +1046,8 @@
                         <div class="card-body d-flex flex-column justify-content-around">
                             <center>
                                 <img height="60" id="viewerFI"
-                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset('storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_fav_icon'])->pluck('value')[0]}}">
+                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                        src="{{asset('public/storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_fav_icon'])->pluck('value')[0]}}">
                             </center>
                             <div class="position-relative mt-4">
                                 <input type="file" name="company_fav_icon" id="customFileUploadFI"
@@ -1071,8 +1071,8 @@
                         <div class="card-body d-flex flex-column justify-content-around">
                             <center>
                                 <img height="60" id="viewerLoader"
-                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset('storage/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}">
+                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                        src="{{asset('public/storage/company')}}/{{\App\CPU\Helpers::get_business_settings('loader_gif')}}">
                             </center>
                             <div class="position-relative mt-4">
                                 <input type="file" name="loader_gif" id="customFileUploadLoader"
@@ -1096,8 +1096,8 @@
                         <div class="card-body d-flex flex-column justify-content-around">
                             <center>
                                 <img height="60" id="viewerML"
-                                        onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset('storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_mobile_logo'])->pluck('value')[0]}}">
+                                        onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
+                                        src="{{asset('public/storage/company')}}/{{\App\Models\BusinessSetting::where(['type' => 'company_mobile_logo'])->pluck('value')[0]}}">
                             </center>
                             <div class="mt-4 position-relative">
                                 <input type="file" name="company_mobile_logo" id="customFileUploadML"
@@ -1119,7 +1119,7 @@
 
 @push('script')
     <script src="{{asset('public/assets/back-end/js/tags-input.min.js')}}"></script>
-    <script src="{{ asset('public/select2/js/select2.min.js')}}"></script>
+    <script src="{{ asset('public/assets/select2/js/select2.min.js')}}"></script>
     <script>
 
         $("#customFileUploadShop").change(function () {

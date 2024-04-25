@@ -144,10 +144,10 @@
                                                class="col-form-label">{{\App\CPU\translate('country_code')}}</label>
 
                                         <select class="form-control country-var-select w-100" name="code">
-                                            @foreach(\Illuminate\Support\Facades\File::files(base_path('public/front-end/img/flags')) as $path)
+                                            @foreach(\Illuminate\Support\Facades\File::files(base_path('public/assets/front-end/img/flags')) as $path)
                                                 @if(pathinfo($path)['filename'] !='en')
                                                     <option value="{{ pathinfo($path)['filename'] }}"
-                                                            title="{{ asset('public/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+                                                            title="{{ asset('public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
                                                         {{ strtoupper(pathinfo($path)['filename']) }}
                                                     </option>
                                                 @endif
@@ -205,10 +205,10 @@
                                             <label for="message-text"
                                                    class="col-form-label">{{\App\CPU\translate('country_code')}}</label>
                                             <select class="form-control country-var-select w-100" name="code">
-                                                @foreach(\Illuminate\Support\Facades\File::files(base_path('public/front-end/img/flags')) as $path)
+                                                @foreach(\Illuminate\Support\Facades\File::files(base_path('public/assets/front-end/img/flags')) as $path)
                                                     @if(pathinfo($path)['filename'] !='en' && $data['code']==pathinfo($path)['filename'])
                                                         <option value="{{ pathinfo($path)['filename'] }}"
-                                                                title="{{ asset('public/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+                                                                title="{{ asset('public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
                                                             {{ strtoupper(pathinfo($path)['filename']) }}
                                                         </option>
                                                     @endif

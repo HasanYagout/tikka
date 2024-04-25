@@ -90,7 +90,7 @@
                         <div class="d-flex align-items-center">
                             <img
                                 class="avatar avatar-xxl avatar-4by3 {{Session::get('direction') === "rtl" ? 'ml-4' : 'mr-4'}}"
-                                onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                 src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"
                                 alt="Image Description">
 
@@ -251,7 +251,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <img class="width-100"
-                                                    onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                                    onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                     src="{{asset("public/storage/product/$photo")}}" alt="Product image">
 
                                             </div>
@@ -291,7 +291,7 @@
                                     <div class="avatar avatar-circle">
                                         <img
                                             class="avatar-img"
-                                            onerror="this.src='{{asset('public/front-end/img/image-place-holder.png')}}'"
+                                            onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                             src="{{asset('storage/profile/'.$review->customer->image)}}"
                                             alt="Image Description">
                                     </div>

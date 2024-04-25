@@ -387,68 +387,67 @@ class HomeController extends Controller
         });
 
         // Just for you portion
-//        if (auth('customer')->check()) {
-//            $orders = $this->order->where(['customer_id' => auth('customer')->id()])->with(['details'])->get();
-//
-//            if ($orders) {
-//                $orders = $orders?->map(function ($order) {
-//
-//                    $order_details = $order->details->map(function ($detail) {
-//                        $product = json_decode($detail->product_details);
-//                        $category = json_decode($product->category_ids)[0]->id;
-//                        $detail['category_id'] = $category;
-//                        return $detail;
-//                    });
-//
-//                    $order['id'] = $order_details[0]->id;
-//                    $order['category_id'] = $order_details[0]->category_id;
-//
-//                    return $order;
-//                });
-//
-//                $categories = [];
-//                foreach ($orders as $order) {
-//                    $categories[] = ($order['category_id']);;
-//                }
-//                $ids = array_unique($categories);
-//
-//
-//                $just_for_you = $this->product->with([
-//                    'wish_list'=>function($query){
-//                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-//                    },
-//                    'compare_list'=>function($query){
-//                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-//                    }
-//                ])->active()
-//                ->where(function ($query) use ($ids) {
-//                    foreach ($ids as $id) {
-//                        $query->orWhere('category_ids', 'like', "%{$id}%");
-//                    }
-//                })
-//                ->inRandomOrder()
-//                ->take(8)
-//                ->get();
-//            } else {
-//                $just_for_you = $this->product->with([
-//                    'wish_list'=>function($query){
-//                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-//                    },
-//                    'compare_list'=>function($query){
-//                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-//                    }
-//                ])->active()->inRandomOrder()->take(8)->get();
-//            }
-//        } else {
-//            $just_for_you = $this->product->with([
-//                'wish_list'=>function($query){
-//                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-//                },
-//                'compare_list'=>function($query){
-//                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-//                }
-//            ])->active()->inRandomOrder()->take(8)->get();
-//        }
+        if (auth('customer')->check()) {
+            $orders = $this->order->where(['customer_id' => auth('customer')->id()])->with(['details'])->get();
+
+
+            if ($orders) {
+                $orders = $orders?->map(function ($order) {
+                    $order_details = $order->details->map(function ($detail) {
+                        $product = json_decode($detail->product_details);
+                        $category = json_decode($product->category_ids)[0]->id;
+                        $detail['category_id'] = $category;
+                        return $detail;
+                    });
+                    $order['id'] = $order_details[0]->id;
+                    $order['category_id'] = $order_details[0]->category_id;
+
+                    return $order;
+                });
+
+                $categories = [];
+                foreach ($orders as $order) {
+                    $categories[] = ($order['category_id']);;
+                }
+                $ids = array_unique($categories);
+
+
+                $just_for_you = $this->product->with([
+                    'wish_list'=>function($query){
+                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+                    },
+                    'compare_list'=>function($query){
+                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+                    }
+                ])->active()
+                ->where(function ($query) use ($ids) {
+                    foreach ($ids as $id) {
+                        $query->orWhere('category_ids', 'like', "%{$id}%");
+                    }
+                })
+                ->inRandomOrder()
+                ->take(8)
+                ->get();
+            } else {
+                $just_for_you = $this->product->with([
+                    'wish_list'=>function($query){
+                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+                    },
+                    'compare_list'=>function($query){
+                        return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+                    }
+                ])->active()->inRandomOrder()->take(8)->get();
+            }
+        } else {
+            $just_for_you = $this->product->with([
+                'wish_list'=>function($query){
+                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+                },
+                'compare_list'=>function($query){
+                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+                }
+            ])->active()->inRandomOrder()->take(8)->get();
+        }
         // end just for you
 
         $topRated = $this->review->with([
@@ -525,7 +524,7 @@ class HomeController extends Controller
         return view(VIEW_FILE_NAMES['home'],
             compact(
                 'topRated', 'bestSellProduct', 'latest_products', 'featured_products', 'deal_of_the_day', 'top_sellers',
-                'home_categories', 'main_banner', 'footer_banner', 'random_product', 'decimal_point_settings', 'more_seller',
+                'home_categories', 'main_banner', 'footer_banner', 'random_product', 'decimal_point_settings', 'more_seller','just_for_you',
                 'final_category', 'category_slider', 'order_again', 'sidebar_banner', 'main_section_banner', 'random_coupon', 'top_side_banner',
                 'featured_deals', 'flash_deals', 'categories'
             )

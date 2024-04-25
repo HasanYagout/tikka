@@ -32,7 +32,7 @@
         <div class="col-md-12">
             <div id="loading" style="display: none;">
                 <div class="__inline-19">
-                    <img width="200" src="{{asset('public/front-end/img/loader.gif')}}">
+                    <img width="200" src="{{asset('public/assets/front-end/img/loader.gif')}}">
                 </div>
             </div>
         </div>

@@ -64,34 +64,34 @@
 
                         </div>
                         <div class="auto-col just-for-you gap-3">
-{{--                            @foreach($just_for_you as $key=>$product)--}}
-{{--                            <a href="{{route('product',$product->slug)}}"--}}
-{{--                               class="hover-zoom-in d-flex flex-column gap-2 align-items-center">--}}
-{{--                                <div class="position-relative">--}}
-{{--                                    @if($product->discount > 0)--}}
-{{--                                        <span class="product__discount-badge">---}}
-{{--                                        @if ($product->discount_type == 'percent')--}}
-{{--                                                {{round($product->discount,(!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}%--}}
-{{--                                        @elseif($product->discount_type =='flat')--}}
-{{--                                            {{\App\CPU\Helpers::currency_converter($product->discount)}}--}}
-{{--                                        @endif--}}
-{{--                                    </span>--}}
-{{--                                    @endif--}}
+                            @foreach($just_for_you as $key=>$product)
+                            <a href="{{route('product',$product->slug)}}"
+                               class="hover-zoom-in d-flex flex-column gap-2 align-items-center">
+                                <div class="position-relative">
+                                    @if($product->discount > 0)
+                                        <span class="product__discount-badge">-
+                                        @if ($product->discount_type == 'percent')
+                                                {{round($product->discount,(!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}%
+                                        @elseif($product->discount_type =='flat')
+                                            {{\App\CPU\Helpers::currency_converter($product->discount)}}
+                                        @endif
+                                    </span>
+                                    @endif
 
-{{--                                    <img width="100" src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"--}}
-{{--                                         onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" alt=""--}}
-{{--                                         loading="lazy" class="dark-support rounded">--}}
-{{--                                </div>--}}
-{{--                                <div class="product__price d-flex flex-wrap justify-content-center column-gap-2">--}}
-{{--                                    @if($product->discount > 0)--}}
-{{--                                        <del class="product__old-price">--}}
-{{--                                            {{\App\CPU\Helpers::currency_converter($product->unit_price)}}--}}
-{{--                                        </del>--}}
-{{--                                    @endif--}}
-{{--                                    <ins class="product__new-price">{{\App\CPU\Helpers::currency_converter($product->unit_price-(\App\CPU\Helpers::get_product_discount($product,$product->unit_price)))}}</ins>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                            @endforeach--}}
+                                    <img width="100" src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"
+                                         onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" alt=""
+                                         loading="lazy" class="dark-support rounded">
+                                </div>
+                                <div class="product__price d-flex flex-wrap justify-content-center column-gap-2">
+                                    @if($product->discount > 0)
+                                        <del class="product__old-price">
+                                            {{\App\CPU\Helpers::currency_converter($product->unit_price)}}
+                                        </del>
+                                    @endif
+                                    <ins class="product__new-price">{{\App\CPU\Helpers::currency_converter($product->unit_price-(\App\CPU\Helpers::get_product_discount($product,$product->unit_price)))}}</ins>
+                                </div>
+                            </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
