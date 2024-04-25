@@ -12,7 +12,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/deliveryman.png')}}" width="20" alt="">
+                <img src="{{asset('public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
                 {{\App\CPU\translate('delivery_man')}} <span class="badge badge-soft-dark radius-50 fz-12">{{ $delivery_men->count() }}</span>
             </h2>
         </div>
@@ -75,7 +75,7 @@
                                     <td>
                                         <div class="media align-items-center gap-10">
                                             <img class="rounded-circle avatar avatar-lg"
-                                                 onerror="this.src='{{asset('public/back-end/img/160x160/img1.jpg')}}'"
+                                                 onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
                                                  src="{{asset('storage/delivery-man')}}/{{$dm['image']}}">
                                             <div class="media-body">
                                                 <a title="Earning Statement"
@@ -136,7 +136,7 @@
                                 <tr>
                                     <td colspan="7">
                                         <div class="text-center p-4">
-                                            <img class="mb-3 w-160" src="{{ asset('public/back-end/svg/illustrations/sorry.svg') }}" alt="Image Description">
+                                            <img class="mb-3 w-160" src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="Image Description">
                                             <p class="mb-0">{{\App\CPU\translate('No_delivery_man_found')}}</p>
                                         </div>
                                     </td>

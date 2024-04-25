@@ -7,7 +7,7 @@
         <!-- Page Title -->
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/system-setting.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/system-setting.png')}}" alt="">
                 {{\App\CPU\translate('System_Setup')}}
             </h2>
         </div>
@@ -249,8 +249,8 @@
 
 @push('script')
     <!-- Page level plugins -->
-    <script src="{{asset('public/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('public/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
     <script>

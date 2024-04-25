@@ -11,7 +11,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img src="{{asset('public/back-end/img/subscribers.png')}}" width="20" alt="">
+            <img src="{{asset('public/assets/back-end/img/subscribers.png')}}" width="20" alt="">
             {{\App\CPU\translate('subscriber_list')}}
             <span class="badge badge-soft-dark radius-50 fz-14 ml-1">{{ $subscription_list->total() }}</span>
         </h2>
@@ -74,7 +74,7 @@
 
                 @if(count($subscription_list)==0)
                     <div class="text-center p-4">
-                        <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                         <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                     </div>
                 @endif

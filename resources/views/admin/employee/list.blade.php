@@ -2,7 +2,7 @@
 @section('title', \App\CPU\translate('Employee List'))
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -10,7 +10,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/employee.png')}}" width="20" alt="">
+                <img src="{{asset('public/assets/back-end/img/employee.png')}}" width="20" alt="">
                 {{\App\CPU\translate('employee_list')}}
             </h2>
         </div>

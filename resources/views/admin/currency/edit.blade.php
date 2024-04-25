@@ -22,7 +22,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/coupon_setup.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/coupon_setup.png')}}" alt="">
                 {{\App\CPU\translate('Currency_update')}}
             </h2>
         </div>

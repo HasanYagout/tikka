@@ -57,7 +57,7 @@
                                                 <div class="swiper-slide">
                                                     <a href="{{ $banner['url'] }}" class="h-100">
                                                         <img src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}" loading="lazy"
-                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
+{{--                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
                                                              alt="" class="dark-support rounded">
                                                     </a>
                                                 </div>
@@ -75,7 +75,7 @@
                                 <div class="col-6 d-none d-sm-block">
                                     <a href="{{ $banner['url'] }}" class="ad-hover">
                                         <img src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}" loading="lazy" alt=""
-                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"
+{{--                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
                                              class="dark-support rounded w-100">
                                     </a>
                                 </div>

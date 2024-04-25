@@ -13,7 +13,7 @@
         <!-- Page Title -->
         <div class="pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/business-setup.png')}}" alt="">
                 {{translate('All_Pages_Banner')}}
             </h2>
         </div>
@@ -195,7 +195,7 @@
                     @if(count($page_banners)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
-                                 src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg"
+                                 src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
                                  alt="Image Description">
                             <p class="mb-0">{{ translate('No_data_to_show')}}</p>
                         </div>

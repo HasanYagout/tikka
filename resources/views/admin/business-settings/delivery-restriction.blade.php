@@ -3,7 +3,7 @@
 @section('title', \App\CPU\translate('Delivery_Restriction'))
 
 @push('css_or_js')
-    <link href="{{ asset('public/back-end/css/tags-input.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/back-end/css/tags-input.min.css') }}" rel="stylesheet">
     <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
@@ -19,7 +19,7 @@
         <!-- Page Title -->
         <div class="pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/business-setup.png')}}" alt="">
                 {{\App\CPU\translate('Business_Setup')}}
             </h2>
         </div>
@@ -106,7 +106,7 @@
                                             <tr>
                                                 <td colspan="3">
                                                     <div class="text-center p-4">
-                                                        <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                                                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                                                         <p class="mb-0">{{\App\CPU\translate('No Country Found')}}</p>
                                                     </div>
                                                 </td>
@@ -199,7 +199,7 @@
                                             <tr>
                                                 <td colspan="3">
                                                     <div class="text-center p-4">
-                                                        <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                                                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                                                         <p class="mb-0">{{\App\CPU\translate('No Zip Code Found')}}</p>
                                                     </div>
                                                 </td>
@@ -228,7 +228,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('public/back-end/js/tags-input.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/tags-input.min.js') }}"></script>
     <script>
 
         $(".js-example-responsive").select2({

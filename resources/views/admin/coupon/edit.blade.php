@@ -2,7 +2,7 @@
 @section('title', \App\CPU\translate('Coupon Edit'))
 @push('css_or_js')
     <link href="{{ asset('select2/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/back-end/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/assets/back-end/css/custom.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -10,7 +10,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize">
-            <img src="{{asset('public/back-end/img/coupon_setup.png')}}" class="mb-1 mr-1" alt="">
+            <img src="{{asset('public/assets/back-end/img/coupon_setup.png')}}" class="mb-1 mr-1" alt="">
             {{\App\CPU\translate('coupon_update')}}
         </h2>
     </div>
@@ -167,7 +167,7 @@
         }
 
     </script>
-    <script src="{{asset('public/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{asset('public/back-end/img/earning_report.png')}}" alt="">
+                <img width="20" src="{{asset('public/assets/back-end/img/earning_report.png')}}" alt="">
                 {{\App\CPU\translate('Earning_Reports')}}
             </h2>
         </div>
@@ -59,7 +59,7 @@
          <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
-                    <img src="{{asset('public/back-end/img/cart.svg')}}" alt="">
+                    <img src="{{asset('public/assets/back-end/img/cart.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ \App\CPU\BackEndHelper::set_symbol(\App\CPU\BackEndHelper::usd_to_currency(array_sum($earning_data['total_earning_statistics']))) }}</h4>
                         <h6 class="subtext">{{ \App\CPU\translate('Total Earnings')}}</h6>
@@ -82,14 +82,14 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{asset('public/back-end/img/products.svg')}}" alt="">
+                    <img src="{{asset('public/assets/back-end/img/products.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $earning_data['total_in_house_products'] }}</h4>
                         <h6 class="subtext">{{ \App\CPU\translate('Total In-House Products')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{asset('public/back-end/img/stores.svg')}}" alt="">
+                    <img src="{{asset('public/assets/back-end/img/stores.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $earning_data['total_stores'] }}</h4>
                         <h6 class="subtext">{{ \App\CPU\translate('Total_Shop')}}</h6>
@@ -279,7 +279,7 @@
                         <tr>
                             <td colspan="9">
                                 <div class="text-center p-4">
-                                    <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg"
+                                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg"
                                          alt="Image Description">
                                     <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                                 </div>
@@ -300,14 +300,14 @@
 @push('script_2')
 
 <!-- Chart JS -->
-    <script src="{{ asset('public/back-end') }}/js/chart.js/dist/Chart.min.js"></script>
-    <script src="{{ asset('public/back-end') }}/js/chart.js.extensions/chartjs-extensions.js"></script>
-    <script src="{{ asset('public/back-end') }}/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js">
+    <script src="{{ asset('public/assets/back-end') }}/js/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/chart.js.extensions/chartjs-extensions.js"></script>
+    <script src="{{ asset('public/assets/back-end') }}/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js">
     </script>
 <!-- Chart JS -->
 
     <!-- Apex Charts -->
-    <script src="{{ asset('public/back-end/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/apexcharts.js') }}"></script>
     <!-- Apex Charts -->
 
 

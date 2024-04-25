@@ -10,7 +10,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img width="20" src="{{asset('public/back-end/img/deal_of_the_day.png')}}" alt="">
+            <img width="20" src="{{asset('public/assets/back-end/img/deal_of_the_day.png')}}" alt="">
             {{\App\CPU\translate('Update Deal of The Day')}}
         </h2>
     </div>
@@ -92,7 +92,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
     <script>
         $(".js-example-theme-single").select2({
             theme: "classic"

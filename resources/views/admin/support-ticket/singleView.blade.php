@@ -12,7 +12,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{asset('public/back-end/img/support_ticket.png')}}" alt="">
+                <img width="20" src="{{asset('public/assets/back-end/img/support_ticket.png')}}" alt="">
                 {{\App\CPU\translate('support_ticket')}}
             </h2>
         </div>
@@ -28,7 +28,7 @@
                 ?>
                 <div class="media d-flex gap-3">
                     <img class="rounded-circle avatar" src="{{asset('storage/profile')}}/{{isset($userDetails)?$userDetails['image']:''}}"
-                            onerror="this.src='{{asset('public/back-end/img/160x160/img1.jpg')}}"
+                            onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}"
                             alt="{{isset($userDetails)?$userDetails['name']:'not found'}}"/>
                     <div class="media-body">
                         <h6 class="font-size-md mb-1">{{isset($userDetails)?$userDetails['f_name'].' '.$userDetails['l_name']:'not found'}}</h6>
@@ -93,11 +93,11 @@
 
 @push('script')
     <!-- Page level plugins -->
-    <script src="{{asset('public/back-end')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{asset('public/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{asset('public/back-end')}}/js/demo/datatables-demo.js"></script>
-    <script src="{{asset('public/back-end/js/croppie.js')}}"></script>
+    <script src="{{asset('public/assets/back-end')}}/js/demo/datatables-demo.js"></script>
+    <script src="{{asset('public/assets/back-end/js/croppie.js')}}"></script>
 
 @endpush

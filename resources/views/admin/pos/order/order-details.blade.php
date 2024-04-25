@@ -11,7 +11,7 @@
 
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0">
-                <img src="{{asset('public/back-end/img/all-orders.png')}}" alt="">
+                <img src="{{asset('public/assets/back-end/img/all-orders.png')}}" alt="">
                 {{ \App\CPU\translate('Order_Details') }}
             </h2>
         </div>
@@ -131,7 +131,7 @@
                                             <td>1</td>
                                             <td>
                                                 <div class="media align-items-center gap-10">
-                                                    <img src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$detail->product_all_status['thumbnail']}}" onerror="this.src='{{asset('public/back-end/img/160x160/img2.jpg')}}'" class="avatar avatar-60 rounded" alt="">
+                                                    <img src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$detail->product_all_status['thumbnail']}}" onerror="this.src='{{asset('public/assets/back-end/img/160x160/img2.jpg')}}'" class="avatar avatar-60 rounded" alt="">
                                                     @if($detail->product_all_status->product_type == 'digital')
                                                         <button type="button" class="btn btn-sm btn--primary mt-1" title="File Upload" data-toggle="modal" data-target="#fileUploadModal-{{ $detail->id }}" onclick="modalFocus('fileUploadModal-{{ $detail->id }}')">
                                                             <i class="tio-file-outlined"></i> File
@@ -250,7 +250,7 @@
                     @if($order->customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex align-items-center gap-2">
-                                <img src="{{asset('public/back-end/img/seller-information.png')}}" alt="">
+                                <img src="{{asset('public/assets/back-end/img/seller-information.png')}}" alt="">
                                 {{\App\CPU\translate('Customer_information')}}
                             </h4>
 

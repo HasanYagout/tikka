@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('public/back-end/img/deliveryman.png')}}" width="20" alt="">
+                <img src="{{asset('public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
                 {{\App\CPU\translate('Update_Deliveryman')}}
             </h2>
         </div>
@@ -229,7 +229,7 @@
         });
     </script>
 
-    <script src="{{asset('public/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
     <script type="text/javascript">
         $(function () {
             $("#coba").spartanMultiImagePicker({
@@ -239,7 +239,7 @@
                 groupClassName: 'col-6 col-md-4',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{asset('public/back-end/img/400x400/img2.jpg')}}',
+                    image: '{{asset('public/assets/back-end/img/400x400/img2.jpg')}}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",

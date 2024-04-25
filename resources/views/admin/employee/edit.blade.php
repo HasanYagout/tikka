@@ -1,7 +1,7 @@
 @extends('layouts.back-end.app')
 @section('title', \App\CPU\translate('Employee Edit'))
 @push('css_or_js')
-    <link href="{{asset('public/back-end')}}/css/select2.min.css" rel="stylesheet"/>
+    <link href="{{asset('public/assets/back-end')}}/css/select2.min.css" rel="stylesheet"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -10,7 +10,7 @@
     <!-- Page Title -->
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img src="{{asset('public/back-end/img/add-new-employee.png')}}" alt="">
+            <img src="{{asset('public/assets/back-end/img/add-new-employee.png')}}" alt="">
             {{\App\CPU\translate('Employee_Update')}}
         </h2>
     </div>
@@ -93,7 +93,7 @@
 @endsection
 
 @push('script')
-    <script src="{{asset('public/back-end')}}/js/select2.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/js/select2.min.js"></script>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {

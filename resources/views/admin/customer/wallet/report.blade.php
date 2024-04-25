@@ -11,7 +11,7 @@
         <!-- Page Title -->
         <div class="mb-3 d-flex justify-content-between flex-wrap gap-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{asset('public/back-end/img/admin-wallet.png')}}" alt="">
+                <img width="20" src="{{asset('public/assets/back-end/img/admin-wallet.png')}}" alt="">
                 {{\App\CPU\translate('wallet')}}
             </h2>
             @if($customer_status == 1)
@@ -240,7 +240,7 @@
 
             @if(count($transactions)==0)
                 <div class="text-center p-4">
-                    <img class="mb-3 w-160" src="{{asset('public/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
+                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end')}}/svg/illustrations/sorry.svg" alt="Image Description">
                     <p class="mb-0">{{ \App\CPU\translate('No_data_to_show')}}</p>
                 </div>
             @endif

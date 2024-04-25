@@ -1,7 +1,7 @@
 <!-- Header -->
 <div class="card-header">
     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-        <img src="{{asset('public/back-end/img/most-popular-product.png')}}" alt="">
+        <img src="{{asset('public/assets/back-end/img/most-popular-product.png')}}" alt="">
         {{\App\CPU\translate('most_popular_products')}}
     </h4>
 </div>
@@ -19,7 +19,7 @@
                             <div class="cursor-pointer grid-card" onclick="location.href='{{route('admin.product.view',[$item['product_id']])}}'">
                                 <div class="">
                                     <img class="avatar avatar-bordered border-gold avatar-60 rounded" src="{{asset('storage/product/thumbnail')}}/{{$product['thumbnail']}}"
-                                        onerror="this.src='{{asset('public/back-end/img/160x160/img2.jpg')}}'"
+                                        onerror="this.src='{{asset('public/assets/back-end/img/160x160/img2.jpg')}}'"
                                         alt="{{$product->name}} image">
                                 </div>
                                 <div class="fz-12 title-color text-center">
@@ -43,7 +43,7 @@
     @else
         <div class="text-center">
             <p class="text-muted">{{\App\CPU\translate('No_Top_Selling_Products')}}</p>
-            <img class="w-75" src="{{asset('public/back-end/img/no-data.png')}}" alt="">
+            <img class="w-75" src="{{asset('public/assets/back-end/img/no-data.png')}}" alt="">
         </div>
     @endif
 </div>
