@@ -11,7 +11,7 @@
     </div>
 </div>
 @endif
-@php($categories = \App\Models\Category::with('childes.childes')->where(['position'=> 0])->priority()->take(11)->get())
+@php($categories = \App\Models\Category::with('childes.childes')->priority()->take(11)->get())
 @php($brands = \App\Models\Brand::active()->take(15)->get())
 <!-- Header -->
 <header class="header">
@@ -237,19 +237,19 @@
                             </li>
                             @endif
 
-                            @if($web_config['business_mode'] == 'multi')
-                            <li>
-                                <a href="javascript:">{{ translate('stores') }}</a>
-                                <!-- Sub Menu -->
-                                <ul class="sub_menu">
-                                    @foreach($web_config['shops'] as $shop)
-                                        <li>
-                                            <a href="{{route('shopView',['id'=>$shop['id']])}}">{{Str::limit($shop->name, 14)}}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @endif
+{{--                            @if($web_config['business_mode'] == 'multi')--}}
+{{--                            <li>--}}
+{{--                                <a href="javascript:">{{ translate('stores') }}</a>--}}
+{{--                                <!-- Sub Menu -->--}}
+{{--                                <ul class="sub_menu">--}}
+{{--                                    @foreach($web_config['shops'] as $shop)--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}">{{Str::limit($shop->name, 14)}}</a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                            @endif--}}
 
                             @if($web_config['brand_setting'])
                             <li>
@@ -405,19 +405,19 @@
                                     style="--bs-dropdown-min-width: max-content"                                >
                                     <div class="d-flex gap-5">
                                         <div class="column-2 row-gap-3">
-                                            @foreach($web_config['shops'] as $shop)
-                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">
-                                                <div class="avatar rounded" style="--size: 2.5rem">
-                                                    <img
-                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
-                                                        src="{{asset("storage/app/public/shop")}}/{{ $shop->image }}" loading="lazy"
-                                                        class="img-fit rounded dark-support" alt=""/>
-                                                </div>
-                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">
-                                                    {{Str::limit($shop->name, 14)}}
-                                                </div>
-                                            </a>
-                                            @endforeach
+{{--                                            @foreach($web_config['shops'] as $shop)--}}
+{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">--}}
+{{--                                                <div class="avatar rounded" style="--size: 2.5rem">--}}
+{{--                                                    <img--}}
+{{--                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
+{{--                                                        src="{{asset("storage/app/public/shop")}}/{{ $shop->image }}" loading="lazy"--}}
+{{--                                                        class="img-fit rounded dark-support" alt=""/>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">--}}
+{{--                                                    {{Str::limit($shop->name, 14)}}--}}
+{{--                                                </div>--}}
+{{--                                            </a>--}}
+{{--                                            @endforeach--}}
                                             <div class="d-flex">
                                                 <a href="{{route('sellers')}}" class="fw-bold text-primary d-flex justify-content-center">
                                                     {{ translate('view_all') }}...

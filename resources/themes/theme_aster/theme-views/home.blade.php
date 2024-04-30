@@ -24,12 +24,12 @@
         @endif
 
         <!-- Find What You Need -->
-        @include('theme-views.partials._find-what-you-need')
+{{--        @include('theme-views.partials._find-what-you-need')--}}
 
         <!-- Top Stores -->
-        @if ($web_config['business_mode'] == 'multi' && count($top_sellers) > 0)
-            @include('theme-views.partials._top-stores')
-        @endif
+{{--        @if ($web_config['business_mode'] == 'multi' && count($top_sellers) > 0)--}}
+{{--            @include('theme-views.partials._top-stores')--}}
+{{--        @endif--}}
 
         <!-- Featured Deals -->
         @if ($web_config['featured_deals']->count()>0)

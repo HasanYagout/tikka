@@ -77,33 +77,33 @@
                 <div class="table-responsive hide-scrollbar">
                     <div class="d-flex gap-3 justify-content-between store-list">
                         @php($current_date = date('Y-m-d'))
-                        @foreach($more_seller as $seller)
-                            @php($start_date = date('Y-m-d', strtotime($seller->shop['vacation_start_date'])))
-                            @php($end_date = date('Y-m-d', strtotime($seller->shop['vacation_end_date'])))
-                                <a href="{{route('shopView',['id'=>$seller['id']])}}" class="store-product d-flex flex-column gap-3 align-items-center">
-                                    <div class="position-relative">
-                                        <div class="avatar rounded-circle">
-                                            <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                                src="{{ asset('storage/app/public/shop/'.$seller->shop->image)}}" alt="" loading="lazy"
-                                                class="dark-support img-fit rounded-circle">
-                                        </div>
-                                        @if($seller->shop->vacation_status && ($current_date >= $start_date) && ($current_date <= $end_date))
-                                            <span class="temporary-closed position-absolute rounded-circle">
-                                                <span>{{translate('closed_now')}}</span>
-                                            </span>
-                                        @elseif($seller->shop->temporary_close)
-                                            <span class="temporary-closed position-absolute rounded-circle">
-                                                <span>{{translate('closed_now')}}</span>
-                                            </span>
-                                        @endif
-                                    </div>
+{{--                        @foreach($more_seller as $seller)--}}
+{{--                            @php($start_date = date('Y-m-d', strtotime($seller->shop['vacation_start_date'])))--}}
+{{--                            @php($end_date = date('Y-m-d', strtotime($seller->shop['vacation_end_date'])))--}}
+{{--                                <a href="{{route('shopView',['id'=>$seller['id']])}}" class="store-product d-flex flex-column gap-3 align-items-center">--}}
+{{--                                    <div class="position-relative">--}}
+{{--                                        <div class="avatar rounded-circle">--}}
+{{--                                            <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"--}}
+{{--                                                src="{{ asset('storage/app/public/shop/'.$seller->shop->image)}}" alt="" loading="lazy"--}}
+{{--                                                class="dark-support img-fit rounded-circle">--}}
+{{--                                        </div>--}}
+{{--                                        @if($seller->shop->vacation_status && ($current_date >= $start_date) && ($current_date <= $end_date))--}}
+{{--                                            <span class="temporary-closed position-absolute rounded-circle">--}}
+{{--                                                <span>{{translate('closed_now')}}</span>--}}
+{{--                                            </span>--}}
+{{--                                        @elseif($seller->shop->temporary_close)--}}
+{{--                                            <span class="temporary-closed position-absolute rounded-circle">--}}
+{{--                                                <span>{{translate('closed_now')}}</span>--}}
+{{--                                            </span>--}}
+{{--                                        @endif--}}
+{{--                                    </div>--}}
 
-                                    <div class="d-flex flex-column align-items-center text-center gap-2 w-100">
-                                        <h6 class="text-truncate text-center">{{$seller->shop->name}}</h6>
-                                        <div class="text-muted text-truncate product-count">{{$seller->product_count}} {{translate('products')}}</div>
-                                    </div>
-                                </a>
-                        @endforeach
+{{--                                    <div class="d-flex flex-column align-items-center text-center gap-2 w-100">--}}
+{{--                                        <h6 class="text-truncate text-center">{{$seller->shop->name}}</h6>--}}
+{{--                                        <div class="text-muted text-truncate product-count">{{$seller->product_count}} {{translate('products')}}</div>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                        @endforeach--}}
                     </div>
                 </div>
             </div>

@@ -68,7 +68,7 @@ class AppServiceProvider extends ServiceProvider
                     'loyalty_point_status' => Helpers::get_business_settings('loyalty_point_status'),
                 ];
                 if (!Request::is('admin') && !Request::is('admin/*') && !Request::is('seller/*')) {
-                    $flash_deals = FlashDeal::with(['products.product.reviews', 'products.product' => function ($query) {
+                    $flash_deals = FlashDeal::with(['products.product.ratings', 'products.product' => function ($query) {
                         $query->active();
                     }])->where(['deal_type' => 'flash_deal', 'status' => 1])
                         ->whereDate('start_date', '<=', date('Y-m-d'))
@@ -77,7 +77,7 @@ class AppServiceProvider extends ServiceProvider
 
                     $featured_deals = Product::active()
                         ->with([
-                            'seller.shop',
+//                            'seller.shop',
                             'flash_deal_product.feature_deal',
                             'flash_deal_product.flash_deal' => function ($query) {
                                 return $query->whereDate('start_date', '<=', date('Y-m-d'))
@@ -105,9 +105,9 @@ class AppServiceProvider extends ServiceProvider
                         }
                     }
 
-                    $shops = Shop::whereHas('seller', function ($query) {
-                        return $query->approved();
-                    })->take(9)->get();
+//                    $shops = Shop::whereHas('seller', function ($query) {
+//                        return $query->approved();
+//                    })->take(9)->get();
 
                     $recaptcha = Helpers::get_business_settings('recaptcha');
                     $socials_login = Helpers::get_business_settings('social_login');
@@ -132,7 +132,7 @@ class AppServiceProvider extends ServiceProvider
                         'announcement' => Helpers::get_business_settings('announcement'),
                         'currency_model' => Helpers::get_business_settings('currency_model'),
                         'currencies' => Currency::where('status', 1)->get(),
-                        'main_categories' => Category::with(['childes.childes'])->where('position', 0)->priority()->get(),
+                        'main_categories' => Category::with(['childes.childes'])->priority()->get(),
                         'business_mode' => Helpers::get_business_settings('business_mode'),
                         'social_media' => SocialMedia::where('active_status', 1)->get(),
                         'ios' => Helpers::get_business_settings('download_app_apple_stroe'),
@@ -142,9 +142,9 @@ class AppServiceProvider extends ServiceProvider
                         'cancellation_policy' => Helpers::get_business_settings('cancellation-policy'),
                         'flash_deals' => $flash_deals,
                         'featured_deals' => $featured_deals,
-                        'shops' => $shops,
+//                        'shops' => $shops,
                         'brand_setting' => Helpers::get_business_settings('product_brand'),
-                        'discount_product' => Product::with(['reviews'])->active()->where('discount', '!=', 0)->count(),
+                        'discount_product' => Product::with(['ratings'])->active()->where('discount', '!=', 0)->count(),
                         'recaptcha' => $recaptcha,
                         'socials_login' => $socials_login,
                         'social_login_text' => $social_login_text,

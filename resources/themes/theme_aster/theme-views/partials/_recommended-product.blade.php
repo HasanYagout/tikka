@@ -26,11 +26,11 @@
                         </div>
                         <div class="auto-col mobile-items-2 gap-2 gap-sm-3 recommended-product-grid" style="--minWidth: 12rem;">
                             <!-- Single Product -->
-                            @foreach($featured_products as $product)
-                                @if($product)
-                                    @include('theme-views.partials._product-large-card',['product'=>$product])
-                                @endif
-                            @endforeach
+{{--                            @foreach($featured_products as $product)--}}
+{{--                                @if($product)--}}
+{{--                                    @include('theme-views.partials._product-large-card',['product'=>$product])--}}
+{{--                                @endif--}}
+{{--                            @endforeach--}}
                         </div>
                     </div>
 
