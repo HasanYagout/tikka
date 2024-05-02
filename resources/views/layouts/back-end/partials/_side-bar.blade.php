@@ -546,10 +546,10 @@
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                                 <span class="position-relative">
                                     {{\App\CPU\translate('Support_Ticket')}}
-                                    @if(\App\Models\SupportTicket::where('status','open')->count()>0)
-                                        <span
-                                            class="btn-status btn-xs-status btn-status-danger position-absolute top-0 menu-status"></span>
-                                    @endif
+{{--                                    @if(\App\Models\SupportTicket::where('status','open')->count()>0)--}}
+{{--                                        <span--}}
+{{--                                            class="btn-status btn-xs-status btn-status-danger position-absolute top-0 menu-status"></span>--}}
+{{--                                    @endif--}}
                                 </span>
                             </span>
                             </a>

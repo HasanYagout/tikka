@@ -7,6 +7,7 @@ use App\Models\AdminWallet;
 use App\Models\Brand;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Orders_details;
 use App\Models\OrderTransaction;
 use App\Models\Product;
 use App\Models\SellerWallet;
@@ -24,13 +25,23 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $top_sell = Product::where('order_count','>',0)
-            ->orderBy("order_count", 'desc')
+
+        $top_sell = Orders_details::with(['product'])
+            ->select('product_id', DB::raw('SUM(quantity) as count'))
+            ->has('deliveredOrder')
+            ->groupBy('product_id')
+            ->orderBy("count", 'desc')
             ->take(6)
             ->get();
 
-        $most_rated_products = Product::where('review_count','>',0)
-            ->orderBy('review_count', 'desc')
+        $most_rated_products = Product::rightJoin('rated_products', 'rated_products.product_id', '=', 'products.id')
+            ->groupBy('products.id') // Include 'products.id' in the GROUP BY clause
+            ->select([
+                'products.id as product_id', // Specify the alias for 'products.id'
+                DB::raw('AVG(rated_products.value) as ratings_average'),
+                DB::raw('COUNT(*) as total')
+            ])
+            ->orderBy('total', 'desc')
             ->take(6)
             ->get();
 

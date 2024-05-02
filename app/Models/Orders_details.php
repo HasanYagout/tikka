@@ -14,4 +14,9 @@ class Orders_details extends Model
     {
         return $this->belongsTo(Product::class)->where('status', 1);
     }
+
+    public function deliveredOrder()
+    {
+        return $this->hasOne(OrderStatus::class, 'order_id', 'id')->where('name', 'delivered');
+    }
 }

@@ -369,10 +369,17 @@ class ProductController extends BaseController
     {
         $query_param = [];
         $search = $request['search'];
-        if ($type == 'in_house') {
-            $pro = Product::where(['added_by' => 'admin']);
+//        old code
+//        if ($type == 'in_house') {
+//            $pro = Product::where(['added_by' => 'admin']);
+//        } else {
+//            $pro = Product::where(['added_by' => 'seller'])->where('request_status', $request->status);
+//        }
+
+                if ($type == 'in_house') {
+            $pro = Product::where(['status' => 1]);
         } else {
-            $pro = Product::where(['added_by' => 'seller'])->where('request_status', $request->status);
+//            $pro = Product::where(['added_by' => 'seller'])->where('request_status', $request->status);
         }
 
         if ($request->has('search')) {
@@ -386,6 +393,7 @@ class ProductController extends BaseController
         }
 
         $request_status = $request['status'];
+
         $pro = $pro->orderBy('id', 'DESC')->paginate(Helpers::pagination_limit())->appends(['status' => $request['status']])->appends($query_param);
         return view('admin.product.list', compact('pro', 'search', 'request_status', 'type'));
     }
