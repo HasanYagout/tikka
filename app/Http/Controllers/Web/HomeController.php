@@ -13,9 +13,7 @@ use App\Models\DealOfTheDay;
 use App\Models\FlashDeal;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\Orders_details;
 use App\Models\Product;
-use App\Models\Rated_products;
 use App\Models\Review;
 use App\Models\Seller;
 use Illuminate\Http\Request;
@@ -28,10 +26,10 @@ class HomeController extends Controller
     public function __construct(
         private Product      $product,
         private Order        $order,
-        private Orders_details  $order_details,
+        private OrderDetail  $order_details,
         private Category     $category,
-//        private Seller       $seller,
-        private Rated_products       $review,
+        private Seller       $seller,
+        private Review       $review,
         private DealOfTheDay $deal_of_the_day,
         private Banner       $banner,
     )
@@ -55,11 +53,10 @@ class HomeController extends Controller
     {
         $brand_setting = BusinessSetting::where('type', 'product_brand')->first()->value;
         $home_categories = Category::where('home_status', true)->priority()->get();
-
         $home_categories->map(function ($data) {
             $id = '"' . $data['id'] . '"';
-            $data['products'] = Product::
-                where('category_id', 'like', "%{$id}%")
+            $data['products'] = Product::active()
+                ->where('category_ids', 'like', "%{$id}%")
                 ->inRandomOrder()->take(12)->get();
         });
         //products based on top seller
@@ -68,12 +65,11 @@ class HomeController extends Controller
         //end
 
         //feature products finding based on selling
-        $featured_products = \App\Models\Product::with(['reviews'])->active()
+        $featured_products = Product::with(['reviews'])->active()
             ->where('featured', 1)
             ->withCount(['order_details'])->orderBy('order_details_count', 'DESC')
             ->take(12)
             ->get();
-
         //end
 
         $latest_products = Product::with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
@@ -91,7 +87,7 @@ class HomeController extends Controller
             ->get();
 
         //Top-rated
-        $topRated = \App\Models\Review::with('product')
+        $topRated = Review::with('product')
             ->whereHas('product', function ($query) {
                 $query->active();
             })
@@ -100,6 +96,7 @@ class HomeController extends Controller
             ->orderBy("count", 'desc')
             ->take(4)
             ->get();
+
         if ($bestSellProduct->count() == 0) {
             $bestSellProduct = $latest_products;
         }
@@ -125,6 +122,7 @@ class HomeController extends Controller
         $current_date = date('Y-m-d H:i:s');
 
         $home_categories = $this->category
+            ->where('home_status', true)
             ->priority()->get();
 
         $home_categories->map(function ($data) {
@@ -159,136 +157,133 @@ class HomeController extends Controller
         });
 
         //products based on top seller
-//        $top_sellers = $this->seller->approved()->with(['shop', 'coupon', 'product' => function ($query) {
-//            $query->where('added_by', 'seller')->active();
-//        }])
-//        ->whereHas('product', function ($query) {
-//            $query->where('added_by', 'seller')->active();
-//        })
-//        ->withCount(['product' => function ($query) {
-//            $query->active();
-//        }])
-//        ->withCount(['orders'])->orderBy('orders_count', 'DESC')->take(12)->get();
+        $top_sellers = $this->seller->approved()->with(['shop', 'coupon', 'product' => function ($query) {
+            $query->where('added_by', 'seller')->active();
+        }])
+            ->whereHas('product', function ($query) {
+                $query->where('added_by', 'seller')->active();
+            })
+            ->withCount(['product' => function ($query) {
+                $query->active();
+            }])
+            ->withCount(['orders'])->orderBy('orders_count', 'DESC')->take(12)->get();
 
-//        $top_sellers->map(function ($seller) {
-//            $rating = 0;
-//            $count = 0;
-//            foreach ($seller->product as $item) {
-//                foreach ($item->ratings as $rating) {
-//                    $rating += $rating->rating;
-//                    $count++;
-//                }
-//            }
-//            $avg_rating = $rating / ($count == 0 ? 1 : $count);
-//            $rating_count = $count;
-//            $seller['average_rating'] = $avg_rating;
-//            $seller['rating_count'] = $rating_count;
-//
-//            $product_count = $seller->product->count();
-//            $random_product = Arr::random($seller->product->toArray(), $product_count < 3 ? $product_count : 3);
-//            $seller['product'] = $random_product;
-//            return $seller;
-//        });
+        $top_sellers->map(function ($seller) {
+            $rating = 0;
+            $count = 0;
+            foreach ($seller->product as $item) {
+                foreach ($item->reviews as $review) {
+                    $rating += $review->rating;
+                    $count++;
+                }
+            }
+            $avg_rating = $rating / ($count == 0 ? 1 : $count);
+            $rating_count = $count;
+            $seller['average_rating'] = $avg_rating;
+            $seller['rating_count'] = $rating_count;
+
+            $product_count = $seller->product->count();
+            $random_product = Arr::random($seller->product->toArray(), $product_count < 3 ? $product_count : 3);
+            $seller['product'] = $random_product;
+            return $seller;
+        });
         //end
 
         $flash_deals = FlashDeal::with(['products'=>function($query){
-                $query->with(['product.wish_list'=>function($query){
-                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                }, 'product.compare_list'=>function($query){
-                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                }])->whereHas('product',function($q){
-                    $q->active();
-                });
-            }])
+            $query->with(['product.wish_list'=>function($query){
+                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+            }, 'product.compare_list'=>function($query){
+                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+            }])->whereHas('product',function($q){
+                $q->active();
+            });
+        }])
             ->where(['deal_type'=>'flash_deal', 'status'=>1])
             ->whereDate('start_date','<=',date('Y-m-d'))
             ->whereDate('end_date','>=',date('Y-m-d'))
             ->first();
 
         //find what you need
-//        $find_what_you_need_categories = $this->category
-//            ->with(['childes' => function ($query) {
-//
-//                $query->withCount(['sub_category_product' => function ($query) {
-//                    return $query->active();
-//                }]);
-//            }])
-//            ->withCount(['product' => function ($query) {
-//                return $query->active();
-//            }])
-//            ->get()->toArray();
+        $find_what_you_need_categories = $this->category->where('parent_id', 0)
+            ->with(['childes' => function ($query) {
+                $query->withCount(['sub_category_product' => function ($query) {
+                    return $query->active();
+                }]);
+            }])
+            ->withCount(['product' => function ($query) {
+                return $query->active();
+            }])
+            ->get()->toArray();
 
-//        $get_categories = [];
-//        foreach($find_what_you_need_categories as $category){
-//            $slice = array_slice($category['childes'], 0, 4);
-//            $category['childes'] = $slice;
-//            $get_categories[] = $category;
-//        }
+        $get_categories = [];
+        foreach($find_what_you_need_categories as $category){
+            $slice = array_slice($category['childes'], 0, 4);
+            $category['childes'] = $slice;
+            $get_categories[] = $category;
+        }
 
-//        $final_category = [];
-//        foreach ($get_categories as $category) {
-//            if (count($category['childes']) > 0) {
-//                $final_category[] = $category;
-//            }
-//        }
-//        $category_slider = array_chunk($final_category, 4);
+        $final_category = [];
+        foreach ($get_categories as $category) {
+            if (count($category['childes']) > 0) {
+                $final_category[] = $category;
+            }
+        }
+        $category_slider = array_chunk($final_category, 4);
         // end find  what you need
 
         // more stores
-//        $more_seller = $this->seller->approved()->with(['shop', 'product.reviews'])
-//            ->withCount(['product' => function ($query) {
-//                $query->active();
-//            }])
-//            ->inRandomOrder()
-//            ->take(7)->get();
+        $more_seller = $this->seller->approved()->with(['shop', 'product.reviews'])
+            ->withCount(['product' => function ($query) {
+                $query->active();
+            }])
+            ->inRandomOrder()
+            ->take(7)->get();
         //end more stores
-
         //feature products finding based on selling
+        $featured_products = $this->product->with([
+            'seller.shop',
+            'flash_deal_product.flash_deal',
+            'wish_list'=>function($query){
+                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+            },
+            'compare_list'=>function($query){
+                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+            }
+        ])->active()
+            ->where('featured_status', 1)
+            ->withCount(['order_details'])->orderBy('order_details_count', 'DESC')
+            ->take(10)
+            ->get();
 
-//        $featured_products = $this->product->with([
-////                'seller.shop',
-//                'flash_deal_product.flash_deal',
-//                'wish_list'=>function($query){
-//                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-//                },
-//                'compare_list'=>function($query){
-//                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-//                }
-//            ])->active()
-//            ->where('featured', 1)
-//            ->withCount(['orders_details'])->orderBy('order_details_count', 'DESC')
-//            ->take(10)
-//            ->get();
-
-//        $featured_products?->map(function ($product) use ($current_date) {
-//            $flash_deal_status = 0;
-//            $flash_deal_end_date = 0;
-//            if (count($product->flash_deal_product) > 0) {
-//                $flash_deal = $product->flash_deal_product[0]->flash_deal;
-//                if ($flash_deal) {
-//                    $start_date = date('Y-m-d H:i:s', strtotime($flash_deal->start_date));
-//                    $end_date = date('Y-m-d H:i:s', strtotime($flash_deal->end_date));
-//                    $flash_deal_status = $flash_deal->status == 1 && (($current_date >= $start_date) && ($current_date <= $end_date)) ? 1 : 0;
-//                    $flash_deal_end_date = $flash_deal->end_date;
-//                }
-//            }
-//            $product['flash_deal_status'] = $flash_deal_status;
-//            $product['flash_deal_end_date'] = $flash_deal_end_date;
-//            return $product;
-//        });
+        $featured_products?->map(function ($product) use ($current_date) {
+            $flash_deal_status = 0;
+            $flash_deal_end_date = 0;
+            if (count($product->flash_deal_product) > 0) {
+                $flash_deal = $product->flash_deal_product[0]->flash_deal;
+                if ($flash_deal) {
+                    $start_date = date('Y-m-d H:i:s', strtotime($flash_deal->start_date));
+                    $end_date = date('Y-m-d H:i:s', strtotime($flash_deal->end_date));
+                    $flash_deal_status = $flash_deal->status == 1 && (($current_date >= $start_date) && ($current_date <= $end_date)) ? 1 : 0;
+                    $flash_deal_end_date = $flash_deal->end_date;
+                }
+            }
+            $product['flash_deal_status'] = $flash_deal_status;
+            $product['flash_deal_end_date'] = $flash_deal_end_date;
+            return $product;
+        });
         //end
 
         //latest product
         $latest_products = $this->product->with([
-                'seller.shop',
-                'flash_deal_product.flash_deal',
-                'wish_list'=>function($query){
-                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                },
-                'compare_list'=>function($query){
-                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                }
-            ])
+            'seller.shop',
+            'flash_deal_product.flash_deal',
+            'wish_list'=>function($query){
+                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+            },
+            'compare_list'=>function($query){
+                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+            }
+        ])
             ->active()->orderBy('id', 'desc')
             ->take(10)
             ->get();
@@ -350,16 +345,16 @@ class HomeController extends Controller
 
         //best sell product
         $bestSellProduct = $this->order_details->with([
-                'product.reviews',
-                'product.flash_deal_product.flash_deal',
-                'product.seller.shop',
-                'product.wish_list'=>function($query){
-                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                },
-                'product.compare_list'=>function($query){
-                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                }
-            ])
+            'product.reviews',
+            'product.flash_deal_product.flash_deal',
+            'product.seller.shop',
+            'product.wish_list'=>function($query){
+                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+            },
+            'product.compare_list'=>function($query){
+                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+            }
+        ])
             ->whereHas('product', function ($query) {
                 $query->active();
             })
@@ -393,7 +388,6 @@ class HomeController extends Controller
         if (auth('customer')->check()) {
             $orders = $this->order->where(['customer_id' => auth('customer')->id()])->with(['details'])->get();
 
-
             if ($orders) {
                 $orders = $orders?->map(function ($order) {
                     $order_details = $order->details->map(function ($detail) {
@@ -423,14 +417,14 @@ class HomeController extends Controller
                         return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                     }
                 ])->active()
-                ->where(function ($query) use ($ids) {
-                    foreach ($ids as $id) {
-                        $query->orWhere('category_ids', 'like', "%{$id}%");
-                    }
-                })
-                ->inRandomOrder()
-                ->take(8)
-                ->get();
+                    ->where(function ($query) use ($ids) {
+                        foreach ($ids as $id) {
+                            $query->orWhere('category_ids', 'like', "%{$id}%");
+                        }
+                    })
+                    ->inRandomOrder()
+                    ->take(8)
+                    ->get();
             } else {
                 $just_for_you = $this->product->with([
                     'wish_list'=>function($query){
@@ -454,18 +448,18 @@ class HomeController extends Controller
         // end just for you
 
         $topRated = $this->review->with([
-                'product.seller.shop',
-                'product.wish_list'=>function($query){
-                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                },
-                'product.compare_list'=>function($query){
-                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                }
-            ])
+            'product.seller.shop',
+            'product.wish_list'=>function($query){
+                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+            },
+            'product.compare_list'=>function($query){
+                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+            }
+        ])
             ->whereHas('product', function ($query) {
                 $query->active();
             })
-            ->select('product_id', DB::raw('AVG(value) as count'))
+            ->select('product_id', DB::raw('AVG(rating) as count'))
             ->groupBy('product_id')
             ->orderBy("count", 'desc')
             ->take(10)
@@ -478,7 +472,8 @@ class HomeController extends Controller
         if ($topRated->count() == 0) {
             $topRated = $bestSellProduct;
         }
-        $deal_of_the_day = $this->deal_of_the_day->join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
+
+        $deal_of_the_day = $this->deal_of_the_day->join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
         $random_product = $this->product->active()->inRandomOrder()->first();
 
         $banner_list = ['Main Banner', 'Footer Banner', 'Sidebar Banner', 'Main Section Banner', 'Top Side Banner'];
@@ -510,24 +505,24 @@ class HomeController extends Controller
         $decimal_point = Helpers::get_business_settings('decimal_point_settings');
         $decimal_point_settings = !empty($decimal_point) ? $decimal_point : 0;
         $user = Helpers::get_customer();
-        $categories = Category::with('childes.childes')->priority()->take(11)->get();
+        $categories = Category::with('childes.childes')->where(['position' => 0])->priority()->take(11)->get();
 
         //order again
         $order_again = $user != 'offline' ?
             $this->order->with('details.product')->where(['order_status' => 'delivered', 'customer_id' => $user->id])->latest()->take(8)->get()
             : [];
 
-//        $random_coupon = Coupon::with('seller')
-//            ->where(['status' => 1])
-//            ->whereDate('start_date', '<=', date('Y-m-d'))
-//            ->whereDate('expire_date', '>=', date('Y-m-d'))
-//            ->inRandomOrder()->take(3)->get();
+        $random_coupon = Coupon::with('seller')
+            ->where(['status' => 1])
+            ->whereDate('start_date', '<=', date('Y-m-d'))
+            ->whereDate('expire_date', '>=', date('Y-m-d'))
+            ->inRandomOrder()->take(3)->get();
 
         return view(VIEW_FILE_NAMES['home'],
             compact(
-                'topRated', 'bestSellProduct', 'latest_products',  'deal_of_the_day',
-                'home_categories', 'main_banner', 'footer_banner', 'random_product', 'decimal_point_settings', 'just_for_you',
-                 'order_again', 'sidebar_banner', 'main_section_banner', 'top_side_banner',
+                'topRated', 'bestSellProduct', 'latest_products', 'featured_products', 'deal_of_the_day', 'top_sellers',
+                'home_categories', 'main_banner', 'footer_banner', 'random_product', 'decimal_point_settings', 'just_for_you', 'more_seller',
+                'final_category', 'category_slider', 'order_again', 'sidebar_banner', 'main_section_banner', 'random_coupon', 'top_side_banner',
                 'featured_deals', 'flash_deals', 'categories'
             )
         );
@@ -584,39 +579,39 @@ class HomeController extends Controller
             ->latest()
             ->take(7)->get();
 
-            $more_seller = $more_seller->map(function ($seller) {
-                $review_count = 0;
-                $rating = [];
-                foreach ($seller->product as $product) {
-                    $review_count += $product->reviews_count;
-                    foreach ($product->reviews as $reviews) {
-                        $rating[] = $reviews['rating'];
-                    }
+        $more_seller = $more_seller->map(function ($seller) {
+            $review_count = 0;
+            $rating = [];
+            foreach ($seller->product as $product) {
+                $review_count += $product->reviews_count;
+                foreach ($product->reviews as $reviews) {
+                    $rating[] = $reviews['rating'];
                 }
-                $seller['reviews_count'] = $review_count;
-                $seller['rating'] = collect($rating)->average() ?? 0;
-                return $seller;
-            });
+            }
+            $seller['reviews_count'] = $review_count;
+            $seller['rating'] = collect($rating)->average() ?? 0;
+            return $seller;
+        });
 
-            $new_seller = $new_seller->map(function ($seller) {
-                $review_count = 0;
-                $rating = [];
-                foreach ($seller->product as $product) {
-                    $review_count += $product->reviews_count;
-                    foreach ($product->reviews as $reviews) {
-                        $rating[] = $reviews['rating'];
-                    }
+        $new_seller = $new_seller->map(function ($seller) {
+            $review_count = 0;
+            $rating = [];
+            foreach ($seller->product as $product) {
+                $review_count += $product->reviews_count;
+                foreach ($product->reviews as $reviews) {
+                    $rating[] = $reviews['rating'];
                 }
-                $seller['reviews_count'] = $review_count;
-                $seller['rating'] = collect($rating)->average() ?? 0;
-                return $seller;
-            });
+            }
+            $seller['reviews_count'] = $review_count;
+            $seller['rating'] = collect($rating)->average() ?? 0;
+            return $seller;
+        });
         //end more stores
 
         //latest product
         $latest_products = $this->product->with(['reviews', 'flash_deal_product.flash_deal','wish_list'=>function($query){
-                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-            }])
+            return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+        }])
             ->active()->orderBy('id', 'desc')
             ->take(15)
             ->get();
@@ -640,8 +635,8 @@ class HomeController extends Controller
 
         //best sell product
         $bestSellProduct = $this->order_details->with(['product.reviews', 'product.flash_deal_product.flash_deal','product.wish_list'=>function($query){
-                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-            }])
+            return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+        }])
             ->whereHas('product', function ($query) {
                 $query->active();
             })
@@ -670,26 +665,26 @@ class HomeController extends Controller
         //end best sell product
 
         $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
-        $random_product = \App\Models\Product::active()->inRandomOrder()->first();
+        $random_product = \App\Model\Product::active()->inRandomOrder()->first();
 
         $main_banner = Banner::where('banner_type', 'Main Banner')->where('published', 1)->latest()->get();
 
         $footer_banner = Banner::where('banner_type', 'Footer Banner')->where('published', 1)->latest()->take(2)->get();
         $sidebar_banner = Banner::where('banner_type', 'Sidebar Banner')->where('published', 1)->latest()->first();
-        $main_section_banner = \App\Models\Banner::where('banner_type', 'Main Section Banner')->where('published', 1)->orderBy('id', 'desc')->latest()->first();
-        $top_side_banner = \App\Models\Banner::where('banner_type', 'Top Side Banner')->where('published', 1)->orderBy('id', 'desc')->latest()->first();
+        $main_section_banner = \App\Model\Banner::where('banner_type', 'Main Section Banner')->where('published', 1)->orderBy('id', 'desc')->latest()->first();
+        $top_side_banner = \App\Model\Banner::where('banner_type', 'Top Side Banner')->where('published', 1)->orderBy('id', 'desc')->latest()->first();
 
         $decimal_point_settings = !empty(\App\CPU\Helpers::get_business_settings('decimal_point_settings')) ? \App\CPU\Helpers::get_business_settings('decimal_point_settings') : 0;
         $user = Helpers::get_customer();
 
         // theme fashion -- Shop Again From Your Recent Store
         $recent_order_shops = $user != 'offline' ?
-                $this->product->with('seller.orders', 'seller.shop')
-                    ->whereHas('seller.orders', function ($query) {
-                        $query->where(['customer_id' => auth('customer')->id(), 'seller_is' => 'seller']);
-                    })->active()
-                    ->inRandomOrder()->take(12)->get()
-                : [];
+            $this->product->with('seller.orders', 'seller.shop')
+                ->whereHas('seller.orders', function ($query) {
+                    $query->where(['customer_id' => auth('customer')->id(), 'seller_is' => 'seller']);
+                })->active()
+                ->inRandomOrder()->take(12)->get()
+            : [];
         //end theme fashion -- Shop Again From Your Recent Store
 
         $most_searching_product = Product::with(['wish_list'=>function($query){
@@ -699,14 +694,14 @@ class HomeController extends Controller
         $category_ids = $most_searching_product->pluck('category_id')->unique();
 
         $categories = Category::withCount(['product'=>function($qc1){
-                                $qc1->where(['status'=>'1']);
-                            }])->with(['childes' => function ($qc2) {
-                                $qc2->with(['childes' => function ($qc3) {
-                                    $qc3->withCount(['sub_sub_category_product'])->where('position', 2);
-                                }])->withCount(['sub_category_product'])->where('position', 1);
-                            }, 'childes.childes'])
-                            ->where('position', 0)
-                            ->get();
+            $qc1->where(['status'=>'1']);
+        }])->with(['childes' => function ($qc2) {
+            $qc2->with(['childes' => function ($qc3) {
+                $qc3->withCount(['sub_sub_category_product'])->where('position', 2);
+            }])->withCount(['sub_category_product'])->where('position', 1);
+        }, 'childes.childes'])
+            ->where('position', 0)
+            ->get();
 
         $product_list_category = \App\CPU\CategoryManager::get_categories_with_counting();
         $colors_in_shop = \App\CPU\ProductManager::get_colors_form_products();
@@ -721,12 +716,12 @@ class HomeController extends Controller
         ];
 
         $most_demanded_product = OrderDetail::select('product_id', DB::raw('COUNT(*) as count'))
-                                            ->with(['product'=>function($query){
-                                                $query->withCount('wish_list','order_details','order_delivered');
-                                            }])
-                                            ->whereYear('created_at', '=', date('Y'))
-                                            ->groupBy('product_id')->orderBy('count', 'desc')
-                                            ->first();
+            ->with(['product'=>function($query){
+                $query->withCount('wish_list','order_details','order_delivered');
+            }])
+            ->whereYear('created_at', '=', date('Y'))
+            ->groupBy('product_id')->orderBy('count', 'desc')
+            ->first();
 
         $most_demanded_product = isset($most_demanded_product)? $most_demanded_product->product : $most_demanded_product;
 
@@ -756,10 +751,10 @@ class HomeController extends Controller
         $brands = Brand::active()->take(15)->get();
         //best sell product
         $bestSellProduct = OrderDetail::with(['product.category','product.wish_list'=>function($query){
-                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-            }, 'product.compare_list'=>function($query){
-                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-            }, 'product.reviews'])
+            return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+        }, 'product.compare_list'=>function($query){
+            return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+        }, 'product.reviews'])
             ->whereHas('product', function ($query) {
                 $query->active();
             })
@@ -777,15 +772,15 @@ class HomeController extends Controller
             'flash_deal_product.flash_deal' => function($query){
                 return $query->whereDate('start_date', '<=', date('Y-m-d'))
                     ->whereDate('end_date', '>=', date('Y-m-d'));
-                }, 'wish_list'=>function($query){
-                    return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
-                }, 'compare_list'=>function($query){
-                    return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
-                }
-                ])->whereHas('flash_deal_product.feature_deal', function($query){
-                    $query->whereDate('start_date', '<=', date('Y-m-d'))
-                        ->whereDate('end_date', '>=', date('Y-m-d'));
-                })->get();
+            }, 'wish_list'=>function($query){
+                return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+            }, 'compare_list'=>function($query){
+                return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+            }
+        ])->whereHas('flash_deal_product.feature_deal', function($query){
+            $query->whereDate('start_date', '<=', date('Y-m-d'))
+                ->whereDate('end_date', '>=', date('Y-m-d'));
+        })->get();
         //featured deal product end
 
         // Just for you portion
@@ -856,7 +851,7 @@ class HomeController extends Controller
 
 
         return view(VIEW_FILE_NAMES['home'], compact('main_banner', 'footer_banner', 'categories', 'bestSellProduct', 'featured_deals',
-                                                    'just_for_you', 'latest_products_count', 'latest_products'));
+            'just_for_you', 'latest_products_count', 'latest_products'));
     }
 
 

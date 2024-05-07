@@ -345,24 +345,30 @@ class Helpers
 
     public static function get_price_range($product)
     {
-        $lowest_price = $product->unit_price;
-        $highest_price = $product->unit_price;
+        try {
+            $lowest_price = $product->unit_price;
+            $highest_price = $product->unit_price;
 
-        foreach (json_decode($product->variation) as $key => $variation) {
-            if ($lowest_price > $variation->price) {
-                $lowest_price = round($variation->price, 2);
+            foreach (json_decode($product->variation) as $key => $variation) {
+                if ($lowest_price > $variation->price) {
+                    $lowest_price = round($variation->price, 2);
+                }
+                if ($highest_price < $variation->price) {
+                    $highest_price = round($variation->price, 2);
+                }
             }
-            if ($highest_price < $variation->price) {
-                $highest_price = round($variation->price, 2);
+
+            $lowest_price = Helpers::currency_converter($lowest_price - Helpers::get_product_discount($product, $lowest_price));
+            $highest_price = Helpers::currency_converter($highest_price - Helpers::get_product_discount($product, $highest_price));
+
+            if ($lowest_price == $highest_price) {
+                return $lowest_price;
             }
         }
-
-        $lowest_price = Helpers::currency_converter($lowest_price - Helpers::get_product_discount($product, $lowest_price));
-        $highest_price = Helpers::currency_converter($highest_price - Helpers::get_product_discount($product, $highest_price));
-
-        if ($lowest_price == $highest_price) {
-            return $lowest_price;
+        catch (\Exception $e){
+            dd($e,json_decode($product->variation));
         }
+
         return $lowest_price . ' - ' . $highest_price;
     }
 

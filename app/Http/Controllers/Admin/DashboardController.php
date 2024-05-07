@@ -7,15 +7,13 @@ use App\Models\AdminWallet;
 use App\Models\Brand;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\Orders_details;
 use App\Models\OrderTransaction;
 use App\Models\Product;
 use App\Models\SellerWallet;
 use App\Models\SellerWalletHistory;
 use App\Models\Shop;
-use App\Models\User;
 use App\Models\WithdrawRequest;
-
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,35 +23,34 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-
-        $top_sell = Orders_details::with(['product'])
-            ->select('product_id', DB::raw('SUM(quantity) as count'))
-            ->has('deliveredOrder')
+        $top_sell = OrderDetail::with(['product'])
+            ->select('product_id', DB::raw('SUM(qty) as count'))
+            ->where('delivery_status', 'delivered')
             ->groupBy('product_id')
             ->orderBy("count", 'desc')
             ->take(6)
             ->get();
 
-        $most_rated_products = Product::rightJoin('rated_products', 'rated_products.product_id', '=', 'products.id')
+        $most_rated_products = Product::rightJoin('reviews', 'reviews.product_id', '=', 'products.id')
             ->groupBy('products.id') // Include 'products.id' in the GROUP BY clause
             ->select([
-                'products.id as product_id', // Specify the alias for 'products.id'
-                DB::raw('AVG(rated_products.value) as ratings_average'),
-                DB::raw('COUNT(*) as total')
+                'products.id as product_id', // Alias 'products.id' as 'product_id'
+                DB::raw('AVG(reviews.rating) as ratings_average'),
+                DB::raw('count(*) as total')
             ])
             ->orderBy('total', 'desc')
             ->take(6)
             ->get();
 
 
-//        $top_store_by_earning = SellerWallet::select('seller_id', DB::raw('SUM(total_earning) as count'))
-//            ->whereHas('seller', function ($query){
-//                return $query;
-//            })
-//            ->groupBy('seller_id')
-//            ->orderBy("count", 'desc')
-//            ->take(6)
-//            ->get();
+        $top_store_by_earning = SellerWallet::select('seller_id', DB::raw('SUM(total_earning) as count'))
+            ->whereHas('seller', function ($query){
+                return $query;
+            })
+            ->groupBy('seller_id')
+            ->orderBy("count", 'desc')
+            ->take(6)
+            ->get();
 
         $top_customer = Order::with(['customer'])
             ->select('customer_id', DB::raw('COUNT(customer_id) as count'))
@@ -65,15 +62,15 @@ class DashboardController extends Controller
             ->take(6)
             ->get();
 
-//        $top_store_by_order_received = Order::whereHas('seller', function ($query){
-//                return $query;
-//            })
-//            ->where('seller_is', 'seller')
-//            ->select('seller_id', DB::raw('COUNT(id) as count'))
-//            ->groupBy('seller_id')
-//            ->orderBy("count", 'desc')
-//            ->take(6)
-//            ->get();
+        $top_store_by_order_received = Order::whereHas('seller', function ($query){
+            return $query;
+        })
+            ->where('seller_is', 'seller')
+            ->select('seller_id', DB::raw('COUNT(id) as count'))
+            ->groupBy('seller_id')
+            ->orderBy("count", 'desc')
+            ->take(6)
+            ->get();
 
         $top_deliveryman = Order::with(['delivery_man'])
             ->select('delivery_man_id', DB::raw('COUNT(delivery_man_id) as count'))
@@ -143,9 +140,9 @@ class DashboardController extends Controller
 
         $data['top_sell'] = $top_sell;
         $data['most_rated_products'] = $most_rated_products;
-//        $data['top_store_by_earning'] = $top_store_by_earning;
+        $data['top_store_by_earning'] = $top_store_by_earning;
         $data['top_customer'] = $top_customer;
-//        $data['top_store_by_order_received'] = $top_store_by_order_received;
+        $data['top_store_by_order_received'] = $top_store_by_order_received;
         $data['top_deliveryman'] = $top_deliveryman;
 
         $admin_wallet = AdminWallet::where('admin_id', 1)->first();
@@ -232,16 +229,16 @@ class DashboardController extends Controller
     }
 
     public function common_query_order_stats($query){
-//        $today = session()->has('statistics_type') && session('statistics_type') == 'today' ? 1 : 0;
-//        $this_month = session()->has('statistics_type') && session('statistics_type') == 'this_month' ? 1 : 0;
-//
-//        return $query->when($today, function ($query) {
-//            return $query->whereDate('created_at', Carbon::today());
-//        })
-//            ->when($this_month, function ($query) {
-//                return $query->whereMonth('created_at', Carbon::now());
-//            })
-//            ->count();
+        $today = session()->has('statistics_type') && session('statistics_type') == 'today' ? 1 : 0;
+        $this_month = session()->has('statistics_type') && session('statistics_type') == 'this_month' ? 1 : 0;
+
+        return $query->when($today, function ($query) {
+            return $query->whereDate('created_at', Carbon::today());
+        })
+            ->when($this_month, function ($query) {
+                return $query->whereMonth('created_at', Carbon::now());
+            })
+            ->count();
     }
 
     /**

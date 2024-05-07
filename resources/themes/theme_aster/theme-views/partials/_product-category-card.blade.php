@@ -19,12 +19,13 @@
                 </span>
             @else
             @endif
+
             <span class="store-product__action preventDefault" onclick="quickView('{{$product->id}}', '{{route('quick-view')}}')">
                 <i class="bi bi-eye fs-12"></i>
             </span>
 
             <img width="155"
-                 src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"
+                 src="{{$product['thumbnail']}}"
                  onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" alt=""
                  loading="lazy" class="dark-support rounded">
         </div>

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
-    protected $fillable=['review_count'];
     protected $casts = [
         'user_id' => 'integer',
         'brand_id' => 'integer',
@@ -42,45 +41,16 @@ class Product extends Model
         return $this->morphMany('App\Models\Translation', 'translationable');
     }
 
-//    old function
-
-
-
-
-//    public function scopeActive($query)
-//    {
-//        $brand_setting = Helpers::get_business_settings('product_brand');
-//        $digital_product_setting = Helpers::get_business_settings('digital_product');
-//
-//        if (!$digital_product_setting) {
-//            $product_type = ['physical'];
-//        } else {
-//            $product_type = ['digital', 'physical'];
-//        }
-//
-//        return $query->when($brand_setting, function ($q) {
-//            $q->whereHas('brand', function ($query) {
-//                $query->where(['status' => 1]);
-//            });
-//        })->when(!$brand_setting, function ($q) {
-//            $q->whereNull('brand_id');
-//        })->where(['status' => 1])->orWhere(function ($query) {
-//            $query->whereNull('brand_id')->where('status', 1);
-//        })->SellerApproved()->whereIn('product_type', $product_type);
-//    }
-
-//new function
-
     public function scopeActive($query)
     {
         $brand_setting = Helpers::get_business_settings('product_brand');
         $digital_product_setting = Helpers::get_business_settings('digital_product');
+
         if (!$digital_product_setting) {
             $product_type = ['physical'];
         } else {
             $product_type = ['digital', 'physical'];
         }
-
 
         return $query->when($brand_setting, function ($q) {
             $q->whereHas('brand', function ($query) {
@@ -90,30 +60,27 @@ class Product extends Model
             $q->whereNull('brand_id');
         })->where(['status' => 1])->orWhere(function ($query) {
             $query->whereNull('brand_id')->where('status', 1);
-        });
+        })->SellerApproved()->whereIn('product_type', $product_type);
     }
 
+    public function scopeSellerApproved($query)
+    {
+        $query->whereHas('seller', function ($query) {
+            $query->where(['status' => 'approved']);
+        })->orWhere(function ($query) {
+            $query->where(['added_by' => 'admin', 'status' => 1]);
+        });
 
-
-
-//    public function scopeSellerApproved($query)
-//    {
-//        $query->whereHas('seller', function ($query) {
-//            $query->where(['status' => 'approved']);
-//        })->orWhere(function ($query) {
-//            $query->where(['added_by' => 'admin', 'status' => 1]);
-//        });
-//
-//    }
+    }
 
     public function stocks()
     {
         return $this->hasMany(ProductStock::class);
     }
 
-    public function rated_products()
+    public function reviews()
     {
-        return $this->hasMany(Rated_products::class, 'product_id');
+        return $this->hasMany(Review::class, 'product_id');
     }
 
     public function brand()
@@ -131,10 +98,10 @@ class Product extends Model
         return $this->belongsTo(Shop::class, 'seller_id');
     }
 
-//    public function seller()
-//    {
-//        return $this->belongsTo(Seller::class, 'user_id');
-//    }
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class, 'user_id');
+    }
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
@@ -142,15 +109,15 @@ class Product extends Model
 
     public function rating()
     {
-        return $this->hasMany(Rated_products::class)
+        return $this->hasMany(Review::class)
             ->select(DB::raw('avg(rating) average, product_id'))
-//            ->whereNull('delivery_man_id')
+            ->whereNull('delivery_man_id')
             ->groupBy('product_id');
     }
 
-    public function orders_details()
+    public function order_details()
     {
-        return $this->hasMany(Orders_details::class, 'product_id');
+        return $this->hasMany(OrderDetail::class, 'product_id');
     }
 
 
@@ -195,26 +162,6 @@ class Product extends Model
         return $this->translations[1]->value ?? $detail;
     }
 
-//    old code
-
-
-//    protected static function boot()
-//    {
-//        parent::boot();
-//        static::addGlobalScope('translate', function (Builder $builder) {
-//            $builder->with(['translations' => function ($query) {
-//                if (strpos(url()->current(), '/api')) {
-//                    return $query->where('locale', App::getLocale());
-//                } else {
-//                    return $query->where('locale', Helpers::default_lang());
-//                }
-//            }, 'reviews'=>function($query){
-//                $query->whereNull('delivery_man_id');
-//            }])->withCount(['rated_products'=>function($query){
-//                $query->whereNull('delivery_man_id');
-//            }]);
-//        });
-//    }
     protected static function boot()
     {
         parent::boot();
@@ -225,7 +172,11 @@ class Product extends Model
                 } else {
                     return $query->where('locale', Helpers::default_lang());
                 }
-            },])->withCount(['rated_products']);
+            }, 'reviews'=>function($query){
+                $query->whereNull('delivery_man_id');
+            }])->withCount(['reviews'=>function($query){
+                $query->whereNull('delivery_man_id');
+            }]);
         });
     }
 }

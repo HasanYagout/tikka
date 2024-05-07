@@ -36,7 +36,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->mapSharedRoutes();
 
-    } protected function mapAdminRoutes()
+    }
+    protected function mapAdminRoutes()
 {
     Route::middleware('web')
         ->namespace($this->namespace)
