@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ThemeServiceProvider::class,
+        App\Providers\MailConfigServiceProvider::class
     ],
 
     /*

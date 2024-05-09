@@ -6,7 +6,8 @@
             <i class="bi bi-x-lg"></i>
         </div>
         <div class="top-offer-text flex-grow-1 d-flex justify-content-center fw-semibold">
-            {{ $web_config['announcement']['announcement'] }}
+            <span style="color: {{$web_config['announcement']['text_color']}};">{{ $web_config['announcement']['announcement'] }}</span>
+
         </div>
     </div>
 </div>

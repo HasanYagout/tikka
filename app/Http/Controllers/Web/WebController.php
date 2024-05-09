@@ -398,7 +398,6 @@ class WebController extends Controller
 
     public function checkout_complete(Request $request)
     {
-
         if($request->payment_method != 'cash_on_delivery'){
             return back()->with('error', 'Something went wrong!');
         }
@@ -540,7 +539,6 @@ class WebController extends Controller
 
     public function quick_view(Request $request)
     {
-
         $product = ProductManager::get_product($request->product_id);
         $order_details = OrderDetail::where('product_id', $product->id)->get();
         $wishlists = Wishlist::where('product_id', $product->id)->get();

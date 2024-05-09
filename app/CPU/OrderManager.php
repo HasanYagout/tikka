@@ -473,7 +473,6 @@ class OrderManager
 
         foreach (CartManager::get_cart($data['cart_group_id']) as $c) {
             $product = Product::where(['id' => $c['product_id']])->first();
-
             $price = $c['tax_model']=='include' ? $c['price']-$c['tax'] : $c['price'];
             $or_d = [
                 'order_id' => $order_id,
@@ -510,8 +509,7 @@ class OrderManager
             }
 
             Product::where(['id' => $product['id']])->update([
-                'current_stock' => $product['current_stock'] - $c['quantity'],
-                'order_count'=>$product['product_count']+1
+                'current_stock' => $product['current_stock'] - $c['quantity']
             ]);
 
             DB::table('order_details')->insert($or_d);
@@ -582,12 +580,12 @@ class OrderManager
                 Helpers::send_push_notif_to_device($fcm_token, $data);
                 Helpers::send_push_notif_to_device($seller_fcm_token, $data);
             }
-
             $emailServices_smtp = Helpers::get_business_settings('mail_config');
             if ($emailServices_smtp['status'] == 0) {
                 $emailServices_smtp = Helpers::get_business_settings('mail_config_sendgrid');
             }
-            if ($emailServices_smtp['status'] == 1) {
+
+            if ($user->email) {
                 Mail::to($user->email)->send(new \App\Mail\OrderPlaced($order_id));
                 Mail::to($seller->email)->send(new \App\Mail\OrderReceivedNotifySeller($order_id));
             }

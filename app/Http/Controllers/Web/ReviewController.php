@@ -6,7 +6,6 @@ use App\CPU\ImageManager;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\Product;
 use App\Models\Review;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -23,9 +22,6 @@ class ReviewController extends Controller
                 array_push($image_array, ImageManager::upload('review/', 'png', $image));
             }
         }
-
-        $product=Product::find($request->product_id);
-        $product->update(['review_count'=>$product->review_count+1]);
 
         Review::updateOrCreate(
             [

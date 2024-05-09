@@ -32,11 +32,11 @@ class DashboardController extends Controller
             ->get();
 
         $most_rated_products = Product::rightJoin('reviews', 'reviews.product_id', '=', 'products.id')
-            ->groupBy('products.id') // Include 'products.id' in the GROUP BY clause
+            ->groupBy('products.id')
             ->select([
-                'products.id as product_id', // Alias 'products.id' as 'product_id'
+                'products.id',
                 DB::raw('AVG(reviews.rating) as ratings_average'),
-                DB::raw('count(*) as total')
+                DB::raw('COUNT(*) as total')
             ])
             ->orderBy('total', 'desc')
             ->take(6)
@@ -63,8 +63,8 @@ class DashboardController extends Controller
             ->get();
 
         $top_store_by_order_received = Order::whereHas('seller', function ($query){
-            return $query;
-        })
+                return $query;
+            })
             ->where('seller_is', 'seller')
             ->select('seller_id', DB::raw('COUNT(id) as count'))
             ->groupBy('seller_id')

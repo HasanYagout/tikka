@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
@@ -20,6 +21,11 @@ class ProductFactory extends Factory
     {
         $brandIds = Brand::pluck('id')->toArray();
         $categoryId = Category::pluck('id')->toArray();
+        $selectedCategoryIds = Arr::random($categoryId, 3);
+
+        $categoryIdsWithPosition = collect($selectedCategoryIds)->map(function ($id, $index) {
+            return ['id' => (string) $id, 'position' => $index + 1];
+        })->toArray();
         $thumbnailLinks = [
             'https://w7.pngwing.com/pngs/861/863/png-transparent-variety-of-spices-spice-mix-herb-ingredient-food-colorful-spices-natural-foods-color-splash-recipe-thumbnail.png',
             'https://upload.wikimedia.org/wikipedia/commons/8/82/Common_Indian_spices.jpg',
@@ -47,7 +53,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->word,
             'slug' => $this->faker->slug,
             'product_type' => 'physical',
-            'category_ids' => $this->faker->word,
+            'category_ids' => json_encode($categoryIdsWithPosition),
             'category_id' =>  $this->faker->randomElement($categoryId),
             'sub_category_id' => $this->faker->randomElement($categoryId),
             'sub_sub_category_id' => $this->faker->randomElement($categoryId),
