@@ -221,7 +221,7 @@
 
                                             <div class="mb-3 d-flex">
                                                 <div class="custom_img_upload">
-                                                    <img id="pre_img_header_logo{{ $card_index }}" src="{{asset('storage/banner')}}/{{$item->icon}}"
+                                                    <img id="pre_img_header_logo{{ $card_index }}" src="{{asset('public/storage/banner')}}/{{$item->icon}}"
                                                         onerror="this.src='{{asset('front-end/img/placeholder.png')}}'">
                                                 </div>
                                             </div>

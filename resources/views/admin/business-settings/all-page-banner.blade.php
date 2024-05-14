@@ -155,7 +155,7 @@
                                     <td>
                                         <img class="ratio-4:1" width="80"
                                              onerror="this.src='{{asset('front-end/img/placeholder.png')}}'"
-                                             src="{{asset('storage/banner')}}/{{json_decode($banner['value'])->image}}">
+                                             src="{{asset('public/storage/banner')}}/{{json_decode($banner['value'])->image}}">
                                     </td>
                                     <td>{{translate(ucwords(str_replace('_',' ',$banner->type)))}}</td>
                                     <td>

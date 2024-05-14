@@ -3,12 +3,12 @@
 @section('title', $web_config['name']->value.' '.\App\CPU\translate('Online Shopping').' | '.$web_config['name']->value.' '.\App\CPU\translate(' Ecommerce'))
 
 @push('css_or_js')
-    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="og:image" content="{{asset('public/storage/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="Welcome To {{$web_config['name']->value}} Home"/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
 
-    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="twitter:card" content="{{asset('public/storage/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="twitter:title" content="Welcome To {{$web_config['name']->value}} Home"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
@@ -301,7 +301,7 @@
                                    class="__brand-item">
                                     <img
                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                        src="{{asset("storage/app/public/brand/$brand->image")}}"
+                                        src="{{asset("storage/brand/$brand->image")}}"
                                         alt="{{$brand->name}}">
                                 </a>
                             </div>
@@ -544,7 +544,7 @@
                            class="cursor-pointer">
                             <img class="d-block footer_banner_img __inline-63"
                                  onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                 src="{{asset('storage/app/public/banner')}}/{{$main_section_banner['photo']}}">
+                                 src="{{asset('public/storage/banner')}}/{{$main_section_banner['photo']}}">
                         </a>
                     </div>
                 </div>
@@ -896,7 +896,7 @@
                         <a href="{{$banner->url}}" class="d-block">
                             <img class="footer_banner_img"
                                  onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                 src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}">
+                                 src="{{asset('public/storage/app/public/banner')}}/{{$banner['photo']}}">
                         </a>
                     </div>
                 @endforeach
@@ -930,7 +930,7 @@
                                class="cursor-pointer d-block h-100 __cate-product-side-img">
                                 <img class="h-100"
                                      onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                     src="{{asset('storage/app/public/category')}}/{{$category['icon']}}">
+                                     src="{{asset('public/storage/app/public/category')}}/{{$category['icon']}}">
                             </a>
                         </div>
                         <div class="col-md-9 col-12 ">

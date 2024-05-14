@@ -657,11 +657,11 @@
                             <div class="card order-0 order-sm-1">
                                 <div class="card-body">
                                     <div class="p-2 overlay shop-bg-card"
-                                         data-bg-img="{{asset('storage/app/public/shop/banner')}}/{{$product->seller->shop->banner}}">
+                                         data-bg-img="{{asset('public/storage/app/public/shop/banner')}}/{{$product->seller->shop->banner}}">
                                         <div class="media flex-wrap gap-3 p-2">
                                             <div class="avatar border rounded-circle" style="--size: 3.437rem">
                                                 <img
-                                                    src="{{asset('storage/app/public/shop')}}/{{$product->seller->shop->image}}"
+                                                    src="{{asset('public/storage/app/public/shop')}}/{{$product->seller->shop->image}}"
                                                     alt="" class="img-fit dark-support rounded-circle"
                                                     onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                             </div>

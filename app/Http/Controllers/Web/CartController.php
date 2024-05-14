@@ -68,7 +68,6 @@ class CartController extends Controller
         if(theme_root_path() == 'theme_fashion') {
             $delivery_info = ProductManager::get_products_delivery_charge($product, $request->quantity);
         }
-
         return [
             'price' => \App\CPU\Helpers::currency_converter($price * $request->quantity),
             'discount' => \App\CPU\Helpers::currency_converter($discount),

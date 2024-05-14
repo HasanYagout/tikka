@@ -93,7 +93,7 @@
                     <img
                         src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
                         class="dark-support svg h-45"
-{{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+{{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                         alt="Logo"
                     />
                 </a>
@@ -148,7 +148,7 @@
                         <a href="{{ $web_config['header_banner']['url'] }}">
                             <img
                                 width="180"
-                                src="{{asset('storage/app/public/banner')}}/{{$web_config['header_banner']['photo']}}"
+                                src="{{asset('public/storage/app/public/banner')}}/{{$web_config['header_banner']['photo']}}"
                                 onerror="this.src='{{theme_asset('assets/img/header-banner-placeholder.png')}}'"
                                 loading="lazy"
                                 class="dark-support"
@@ -370,7 +370,7 @@
                                 <img
                                     width="123"
                                     src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
-{{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+{{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                                     class="dark-support"
                                     alt="Logo"
                                 />
@@ -500,7 +500,7 @@
                                     <span class="avatar overflow-hidden header-avatar rounded-circle" style="--size: 1.5rem">
                                       <img
                                           loading="lazy"
-                                          src="{{asset('storage/app/public/profile/'.auth('customer')->user()->image)}}"
+                                          src="{{asset('public/storage/app/public/profile/'.auth('customer')->user()->image)}}"
                                           onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
                                           class="img-fit"
                                           alt=""

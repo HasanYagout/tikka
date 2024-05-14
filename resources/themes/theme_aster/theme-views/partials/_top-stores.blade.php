@@ -88,8 +88,8 @@
         @if(isset($footer_banner[1]))
             <div class="col-12 mt-3 d-sm-none">
                 <a href="{{ $footer_banner[1]['url'] }}" class="ad-hover">
-                    <img src="{{asset('storage/app/public/banner')}}/{{$footer_banner[1]['photo']}}" loading="lazy" alt=""
-{{--                            onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+                    <img src="{{asset('public/storage/app/public/banner')}}/{{$footer_banner[1]['photo']}}" loading="lazy" alt=""
+{{--                            onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                             class="dark-support rounded w-100">
                 </a>
             </div>

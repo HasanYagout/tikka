@@ -7,6 +7,7 @@
                 <div class="navbar-brand-wrapper justify-content-between side-logo">
                     <!-- Logo -->
                     @php($e_commerce_logo=\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)
+
                     <a class="navbar-brand" href="{{route('admin.dashboard.index')}}" aria-label="Front">
                         <img
 {{--                            onerror="this.src='{{asset('public/assets/back-end/img/900x400/img1.jpg')}}'"--}}

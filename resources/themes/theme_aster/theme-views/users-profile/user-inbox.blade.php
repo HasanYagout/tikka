@@ -55,7 +55,7 @@
                                                         <div class="avatar rounded-circle ">
                                                             <img
                                                                 onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                                                src="{{ $shop->delivery_man_id ?asset('storage/app/public/delivery-man/'.$shop->image) : asset('storage/app/public/shop/'.$shop->image)}}"
+                                                                src="{{ $shop->delivery_man_id ?asset('public/storage/app/public/delivery-man/'.$shop->image) : asset('public/storage/app/public/shop/'.$shop->image)}}"
                                                                 loading="lazy"
                                                                 class="img-fit rounded-circle dark-support" alt="">
                                                         </div>
@@ -88,7 +88,7 @@
                                             <div class="avatar rounded-circle">
                                                 <img
                                                     onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                                    src="{{ $last_chat->delivery_man ?asset('storage/app/public/delivery-man/'.$last_chat->delivery_man->image) : asset('storage/app/public/shop/'.$last_chat->shop->image)}}"
+                                                    src="{{ $last_chat->delivery_man ?asset('public/storage/app/public/delivery-man/'.$last_chat->delivery_man->image) : asset('public/storage/app/public/shop/'.$last_chat->shop->image)}}"
                                                     loading="lazy" id="image" class="img-fit rounded-circle dark-support"
                                                     alt="">
                                             </div>

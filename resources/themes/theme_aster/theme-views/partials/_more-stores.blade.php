@@ -57,7 +57,7 @@
             <div class="d-sm-none mb-4">
                 @if($sidebar_banner)
                     <a href="{{ $sidebar_banner['url'] }}">
-                        <img src="{{asset('storage/app/public/banner')}}/{{$sidebar_banner ? $sidebar_banner['photo'] : ''}}"
+                        <img src="{{asset('public/storage/app/public/banner')}}/{{$sidebar_banner ? $sidebar_banner['photo'] : ''}}"
                                 onerror="this.src='{{ theme_asset('assets/img/top-side-banner-placeholder.png') }}'"alt="" class="dark-support rounded w-100">
                     </a>
                 @else
@@ -84,7 +84,7 @@
 {{--                                    <div class="position-relative">--}}
 {{--                                        <div class="avatar rounded-circle">--}}
 {{--                                            <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"--}}
-{{--                                                src="{{ asset('storage/app/public/shop/'.$seller->shop->image)}}" alt="" loading="lazy"--}}
+{{--                                                src="{{ asset('public/storage/app/public/shop/'.$seller->shop->image)}}" alt="" loading="lazy"--}}
 {{--                                                class="dark-support img-fit rounded-circle">--}}
 {{--                                        </div>--}}
 {{--                                        @if($seller->shop->vacation_status && ($current_date >= $start_date) && ($current_date <= $end_date))--}}

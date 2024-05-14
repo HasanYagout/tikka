@@ -164,7 +164,7 @@
                                                     data-buttontext="Pay {{(\App\CPU\Convert::usdToinr($amount))*100}} INR"
                                                     data-name="{{\App\Models\BusinessSetting::where(['type'=>'company_name'])->first()->value}}"
                                                     data-description=""
-                                                    data-image="{{asset('storage/app/public/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)}}"
+                                                    data-image="{{asset('public/storage/app/public/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)}}"
                                                     data-prefill.name="{{auth('customer')->user()->f_name}}"
                                                     data-prefill.email="{{auth('customer')->user()->email}}"
                                                     data-theme.color="#ff7529">

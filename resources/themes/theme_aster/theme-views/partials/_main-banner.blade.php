@@ -56,14 +56,14 @@
                                             @foreach($main_banner as $key=>$banner)
                                                 <div class="swiper-slide">
                                                     <a href="{{ $banner['url'] }}" class="h-100">
-                                                        <img src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}" loading="lazy"
-{{--                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+                                                        <img src="{{asset('public/storage/app/public/banner')}}/{{$banner['photo']}}" loading="lazy"
+{{--                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                                                              alt="" class="dark-support rounded">
                                                     </a>
                                                 </div>
                                             @endforeach
                                             @if(count($main_banner)==0)
-                                                <img src="{{theme_asset('assets/img/image-place-holder-2:1.png')}}" loading="lazy"
+                                                <img src="{{theme_asset('assets/img/image-place-holder-2_1.png')}}" loading="lazy"
                                                      alt="" class="dark-support rounded">
                                             @endif
                                         </div>
@@ -74,8 +74,8 @@
                             @foreach($footer_banner as $key=>$banner)
                                 <div class="col-6 d-none d-sm-block">
                                     <a href="{{ $banner['url'] }}" class="ad-hover">
-                                        <img src="{{asset('storage/app/public/banner')}}/{{$banner['photo']}}" loading="lazy" alt=""
-{{--                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2:1.png')}}'"--}}
+                                        <img src="{{asset('public/storage/app/public/banner')}}/{{$banner['photo']}}" loading="lazy" alt=""
+{{--                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                                              class="dark-support rounded w-100">
                                     </a>
                                 </div>
@@ -83,13 +83,13 @@
                             @if(count($footer_banner)==0)
                                 <div class="col-6 d-none d-sm-block">
                                     <span class="ad-hover">
-                                        <img src="{{theme_asset('assets/img/image-place-holder-2:1.png')}}" loading="lazy" alt=""
+                                        <img src="{{theme_asset('assets/img/image-place-holder-2_1.png')}}" loading="lazy" alt=""
                                              class="dark-support rounded w-100">
                                     </span>
                                 </div>
                                 <div class="col-6 d-none d-sm-block">
                                     <span class="ad-hover">
-                                        <img src="{{theme_asset('assets/img/image-place-holder-2:1.png')}}" loading="lazy" alt=""
+                                        <img src="{{theme_asset('assets/img/image-place-holder-2_1.png')}}" loading="lazy" alt=""
                                              class="dark-support rounded w-100">
                                     </span>
                                 </div>
@@ -97,7 +97,7 @@
                             @if(count($footer_banner)==1)
                                 <div class="col-6 d-none d-sm-block">
                                     <span class="ad-hover">
-                                        <img src="{{theme_asset('assets/img/image-place-holder-2:1.png')}}" loading="lazy" alt=""
+                                        <img src="{{theme_asset('assets/img/image-place-holder-2_1.png')}}" loading="lazy" alt=""
                                              class="dark-support rounded w-100">
                                     </span>
                                 </div>
@@ -151,7 +151,7 @@
 {{--                        <div class="col-xl-3 d-none d-sm-block">--}}
 {{--                            @if($top_side_banner)--}}
 {{--                                <a href="{{ $top_side_banner['url'] }}">--}}
-{{--                                    <img src="{{asset('storage/app/public/banner')}}/{{$top_side_banner ? $top_side_banner['photo'] : ''}}"--}}
+{{--                                    <img src="{{asset('public/storage/app/public/banner')}}/{{$top_side_banner ? $top_side_banner['photo'] : ''}}"--}}
 {{--                                         onerror="this.src='{{ theme_asset('assets/img/top-side-banner-placeholder.png') }}'"--}}
 {{--                                         alt="" class="dark-support rounded w-100">--}}
 {{--                                </a>--}}
