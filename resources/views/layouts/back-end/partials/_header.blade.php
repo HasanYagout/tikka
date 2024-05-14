@@ -132,7 +132,17 @@
                             </a>
                         </div>
                     </li>
-
+                    <div class="d-flex align-items-center gap-2 justify-content-between p-4">
+                        <span class="text-dark">{{ translate('theme_mode') }}</span>
+                        <div class="theme-bar p-1">
+                            <button class="light_button active">
+                                <img src="{{theme_asset('assets/img/svg/light.svg')}}" alt="" class="svg">
+                            </button>
+                            <button class="dark_button">
+                                <img src="{{theme_asset('assets/img/svg/dark.svg')}}" alt="" class="svg">
+                            </button>
+                        </div>
+                    </div>
                     <li class="nav-item">
                         <!-- Account -->
                         <div class="hs-unfold">
@@ -281,4 +291,32 @@
 </div>
 <div id="headerFluid" class="d-none"></div>
 <div id="headerDouble" class="d-none"></div>
+@push('script')
+    <script>
+        function themeSwitcher(className, themeName) {
 
+            $(className).on("click", function () {
+                $(".theme-bar button").removeClass("active");
+                $(this).addClass("active");
+                $("body").attr("theme", themeName);
+                localStorage.setItem("theme", themeName);
+            });
+        }
+        themeSwitcher(".light_button", "light");
+        themeSwitcher(".dark_button", "dark");
+        $(window).on("load", function () {
+
+            let themeName = localStorage.getItem("theme");
+
+            $(".dir-bar button").removeClass("active");
+            if (themeName === "dark") {
+                $(".light_button").removeClass("active");
+                $(".dark_button").addClass("active");
+            } else {
+                $(".dark_button").removeClass("active");
+                $(".light_button").addClass("active");
+            }
+            $(".settings-sidebar .theme-bar").addClass("d-flex");
+        });
+    </script>
+@endpush

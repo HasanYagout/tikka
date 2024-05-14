@@ -3686,6 +3686,4 @@
   'fund_added_successfully' => 'Fund added successfully',
   'customer_loyalty_point_report' => 'Customer loyalty point report',
   'point_to_wallet' => 'Point to wallet',
-  'dolores' => 'Dolores',
-  'doloremque' => 'Doloremque',
 );
