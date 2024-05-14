@@ -75,15 +75,15 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => AdminMiddleware::class,
-        'seller' => SellerMiddleware::class,
+//        'seller' => SellerMiddleware::class,
         'customer' => CustomerMiddleware::class,
         'module' => ModulePermissionMiddleware::class,
-        'installation-check' => InstallationMiddleware::class,
+//        'installation-check' => InstallationMiddleware::class,
         'actch' => ActivationCheckMiddleware::class,
-        'api_lang' => APILocalizationMiddleware::class,
+//        'api_lang' => APILocalizationMiddleware::class,
         'maintenance_mode' => MaintenanceModeMiddleware::class,
-        'delivery_man_auth' => DeliveryManAuth::class,
-        'seller_api_auth' => SellerApiAuthMiddleware::class
+//        'delivery_man_auth' => DeliveryManAuth::class,
+//        'seller_api_auth' => SellerApiAuthMiddleware::class
     ];
 
     /**

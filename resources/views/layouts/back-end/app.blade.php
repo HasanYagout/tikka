@@ -53,6 +53,17 @@
 </head>
 
 <body class="footer-offset">
+<script>
+    function setThemeMode() {
+        if (localStorage.getItem('theme') === null) {
+            document.body.setAttribute('theme', 'light');
+        } else {
+            document.body.setAttribute('theme', localStorage.getItem('theme'));
+        }
+    }
+    setThemeMode();
+
+</script>
 <!-- Builder -->
 @include('layouts.back-end.partials._front-settings')
 <!-- End Builder -->
@@ -105,6 +116,7 @@ loader
 {!! Toastr::message() !!}
 
 <script>
+
     toastr.options = {
         "closeButton": false,
         "debug": false,

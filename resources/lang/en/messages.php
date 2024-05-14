@@ -3686,4 +3686,5 @@
   'fund_added_successfully' => 'Fund added successfully',
   'customer_loyalty_point_report' => 'Customer loyalty point report',
   'point_to_wallet' => 'Point to wallet',
+  'All_copy_right_reserved_©_2024_' => 'All copy right reserved © 2024 ',
 );
