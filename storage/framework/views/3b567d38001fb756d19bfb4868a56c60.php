@@ -128,12 +128,12 @@
                                                 "hoverBackgroundColor": "#ACDBAB",
                                                 "borderColor": "#ACDBAB"
                                               },
-                                              {
-                                                "label": "<?php echo e(\App\CPU\translate('Seller')); ?>",
-                                                "data": [<?php echo e($seller_data[1]); ?>,<?php echo e($seller_data[2]); ?>,<?php echo e($seller_data[3]); ?>,<?php echo e($seller_data[4]); ?>,<?php echo e($seller_data[5]); ?>,<?php echo e($seller_data[6]); ?>,<?php echo e($seller_data[7]); ?>,<?php echo e($seller_data[8]); ?>,<?php echo e($seller_data[9]); ?>,<?php echo e($seller_data[10]); ?>,<?php echo e($seller_data[11]); ?>,<?php echo e($seller_data[12]); ?>],
-                                                "backgroundColor": "#0177CD",
-                                                "borderColor": "#0177CD"
-                                              },
+
+
+
+
+
+
                                               {
                                                 "label": "<?php echo e(\App\CPU\translate('Commission')); ?>",
                                                 "data": [<?php echo e($commission_data[1]); ?>,<?php echo e($commission_data[2]); ?>,<?php echo e($commission_data[3]); ?>,<?php echo e($commission_data[4]); ?>,<?php echo e($commission_data[5]); ?>,<?php echo e($commission_data[6]); ?>,<?php echo e($commission_data[7]); ?>,<?php echo e($commission_data[8]); ?>,<?php echo e($commission_data[9]); ?>,<?php echo e($commission_data[10]); ?>,<?php echo e($commission_data[11]); ?>,<?php echo e($commission_data[12]); ?>],
@@ -209,6 +209,7 @@
 
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
+
                     <div class="card h-100">
                         <?php echo $__env->make('admin.partials._top-customer',['top_customer'=>$data['top_customer']], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     </div>
@@ -352,16 +353,16 @@
                                     lineTension: 0.3,
                                     radius: 0
                                 },
-                                {
-                                    label: "<?php echo e(\App\CPU\translate('Seller')); ?>",
-                                    data: [],
-                                    backgroundColor: "#0177CD",
-                                    hoverBackgroundColor: "#0177CD",
-                                    borderColor: "#0177CD",
-                                    fill: false,
-                                    lineTension: 0.3,
-                                    radius: 0
-                                },
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 {
                                     label: "<?php echo e(\App\CPU\translate('Commission')); ?>",
                                     data: [],
@@ -379,8 +380,8 @@
 
                     myChart.data.labels = response_data.inhouse_label;
                     myChart.data.datasets[0].data = response_data.inhouse_earn;
-                    myChart.data.datasets[1].data = response_data.seller_earn;
-                    myChart.data.datasets[2].data = response_data.commission_earn;
+                    // myChart.data.datasets[1].data = response_data.seller_earn;
+                    myChart.data.datasets[1].data = response_data.commission_earn;
 
                     myChart.update();
                 },

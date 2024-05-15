@@ -286,5 +286,33 @@
 </div>
 <div id="headerFluid" class="d-none"></div>
 <div id="headerDouble" class="d-none"></div>
+<?php $__env->startPush('script'); ?>
+    <script>
+        function themeSwitcher(className, themeName) {
 
+            $(className).on("click", function () {
+                $(".theme-bar button").removeClass("active");
+                $(this).addClass("active");
+                $("body").attr("theme", themeName);
+                localStorage.setItem("theme", themeName);
+            });
+        }
+        themeSwitcher(".light_button", "light");
+        themeSwitcher(".dark_button", "dark");
+        $(window).on("load", function () {
+
+            let themeName = localStorage.getItem("theme");
+
+            $(".dir-bar button").removeClass("active");
+            if (themeName === "dark") {
+                $(".light_button").removeClass("active");
+                $(".dark_button").addClass("active");
+            } else {
+                $(".dark_button").removeClass("active");
+                $(".light_button").addClass("active");
+            }
+            $(".settings-sidebar .theme-bar").addClass("d-flex");
+        });
+    </script>
+<?php $__env->stopPush(); ?>
 <?php /**PATH C:\xampp\htdocs\tikka\resources\views/layouts/back-end/partials/_header.blade.php ENDPATH**/ ?>

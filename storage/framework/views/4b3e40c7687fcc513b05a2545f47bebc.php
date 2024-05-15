@@ -56,7 +56,7 @@
         <section class="">
             <div class="container">
                 <div class="py-5 rounded position-relative">
-                    <img src="<?php echo e(asset('storage/banner')); ?>/<?php echo e($main_section_banner ? $main_section_banner['photo'] : ''); ?>"
+                    <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($main_section_banner ? $main_section_banner['photo'] : ''); ?>"
                          onerror="this.src='<?php echo e(theme_asset('assets/img/main-section-banner-placeholder.png')); ?>'"
                          alt="" class="rounded position-absolute dark-support img-fit start-0 top-0 index-n1 flipX-in-rtl">
                     <div class="row justify-content-center">

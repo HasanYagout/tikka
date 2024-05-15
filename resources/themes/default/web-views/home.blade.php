@@ -579,7 +579,7 @@
                                                     <div class="__img">
                                                         <img
                                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                            src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                            src="{{asset("public/storage/category/$category->icon")}}"
                                                             alt="{{$category->name}}">
                                                     </div>
                                                     <p class="text-center small mt-2">{{Str::limit($category->name, 12)}}</p>
@@ -617,7 +617,7 @@
                                                     <div class="__img">
                                                         <img
                                                             onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                            src="{{asset("storage/app/public/category/$category->icon")}}"
+                                                            src="{{asset("public/storage/category/$category->icon")}}"
                                                             alt="{{$category->name}}">
                                                         <p class="text-center small mt-1">{{Str::limit($category->name, 12)}}</p>
                                                     </div>
@@ -671,7 +671,7 @@
                                                                 @endif
                                                                 <img
                                                                     onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                                    src="{{asset("storage/app/public/shop")}}/{{$seller->shop->image}}">
+                                                                    src="{{asset("public/storage/shop")}}/{{$seller->shop->image}}">
                                                             </div>
                                                             <p class="text-center small mt-2">{{Str::limit($seller->shop->name, 14)}}</p>
                                                         </a>
@@ -896,7 +896,7 @@
                         <a href="{{$banner->url}}" class="d-block">
                             <img class="footer_banner_img"
                                  onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                 src="{{asset('public/storage/app/public/banner')}}/{{$banner['photo']}}">
+                                 src="{{asset('public/storage/banner')}}/{{$banner['photo']}}">
                         </a>
                     </div>
                 @endforeach

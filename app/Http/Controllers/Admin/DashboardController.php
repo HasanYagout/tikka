@@ -246,8 +246,8 @@ class DashboardController extends Controller
      */
     public function get_earning_statitics(Request $request){
         $dateType = $request->type;
-
         $inhouse_data = array();
+
         if($dateType == 'yearEarn') {
             $number = 12;
             $from = Carbon::now()->startOfYear()->format('Y-m-d');
@@ -281,15 +281,16 @@ class DashboardController extends Controller
                 'seller_is' => 'admin',
                 'status' => 'disburse'
             ])->select(
-                DB::raw('seller_amount'),
-                DB::raw('YEAR(created_at) year, MONTH(created_at) month, DAY(created_at) day')
-            )->whereBetween('created_at', [$from, $to])->groupby('day')->get()->toArray();
+                DB::raw('SUM(seller_amount) as total_amount'),
+                DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, DAY(created_at) as day')
+            )->whereBetween('created_at', [$from, $to])->groupBy('year', 'month', 'day')->get()->toArray();
 
             for ($inc = 1; $inc <= $number; $inc++) {
                 $inhouse_data[$inc] = 0;
                 foreach ($inhouse_earnings as $match) {
+
                     if ($match['day'] == $inc) {
-                        $inhouse_data[$inc] = $match['seller_amount'];
+                        $inhouse_data[$inc] = $match['total_amount'];
                     }
                 }
             }
@@ -298,7 +299,6 @@ class DashboardController extends Controller
 
             $from = Carbon::now()->startOfWeek()->format('Y-m-d');
             $to = Carbon::now()->endOfWeek()->format('Y-m-d');
-
             $number_start =date('d',strtotime($from));
             $number_end =date('d',strtotime($to));
 
@@ -325,6 +325,7 @@ class DashboardController extends Controller
         $inhouse_label = $key_range;
 
         $inhouse_data_final = $inhouse_data;
+
 
         $seller_data = array();
         if($dateType == 'yearEarn') {
@@ -360,9 +361,9 @@ class DashboardController extends Controller
                 'seller_is' => 'seller',
                 'status' => 'disburse'
             ])->select(
-                DB::raw('seller_amount'),
-                DB::raw('YEAR(created_at) year, MONTH(created_at) month, DAY(created_at) day')
-            )->whereBetween('created_at', [$from, $to])->groupby('day')->get()->toArray();
+                DB::raw('SUM(seller_amount) as total_amount'),
+                DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, DAY(created_at) as day')
+            )->whereBetween('created_at', [$from, $to])->groupBy('year', 'month', 'day')->get()->toArray();
 
             for ($inc = 1; $inc <= $number; $inc++) {
                 $seller_data[$inc] = 0;
@@ -388,7 +389,6 @@ class DashboardController extends Controller
                 DB::raw('seller_amount'),
                 DB::raw('YEAR(created_at) year, MONTH(created_at) month, DAY(created_at) day')
             )->whereBetween('created_at', [$from, $to])->get()->toArray();
-
             for ($inc = $number_start; $inc <= $number_end; $inc++) {
                 $seller_data[$inc] = 0;
                 foreach ($seller_earnings as $match) {
@@ -404,6 +404,7 @@ class DashboardController extends Controller
         $seller_label = $key_range;
 
         $seller_data_final = $seller_data;
+
 
         $commission_data = array();
         if($dateType == 'yearEarn') {
@@ -435,13 +436,14 @@ class DashboardController extends Controller
             $number = date('d',strtotime($to));
             $key_range = range(1, $number);
 
+
             $commission_earnings = OrderTransaction::where([
                 'seller_is' => 'seller',
                 'status' => 'disburse'
             ])->select(
-                DB::raw('admin_commission'),
-                DB::raw('YEAR(created_at) year, MONTH(created_at) month, DAY(created_at) day')
-            )->whereBetween('created_at', [$from, $to])->groupby('day')->get()->toArray();
+                DB::raw('SUM(admin_commission) as total_commission'),
+                DB::raw('YEAR(created_at) as year, MONTH(created_at) as month, DAY(created_at) as day')
+            )->whereBetween('created_at', [$from, $to])->groupBy('year', 'month', 'day')->get()->toArray();
 
             for ($inc = 1; $inc <= $number; $inc++) {
                 $commission_data[$inc] = 0;

@@ -10,6 +10,7 @@
 
 <!-- Body -->
 <div class="card-body">
+
     <?php if($top_customer): ?>
         <div class="grid-card-wrap">
             <?php $__currentLoopData = $top_customer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -22,6 +23,7 @@
                                      onerror="this.src='<?php echo e(asset('public/assets/back-end/img/160x160/img1.jpg')); ?>'"
                                      src="<?php echo e(asset('storage/profile/'.$item->customer->image??'')); ?>">
                             </div>
+
 
                             <h5 class="mb-0"><?php echo e($item->customer['f_name']??'Not exist'); ?></h5>
 

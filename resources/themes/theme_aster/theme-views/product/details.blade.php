@@ -14,13 +14,13 @@
     <!-- Viewport-->
 
     @if($product['meta_image'])
-        <meta property="og:image" content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+        <meta property="og:image" content="{{asset("public/storage/product/meta")}}/{{$product->meta_image}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+              content="{{asset("public/storage/product/meta")}}/{{$product->meta_image}}"/>
     @else
-        <meta property="og:image" content="{{asset("storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
+        <meta property="og:image" content="{{asset("public/storage/product/thumbnail")}}/{{$product->thumbnail}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+              content="{{asset("public/storage/product/thumbnail/")}}/{{$product->thumbnail}}"/>
     @endif
 
     @if($product['meta_title'])
@@ -114,7 +114,7 @@
                                                                             <span class="product__discount-badge">-{{\App\CPU\Helpers::currency_converter($product->discount)}}</span>
                                                                         @endif
                                                                         <img
-                                                                            src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                            src="{{asset("public/storage/product/$photo->image_name")}}"
                                                                             class="dark-support rounded" alt=""
                                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                                                     </div>
@@ -126,7 +126,7 @@
                                                                             <span class="product__discount-badge">-{{\App\CPU\Helpers::currency_converter($product->discount)}}</span>
                                                                         @endif
                                                                         <img
-                                                                            src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                            src="{{asset("public/storage/product/$photo->image_name")}}"
                                                                             class="dark-support rounded" alt=""
                                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                                                     </div>
@@ -141,7 +141,7 @@
                                                                         <span class="product__discount-badge">-{{\App\CPU\Helpers::currency_converter($product->discount)}}</span>
                                                                     @endif
                                                                     <img
-                                                                        src="{{asset("storage/app/public/product/$photo")}}"
+                                                                        src="{{asset("public/storage/product/$photo")}}"
                                                                         class="dark-support rounded" alt=""
                                                                         onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                                                 </div>
@@ -163,7 +163,7 @@
                                                                         <div class="swiper-slide"
                                                                              id="preview-img{{$key}}">
                                                                             <img
-                                                                                src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                                src="{{asset("public/storage/product/$photo->image_name")}}"
                                                                                 class="dark-support rounded border"
                                                                                 alt="Product thumb"
                                                                                 onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
@@ -171,7 +171,7 @@
                                                                     @else
                                                                         <div class="swiper-slide">
                                                                             <img
-                                                                                src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                                src="{{asset("public/storage/product/$photo->image_name")}}"
                                                                                 class="dark-support rounded border"
                                                                                 alt="Product thumb"
                                                                                 onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
@@ -182,7 +182,7 @@
                                                                 @foreach (json_decode($product->images) as $key => $photo)
                                                                     <div class="swiper-slide" id="preview-img{{$key}}">
                                                                         <img
-                                                                            src="{{asset("storage/app/public/product/$photo")}}"
+                                                                            src="{{asset("public/storage/product/$photo")}}"
                                                                             class="dark-support rounded border"
                                                                             alt="Product thumb"
                                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
@@ -517,7 +517,7 @@
                                                                 <div class="avatar overflow-hidden border rounded-circle"
                                                                      style="--size: 3.437rem">
                                                                     <img
-                                                                        src="{{asset("storage/app/public/profile")}}/{{(isset($item->user)?$item->user->image:'')}}"
+                                                                        src="{{asset("public/storage/profile")}}/{{(isset($item->user)?$item->user->image:'')}}"
                                                                         alt=""
                                                                         class="img-fit dark-support"
                                                                         onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
@@ -549,8 +549,8 @@
                                                                     <div class="d-flex flex-wrap gap-2 products-comments-img">
                                                                         @foreach(json_decode($item->attachment) as $img)
                                                                             @if(file_exists(base_path("storage/app/public/review/".$img)))
-                                                                                <a href="{{asset("storage/app/public/review/".$img)}}" data-lightbox="">
-                                                                                    <img src="{{asset("storage/app/public/review/".$img)}}" class="remove-mask-img"
+                                                                                <a href="{{asset("public/storage/review/".$img)}}" data-lightbox="">
+                                                                                    <img src="{{asset("public/storage/review/".$img)}}" class="remove-mask-img"
                                                                                          onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                                                                 </a>
                                                                             @endif
@@ -718,11 +718,11 @@
                         <div class="card  order-0 order-sm-1">
                             <div class="card-body">
                                 <div class="p-2 overlay shop-bg-card"
-                                     data-bg-img="{{asset("storage/app/public/shop/")}}/{{ \App\CPU\Helpers::get_business_settings('shop_banner') }}">
+                                     data-bg-img="{{asset("public/storage/shop/")}}/{{ \App\CPU\Helpers::get_business_settings('shop_banner') }}">
                                     <div class="media flex-wrap gap-3 p-2">
                                         <div class="avatar border rounded-circle" style="--size: 3.437rem">
                                             <img
-                                                src="{{asset("storage/app/public/company")}}/{{$web_config['fav_icon']->value}}"
+                                                src="{{asset("public/storage/company")}}/{{$web_config['fav_icon']->value}}"
                                                 alt="" class="img-fit dark-support rounded-circle"
                                                 onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'">
                                         </div>

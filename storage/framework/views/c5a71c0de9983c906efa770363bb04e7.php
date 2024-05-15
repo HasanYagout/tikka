@@ -12,13 +12,13 @@
     <!-- Viewport-->
 
     <?php if($product['meta_image']): ?>
-        <meta property="og:image" content="<?php echo e(asset("storage/app/public/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
+        <meta property="og:image" content="<?php echo e(asset("public/storage/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
         <meta property="twitter:card"
-              content="<?php echo e(asset("storage/app/public/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
+              content="<?php echo e(asset("public/storage/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
     <?php else: ?>
-        <meta property="og:image" content="<?php echo e(asset("storage/app/public/product/thumbnail")); ?>/<?php echo e($product->thumbnail); ?>"/>
+        <meta property="og:image" content="<?php echo e(asset("public/storage/product/thumbnail")); ?>/<?php echo e($product->thumbnail); ?>"/>
         <meta property="twitter:card"
-              content="<?php echo e(asset("storage/app/public/product/thumbnail/")); ?>/<?php echo e($product->thumbnail); ?>"/>
+              content="<?php echo e(asset("public/storage/product/thumbnail/")); ?>/<?php echo e($product->thumbnail); ?>"/>
     <?php endif; ?>
 
     <?php if($product['meta_title']): ?>
@@ -112,7 +112,7 @@
                                                                             <span class="product__discount-badge">-<?php echo e(\App\CPU\Helpers::currency_converter($product->discount)); ?></span>
                                                                         <?php endif; ?>
                                                                         <img
-                                                                            src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                                            src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                             class="dark-support rounded" alt=""
                                                                             onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
                                                                     </div>
@@ -124,7 +124,7 @@
                                                                             <span class="product__discount-badge">-<?php echo e(\App\CPU\Helpers::currency_converter($product->discount)); ?></span>
                                                                         <?php endif; ?>
                                                                         <img
-                                                                            src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                                            src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                             class="dark-support rounded" alt=""
                                                                             onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
                                                                     </div>
@@ -139,7 +139,7 @@
                                                                         <span class="product__discount-badge">-<?php echo e(\App\CPU\Helpers::currency_converter($product->discount)); ?></span>
                                                                     <?php endif; ?>
                                                                     <img
-                                                                        src="<?php echo e(asset("storage/app/public/product/$photo")); ?>"
+                                                                        src="<?php echo e(asset("public/storage/product/$photo")); ?>"
                                                                         class="dark-support rounded" alt=""
                                                                         onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
                                                                 </div>
@@ -161,7 +161,7 @@
                                                                         <div class="swiper-slide"
                                                                              id="preview-img<?php echo e($key); ?>">
                                                                             <img
-                                                                                src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                                                src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                                 class="dark-support rounded border"
                                                                                 alt="Product thumb"
                                                                                 onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
@@ -169,7 +169,7 @@
                                                                     <?php else: ?>
                                                                         <div class="swiper-slide">
                                                                             <img
-                                                                                src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                                                src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                                 class="dark-support rounded border"
                                                                                 alt="Product thumb"
                                                                                 onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
@@ -180,7 +180,7 @@
                                                                 <?php $__currentLoopData = json_decode($product->images); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $photo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                     <div class="swiper-slide" id="preview-img<?php echo e($key); ?>">
                                                                         <img
-                                                                            src="<?php echo e(asset("storage/app/public/product/$photo")); ?>"
+                                                                            src="<?php echo e(asset("public/storage/product/$photo")); ?>"
                                                                             class="dark-support rounded border"
                                                                             alt="Product thumb"
                                                                             onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
@@ -520,7 +520,7 @@
                                                                 <div class="avatar overflow-hidden border rounded-circle"
                                                                      style="--size: 3.437rem">
                                                                     <img
-                                                                        src="<?php echo e(asset("storage/app/public/profile")); ?>/<?php echo e((isset($item->user)?$item->user->image:'')); ?>"
+                                                                        src="<?php echo e(asset("public/storage/profile")); ?>/<?php echo e((isset($item->user)?$item->user->image:'')); ?>"
                                                                         alt=""
                                                                         class="img-fit dark-support"
                                                                         onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
@@ -552,8 +552,8 @@
                                                                     <div class="d-flex flex-wrap gap-2 products-comments-img">
                                                                         <?php $__currentLoopData = json_decode($item->attachment); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                             <?php if(file_exists(base_path("storage/app/public/review/".$img))): ?>
-                                                                                <a href="<?php echo e(asset("storage/app/public/review/".$img)); ?>" data-lightbox="">
-                                                                                    <img src="<?php echo e(asset("storage/app/public/review/".$img)); ?>" class="remove-mask-img"
+                                                                                <a href="<?php echo e(asset("public/storage/review/".$img)); ?>" data-lightbox="">
+                                                                                    <img src="<?php echo e(asset("public/storage/review/".$img)); ?>" class="remove-mask-img"
                                                                                          onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
                                                                                 </a>
                                                                             <?php endif; ?>
@@ -722,11 +722,11 @@
                         <div class="card  order-0 order-sm-1">
                             <div class="card-body">
                                 <div class="p-2 overlay shop-bg-card"
-                                     data-bg-img="<?php echo e(asset("storage/app/public/shop/")); ?>/<?php echo e(\App\CPU\Helpers::get_business_settings('shop_banner')); ?>">
+                                     data-bg-img="<?php echo e(asset("public/storage/shop/")); ?>/<?php echo e(\App\CPU\Helpers::get_business_settings('shop_banner')); ?>">
                                     <div class="media flex-wrap gap-3 p-2">
                                         <div class="avatar border rounded-circle" style="--size: 3.437rem">
                                             <img
-                                                src="<?php echo e(asset("storage/app/public/company")); ?>/<?php echo e($web_config['fav_icon']->value); ?>"
+                                                src="<?php echo e(asset("public/storage/company")); ?>/<?php echo e($web_config['fav_icon']->value); ?>"
                                                 alt="" class="img-fit dark-support rounded-circle"
                                                 onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
                                         </div>

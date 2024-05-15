@@ -125,12 +125,12 @@
                                                 "hoverBackgroundColor": "#ACDBAB",
                                                 "borderColor": "#ACDBAB"
                                               },
-                                              {
-                                                "label": "{{\App\CPU\translate('Seller')}}",
-                                                "data": [{{$seller_data[1]}},{{$seller_data[2]}},{{$seller_data[3]}},{{$seller_data[4]}},{{$seller_data[5]}},{{$seller_data[6]}},{{$seller_data[7]}},{{$seller_data[8]}},{{$seller_data[9]}},{{$seller_data[10]}},{{$seller_data[11]}},{{$seller_data[12]}}],
-                                                "backgroundColor": "#0177CD",
-                                                "borderColor": "#0177CD"
-                                              },
+{{--                                              {--}}
+{{--                                                "label": "{{\App\CPU\translate('Seller')}}",--}}
+{{--                                                "data": [{{$seller_data[1]}},{{$seller_data[2]}},{{$seller_data[3]}},{{$seller_data[4]}},{{$seller_data[5]}},{{$seller_data[6]}},{{$seller_data[7]}},{{$seller_data[8]}},{{$seller_data[9]}},{{$seller_data[10]}},{{$seller_data[11]}},{{$seller_data[12]}}],--}}
+{{--                                                "backgroundColor": "#0177CD",--}}
+{{--                                                "borderColor": "#0177CD"--}}
+{{--                                              },--}}
                                               {
                                                 "label": "{{\App\CPU\translate('Commission')}}",
                                                 "data": [{{$commission_data[1]}},{{$commission_data[2]}},{{$commission_data[3]}},{{$commission_data[4]}},{{$commission_data[5]}},{{$commission_data[6]}},{{$commission_data[7]}},{{$commission_data[8]}},{{$commission_data[9]}},{{$commission_data[10]}},{{$commission_data[11]}},{{$commission_data[12]}}],
@@ -206,6 +206,7 @@
 
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
+
                     <div class="card h-100">
                         @include('admin.partials._top-customer',['top_customer'=>$data['top_customer']])
                     </div>
@@ -349,16 +350,16 @@
                                     lineTension: 0.3,
                                     radius: 0
                                 },
-                                {
-                                    label: "{{\App\CPU\translate('Seller')}}",
-                                    data: [],
-                                    backgroundColor: "#0177CD",
-                                    hoverBackgroundColor: "#0177CD",
-                                    borderColor: "#0177CD",
-                                    fill: false,
-                                    lineTension: 0.3,
-                                    radius: 0
-                                },
+                                {{--{--}}
+                                {{--    label: "{{\App\CPU\translate('Seller')}}",--}}
+                                {{--    data: [],--}}
+                                {{--    backgroundColor: "#0177CD",--}}
+                                {{--    hoverBackgroundColor: "#0177CD",--}}
+                                {{--    borderColor: "#0177CD",--}}
+                                {{--    fill: false,--}}
+                                {{--    lineTension: 0.3,--}}
+                                {{--    radius: 0--}}
+                                {{--},--}}
                                 {
                                     label: "{{\App\CPU\translate('Commission')}}",
                                     data: [],
@@ -376,8 +377,8 @@
 
                     myChart.data.labels = response_data.inhouse_label;
                     myChart.data.datasets[0].data = response_data.inhouse_earn;
-                    myChart.data.datasets[1].data = response_data.seller_earn;
-                    myChart.data.datasets[2].data = response_data.commission_earn;
+                    // myChart.data.datasets[1].data = response_data.seller_earn;
+                    myChart.data.datasets[1].data = response_data.commission_earn;
 
                     myChart.update();
                 },

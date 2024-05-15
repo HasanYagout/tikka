@@ -993,6 +993,40 @@
                 <div class="col-xxl-4 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-header">
+                            <h5 class="mb-0 d-flex align-items-center gap-2">
+                                <img src="<?php echo e(asset('public/assets/back-end/img/website-color.png')); ?>" alt="">
+                                <?php echo e(\App\CPU\translate('theme_mode')); ?>
+
+                            </h5>
+                        </div>
+                        <div class="card-body d-flex flex-wrap gap-4">
+
+                            <div class="form-group">
+                                <button type="button" class="light_button active form-control_color border-0 rounded">
+                                    <img src="<?php echo e(theme_asset('assets/img/svg/light.svg')); ?>" alt="" class="svg">
+                                </button>                                <div class="text-center">
+
+                                    <label class="title-color text-capitalize">Light Mode</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="dark_button form-control_color border-0 rounded">
+                                    <img src="<?php echo e(theme_asset('assets/img/svg/dark.svg')); ?>" alt="" class="svg">
+                                </button>
+                                <div class="text-center">
+
+                                    <label class="title-color text-capitalize">Dark Mode</label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-sm-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
                                 <img src="<?php echo e(asset('public/assets/back-end/img/header-logo.png')); ?>" alt="">
                                 <?php echo e(\App\CPU\translate('Website Header Logo')); ?>
@@ -1068,6 +1102,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xxl-4 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-header">

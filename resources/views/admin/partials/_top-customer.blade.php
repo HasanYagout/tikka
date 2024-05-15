@@ -9,6 +9,7 @@
 
 <!-- Body -->
 <div class="card-body">
+
     @if($top_customer)
         <div class="grid-card-wrap">
             @foreach($top_customer as $key=>$item)
@@ -21,6 +22,7 @@
                                      onerror="this.src='{{asset('public/assets/back-end/img/160x160/img1.jpg')}}'"
                                      src="{{asset('storage/profile/'.$item->customer->image??'')}}">
                             </div>
+
 
                             <h5 class="mb-0">{{$item->customer['f_name']??'Not exist'}}</h5>
 

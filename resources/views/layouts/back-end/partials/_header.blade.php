@@ -132,17 +132,7 @@
                             </a>
                         </div>
                     </li>
-                    <div class="d-flex align-items-center gap-2 justify-content-between p-4">
-                        <span class="text-dark">{{ translate('theme_mode') }}</span>
-                        <div class="theme-bar p-1">
-                            <button class="light_button active">
-                                <img src="{{theme_asset('assets/img/svg/light.svg')}}" alt="" class="svg">
-                            </button>
-                            <button class="dark_button">
-                                <img src="{{theme_asset('assets/img/svg/dark.svg')}}" alt="" class="svg">
-                            </button>
-                        </div>
-                    </div>
+
                     <li class="nav-item">
                         <!-- Account -->
                         <div class="hs-unfold">

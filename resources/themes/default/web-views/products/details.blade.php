@@ -13,13 +13,13 @@
     <!-- Viewport-->
 
     @if($product['meta_image']!=null)
-        <meta property="og:image" content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+        <meta property="og:image" content="{{asset("public/storage/product/meta")}}/{{$product->meta_image}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+              content="{{asset("public/storage/product/meta")}}/{{$product->meta_image}}"/>
     @else
-        <meta property="og:image" content="{{asset("storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
+        <meta property="og:image" content="{{asset("public/storage/product/thumbnail")}}/{{$product->thumbnail}}"/>
         <meta property="twitter:card"
-              content="{{asset("storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+              content="{{asset("public/storage/product/thumbnail/")}}/{{$product->thumbnail}}"/>
     @endif
 
     @if($product['meta_title']!=null)
@@ -145,8 +145,8 @@
                                                          id="image{{$photo->color}}">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                              onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                             src="{{asset("storage/app/public/product/$photo->image_name")}}"
-                                                             data-zoom="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                             src="{{asset("public/storage/product/$photo->image_name")}}"
+                                                             data-zoom="{{asset("public/storage/product/$photo->image_name")}}"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -155,8 +155,8 @@
                                                          id="image{{$key}}">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                              onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                             src="{{asset("storage/app/public/product/$photo->image_name")}}"
-                                                             data-zoom="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                             src="{{asset("public/storage/product/$photo->image_name")}}"
+                                                             data-zoom="{{asset("public/storage/product/$photo->image_name")}}"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -168,8 +168,8 @@
                                                      id="image{{$key}}">
                                                     <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                          onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                         src="{{asset("storage/app/public/product/$photo")}}"
-                                                         data-zoom="{{asset("storage/app/public/product/$photo")}}"
+                                                         src="{{asset("public/storage/product/$photo")}}"
+                                                         data-zoom="{{asset("public/storage/product/$photo")}}"
                                                          alt="Product image" width="">
                                                     <div class="cz-image-zoom-pane"></div>
                                                 </div>
@@ -189,7 +189,7 @@
                                                                    id="preview-img{{$photo->color}}" href="#image{{$photo->color}}">
                                                                     <img
                                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                                        src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                        src="{{asset("public/storage/product/$photo->image_name")}}"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -199,7 +199,7 @@
                                                                    id="preview-img{{$key}}" href="#image{{$key}}">
                                                                     <img
                                                                         onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                                        src="{{asset("storage/app/public/product/$photo->image_name")}}"
+                                                                        src="{{asset("public/storage/product/$photo->image_name")}}"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -212,7 +212,7 @@
                                                                id="preview-img{{$key}}" href="#image{{$key}}">
                                                                 <img
                                                                     onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                                                    src="{{asset("storage/app/public/product/$photo")}}"
+                                                                    src="{{asset("public/storage/product/$photo")}}"
                                                                     alt="Product thumb">
                                                             </a>
                                                         </div>
@@ -780,7 +780,7 @@
                                     <div class="row d-flex ">
                                         <div>
                                             <img class="__inline-32"
-                                                src="{{asset("storage/app/public/company")}}/{{$web_config['fav_icon']->value}}"
+                                                src="{{asset("public/storage/company")}}/{{$web_config['fav_icon']->value}}"
                                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                                 alt="">
                                         </div>

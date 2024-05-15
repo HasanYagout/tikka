@@ -60,7 +60,7 @@
                                             <?php $__currentLoopData = $main_banner; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <div class="swiper-slide">
                                                     <a href="<?php echo e($banner['url']); ?>" class="h-100">
-                                                        <img src="<?php echo e(asset('public/storage/app/public/banner')); ?>/<?php echo e($banner['photo']); ?>" loading="lazy"
+                                                        <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($banner['photo']); ?>" loading="lazy"
 
                                                              alt="" class="dark-support rounded">
                                                     </a>
@@ -78,7 +78,7 @@
                             <?php $__currentLoopData = $footer_banner; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="col-6 d-none d-sm-block">
                                     <a href="<?php echo e($banner['url']); ?>" class="ad-hover">
-                                        <img src="<?php echo e(asset('public/storage/app/public/banner')); ?>/<?php echo e($banner['photo']); ?>" loading="lazy" alt=""
+                                        <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($banner['photo']); ?>" loading="lazy" alt=""
 
                                              class="dark-support rounded w-100">
                                     </a>

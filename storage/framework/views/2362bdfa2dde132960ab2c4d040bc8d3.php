@@ -2,7 +2,7 @@
 <div class="card border-primary-light flex-grow-1">
     <div class="media flex-wrap align-items-centr gap-3 p-3">
         <div class="avatar border rounded-circle" style="--size: 3.437rem">
-            <img src="<?php echo e(asset("storage/app/public/profile")); ?>/<?php echo e((isset($item->user)?$item->user->image:'')); ?>" alt=""
+            <img src="<?php echo e(asset("public/storage/profile")); ?>/<?php echo e((isset($item->user)?$item->user->image:'')); ?>" alt=""
             class="img-fit dark-support rounded-circle" onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
         </div>
         <div class="media-body d-flex flex-column gap-2">

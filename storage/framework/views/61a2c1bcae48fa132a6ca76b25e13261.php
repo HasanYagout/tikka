@@ -44,7 +44,7 @@
         <label class="badge badge-soft-success float-right __inline-2"><?php echo e(\App\CPU\translate('Software version')); ?> : <?php echo e(env('SOFTWARE_VERSION')); ?></label>
         <?php ($e_commerce_logo=\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value); ?>
         <a class="d-flex justify-content-center mb-5" href="javascript:">
-            <img class="z-index-2" height="40" src="<?php echo e(asset("storage/company/".$e_commerce_logo)); ?>" alt="Logo"
+            <img class="z-index-2" height="40" src="<?php echo e(asset("public/storage/company/".$e_commerce_logo)); ?>" alt="Logo"
                  onerror="">
         </a>
 

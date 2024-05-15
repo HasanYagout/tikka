@@ -10,7 +10,7 @@
                 <div class="modal-body cursor-pointer __p-3px" onclick="location.href='<?php echo e($web_config['popup_banner']['url']); ?>'">
                     <img class="d-block w-100"
                          onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                         src="<?php echo e(asset('public/storage/app/public/banner')); ?>/<?php echo e($web_config['popup_banner']['photo']); ?>"
+                         src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($web_config['popup_banner']['photo']); ?>"
                          alt="">
                 </div>
             </div>

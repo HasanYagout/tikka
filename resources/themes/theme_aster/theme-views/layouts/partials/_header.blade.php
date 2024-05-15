@@ -91,7 +91,7 @@
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <a class="logo" href="{{route('home')}}">
                     <img
-                        src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
+                        src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
                         class="dark-support svg h-45"
 {{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                         alt="Logo"
@@ -148,7 +148,7 @@
                         <a href="{{ $web_config['header_banner']['url'] }}">
                             <img
                                 width="180"
-                                src="{{asset('public/storage/app/public/banner')}}/{{$web_config['header_banner']['photo']}}"
+                                src="{{asset('public/storage/banner')}}/{{$web_config['header_banner']['photo']}}"
                                 onerror="this.src='{{theme_asset('assets/img/header-banner-placeholder.png')}}'"
                                 loading="lazy"
                                 class="dark-support"
@@ -287,10 +287,10 @@
                     <div class="d-flex align-items-center gap-2 justify-content-between p-4">
                         <span class="text-dark">{{ translate('theme_mode') }}</span>
                         <div class="theme-bar p-1">
-                            <button class="light_button active">
+                            <button class="light_button ">
                                 <img src="{{theme_asset('assets/img/svg/light.svg')}}" alt="" class="svg">
                             </button>
-                            <button class="dark_button">
+                            <button class="dark_button active">
                                 <img src="{{theme_asset('assets/img/svg/dark.svg')}}" alt="" class="svg">
                             </button>
                         </div>
@@ -369,7 +369,7 @@
                             <a class="logo" href="{{route('home')}}">
                                 <img
                                     width="123"
-                                    src="{{asset("storage/app/public/company")."/".$web_config['web_logo']->value}}"
+                                    src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
 {{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                                     class="dark-support"
                                     alt="Logo"
@@ -411,7 +411,7 @@
 {{--                                                <div class="avatar rounded" style="--size: 2.5rem">--}}
 {{--                                                    <img--}}
 {{--                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
-{{--                                                        src="{{asset("storage/app/public/shop")}}/{{ $shop->image }}" loading="lazy"--}}
+{{--                                                        src="{{asset("public/storage/shop")}}/{{ $shop->image }}" loading="lazy"--}}
 {{--                                                        class="img-fit rounded dark-support" alt=""/>--}}
 {{--                                                </div>--}}
 {{--                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">--}}
@@ -454,7 +454,7 @@
                                                         style="--size: 1.25rem">
                                                         <img
                                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
-                                                            src="{{asset("storage/app/public/brand")}}/{{ $brand->image }}"
+                                                            src="{{asset("public/storage/brand")}}/{{ $brand->image }}"
                                                             loading="lazy"
                                                             class="img-fit rounded-circle dark-support"
                                                             alt=""/>

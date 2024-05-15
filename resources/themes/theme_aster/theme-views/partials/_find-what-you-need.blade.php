@@ -5,7 +5,7 @@
             @if(isset($footer_banner[0]))
                 <div class="col-12 d-sm-none">
                     <a href="{{ $footer_banner[0]['url'] }}" class="ad-hover">
-                        <img src="{{asset('public/storage/app/public/banner')}}/{{$footer_banner[0]['photo']}}" loading="lazy" alt=""
+                        <img src="{{asset('public/storage/banner')}}/{{$footer_banner[0]['photo']}}" loading="lazy" alt=""
 {{--                                onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
                                 class="dark-support rounded w-100">
                     </a>
@@ -69,7 +69,7 @@
                 <div class="d-none d-sm-block">
                     @if($sidebar_banner)
                         <a href="{{ $sidebar_banner['url'] }}">
-                            <img src="{{asset('public/storage/app/public/banner')}}/{{$sidebar_banner ? $sidebar_banner['photo'] : ''}}"
+                            <img src="{{asset('public/storage/banner')}}/{{$sidebar_banner ? $sidebar_banner['photo'] : ''}}"
                                  onerror="this.src='{{ theme_asset('assets/img/top-side-banner-placeholder.png') }}'"alt="" class="dark-support rounded w-100">
                         </a>
                     @else
@@ -247,7 +247,7 @@
                 <div class="col-12 d-sm-none">
                     @if($top_side_banner)
                         <a href="{{ $top_side_banner['url'] }}">
-                            <img src="{{asset('public/storage/app/public/banner')}}/{{$top_side_banner ? $top_side_banner['photo'] : ''}}"
+                            <img src="{{asset('public/storage/banner')}}/{{$top_side_banner ? $top_side_banner['photo'] : ''}}"
                                     onerror="this.src='{{ theme_asset('assets/img/top-side-banner-placeholder.png') }}'"
                                     alt="" class="dark-support rounded w-100">
                         </a>

@@ -56,7 +56,7 @@
                     @else
                         @php($banner=\App\CPU\Helpers::get_business_settings('shop_banner'))
                         <img class="__shop-page-banner"
-                             src="{{asset("storage/app/public/shop")}}/{{$banner??""}}"
+                             src="{{asset("public/storage/shop")}}/{{$banner??""}}"
                              onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                              alt="">
                     @endif

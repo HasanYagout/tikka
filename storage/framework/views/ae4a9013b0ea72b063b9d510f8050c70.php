@@ -6,7 +6,7 @@
             <div class="modal-body p-0">
                 <button type="button" class="btn-close outside" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div onclick="location.href='<?php echo e($web_config['popup_banner']['url']); ?>'">
-                    <img src="<?php echo e(asset('public/storage/app/public/banner')); ?>/<?php echo e($web_config['popup_banner']['photo']); ?>"
+                    <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($web_config['popup_banner']['photo']); ?>"
                          onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'"
                          class="dark-support rounded img-fit" alt="">
                 </div>

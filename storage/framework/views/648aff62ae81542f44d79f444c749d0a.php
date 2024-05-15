@@ -133,14 +133,14 @@
                 </button>
                 <a class="navbar-brand d-none d-sm-block <?php echo e(Session::get('direction') === "rtl" ? 'mr-3' : 'mr-3'); ?> flex-shrink-0 __min-w-7rem" href="<?php echo e(route('home')); ?>">
                     <img class="__inline-11"
-                         src="<?php echo e(asset("storage/app/public/company")."/".$web_config['web_logo']->value); ?>"
+                         src="<?php echo e(asset("public/storage/company")."/".$web_config['web_logo']->value); ?>"
                          onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                          alt="<?php echo e($web_config['name']->value); ?>"/>
                 </a>
                 <a class="navbar-brand d-sm-none <?php echo e(Session::get('direction') === "rtl" ? 'mr-2' : 'mr-2'); ?>"
                    href="<?php echo e(route('home')); ?>">
                     <img class="mobile-logo-img __inline-12"
-                         src="<?php echo e(asset("storage/app/public/company")."/".$web_config['mob_logo']->value); ?>"
+                         src="<?php echo e(asset("public/storage/company")."/".$web_config['mob_logo']->value); ?>"
                          onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                          alt="<?php echo e($web_config['name']->value); ?>"/>
                 </a>
@@ -292,7 +292,7 @@
                                                    onclick="location.href='<?php echo e(route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])); ?>'">
                                                     <div class="d-flex">
                                                         <img
-                                                            src="<?php echo e(asset("storage/app/public/category/$category->icon")); ?>"
+                                                            src="<?php echo e(asset("public/storage/category/$category->icon")); ?>"
                                                             onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                                                             class="__img-18">
                                                         <span
@@ -360,7 +360,7 @@
                                                <?php if ($category->childes->count() > 0) echo "data-toggle='dropdown'"?> href="javascript:"
                                                onclick="location.href='<?php echo e(route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])); ?>'">
                                                 <div class="d-flex">
-                                                    <img src="<?php echo e(asset("storage/app/public/category/$category->icon")); ?>"
+                                                    <img src="<?php echo e(asset("public/storage/category/$category->icon")); ?>"
                                                          onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                                                          class="__img-18">
                                                     <span
@@ -436,7 +436,7 @@
 
                                             <a <?php if ($category->childes->count() > 0) echo ""?>
                                             href="<?php echo e(route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])); ?>">
-                                            <img src="<?php echo e(asset("storage/app/public/category/$category->icon")); ?>"
+                                            <img src="<?php echo e(asset("public/storage/category/$category->icon")); ?>"
                                                  onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                                                  class="__img-18">
                                             <span

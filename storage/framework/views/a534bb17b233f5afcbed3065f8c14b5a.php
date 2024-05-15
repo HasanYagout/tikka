@@ -11,13 +11,13 @@
     <!-- Viewport-->
 
     <?php if($product['meta_image']!=null): ?>
-        <meta property="og:image" content="<?php echo e(asset("storage/app/public/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
+        <meta property="og:image" content="<?php echo e(asset("public/storage/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
         <meta property="twitter:card"
-              content="<?php echo e(asset("storage/app/public/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
+              content="<?php echo e(asset("public/storage/product/meta")); ?>/<?php echo e($product->meta_image); ?>"/>
     <?php else: ?>
-        <meta property="og:image" content="<?php echo e(asset("storage/app/public/product/thumbnail")); ?>/<?php echo e($product->thumbnail); ?>"/>
+        <meta property="og:image" content="<?php echo e(asset("public/storage/product/thumbnail")); ?>/<?php echo e($product->thumbnail); ?>"/>
         <meta property="twitter:card"
-              content="<?php echo e(asset("storage/app/public/product/thumbnail/")); ?>/<?php echo e($product->thumbnail); ?>"/>
+              content="<?php echo e(asset("public/storage/product/thumbnail/")); ?>/<?php echo e($product->thumbnail); ?>"/>
     <?php endif; ?>
 
     <?php if($product['meta_title']!=null): ?>
@@ -143,8 +143,8 @@
                                                          id="image<?php echo e($photo->color); ?>">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                              onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                                             src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
-                                                             data-zoom="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                             src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
+                                                             data-zoom="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -153,8 +153,8 @@
                                                          id="image<?php echo e($key); ?>">
                                                         <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                              onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                                             src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
-                                                             data-zoom="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                             src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
+                                                             data-zoom="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                              alt="Product image" width="">
                                                         <div class="cz-image-zoom-pane"></div>
                                                     </div>
@@ -166,8 +166,8 @@
                                                      id="image<?php echo e($key); ?>">
                                                     <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
                                                          onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                                         src="<?php echo e(asset("storage/app/public/product/$photo")); ?>"
-                                                         data-zoom="<?php echo e(asset("storage/app/public/product/$photo")); ?>"
+                                                         src="<?php echo e(asset("public/storage/product/$photo")); ?>"
+                                                         data-zoom="<?php echo e(asset("public/storage/product/$photo")); ?>"
                                                          alt="Product image" width="">
                                                     <div class="cz-image-zoom-pane"></div>
                                                 </div>
@@ -187,7 +187,7 @@
                                                                    id="preview-img<?php echo e($photo->color); ?>" href="#image<?php echo e($photo->color); ?>">
                                                                     <img
                                                                         onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                                                        src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                                        src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -197,7 +197,7 @@
                                                                    id="preview-img<?php echo e($key); ?>" href="#image<?php echo e($key); ?>">
                                                                     <img
                                                                         onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                                                        src="<?php echo e(asset("storage/app/public/product/$photo->image_name")); ?>"
+                                                                        src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                         alt="Product thumb">
                                                                 </a>
                                                             </div>
@@ -210,7 +210,7 @@
                                                                id="preview-img<?php echo e($key); ?>" href="#image<?php echo e($key); ?>">
                                                                 <img
                                                                     onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                                                    src="<?php echo e(asset("storage/app/public/product/$photo")); ?>"
+                                                                    src="<?php echo e(asset("public/storage/product/$photo")); ?>"
                                                                     alt="Product thumb">
                                                             </a>
                                                         </div>
@@ -801,7 +801,7 @@
                                     <div class="row d-flex ">
                                         <div>
                                             <img class="__inline-32"
-                                                src="<?php echo e(asset("storage/app/public/company")); ?>/<?php echo e($web_config['fav_icon']->value); ?>"
+                                                src="<?php echo e(asset("public/storage/company")); ?>/<?php echo e($web_config['fav_icon']->value); ?>"
                                                 onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                                                 alt="">
                                         </div>

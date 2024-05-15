@@ -41,7 +41,7 @@
                 @else
                     @php($banner=\App\CPU\Helpers::get_business_settings('shop_banner'))
                         <div class="store-banner dark-support bg-badge overflow-hidden" data-bg-img="">
-                            <img class="w-100" src="{{asset("storage/app/public/shop")}}/{{$banner??""}}"
+                            <img class="w-100" src="{{asset("public/storage/shop")}}/{{$banner??""}}"
                             onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'" alt="">
                         </div>
                 @endif

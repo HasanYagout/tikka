@@ -66,7 +66,7 @@
                                 <a href="{{route('shopView',['id'=>$shop['seller_id']])}}">
                                     <img class="__inline-66"
                                          onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                         src="{{asset("storage/app/public/shop/$shop->image")}}"
+                                         src="{{asset("public/storage/shop/$shop->image")}}"
                                          alt="{{$shop->name}}">
                                     <div class="text-center text-dark">
                                         <span class="text-center font-weight-bold small p-1">{{Str::limit($shop->name, 14)}}</span>

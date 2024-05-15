@@ -95,7 +95,7 @@
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <a class="logo" href="<?php echo e(route('home')); ?>">
                     <img
-                        src="<?php echo e(asset("storage/app/public/company")."/".$web_config['web_logo']->value); ?>"
+                        src="<?php echo e(asset("public/storage/company")."/".$web_config['web_logo']->value); ?>"
                         class="dark-support svg h-45"
 
                         alt="Logo"
@@ -155,7 +155,7 @@
                         <a href="<?php echo e($web_config['header_banner']['url']); ?>">
                             <img
                                 width="180"
-                                src="<?php echo e(asset('public/storage/app/public/banner')); ?>/<?php echo e($web_config['header_banner']['photo']); ?>"
+                                src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($web_config['header_banner']['photo']); ?>"
                                 onerror="this.src='<?php echo e(theme_asset('assets/img/header-banner-placeholder.png')); ?>'"
                                 loading="lazy"
                                 class="dark-support"
@@ -298,10 +298,10 @@
                     <div class="d-flex align-items-center gap-2 justify-content-between p-4">
                         <span class="text-dark"><?php echo e(translate('theme_mode')); ?></span>
                         <div class="theme-bar p-1">
-                            <button class="light_button active">
+                            <button class="light_button ">
                                 <img src="<?php echo e(theme_asset('assets/img/svg/light.svg')); ?>" alt="" class="svg">
                             </button>
-                            <button class="dark_button">
+                            <button class="dark_button active">
                                 <img src="<?php echo e(theme_asset('assets/img/svg/dark.svg')); ?>" alt="" class="svg">
                             </button>
                         </div>
@@ -386,7 +386,7 @@
                             <a class="logo" href="<?php echo e(route('home')); ?>">
                                 <img
                                     width="123"
-                                    src="<?php echo e(asset("storage/app/public/company")."/".$web_config['web_logo']->value); ?>"
+                                    src="<?php echo e(asset("public/storage/company")."/".$web_config['web_logo']->value); ?>"
 
                                     class="dark-support"
                                     alt="Logo"
@@ -471,7 +471,7 @@
                                                         style="--size: 1.25rem">
                                                         <img
                                                             onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'"
-                                                            src="<?php echo e(asset("storage/app/public/brand")); ?>/<?php echo e($brand->image); ?>"
+                                                            src="<?php echo e(asset("public/storage/brand")); ?>/<?php echo e($brand->image); ?>"
                                                             loading="lazy"
                                                             class="img-fit rounded-circle dark-support"
                                                             alt=""/>
