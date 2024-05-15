@@ -6,7 +6,7 @@
     --primary-dark: #12452b;
     --primary-light: #fff;
     --title-color: #222;
-    /*--bs-white: #fff;*/
+    --bs-white: #fff;
     --title-color-rgb: #F7A41C;
     --bs-body-color: #666;
     --secondary-body-color: #9b9b9b;
@@ -163,7 +163,7 @@ a:hover {
 }
 
 .navbar-vertical-content {
-    background: var(--absolute-white);
+    background: var(--bs-white);
     padding: 10px 15px;
 }
 
@@ -1970,7 +1970,7 @@ select {
 }
 
 .navbar-vertical-aside .navbar-brand-wrapper {
-    background: var(--absolute-white);
+    background: var(--bs-white);
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -5345,7 +5345,7 @@ select {
     position: sticky;
     top: 0;
     z-index: 9;
-    background: var(--absolute-white);
+    background: var(--bs-white);
 }
 
 aside .navbar-vertical-content {
