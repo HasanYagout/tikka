@@ -18,6 +18,7 @@ yarn-error.log
 /.vscode
 /storage/debugbar/*
 /storage/framework/*
+/storage/framework/views/*
 /storage/framework/sessions/*
 /storage/logs/*
 /storage/*.key
