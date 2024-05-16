@@ -10,7 +10,10 @@
         <li class="{{ Request::is('admin/business-settings/order-settings/index') ?'active':'' }}"><a href="{{route('admin.business-settings.order-settings.index')}}">{{\App\CPU\translate('Order')}}</a></li>
         <li class="{{ Request::is('admin/product-settings') ?'active':'' }}"><a href="{{ route('admin.product-settings.index') }}">{{\App\CPU\translate('Product')}}</a></li>
         <li class="{{ Request::is('admin/business-settings/delivery-restriction') ? 'active':'' }}"><a href="{{ route('admin.business-settings.delivery-restriction.index') }}">{{\App\CPU\translate('Delivery_Restriction')}}</a></li>
+        @if(auth('admin')->user()->role->name=='superAdmin')
+
         <li class="{{ Request::is('admin/business-settings/cookie-settings') ? 'active':'' }}"><a href="{{ route('admin.business-settings.cookie-settings') }}">{{\App\CPU\translate('Cookie_Settings')}}</a></li>
+        @endif
         @if(theme_root_path() == 'theme_fashion')
         <li class="{{ Request::is('admin/business-settings/all-pages-banner') ? 'active':'' }}"><a href="{{ route('admin.business-settings.all-pages-banner') }}">{{translate('All_Pages_Banner')}}</a></li>
         @endif

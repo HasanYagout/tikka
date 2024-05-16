@@ -10,7 +10,10 @@
         <li class="<?php echo e(Request::is('admin/business-settings/order-settings/index') ?'active':''); ?>"><a href="<?php echo e(route('admin.business-settings.order-settings.index')); ?>"><?php echo e(\App\CPU\translate('Order')); ?></a></li>
         <li class="<?php echo e(Request::is('admin/product-settings') ?'active':''); ?>"><a href="<?php echo e(route('admin.product-settings.index')); ?>"><?php echo e(\App\CPU\translate('Product')); ?></a></li>
         <li class="<?php echo e(Request::is('admin/business-settings/delivery-restriction') ? 'active':''); ?>"><a href="<?php echo e(route('admin.business-settings.delivery-restriction.index')); ?>"><?php echo e(\App\CPU\translate('Delivery_Restriction')); ?></a></li>
+        <?php if(auth('admin')->user()->role->name=='superAdmin'): ?>
+
         <li class="<?php echo e(Request::is('admin/business-settings/cookie-settings') ? 'active':''); ?>"><a href="<?php echo e(route('admin.business-settings.cookie-settings')); ?>"><?php echo e(\App\CPU\translate('Cookie_Settings')); ?></a></li>
+        <?php endif; ?>
         <?php if(theme_root_path() == 'theme_fashion'): ?>
         <li class="<?php echo e(Request::is('admin/business-settings/all-pages-banner') ? 'active':''); ?>"><a href="<?php echo e(route('admin.business-settings.all-pages-banner')); ?>"><?php echo e(translate('All_Pages_Banner')); ?></a></li>
         <?php endif; ?>

@@ -940,18 +940,20 @@
                                 </span>
                                     </a>
                                 </li>
-
-                                <li class="navbar-vertical-aside-has-menu <?php echo e(Request::is('admin/file-manager*')?'active':''); ?>">
-                                    <a class="js-navbar-vertical-aside-menu-link nav-link"
-                                       href="<?php echo e(route('admin.file-manager.index')); ?>"
-                                       title="<?php echo e(\App\CPU\translate('gallery')); ?>">
-                                        <span class="tio-circle nav-indicator-icon"></span>
-                                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                <?php if(auth('admin')->user()->role->name=='superAdmin'): ?>
+                                    <li class="navbar-vertical-aside-has-menu <?php echo e(Request::is('admin/file-manager*')?'active':''); ?>">
+                                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                                           href="<?php echo e(route('admin.file-manager.index')); ?>"
+                                           title="<?php echo e(\App\CPU\translate('gallery')); ?>">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                                         <?php echo e(\App\CPU\translate('gallery')); ?>
 
                                     </span>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
+
+                                <?php endif; ?>
                             </ul>
                         </li>
 

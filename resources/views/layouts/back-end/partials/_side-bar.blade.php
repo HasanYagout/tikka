@@ -886,17 +886,19 @@
                                 </span>
                                     </a>
                                 </li>
-
-                                <li class="navbar-vertical-aside-has-menu {{Request::is('admin/file-manager*')?'active':''}}">
-                                    <a class="js-navbar-vertical-aside-menu-link nav-link"
-                                       href="{{route('admin.file-manager.index')}}"
-                                       title="{{\App\CPU\translate('gallery')}}">
-                                        <span class="tio-circle nav-indicator-icon"></span>
-                                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                @if(auth('admin')->user()->role->name=='superAdmin')
+                                    <li class="navbar-vertical-aside-has-menu {{Request::is('admin/file-manager*')?'active':''}}">
+                                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                                           href="{{route('admin.file-manager.index')}}"
+                                           title="{{\App\CPU\translate('gallery')}}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                                         {{\App\CPU\translate('gallery')}}
                                     </span>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
+
+                                @endif
                             </ul>
                         </li>
 

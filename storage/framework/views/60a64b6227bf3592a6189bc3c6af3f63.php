@@ -143,9 +143,10 @@
                                      "target": "#accountNavbarDropdown",
                                      "type": "css-animation"
                                    }'>
+
                                 <div class="d-none d-md-block media-body text-right">
                                     <h5 class="profile-name mb-0"><?php echo e(auth('admin')->user()->name); ?></h5>
-                                    <span class="fz-12">Super Admin</span>
+                                    <span class="fz-12"><?php echo e(auth('admin')->user()->role->name); ?></span>
                                 </div>
                                 <div class="avatar border avatar-circle">
                                     <img class="avatar-img"
