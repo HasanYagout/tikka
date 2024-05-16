@@ -432,9 +432,10 @@ class OrderController extends Controller
         $data["email"] = $order->customer !=null?$order->customer["email"]:\App\CPU\translate('email_not_found');
         $data["client_name"] = $order->customer !=null? $order->customer["f_name"] . ' ' . $order->customer["l_name"]:\App\CPU\translate('customer_not_found');
         $data["order"] = $order;
+
         $mpdf_view = View::make('admin.order.invoice',
-            compact('order', 'seller', 'company_phone', 'company_name', 'company_email', 'company_web_logo')
-        );
+            compact('order', 'seller', 'company_phone', 'company_name', 'company_email', 'company_web_logo'));
+
         Helpers::gen_mpdf($mpdf_view, 'order_invoice_', $order->id);
     }
 

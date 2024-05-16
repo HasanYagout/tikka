@@ -75,7 +75,7 @@
                                 <div class="col-6 d-none d-sm-block">
                                     <a href="{{ $banner['url'] }}" class="ad-hover">
                                         <img src="{{asset('public/storage/banner')}}/{{$banner['photo']}}" loading="lazy" alt=""
-{{--                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
+                                             onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"
                                              class="dark-support rounded w-100">
                                     </a>
                                 </div>
@@ -94,14 +94,14 @@
                                     </span>
                                 </div>
                             @endif
-                            @if(count($footer_banner)==1)
-                                <div class="col-6 d-none d-sm-block">
-                                    <span class="ad-hover">
-                                        <img src="{{theme_asset('assets/img/image-place-holder-2_1.png')}}" loading="lazy" alt=""
-                                             class="dark-support rounded w-100">
-                                    </span>
-                                </div>
-                            @endif
+{{--                            @if(count($footer_banner)==1)--}}
+{{--                                <div class="col-6 d-none d-sm-block">--}}
+{{--                                    <span class="ad-hover">--}}
+{{--                                        <img src="{{theme_asset('assets/img')}}" loading="lazy" alt=""--}}
+{{--                                             class="dark-support rounded w-100">--}}
+{{--                                    </span>--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
                         </div>
                     </div>
 
@@ -149,6 +149,7 @@
                         </div>
                     @else
                         <div class="col-xl-3 d-none d-sm-block">
+
                             @if($top_side_banner)
                                 <a href="{{ $top_side_banner['url'] }}">
                                     <img src="{{asset('public/storage/banner')}}/{{$top_side_banner ? $top_side_banner['photo'] : ''}}"

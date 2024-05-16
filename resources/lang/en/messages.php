@@ -3696,4 +3696,8 @@
   'Oregano' => 'Oregano',
   'Bay Leaves' => 'Bay Leaves',
   'Cumin' => 'Cumin',
+  'Coriander' => 'Coriander',
+  'All_copy_right_reserved_©_2024_' => 'All copy right reserved © 2024 ',
+  'email_not_found' => 'Email not found',
+  'Name ' => 'Name ',
 );

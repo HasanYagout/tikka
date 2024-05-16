@@ -387,7 +387,7 @@
                                 <img
                                     width="123"
                                     src="<?php echo e(asset("public/storage/company")."/".$web_config['web_logo']->value); ?>"
-
+                                    onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder-2_1.png')); ?>'"
                                     class="dark-support"
                                     alt="Logo"
                                 />
@@ -423,19 +423,20 @@
                                     style="--bs-dropdown-min-width: max-content"                                >
                                     <div class="d-flex gap-5">
                                         <div class="column-2 row-gap-3">
+                                            <?php $__currentLoopData = $web_config['shops']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $shop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <a href="<?php echo e(route('shopView',['id'=>$shop['id']])); ?>" class="media gap-3 align-items-center border-bottom">
+                                                <div class="avatar rounded" style="--size: 2.5rem">
+                                                    <img
+                                                        onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'"
+                                                        src="<?php echo e(asset("public/storage/shop")); ?>/<?php echo e($shop->image); ?>" loading="lazy"
+                                                        class="img-fit rounded dark-support" alt=""/>
+                                                </div>
+                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">
+                                                    <?php echo e(Str::limit($shop->name, 14)); ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
+                                                </div>
+                                            </a>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             <div class="d-flex">
                                                 <a href="<?php echo e(route('sellers')); ?>" class="fw-bold text-primary d-flex justify-content-center">
                                                     <?php echo e(translate('view_all')); ?>...

@@ -79,7 +79,7 @@
                                 <div class="col-6 d-none d-sm-block">
                                     <a href="<?php echo e($banner['url']); ?>" class="ad-hover">
                                         <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($banner['photo']); ?>" loading="lazy" alt=""
-
+                                             onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder-2_1.png')); ?>'"
                                              class="dark-support rounded w-100">
                                     </a>
                                 </div>
@@ -98,14 +98,14 @@
                                     </span>
                                 </div>
                             <?php endif; ?>
-                            <?php if(count($footer_banner)==1): ?>
-                                <div class="col-6 d-none d-sm-block">
-                                    <span class="ad-hover">
-                                        <img src="<?php echo e(theme_asset('assets/img/image-place-holder-2_1.png')); ?>" loading="lazy" alt=""
-                                             class="dark-support rounded w-100">
-                                    </span>
-                                </div>
-                            <?php endif; ?>
+
+
+
+
+
+
+
+
                         </div>
                     </div>
 
@@ -157,6 +157,7 @@
                         </div>
                     <?php else: ?>
                         <div class="col-xl-3 d-none d-sm-block">
+
                             <?php if($top_side_banner): ?>
                                 <a href="<?php echo e($top_side_banner['url']); ?>">
                                     <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($top_side_banner ? $top_side_banner['photo'] : ''); ?>"

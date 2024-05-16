@@ -42,7 +42,10 @@
             font-size: 11px;
             text-align: left;
         }
-
+        span{
+            margin-right: 2px;
+            color: #F7A41C;
+        }
         table tbody th,
         table tbody td {
             padding: 8px;
@@ -57,9 +60,13 @@
         table.fz-12 tbody td {
             font-size: 12px;
         }
-
+        .container{
+            display: flex;
+            margin: 4px;
+            flex-direction: row;
+        }
         table.customers thead th {
-            background-color: #0177CD;
+            background-color: #F7A41C;
             color: #fff;
         }
 
@@ -221,7 +228,7 @@
                 {{\App\CPU\translate('Order_Invoice')}}
             </th>
             <th>
-                <img height="40" src="{{asset("public/storage/company/$company_web_logo")}}" alt="">
+                <img height="40" src="{{asset("storage/app/public/company/$company_web_logo")}}" alt="">
             </th>
         </tr>
     </table>
@@ -237,7 +244,7 @@
                     : {{ $order->seller_is == 'admin' ? $company_name : (isset($order->seller->shop) ? $order->seller->shop->name : \App\CPU\translate('not_found')) }}
                 </h4>
                 @if($order['seller_is']!='admin' && isset($order['seller']) && $order['seller']->gst != null)
-                <h4 class="text-capitalize fz-12">{{\App\CPU\translate('GST')}}
+                    <h4 class="text-capitalize fz-12">{{\App\CPU\translate('GST')}}
                         : {{ $order['seller']->gst }}</h4>
                 @endif
             </th>
@@ -255,14 +262,33 @@
                     <table>
                         <tr>
                             <td>
+
                                 @if ($order->shippingAddress)
                                     <span class="h2" style="margin: 0px;">{{\App\CPU\translate('shipping_to')}} </span>
                                     <div class="h4 montserrat-normal-600">
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->customer !=null? $order->customer['f_name'].' '.$order->customer['l_name']:\App\CPU\translate('name_not_found')}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->customer !=null? $order->customer['email']:\App\CPU\translate('email_not_found')}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->customer !=null? $order->customer['phone']:\App\CPU\translate('phone_not_found')}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->shippingAddress ? $order->shippingAddress['address'] : ""}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->shippingAddress ? $order->shippingAddress['city'] : ""}} {{$order->shippingAddress ? $order->shippingAddress['zip'] : ""}}</p>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('Name')}}:</span>
+                                            <p>{{$order->customer !=null? $order->customer['f_name'].' '.$order->customer['l_name']:\App\CPU\translate('name_not_found')}}</p>
+                                        </div>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('Email')}}:</span>
+                                            <p>{{$order->customer !=null? $order->customer['email']:\App\CPU\translate('email_not_found')}}</p>
+                                        </div>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('Phone')}}:</span>
+
+                                            <p>{{$order->customer !=null? $order->customer['phone']:\App\CPU\translate('phone_not_found')}}</p>
+                                        </div>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('Address')}}:</span>
+
+                                            <p>{{$order->shippingAddress ? $order->shippingAddress['address'] : ""}}</p>
+                                        </div>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('City')}}:</span>
+
+                                            <p>{{$order->shippingAddress ? $order->shippingAddress['city'] : ""}} {{$order->shippingAddress ? $order->shippingAddress['zip'] : ""}}</p>
+                                        </div>
                                     </div>
                                 @else
                                     <span class="h2" style="margin: 0px;">{{\App\CPU\translate('customer_info')}} </span>
@@ -273,8 +299,8 @@
                                             <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->customer !=null? $order->customer['phone']:\App\CPU\translate('phone_not_found')}}</p>
                                         @endif
                                     </div>
-                                @endif
-                                </p>
+                                    @endif
+                                    </p>
                             </td>
                         </tr>
                     </table>
@@ -283,14 +309,27 @@
                 <td>
                     <table>
                         <tr>
-                            <td class="text-right">
+                            <td>
                                 @if ($order->billingAddress)
                                     <span class="h2" >{{\App\CPU\translate('billing_address')}} </span>
                                     <div class="h4 montserrat-normal-600">
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->billingAddress ? $order->billingAddress['contact_person_name'] : ""}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->billingAddress ? $order->billingAddress['phone'] : ""}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->billingAddress ? $order->billingAddress['address'] : ""}}</p>
-                                        <p style=" margin-top: 6px; margin-bottom:0px;">{{$order->billingAddress ? $order->billingAddress['city'] : ""}} {{$order->billingAddress ? $order->billingAddress['zip'] : ""}}</p>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('contact_person_name')}}:</span>
+                                            <p>{{$order->billingAddress ? $order->billingAddress['contact_person_name'] : ""}}</p>
+                                        </div>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('phone')}}:</span>
+                                            <p>{{$order->billingAddress ? $order->billingAddress['phone'] : ""}}</p>
+                                        </div>
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('address')}}:</span>
+                                            <p>{{$order->billingAddress ? $order->billingAddress['address'] : ""}}</p>
+                                        </div>
+
+                                        <div class="container">
+                                            <span>{{\App\CPU\translate('city')}}:</span>
+                                            <p>{{$order->billingAddress ? $order->billingAddress['city'] : ""}} {{$order->billingAddress ? $order->billingAddress['zip'] : ""}}</p>
+                                        </div>
                                     </div>
                                 @endif
                             </td>
@@ -310,19 +349,19 @@
     <div class="content-position-y">
         <table class="customers bs-0">
             <thead>
-                <tr>
-                    <th>{{\App\CPU\translate('SL')}}</th>
-                    <th>{{\App\CPU\translate('item_description')}}</th>
-                    <th>
-                        {{\App\CPU\translate('unit_price')}}
-                    </th>
-                    <th>
-                        {{\App\CPU\translate('qty')}}
-                    </th>
-                    <th class="text-right">
-                        {{\App\CPU\translate('total')}}
-                    </th>
-                </tr>
+            <tr>
+                <th>{{\App\CPU\translate('SL')}}</th>
+                <th>{{\App\CPU\translate('item_description')}}</th>
+                <th>
+                    {{\App\CPU\translate('unit_price')}}
+                </th>
+                <th>
+                    {{\App\CPU\translate('qty')}}
+                </th>
+                <th class="text-right">
+                    {{\App\CPU\translate('total')}}
+                </th>
+            </tr>
             </thead>
             @php
                 $subtotal=0;
@@ -341,8 +380,8 @@
                     <td>
                         {{$details['product']?$details['product']->name:''}}
                         @if($details['variant'])
-                        <br>
-                        {{\App\CPU\translate('variation')}} : {{$details['variant']}}
+                            <br>
+                            {{\App\CPU\translate('variation')}} : {{$details['variant']}}
                         @endif
                     </td>
                     <td>{{\App\CPU\BackEndHelper::set_symbol(\App\CPU\BackEndHelper::usd_to_currency($details['price']))}}</td>
@@ -362,58 +401,58 @@
         </table>
     </div>
 </div>
-<?php
+    <?php
     if ($order['extra_discount_type'] == 'percent') {
         $ext_discount = ($sub_total / 100) * $order['extra_discount'];
     } else {
         $ext_discount = $order['extra_discount'];
     }
-?>
+    ?>
 @php($shipping=$order['shipping_cost'])
-<div class="content-position-y">
-    <table class="fz-12">
-        <tr>
-            <th class="text-left">
-                <h4 class="fz-12 mb-1">{{\App\CPU\translate('payment_details')}}</h4>
-                <p class="fz-12 font-normal">
-                    {{$order->payment_status}}
-                    , {{date('y-m-d',strtotime($order['created_at']))}}
-                </p>
+    <div class="content-position-y">
+        <table class="fz-12">
+            <tr>
+                <th class="text-left">
+                    <h4 class="fz-12 mb-1">{{\App\CPU\translate('payment_details')}}</h4>
+                    <p class="fz-12 font-normal">
+                        {{$order->payment_status}}
+                        , {{date('y-m-d',strtotime($order['created_at']))}}
+                    </p>
 
-                @if ($order->delivery_type !=null)
-                    <h4 class="fz-12 mb-1">{{\App\CPU\translate('delivery_info')}} </h4>
-                    @if ($order->delivery_type == 'self_delivery')
-                        <p class="fz-12 font-normal">
+                    @if ($order->delivery_type !=null)
+                        <h4 class="fz-12 mb-1">{{\App\CPU\translate('delivery_info')}} </h4>
+                        @if ($order->delivery_type == 'self_delivery')
+                            <p class="fz-12 font-normal">
                             <span>
                                 {{\App\CPU\translate('self_delivery')}}
                             </span>
-                            <br>
-                            <span>
+                                <br>
+                                <span>
                                 {{\App\CPU\translate('delivery_man_name')}} : {{$order->delivery_man['f_name'].' '.$order->delivery_man['l_name']}}
                             </span>
-                            <br>
-                            <span>
+                                <br>
+                                <span>
                                 {{\App\CPU\translate('delivery_man_phone')}} : {{$order->delivery_man['phone']}}
                             </span>
-                        </p>
-                    @else
-                    <p>
+                            </p>
+                        @else
+                            <p>
                         <span>
                             {{$order->delivery_service_name}}
                         </span>
-                        <br>
-                        <span>
+                                <br>
+                                <span>
                             {{\App\CPU\translate('tracking_id')}} : {{$order->third_party_delivery_tracking_id}}
                         </span>
-                    </p>
+                            </p>
+                        @endif
                     @endif
-                @endif
 
-            </th>
+                </th>
 
-            <th>
-                <table class="calc-table">
-                    <tbody>
+                <th>
+                    <table class="calc-table">
+                        <tbody>
                         <tr>
                             <td class="p-1 text-left">{{\App\CPU\translate('sub_total')}}</td>
                             <td class="p-1">{{\App\CPU\BackEndHelper::set_symbol(\App\CPU\BackEndHelper::usd_to_currency($sub_total))}}</td>
@@ -451,48 +490,48 @@
                                 {{\App\CPU\BackEndHelper::set_symbol(\App\CPU\BackEndHelper::usd_to_currency($order->order_amount))}}
                             </td>
                         </tr>
-                    </tbody>
-                </table>
-            </th>
-        </tr>
-    </table>
-</div>
-<br>
-<br><br><br>
-
-<div class="row">
-    <section>
-        <table class="">
-            <tr>
-                <th class="fz-12 font-normal pb-3">
-                    {{\App\CPU\translate('If_you_require_any_assistance_or_have_feedback_or_suggestions_about_our_site,_you')}} <br /> {{\App\CPU\translate('can_email_us_at')}} <a href="mail::to({{ $company_email }})">{{ $company_email }}</a>
-                </th>
-            </tr>
-            <tr>
-                <th class="content-position-y bg-light py-4">
-                    <div class="d-flex justify-content-center gap-2">
-                        <div class="mb-2">
-                            <i class="fa fa-phone"></i>
-                            {{\App\CPU\translate('phone')}}
-                            : {{ $company_phone }}
-                        </div>
-                        <div class="mb-2">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                            {{\App\CPU\translate('email')}}
-                            : {{$company_email}}
-                        </div>
-                    </div>
-                    <div class="mb-2">
-                        {{url('/')}}
-                    </div>
-                    <div>
-                        {{\App\CPU\translate('All_copy_right_reserved_©_'.date('Y').'_').$company_name}}
-                    </div>
+                        </tbody>
+                    </table>
                 </th>
             </tr>
         </table>
-    </section>
-</div>
+    </div>
+    <br>
+    <br><br><br>
+
+    <div class="row">
+        <section>
+            <table class="">
+                <tr>
+                    <th class="fz-12 font-normal pb-3">
+                        {{\App\CPU\translate('If_you_require_any_assistance_or_have_feedback_or_suggestions_about_our_site,_you')}} <br /> {{\App\CPU\translate('can_email_us_at')}} <a href="mail::to({{ $company_email }})">{{ $company_email }}</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="content-position-y bg-light py-4">
+                        <div class="d-flex justify-content-center gap-2">
+                            <div class="mb-2">
+                                <i class="fa fa-phone"></i>
+                                {{\App\CPU\translate('phone')}}
+                                : {{ $company_phone }}
+                            </div>
+                            <div class="mb-2">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                {{\App\CPU\translate('email')}}
+                                : {{$company_email}}
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            {{url('/')}}
+                        </div>
+                        <div>
+                            {{\App\CPU\translate('All_copy_right_reserved_©_'.date('Y').'_').$company_name}}
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        </section>
+    </div>
 
 </body>
 </html>

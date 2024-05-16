@@ -68,7 +68,7 @@ class AppServiceProvider extends ServiceProvider
                     'loyalty_point_status' => Helpers::get_business_settings('loyalty_point_status'),
                 ];
                 if (!Request::is('admin') && !Request::is('admin/*') && !Request::is('seller/*')) {
-                    $flash_deals = FlashDeal::with(['products.product.ratings', 'products.product' => function ($query) {
+                    $flash_deals = FlashDeal::with(['products.product.rating', 'products.product' => function ($query) {
                         $query->active();
                     }])->where(['deal_type' => 'flash_deal', 'status' => 1])
                         ->whereDate('start_date', '<=', date('Y-m-d'))
@@ -144,7 +144,7 @@ class AppServiceProvider extends ServiceProvider
                         'featured_deals' => $featured_deals,
 //                        'shops' => $shops,
                         'brand_setting' => Helpers::get_business_settings('product_brand'),
-                        'discount_product' => Product::with(['ratings'])->active()->where('discount', '!=', 0)->count(),
+                        'discount_product' => Product::with(['rating'])->active()->where('discount', '!=', 0)->count(),
                         'recaptcha' => $recaptcha,
                         'socials_login' => $socials_login,
                         'social_login_text' => $social_login_text,

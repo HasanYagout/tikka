@@ -1,5 +1,5 @@
 :root {
-    --c1: #F7A41C;
+    --c1: #222;
     --bs-primary: #347554;
     --bs-primary-rgb: 52, 117, 84;
     --bs-secondary-rgb: 219, 48, 34;
@@ -48,6 +48,7 @@
     --title-line-height: 1.2;
 }
 [theme="dark"] {
+    --c1: #F7A41C;
     --bs-body-color: #ccd0d3;
     --bs-white: #282828;
     --primary-light: #222;
@@ -861,7 +862,7 @@ label {
 
 .option-select-btn label input:checked ~ span {
     color: var(--bs-dark-rgb);
-    background-color: var(--c1);
+    /*background-color: var();*/
     font-weight: 700;
 }
 

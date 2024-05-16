@@ -370,7 +370,7 @@
                                 <img
                                     width="123"
                                     src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
-{{--                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
+                                    onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"
                                     class="dark-support"
                                     alt="Logo"
                                 />
@@ -406,19 +406,19 @@
                                     style="--bs-dropdown-min-width: max-content"                                >
                                     <div class="d-flex gap-5">
                                         <div class="column-2 row-gap-3">
-{{--                                            @foreach($web_config['shops'] as $shop)--}}
-{{--                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">--}}
-{{--                                                <div class="avatar rounded" style="--size: 2.5rem">--}}
-{{--                                                    <img--}}
-{{--                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"--}}
-{{--                                                        src="{{asset("public/storage/shop")}}/{{ $shop->image }}" loading="lazy"--}}
-{{--                                                        class="img-fit rounded dark-support" alt=""/>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">--}}
-{{--                                                    {{Str::limit($shop->name, 14)}}--}}
-{{--                                                </div>--}}
-{{--                                            </a>--}}
-{{--                                            @endforeach--}}
+                                            @foreach($web_config['shops'] as $shop)
+                                            <a href="{{route('shopView',['id'=>$shop['id']])}}" class="media gap-3 align-items-center border-bottom">
+                                                <div class="avatar rounded" style="--size: 2.5rem">
+                                                    <img
+                                                        onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
+                                                        src="{{asset("public/storage/shop")}}/{{ $shop->image }}" loading="lazy"
+                                                        class="img-fit rounded dark-support" alt=""/>
+                                                </div>
+                                                <div class="media-body text-truncate" style="--width: 7rem" title="Morning Mart">
+                                                    {{Str::limit($shop->name, 14)}}
+                                                </div>
+                                            </a>
+                                            @endforeach
                                             <div class="d-flex">
                                                 <a href="{{route('sellers')}}" class="fw-bold text-primary d-flex justify-content-center">
                                                     {{ translate('view_all') }}...
