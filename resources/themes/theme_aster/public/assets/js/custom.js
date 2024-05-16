@@ -221,6 +221,7 @@ function cartQuantityInitialize() {
 }
 
 function quickView(product_id, url) {
+    console.log('daadaddasads');
     $.get({
         url: url,
         dataType: "json",
@@ -468,6 +469,7 @@ $("#add-to-cart-form").on("submit", function (e) {
 });
 
 function addToCart(form_id, redirect_to_checkout = false) {
+    console.log(form_id)
     if (
         checkAddToCartValidity(form_id) &&
         $("#" + form_id + " input[name=quantity]").val() != 0
@@ -682,6 +684,7 @@ function updateCartQuantity(cart_id, product_id, action, event) {
 
 // Product Variant Function for details page & quick view
 function getVariantPrice() {
+
     if (
         $("#add-to-cart-form input[name=quantity]").val() > 0 &&
         checkAddToCartValidity("add_to_cart_form")

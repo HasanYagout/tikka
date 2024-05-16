@@ -10,10 +10,10 @@
         }
     </style>
 
-    
+
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    
+
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -134,7 +134,7 @@
                                                     data-buttontext="Pay <?php echo e((\App\CPU\Convert::usdToinr($amount))*100); ?> INR"
                                                     data-name="<?php echo e(\App\Models\BusinessSetting::where(['type'=>'company_name'])->first()->value); ?>"
                                                     data-description=""
-                                                    data-image="<?php echo e(asset('public/storage/app/public/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)); ?>"
+                                                    data-image="<?php echo e(asset('public/storage/company/'.\App\Models\BusinessSetting::where(['type'=>'company_web_logo'])->first()->value)); ?>"
                                                     data-prefill.name="<?php echo e(auth('customer')->user()->f_name); ?>"
                                                     data-prefill.email="<?php echo e(auth('customer')->user()->email); ?>"
                                                     data-theme.color="#ff7529">
@@ -153,18 +153,18 @@
                                             <form method="POST" action="<?php echo e(route('paystack-pay')); ?>" accept-charset="UTF-8" role="form" class="digital_payment d--none">
                                                 <?php echo csrf_field(); ?>
                                                 <input type="hidden" name="email"
-                                                       value="<?php echo e(auth('customer')->user()->email); ?>"> 
+                                                       value="<?php echo e(auth('customer')->user()->email); ?>">
                                                 <input type="hidden" name="orderID"
                                                        value="<?php echo e(session('cart_group_id')); ?>">
                                                 <input type="hidden" name="amount"
-                                                       value="<?php echo e(\App\CPU\Convert::usdTozar($amount*100)); ?>"> 
+                                                       value="<?php echo e(\App\CPU\Convert::usdTozar($amount*100)); ?>">
                                                 <input type="hidden" name="quantity" value="1">
                                                 <input type="hidden" name="currency"
                                                        value="<?php echo e(\App\CPU\Helpers::currency_code()); ?>">
                                                 <input type="hidden" name="metadata"
-                                                       value="<?php echo e(json_encode($array = ['key_name' => 'value',])); ?>"> 
+                                                       value="<?php echo e(json_encode($array = ['key_name' => 'value',])); ?>">
                                                 <input type="hidden" name="reference"
-                                                       value="<?php echo e(Paystack::genTranxRef()); ?>"> 
+                                                       value="<?php echo e(Paystack::genTranxRef()); ?>">
 
                                                 <label>
                                                     <button class="payment-method border-0 d-flex align-iems-center gap-3" type="submit">

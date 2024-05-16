@@ -27,22 +27,38 @@ class ProductFactory extends Factory
             return ['id' => (string) $id, 'position' => $index + 1];
         })->toArray();
         $thumbnailLinks = [
-            'https://w7.pngwing.com/pngs/861/863/png-transparent-variety-of-spices-spice-mix-herb-ingredient-food-colorful-spices-natural-foods-color-splash-recipe-thumbnail.png',
-            'https://upload.wikimedia.org/wikipedia/commons/8/82/Common_Indian_spices.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRixa4C8JBT2geDjYzX0FWtWcJ_Fn5DHMI1GsxaU06uhuaPG2Gfi7FGA-aRx3tWJxteamA&usqp=CAU',
-            'https://media.post.rvohealth.io/wp-content/uploads/2021/09/allspice-732x549-thumbnail.jpg',
-            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.endofthefork.com%2Findian-spices-and-their-uses%2F&psig=AOvVaw3gRpFLlrgp-0m-qlKG8AVg&ust=1715202268731000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwid8erAuPyFAxW_8AIHHWKTAyMQjRx6BAgAEBY',
-            'https://cookifi.com/blog/wp-content/uploads/2018/07/screen-shot-2014-10-09-at-5-01-07-pm.png',
-            'https://i.ndtvimg.com/i/2016-08/spice_625x350_51471090241.jpg',
-            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.micoope.com.gt%2F%3Fo%3Dcooking-with-indian-spices-a-primer-for-home-cooks-nn-0Lrjq0T2&psig=AOvVaw33UouNi3WIVeVMvnOSNaND&ust=1715202267971000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwiqtrzAuPyFAxXF3wIHHdN0Ao4QjRx6BAgAEBY',
-            'https://d1e3z2jco40k3v.cloudfront.net/-/media/clubhouse-for-chef/chfc_product_images_400x400/00066200912734_a1c1.png?rev=17e1d171de0e44e3b947d9e23516eec6&vd=20230406T082343Z&hash=FCF70490376FF1505E2CF3D41B0C23E4',
-            'https://storage.googleapis.com/images-sof-prd-9fa6b8b.sof.prd.v8.commerce.mi9cloud.com/product-images/zoom/00066200015008.jpg'
+            '2024-05-15-664527fd2606a.png',
+            '2024-05-16-6645c08d0465d.png',
+            '2024-05-16-6645c14cf3aba.png'
+
+        ];
+        $spiceNames = [
+            'Cinnamon',
+            'Turmeric',
+            'Cumin',
+            'Coriander',
+            'Paprika',
+            'Ginger',
+            'Cardamom',
+            'Cloves',
+            'Nutmeg',
+            'Fenugreek',
+            'Mustard',
+            'Black Pepper',
+            'Chili Powder',
+            'Saffron',
+            'Fennel',
+            'Allspice',
+            'Star Anise',
+            'Vanilla',
+            'Bay Leaves',
+            'Oregano',
         ];
         $variation = [
             [
-                'type' => 'AntiqueWhite',
+                'type' => 'Aquamarine',
                 'price' => 31231,
-                'sku' => 't-AntiqueWhite',
+                'sku' => 't-Aquamarine',
                 'qty' => 1,
             ]
         ];
@@ -50,7 +66,7 @@ class ProductFactory extends Factory
         return [
             'added_by' => 'admin',
             'user_id' => '1',
-            'name' => $this->faker->word,
+            'name' => $this->faker->randomElement($spiceNames),
             'slug' => $this->faker->slug,
             'product_type' => 'physical',
             'category_ids' => json_encode($categoryIdsWithPosition),
@@ -63,8 +79,8 @@ class ProductFactory extends Factory
             'refundable' => $this->faker->boolean,
             'digital_product_type' => $this->faker->word,
             'digital_file_ready' => $this->faker->word,
-            'images' => $this->faker->text,
-            'color_image' => $this->faker->text,
+            'images' => json_encode([Arr::random($thumbnailLinks)]),
+            'color_image' => "",
             'thumbnail' => $this->faker->randomElement($thumbnailLinks),
             'featured' => $this->faker->boolean,
             'flash_deal' => $this->faker->imageUrl,

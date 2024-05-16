@@ -1,4 +1,5 @@
 :root {
+    --c1: #F7A41C;
     --bs-primary: #347554;
     --bs-primary-rgb: 52, 117, 84;
     --bs-secondary-rgb: 219, 48, 34;
@@ -124,7 +125,7 @@ a:hover {
 }
 .custom-select{
     color: var(--title-color);
-    background: var(--bs-white);
+    /*background: var(--bs-white);*/
     border: 1px solid rgba(180, 208, 224, 0.5);
 }
 .badge-soft-dark {
@@ -1148,7 +1149,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     -webkit-text-fill-color: var(--title-color) !important;
 }
 .form-control {
-    background: var(--bs-white);
+    /*background: var(--bs-white);*/
     color: var(--title-color);
 }
 .form-control:focus {
@@ -1310,7 +1311,7 @@ h1 {
 .input-group-custom input,
 .input-group-custom .btn {
     border-radius: 0;
-    border: none;
+    /*border: none;*/
 }
 
 .page-item.active .page-link {

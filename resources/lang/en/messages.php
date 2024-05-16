@@ -3688,4 +3688,12 @@
   'point_to_wallet' => 'Point to wallet',
   'Website_theme' => 'Website theme',
   'dolores' => 'Dolores',
+  'minus' => 'Minus',
+  'aliquid' => 'Aliquid',
+  'Cinnamon' => 'Cinnamon',
+  'digital_product_updated' => 'Digital product updated',
+  'Black Pepper' => 'Black Pepper',
+  'Oregano' => 'Oregano',
+  'Bay Leaves' => 'Bay Leaves',
+  'Cumin' => 'Cumin',
 );

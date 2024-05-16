@@ -1,6 +1,6 @@
     <div class="table-responsive pos-cart-table border">
         <table class="table table-align-middle">
-            <thead class="text-capitalize bg-light">
+            <thead class="text-capitalize border">
                 <tr>
                     <th class="border-0 min-w-120">{{\App\CPU\translate('item')}}</th>
                     <th class="border-0">{{\App\CPU\translate('qty')}}</th>

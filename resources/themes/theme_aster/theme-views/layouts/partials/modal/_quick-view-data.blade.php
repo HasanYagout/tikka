@@ -164,8 +164,9 @@
                         @endif
 
                         <div class="product__price d-flex flex-wrap align-items-end gap-2 mb-4">
-                            <del class="product__old-price">{{\App\CPU\Helpers::currency_converter($product->unit_price)}}</del>
-                            <ins class="product__new-price fs-28 mb-n1">{{\App\CPU\Helpers::get_price_range($product) }}</ins>
+{{--                            <del class="product__old-price">{{\App\CPU\Helpers::currency_converter($product->unit_price)}}</del>--}}
+{{--                            <ins class="product__new-price fs-28 mb-n1">{{\App\CPU\Helpers::get_price_range($product) }}</ins>--}}
+                            <ins class="product__new-price fs-28 mb-n1">{{\App\CPU\Helpers::currency_converter($product->unit_price)}}</ins>
                         </div>
 
                         <!-- Add to Cart Form -->

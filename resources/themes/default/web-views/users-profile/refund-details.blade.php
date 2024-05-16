@@ -168,8 +168,8 @@
                             @if ($refund->images !=null)
                                 <div class="gallery">
                                     @foreach (json_decode($refund->images) as $key => $photo)
-                                        <a href="{{asset('public/storage/app/public/refund')}}/{{$photo}}" data-lightbox="mygallery">
-                                            <img src="{{asset('public/storage/app/public/refund')}}/{{$photo}}" alt="">
+                                        <a href="{{asset('public/storage/refund')}}/{{$photo}}" data-lightbox="mygallery">
+                                            <img src="{{asset('public/storage/refund')}}/{{$photo}}" alt="">
                                         </a>
                                     @endforeach
                             </div>

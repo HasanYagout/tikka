@@ -930,7 +930,7 @@
                                class="cursor-pointer d-block h-100 __cate-product-side-img">
                                 <img class="h-100"
                                      onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
-                                     src="{{asset('public/storage/app/public/category')}}/{{$category['icon']}}">
+                                     src="{{asset('public/storage/category')}}/{{$category['icon']}}">
                             </a>
                         </div>
                         <div class="col-md-9 col-12 ">

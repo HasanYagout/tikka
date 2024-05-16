@@ -32,7 +32,7 @@ class CartController extends Controller
         $str = '';
         $quantity = 0;
         $price = 0;
-
+        $discount=0;
         if ($request->has('color')) {
             $str = Color::where('code', $request['color'])->first()->name;
         }
@@ -64,6 +64,7 @@ class CartController extends Controller
             $quantity = $product->current_stock;
         }
 
+
         $delivery_info = [];
         if(theme_root_path() == 'theme_fashion') {
             $delivery_info = ProductManager::get_products_delivery_charge($product, $request->quantity);
@@ -80,6 +81,7 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+
         $cart = CartManager::add_to_cart($request);
         session()->forget('coupon_code');
         session()->forget('coupon_type');

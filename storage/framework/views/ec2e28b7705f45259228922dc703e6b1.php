@@ -1,12 +1,12 @@
 <?php $__env->startSection('title',\App\CPU\translate('Track Order Result')); ?>
 
 <?php $__env->startPush('css_or_js'); ?>
-    <meta property="og:image" content="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e($web_config['web_logo']->value); ?>"/>
+    <meta property="og:image" content="<?php echo e(asset('public/storage/company')); ?>/<?php echo e($web_config['web_logo']->value); ?>"/>
     <meta property="og:title" content="<?php echo e($web_config['name']->value); ?> "/>
     <meta property="og:url" content="<?php echo e(env('APP_URL')); ?>">
     <meta property="og:description" content="<?php echo substr($web_config['about']->value,0,100); ?>">
 
-    <meta property="twitter:card" content="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e($web_config['web_logo']->value); ?>"/>
+    <meta property="twitter:card" content="<?php echo e(asset('public/storage/company')); ?>/<?php echo e($web_config['web_logo']->value); ?>"/>
     <meta property="twitter:title" content="<?php echo e($web_config['name']->value); ?>"/>
     <meta property="twitter:url" content="<?php echo e(env('APP_URL')); ?>">
     <meta property="twitter:description" content="<?php echo substr($web_config['about']->value,0,100); ?>">

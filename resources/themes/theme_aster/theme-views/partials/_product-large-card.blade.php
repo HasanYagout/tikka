@@ -41,7 +41,7 @@
         </div>
 
         <div class="product__thumbnail">
-            <img src="{{$product['thumbnail']}}"
+            <img src="{{asset('public/storage/product/thumbnail').'/'.$product['thumbnail']}}"
                  onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" loading="lazy"
                  class="img-fit dark-support rounded" alt="">
         </div>

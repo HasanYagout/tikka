@@ -102,6 +102,7 @@
 
                                                 <?php if($product->images!=null && json_decode($product->images)>0): ?>
                                                     <div class="swiper-wrapper">
+
                                                         <?php if(json_decode($product->colors) && $product->color_image): ?>
                                                             <?php $__currentLoopData = json_decode($product->color_image); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $photo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <?php if($photo->color != null): ?>
@@ -114,7 +115,7 @@
                                                                         <img
                                                                             src="<?php echo e(asset("public/storage/product/$photo->image_name")); ?>"
                                                                             class="dark-support rounded" alt=""
-                                                                            onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
+
                                                                     </div>
                                                                 <?php else: ?>
                                                                     <div class="swiper-slide position-relative">
@@ -244,10 +245,11 @@
                                             <?php endif; ?>
 
                                             <div class="product__price d-flex flex-wrap align-items-end gap-2 mb-4">
-                                                <del
-                                                    class="product__old-price"><?php echo e(\App\CPU\Helpers::currency_converter($product->unit_price)); ?></del>
-                                                <ins
-                                                    class="product__new-price"><?php echo e(\App\CPU\Helpers::get_price_range($product)); ?></ins>
+
+
+
+
+                                                <ins class="product__new-price"><?php echo e(\App\CPU\Helpers::currency_converter($product->unit_price)); ?></ins>
                                             </div>
 
                                             <!-- Add to Cart Form -->
@@ -661,11 +663,11 @@
                             <div class="card order-0 order-sm-1">
                                 <div class="card-body">
                                     <div class="p-2 overlay shop-bg-card"
-                                         data-bg-img="<?php echo e(asset('public/storage/app/public/shop/banner')); ?>/<?php echo e($product->seller->shop->banner); ?>">
+                                         data-bg-img="<?php echo e(asset('public/storage/shop/banner')); ?>/<?php echo e($product->seller->shop->banner); ?>">
                                         <div class="media flex-wrap gap-3 p-2">
                                             <div class="avatar border rounded-circle" style="--size: 3.437rem">
                                                 <img
-                                                    src="<?php echo e(asset('public/storage/app/public/shop')); ?>/<?php echo e($product->seller->shop->image); ?>"
+                                                    src="<?php echo e(asset('public/storage/shop')); ?>/<?php echo e($product->seller->shop->image); ?>"
                                                     alt="" class="img-fit dark-support rounded-circle"
                                                     onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'">
                                             </div>

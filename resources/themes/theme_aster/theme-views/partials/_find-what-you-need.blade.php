@@ -137,7 +137,7 @@
                                                                     <div
                                                                         class="ov-hidden rounded w-100" style="height: 5rem;">
                                                                         <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                                                             src="{{asset('public/storage/app/public/category')}}/{{$sub_category['icon']}}" alt=""
+                                                                             src="{{asset('public/storage/category')}}/{{$sub_category['icon']}}" alt=""
                                                                              loading="lazy" class="dark-support img-fit " >
                                                                     </div>
                                                                 </div>
@@ -183,7 +183,7 @@
                                                         <div
                                                             class="avatar avatar-xxl ov-hidden hover-zoom-in rounded">
                                                             <img onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
-                                                                    src="{{asset('public/storage/app/public/category')}}/{{$sub_category['icon']}}" alt=""
+                                                                    src="{{asset('public/storage/category')}}/{{$sub_category['icon']}}" alt=""
                                                                     loading="lazy" class="dark-support img-fit " >
                                                         </div>
                                                         <div class="text-truncate">{{$sub_category['name']}}</div>

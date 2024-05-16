@@ -236,12 +236,12 @@ class CartManager
 
         $user = Helpers::get_customer($request);
         $product = Product::find($request->id);
-
         //check the color enabled or disabled for the product
         if ($request->has('color')) {
             $str = Color::where('code', $request['color'])->first()->name;
             $variations['color'] = $str;
         }
+
 
         //Gets all the choice values of customer choice option and generate a string like Black-S-Cotton
         $choices = [];
@@ -254,7 +254,6 @@ class CartManager
                 $str .= str_replace(' ', '', $request[$choice->name]);
             }
         }
-
         if ($user == 'offline') {
             if (session()->has('offline_cart')) {
                 $cart = session('offline_cart');
@@ -300,11 +299,13 @@ class CartManager
         $cart['variations'] = json_encode($variations);
         $cart['variant'] = $str;
 
+
         //Check the string and decreases quantity for the stock
         if ($str != null) {
             $count = count(json_decode($product->variation));
             for ($i = 0; $i < $count; $i++) {
                 if (json_decode($product->variation)[$i]->type == $str) {
+
                     $price = json_decode($product->variation)[$i]->price;
                     if (json_decode($product->variation)[$i]->qty < $request['quantity']) {
                         return [
@@ -315,6 +316,7 @@ class CartManager
                 }
             }
         } else {
+
             $price = $product->unit_price;
         }
 
@@ -347,6 +349,7 @@ class CartManager
         $cart['tax_model'] = $product->tax_model;
         $cart['slug'] = $product->slug;
         $cart['name'] = $product->name;
+
         $cart['discount'] = Helpers::get_product_discount($product, $price);
         /*$data['shipping_cost'] = $shipping_cost;*/
         $cart['thumbnail'] = $product->thumbnail;

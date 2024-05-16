@@ -25,7 +25,7 @@
             </span>
 
             <img width="155"
-                 src="{{$product['thumbnail']}}"
+                 src="{{asset('public/storage/product/thumbnail').'/'.$product['thumbnail']}}"
                  onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" alt=""
                  loading="lazy" class="dark-support rounded">
         </div>

@@ -142,7 +142,7 @@
 
 <div class="preloader d--none" id="loading">
     <img width="200"
-         src="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e(\App\CPU\Helpers::get_business_settings('loader_gif')); ?>"
+         src="<?php echo e(asset('public/storage/company')); ?>/<?php echo e(\App\CPU\Helpers::get_business_settings('loader_gif')); ?>"
          onerror="this.src='<?php echo e(theme_asset('assets/img/loader.gif')); ?>'">
 </div>
 

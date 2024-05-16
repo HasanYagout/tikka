@@ -45,9 +45,10 @@
                                     <a href="{{route('product',$deal_of_the_day->product->slug)}}" class="btn btn-primary">{{ translate('Buy_Now') }}</a>
                                 </div>
                             </div>
+
                             <div class="text-center">
                                 <img width="309" src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$deal_of_the_day->product->thumbnail}}" alt=""
-                                     onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"
+{{--                                     onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'"--}}
                                      class="dark-support rounded">
                             </div>
                         </div>

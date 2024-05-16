@@ -22,7 +22,7 @@
         <?php endif; ?>
 
         <!-- Find What You Need -->
-
+        <?php echo $__env->make('theme-views.partials._find-what-you-need', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <!-- Top Stores -->
 

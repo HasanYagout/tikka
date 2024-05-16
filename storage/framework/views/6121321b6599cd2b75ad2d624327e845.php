@@ -56,11 +56,18 @@
 <script>
     function setThemeMode() {
         if (localStorage.getItem('theme') === null) {
-            document.body.setAttribute('theme', 'light');
+            localStorage.setItem('theme', 'dark'); // Set the default theme to dark
+            document.body.setAttribute('theme', 'dark');
         } else {
             document.body.setAttribute('theme', localStorage.getItem('theme'));
         }
     }
+
+    // Check if localStorage theme is set to "light" and update it to "dark"
+    if (localStorage.getItem('theme') === 'dark') {
+        localStorage.setItem('theme', 'light');
+    }
+
     setThemeMode();
 
 </script>

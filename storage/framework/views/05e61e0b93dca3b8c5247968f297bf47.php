@@ -7,9 +7,9 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="180x180"
-          href="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e($web_config['fav_icon']->value); ?>">
+          href="<?php echo e(asset('public/storage/company')); ?>/<?php echo e($web_config['fav_icon']->value); ?>">
     <link rel="icon" type="image/png" sizes="32x32"
-          href="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e($web_config['fav_icon']->value); ?>">
+          href="<?php echo e(asset('public/storage/company')); ?>/<?php echo e($web_config['fav_icon']->value); ?>">
 
     <link rel="stylesheet" media="screen"
           href="<?php echo e(asset('public/assets/front-end')); ?>/vendor/simplebar/dist/simplebar.min.css"/>
@@ -30,7 +30,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Titillium+Web:wght@400;600;700&display=swap"
         rel="stylesheet">
-
+    
     <link rel="stylesheet" href="<?php echo e(asset('public/css/lightbox.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('public/assets/back-end')); ?>/vendor/icon-set/style.css">
     <?php echo $__env->yieldPushContent('css_or_js'); ?>
@@ -40,9 +40,9 @@
 
 
     <link rel="stylesheet" href="<?php echo e(asset('public/assets/front-end')); ?>/css/style.css">
-
+    
     <meta name="_token" content="<?php echo e(csrf_token()); ?>">
-
+    
     <!--to make http ajax request to https-->
     <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
     <style>
@@ -256,7 +256,7 @@
             <div id="loading" style="display: none;">
                <center>
                 <img width="200"
-                     src="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e(\App\CPU\Helpers::get_business_settings('loader_gif')); ?>"
+                     src="<?php echo e(asset('public/storage/company')); ?>/<?php echo e(\App\CPU\Helpers::get_business_settings('loader_gif')); ?>"
                      onerror="this.src='<?php echo e(asset('public/assets/front-end/img/loader.gif')); ?>'">
                </center>
             </div>

@@ -189,7 +189,7 @@
                                aria-expanded="false">
                                 <div class="navbar-tool-icon-box bg-secondary">
                                     <div class="navbar-tool-icon-box bg-secondary">
-                                        <img  src="<?php echo e(asset('public/storage/app/public/profile/'.auth('customer')->user()->image)); ?>"
+                                        <img  src="<?php echo e(asset('public/storage/profile/'.auth('customer')->user()->image)); ?>"
                                              onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                                              class="img-profile rounded-circle __inline-14">
                                     </div>

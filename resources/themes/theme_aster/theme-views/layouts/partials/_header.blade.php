@@ -500,7 +500,7 @@
                                     <span class="avatar overflow-hidden header-avatar rounded-circle" style="--size: 1.5rem">
                                       <img
                                           loading="lazy"
-                                          src="{{asset('public/storage/app/public/profile/'.auth('customer')->user()->image)}}"
+                                          src="{{asset('public/storage/profile/'.auth('customer')->user()->image)}}"
                                           onerror="this.src='{{theme_asset('assets/img/image-place-holder.png')}}'"
                                           class="img-fit"
                                           alt=""

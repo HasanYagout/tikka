@@ -109,61 +109,65 @@
                         </div>
                     </div>
 
+                    <?php if(count($random_coupon)>0): ?>
+                        <div class="col-xl-3 d-none d-sm-block">
+                            <div class="bg-primary-light rounded p-3 mt-lg-3">
+                                <h3 class="text-primary my-3"><?php echo e(translate('Happy_Club')); ?></h3>
+                                <p><?php echo e(translate('collect_coupons_from_stores_and_apply_to_get_special_discount_from_stores')); ?></p>
 
+                                <div class="d-flex flex-wrap gap-3">
+                                    <?php $__currentLoopData = $random_coupon; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $coupon): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="club-card card custom-border-color hover-shadow flex-grow-1" onclick="coupon_copy('<?php echo e($coupon->code); ?>')">
+                                        <div class="d-flex flex-column gap-2 p-3">
+                                            <h5 class="d-flex gap-2 align-items-center">
+                                                <?php if($coupon->coupon_type == 'free_delivery'): ?>
+                                                    <?php echo e(translate($coupon->coupon_type)); ?>
 
+                                                    <img src="<?php echo e(theme_asset('assets/img/svg/delivery-car.svg')); ?>" alt="" class="svg">
+                                                <?php else: ?>
+                                                    <?php echo e($coupon->discount_type == 'amount' ? \App\CPU\Helpers::currency_converter($coupon->discount) : $coupon->discount.'%'); ?> OFF
+                                                    <img src="<?php echo e(theme_asset('assets/img/svg/dollar.svg')); ?>" alt="" class="svg">
+                                                <?php endif; ?>
+                                            </h5>
+                                            <h6 class="fs-12">
+                                                <span class="text-muted"><?php echo e(translate('for')); ?></span>
+                                                <span class="text-uppercase ">
+                                                    <?php if($coupon->seller_id == '0'): ?>
+                                                        <?php echo e(translate('All_Shops')); ?>
 
+                                                    <?php elseif($coupon->seller_id == NULL): ?>
+                                                        <a class="shop-name" onclick="location.href='<?php echo e(route('shopView',['id'=>0])); ?>'">
+                                                            <?php echo e($web_config['name']->value); ?>
 
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <a class="shop-name" onclick="location.href='<?php echo e(route('shopView',['id'=>$coupon->seller->shop['id']])); ?>'">
+                                                            <?php echo e(isset($coupon->seller->shop) ? $coupon->seller->shop->name : ''); ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </span>
+                                            </h6>
+                                            <h6 class="text-primary fs-12"><?php echo e(translate('code')); ?>: <?php echo e($coupon->code); ?></h6>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="col-xl-3 d-none d-sm-block">
+                            <?php if($top_side_banner): ?>
+                                <a href="<?php echo e($top_side_banner['url']); ?>">
+                                    <img src="<?php echo e(asset('public/storage/banner')); ?>/<?php echo e($top_side_banner ? $top_side_banner['photo'] : ''); ?>"
+                                         onerror="this.src='<?php echo e(theme_asset('assets/img/top-side-banner-placeholder.png')); ?>'"
+                                         alt="" class="dark-support rounded w-100">
+                                </a>
+                            <?php else: ?>
+                                <img src="<?php echo e(theme_asset('assets/img/top-side-banner-placeholder.png')); ?>" class="dark-support rounded w-100">
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

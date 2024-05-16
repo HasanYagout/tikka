@@ -24,7 +24,7 @@
         @endif
 
         <!-- Find What You Need -->
-{{--        @include('theme-views.partials._find-what-you-need')--}}
+        @include('theme-views.partials._find-what-you-need')
 
         <!-- Top Stores -->
 {{--        @if ($web_config['business_mode'] == 'multi' && count($top_sellers) > 0)--}}

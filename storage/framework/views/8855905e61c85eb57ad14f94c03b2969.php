@@ -42,7 +42,7 @@
         </div>
 
         <div class="product__thumbnail">
-            <img src="<?php echo e($product['thumbnail']); ?>"
+            <img src="<?php echo e(asset('public/storage/product/thumbnail').'/'.$product['thumbnail']); ?>"
                  onerror="this.src='<?php echo e(theme_asset('assets/img/image-place-holder.png')); ?>'" loading="lazy"
                  class="img-fit dark-support rounded" alt="">
         </div>

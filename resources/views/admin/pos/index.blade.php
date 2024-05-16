@@ -9,7 +9,7 @@
 			<div class="row">
 				<div class="col-lg-7 mb-4 mb-lg-0">
                     <div class="card">
-                        <h5 class="p-3 m-0 bg-light">{{\App\CPU\translate('Product_Section')}}</h5>
+                        <h5 class="p-3 m-0 ">{{\App\CPU\translate('Product_Section')}}</h5>
                         <div class="px-3 py-4">
                             <div class="row gy-1">
                                 <div class="col-sm-6">
@@ -61,7 +61,7 @@
 				</div>
 				<div class="col-lg-5 mb-5">
                     <div class="card billing-section-wrap">
-                        <h5 class="p-3 m-0 bg-light">{{\App\CPU\translate('Billing_Section')}}</h5>
+                        <h5 class="p-3 m-0 ">{{\App\CPU\translate('Billing_Section')}}</h5>
                         <div class="card-body">
                             <div class="form-group d-flex gap-2">
                                 <select onchange="customer_change(this.value);" id='customer' name="customer_id" data-placeholder="Walk In Customer" class="js-data-example-ajax form-control form-ellipsis">

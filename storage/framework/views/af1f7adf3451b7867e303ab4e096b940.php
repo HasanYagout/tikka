@@ -1,12 +1,12 @@
 <?php $__env->startSection('title',translate(str_replace(['-', '_', '/'],' ',$data['data_from'])).' '.translate('products')); ?>
 
 <?php $__env->startPush('css_or_js'); ?>
-    <meta property="og:image" content="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e($web_config['web_logo']); ?>"/>
+    <meta property="og:image" content="<?php echo e(asset('public/storage/company')); ?>/<?php echo e($web_config['web_logo']); ?>"/>
     <meta property="og:title" content="Products of <?php echo e($web_config['name']); ?> "/>
     <meta property="og:url" content="<?php echo e(env('APP_URL')); ?>">
     <meta property="og:description" content="<?php echo substr($web_config['about']->value,0,100); ?>">
 
-    <meta property="twitter:card" content="<?php echo e(asset('public/storage/app/public/company')); ?>/<?php echo e($web_config['web_logo']); ?>"/>
+    <meta property="twitter:card" content="<?php echo e(asset('public/storage/company')); ?>/<?php echo e($web_config['web_logo']); ?>"/>
     <meta property="twitter:title" content="Products of <?php echo e($web_config['name']); ?>"/>
     <meta property="twitter:url" content="<?php echo e(env('APP_URL')); ?>">
     <meta property="twitter:description" content="<?php echo substr($web_config['about']->value,0,100); ?>">

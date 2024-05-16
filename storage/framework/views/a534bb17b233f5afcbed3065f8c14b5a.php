@@ -689,7 +689,7 @@
                                     <div class="col-12 position-relative">
                                         <div class="d-flex __seller-author align-items-center">
                                             <div>
-                                                <img class="__img-60 img-circle" src="<?php echo e(asset('public/storage/app/public/shop')); ?>/<?php echo e($product->seller->shop->image); ?>"
+                                                <img class="__img-60 img-circle" src="<?php echo e(asset('public/storage/shop')); ?>/<?php echo e($product->seller->shop->image); ?>"
                                                     onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
                                                     alt="">
                                             </div>

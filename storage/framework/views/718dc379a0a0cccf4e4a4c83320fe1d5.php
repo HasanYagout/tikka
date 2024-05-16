@@ -210,7 +210,7 @@
             </div>
         </section>
 
-
+        
         <?php if($web_config['flash_deals']): ?>
             <section class="overflow-hidden">
                 <div class="container">
@@ -289,7 +289,7 @@
             </section>
         <?php endif; ?>
 
-
+        
         <?php if($web_config['brand_setting']): ?>
             <section class="container rtl mt-3">
                 <!-- Heading-->
@@ -352,7 +352,7 @@
             </div>
         <?php endif; ?>
 
-
+        
 
         <?php if($web_config['featured_deals']): ?>
             <section class="featured_deal rtl">
@@ -395,10 +395,10 @@
                 </div>
             </section>
         <?php endif; ?>
-
+        
         <div class="container rtl">
             <div class="row g-4 pt-2 mt-0 mb-4 pb-2 __deal-of">
-
+                
                 <div class="col-xl-3 col-md-4">
                     <div class="deal_of_the_day h-100" style="background: <?php echo e($web_config['primary_color']); ?>">
                         <?php if(isset($deal_of_the_day) && isset($deal_of_the_day->product)): ?>
@@ -527,7 +527,7 @@
                     </div>
 
                 </div>
-
+                
                 <div class="col-xl-9 col-md-8 mt-2">
                     <div class="latest-product-margin">
                         <div class="d-flex justify-content-between">
@@ -577,7 +577,7 @@
         <?php endif; ?>
 
         <?php ($business_mode=\App\CPU\Helpers::get_business_settings('business_mode')); ?>
-
+        
         <div class="container rtl">
             <div class="row">
                 <?php if($business_mode == 'multi'): ?>
@@ -929,7 +929,7 @@
             </div>
         </div>
 
-
+        
         <div class="container rtl py-4 ">
             <div class="row g-3">
                 <?php $__currentLoopData = \App\Models\Banner::where('banner_type','Footer Banner')->where('published',1)->orderBy('id','desc')->take(2)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -943,7 +943,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
-
+        
         <?php $__currentLoopData = $home_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <section class="container rtl pb-4">
                 <!-- Heading-->
@@ -973,7 +973,7 @@
                                class="cursor-pointer d-block h-100 __cate-product-side-img">
                                 <img class="h-100"
                                      onerror="this.src='<?php echo e(asset('public/assets/front-end/img/image-place-holder.png')); ?>'"
-                                     src="<?php echo e(asset('public/storage/app/public/category')); ?>/<?php echo e($category['icon']); ?>">
+                                     src="<?php echo e(asset('public/storage/category')); ?>/<?php echo e($category['icon']); ?>">
                             </a>
                         </div>
                         <div class="col-md-9 col-12 ">
@@ -994,7 +994,7 @@
             </section>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-
+        
 
         <div class="container rtl pb-4 pt-3">
             <div class="shipping-policy-web">
@@ -1062,7 +1062,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('script'); ?>
-
+    
     <script src="<?php echo e(asset('public/assets/front-end')); ?>/js/owl.carousel.min.js"></script>
 
     <script>

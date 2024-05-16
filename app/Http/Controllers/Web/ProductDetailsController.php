@@ -161,6 +161,7 @@ class ProductDetailsController extends Controller
             $avg_rating = $rating_count != 0 ? $rating_status->avg('rating') : 0;
             $rating_percentage = round(($avg_rating * 100) / 5);
 
+
             return view(VIEW_FILE_NAMES['products_details'], compact('product', 'wishlist_status','countWishlist',
                 'countOrder', 'relatedProducts', 'deal_of_the_day', 'current_date', 'seller_vacation_start_date', 'seller_vacation_end_date',
                 'seller_temporary_close', 'inhouse_vacation_start_date', 'inhouse_vacation_end_date', 'inhouse_vacation_status', 'inhouse_temporary_close',
@@ -170,7 +171,6 @@ class ProductDetailsController extends Controller
 
         Toastr::error(translate('not_found'));
         return back();
-
     }
 
     public function theme_fashion($slug)
