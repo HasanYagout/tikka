@@ -30,6 +30,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
@@ -99,7 +100,12 @@
         $(document).ready(function () {
             $('#dataTable').DataTable({
                 "pageLength": {{\App\CPU\Helpers::pagination_limit()}},
-                "searching":true
+                "searching": true,
+                "dom": 'lf<"my-2"t>ip', // Add 'f' to include the search field in the table layout
+                "language": {
+                    "search": "", // Remove the default "Search" label
+                    "searchPlaceholder": "Search..." // Set a custom placeholder for the search field
+                }
             });
         });
 

@@ -89,14 +89,7 @@
     <div class="header-middle border-bottom py-2 d-none d-xl-block">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between gap-3">
-                <a class="logo" href="{{route('home')}}">
-                    <img
-                        src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
-                        class="dark-support svg h-45"
-{{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
-                        alt="Logo"
-                    />
-                </a>
+
                 <div class="search-box position-relative">
                     <form action="{{route('products')}}" type="submit">
                         <div class="d-flex">
@@ -143,6 +136,14 @@
                     </form>
                     <div class="card search-card __inline-13 position-absolute z-99 w-100 bg-white top-100 start-0 search-result-box"></div>
                 </div>
+                <a class="logo" href="{{route('home')}}">
+                    <img style="height: 70px; width: 70px"
+                        src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
+                        class="dark-support svg h-45"
+                        {{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}
+                        alt="Logo"
+                    />
+                </a>
                 <div class="offer-btn">
                     @if($web_config['header_banner'])
                         <a href="{{ $web_config['header_banner']['url'] }}">

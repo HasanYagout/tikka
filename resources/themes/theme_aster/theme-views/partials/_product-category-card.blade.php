@@ -24,7 +24,7 @@
                 <i class="bi bi-eye fs-12"></i>
             </span>
 
-            <img width="155"
+            <img style="height: 150px;width: 150px;object-fit: cover"
                  src="{{asset('public/storage/product/thumbnail').'/'.$product['thumbnail']}}"
                  onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" alt=""
                  loading="lazy" class="dark-support rounded">

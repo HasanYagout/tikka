@@ -115,16 +115,16 @@
 <script>
     function setThemeMode() {
         if (localStorage.getItem('theme') === null) {
-            localStorage.setItem('theme', 'dark'); // Set the default theme to dark
-            document.body.setAttribute('theme', 'dark');
+            localStorage.setItem('theme', 'light'); // Set the default theme to light
+            document.body.setAttribute('theme', 'light');
         } else {
             document.body.setAttribute('theme', localStorage.getItem('theme'));
         }
     }
 
-    // Check if localStorage theme is set to "light" and update it to "dark"
-    if (localStorage.getItem('theme') === 'light') {
-        localStorage.setItem('theme', 'dark');
+    // Check if localStorage theme is set to "dark" and update it to "light"
+    if (localStorage.getItem('theme') === 'dark') {
+        localStorage.setItem('theme', 'light');
     }
 
     setThemeMode();
