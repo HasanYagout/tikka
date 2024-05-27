@@ -79,7 +79,7 @@
                                     </span>
                                     @endif
 
-                                    <img width="100" src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"
+                                    <img style="height: 100px;width: 100px; object-fit: cover" src="{{\App\CPU\ProductManager::product_image_path('thumbnail')}}/{{$product['thumbnail']}}"
                                          onerror="this.src='{{ theme_asset('assets/img/image-place-holder.png') }}'" alt=""
                                          loading="lazy" class="dark-support rounded">
                                 </div>
