@@ -3670,4 +3670,10 @@
   'email_not_found' => 'Email not found',
   'Name ' => 'Name ',
   'Select  Logout  below if you are ready to end your current session' => 'Select  Logout  below if you are ready to end your current session',
+  'If the user fails to get the OTP within a certain time  user can request a resend' => 'If the user fails to get the OTP within a certain time  user can request a resend',
+  'For single vendor operation  deactive all seller!!' => 'For single vendor operation  deactive all seller!!',
+  'Now  your multi vendor business mode is opening  you can add new seller !!' => 'Now  your multi vendor business mode is opening  you can add new seller !!',
+  'Yes  Change it' => 'Yes  Change it',
+  'Error   Something went wrong' => 'Error   Something went wrong',
+  'EX of SMS provider s template : your OTP is XXXX here  please check' => 'EX of SMS provider s template : your OTP is XXXX here  please check',
 );

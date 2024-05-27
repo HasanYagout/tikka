@@ -73,24 +73,24 @@
                         <a href="{{route('customer.auth.recover-password')}}">{{ translate('Forgot_Password') }} ?</a>
                     </div>
 
-                    @if($web_config['recaptcha']['status'] == 1)
-                        <div class="d-flex justify-content-center mb-3">
-                            <div id="recaptcha_element_customer_login" class="w-100 mt-4" data-type="image"></div>
-                        </div>
-                    @else
-                        <div class="d-flex justify-content-center align-items-center gap-3 py-2 mt-4 mb-3">
-                            <div>
-                                <input type="text" class="form-control border __h-40" name="default_recaptcha_id_customer_login" value=""
-                                       placeholder="{{\App\CPU\translate('Enter captcha value')}}" autocomplete="off">
-                            </div>
-                            <div class="input-icons rounded bg-white">
-                                <a onclick="re_captcha_customer_login();" class="d-flex align-items-center align-items-center">
-                                    <img src="{{ URL('/customer/auth/code/captcha/1?captcha_session_id=default_recaptcha_id_customer_login') }}" class="input-field rounded __h-40" id="customer_login_recaptcha_id">
-                                    <i class="bi bi-arrow-repeat icon cursor-pointer p-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endif
+{{--                    @if($web_config['recaptcha']['status'] == 1)--}}
+{{--                        <div class="d-flex justify-content-center mb-3">--}}
+{{--                            <div id="recaptcha_element_customer_login" class="w-100 mt-4" data-type="image"></div>--}}
+{{--                        </div>--}}
+{{--                    @else--}}
+{{--                        <div class="d-flex justify-content-center align-items-center gap-3 py-2 mt-4 mb-3">--}}
+{{--                            <div>--}}
+{{--                                <input type="text" class="form-control border __h-40" name="default_recaptcha_id_customer_login" value=""--}}
+{{--                                       placeholder="{{\App\CPU\translate('Enter captcha value')}}" autocomplete="off">--}}
+{{--                            </div>--}}
+{{--                            <div class="input-icons rounded bg-white">--}}
+{{--                                <a onclick="re_captcha_customer_login();" class="d-flex align-items-center align-items-center">--}}
+{{--                                    <img src="{{ URL('/customer/auth/code/captcha/1?captcha_session_id=default_recaptcha_id_customer_login') }}" class="input-field rounded __h-40" id="customer_login_recaptcha_id">--}}
+{{--                                    <i class="bi bi-arrow-repeat icon cursor-pointer p-2"></i>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
                     <div class="d-flex justify-content-center mb-3">
                         <button type="submit" class="fs-16 btn btn-primary px-5">{{ translate('login') }}</button>
                     </div>

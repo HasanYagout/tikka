@@ -19,6 +19,7 @@ class SharedController extends Controller
             if ($data['code'] == $local) {
                 $direction = isset($data['direction']) ? $data['direction'] : 'ltr';
             }
+
         }
         session()->forget('language_settings');
         Helpers::language_load();
