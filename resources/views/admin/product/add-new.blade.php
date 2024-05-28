@@ -75,29 +75,29 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-4">
+{{--                                    <div class="col-md-4">--}}
 
-                                        <label for="name" class="title-color">{{ \App\CPU\translate('product_type') }}</label>
-                                        <select name="product_type" id="product_type" class="form-control" required>
-                                            <option value="physical" selected>{{ \App\CPU\translate('physical') }}</option>
-                                            @if($digital_product_setting)
-                                                <option value="digital">{{ \App\CPU\translate('digital') }}</option>
-                                            @endif
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4" id="digital_product_type_show">
-                                        <label for="digital_product_type" class="title-color">{{ \App\CPU\translate("digital_product_type") }}</label>
-                                        <select name="digital_product_type" id="digital_product_type" class="form-control" required>
-                                            <option value="{{ old('category_id') }}" selected disabled>---{{ \App\CPU\translate('Select') }}---</option>
-                                            <option value="ready_after_sell">{{ \App\CPU\translate("Ready After Sell") }}</option>
-                                            <option value="ready_product">{{ \App\CPU\translate("Ready Product") }}</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4" id="digital_file_ready_show">
-                                        <label for="digital_file_ready" class="title-color">{{ \App\CPU\translate("ready_product_upload") }}</label>
-                                        <input type="file" name="digital_file_ready" id="digital_file_ready" class="form-control">
-                                        <div class="mt-1 text-info">File type: jpg, jpeg, png, gif, zip, pdf</div>
-                                    </div>
+{{--                                        <label for="name" class="title-color">{{ \App\CPU\translate('product_type') }}</label>--}}
+{{--                                        <select name="product_type" id="product_type" class="form-control" required>--}}
+{{--                                            <option value="physical" selected>{{ \App\CPU\translate('physical') }}</option>--}}
+{{--                                            @if($digital_product_setting)--}}
+{{--                                                <option value="digital">{{ \App\CPU\translate('digital') }}</option>--}}
+{{--                                            @endif--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-4" id="digital_product_type_show">--}}
+{{--                                        <label for="digital_product_type" class="title-color">{{ \App\CPU\translate("digital_product_type") }}</label>--}}
+{{--                                        <select name="digital_product_type" id="digital_product_type" class="form-control" required>--}}
+{{--                                            <option value="{{ old('category_id') }}" selected disabled>---{{ \App\CPU\translate('Select') }}---</option>--}}
+{{--                                            <option value="ready_after_sell">{{ \App\CPU\translate("Ready After Sell") }}</option>--}}
+{{--                                            <option value="ready_product">{{ \App\CPU\translate("Ready Product") }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-4" id="digital_file_ready_show">--}}
+{{--                                        <label for="digital_file_ready" class="title-color">{{ \App\CPU\translate("ready_product_upload") }}</label>--}}
+{{--                                        <input type="file" name="digital_file_ready" id="digital_file_ready" class="form-control">--}}
+{{--                                        <div class="mt-1 text-info">File type: jpg, jpeg, png, gif, zip, pdf</div>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
 
@@ -174,55 +174,55 @@
                                 </div>
                             </div>
 
-                            <div class="card mt-2 rest-part physical_product_show">
-                                <div class="card-header">
-                                    <h4 class="mb-0">{{ \App\CPU\translate('Variations') }}</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row align-items-end">
-                                        <div class="col-md-6">
-                                            <div class="mb-3 d-flex align-items-center gap-2">
-                                                <label for="colors" class="title-color mb-0">
-                                                    {{ \App\CPU\translate('Colors') }} :
-                                                </label>
-                                                <label class="switcher">
-                                                    <input type="checkbox" class="switcher_input" id="color_switcher" value="{{ old('colors_active') }}"
-                                                           name="colors_active">
-                                                    <span class="switcher_control"></span>
-                                                </label>
-                                            </div>
-                                            <select
-                                                class="js-example-basic-multiple js-states js-example-responsive form-control color-var-select"
-                                                name="colors[]" multiple="multiple" id="colors-selector" disabled>
-                                                @foreach (\App\Models\Color::orderBy('name', 'asc')->get() as $key => $color)
-                                                    <option value="{{ $color->code }}">
-                                                        {{ $color['name'] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+{{--                            <div class="card mt-2 rest-part physical_product_show">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h4 class="mb-0">{{ \App\CPU\translate('Variations') }}</h4>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row align-items-end">--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="mb-3 d-flex align-items-center gap-2">--}}
+{{--                                                <label for="colors" class="title-color mb-0">--}}
+{{--                                                    {{ \App\CPU\translate('Colors') }} :--}}
+{{--                                                </label>--}}
+{{--                                                <label class="switcher">--}}
+{{--                                                    <input type="checkbox" class="switcher_input" id="color_switcher" value="{{ old('colors_active') }}"--}}
+{{--                                                           name="colors_active">--}}
+{{--                                                    <span class="switcher_control"></span>--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                            <select--}}
+{{--                                                class="js-example-basic-multiple js-states js-example-responsive form-control color-var-select"--}}
+{{--                                                name="colors[]" multiple="multiple" id="colors-selector" disabled>--}}
+{{--                                                @foreach (\App\Models\Color::orderBy('name', 'asc')->get() as $key => $color)--}}
+{{--                                                    <option value="{{ $color->code }}">--}}
+{{--                                                        {{ $color['name'] }}--}}
+{{--                                                    </option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-6">
-                                            <label for="attributes" class="title-color">
-                                                {{ \App\CPU\translate('Attributes') }} :
-                                            </label>
-                                            <select
-                                                class="js-example-basic-multiple js-states js-example-responsive form-control"
-                                                name="choice_attributes[]" id="choice_attributes" multiple="multiple">
-                                                @foreach (\App\Models\Attribute::orderBy('name', 'asc')->get() as $key => $a)
-                                                    <option value="{{ $a['id'] }}">
-                                                        {{ $a['name'] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <label for="attributes" class="title-color">--}}
+{{--                                                {{ \App\CPU\translate('Attributes') }} :--}}
+{{--                                            </label>--}}
+{{--                                            <select--}}
+{{--                                                class="js-example-basic-multiple js-states js-example-responsive form-control"--}}
+{{--                                                name="choice_attributes[]" id="choice_attributes" multiple="multiple">--}}
+{{--                                                @foreach (\App\Models\Attribute::orderBy('name', 'asc')->get() as $key => $a)--}}
+{{--                                                    <option value="{{ $a['id'] }}">--}}
+{{--                                                        {{ $a['name'] }}--}}
+{{--                                                    </option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-12 mt-2 mb-2">
-                                            <div class="customer_choice_options" id="customer_choice_options"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                                        <div class="col-md-12 mt-2 mb-2">--}}
+{{--                                            <div class="customer_choice_options" id="customer_choice_options"></div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="card mt-2 rest-part">
                                 <div class="card-header">
@@ -314,66 +314,66 @@
                                 </div>
                             </div>
 
-                            <div class="card mt-2 mb-2 rest-part">
-                                <div class="card-header">
-                                    <h5 class="card-title">
-                                        <span>{{ \App\CPU\translate('tags') }}</span>
-                                    </h5>
-                                </div>
-                                <div class="card-body pb-0">
-                                    <div class="row g-2">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="title-color">{{ \App\CPU\translate('search_tags') }}</label>
-                                                <input type="text" class="form-control" name="tags" data-role="tagsinput">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="card mt-2 mb-2 rest-part">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h5 class="card-title">--}}
+{{--                                        <span>{{ \App\CPU\translate('tags') }}</span>--}}
+{{--                                    </h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body pb-0">--}}
+{{--                                    <div class="row g-2">--}}
+{{--                                        <div class="col-12">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label class="title-color">{{ \App\CPU\translate('search_tags') }}</label>--}}
+{{--                                                <input type="text" class="form-control" name="tags" data-role="tagsinput">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="card mt-2 mb-2 rest-part">
-                                <div class="card-header">
-                                    <h4 class="mb-0">{{ \App\CPU\translate('seo_section') }}</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label class="title-color">{{ \App\CPU\translate('Meta Title') }}</label>
-                                            <input type="text" name="meta_title" placeholder="" class="form-control">
-                                        </div>
+{{--                            <div class="card mt-2 mb-2 rest-part">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h4 class="mb-0">{{ \App\CPU\translate('seo_section') }}</h4>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12 form-group">--}}
+{{--                                            <label class="title-color">{{ \App\CPU\translate('Meta Title') }}</label>--}}
+{{--                                            <input type="text" name="meta_title" placeholder="" class="form-control">--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-8 form-group">
-                                            <label class="title-color">{{ \App\CPU\translate('Meta Description') }}</label>
-                                            <textarea rows="10" type="text" name="meta_description" class="form-control"></textarea>
-                                        </div>
+{{--                                        <div class="col-md-8 form-group">--}}
+{{--                                            <label class="title-color">{{ \App\CPU\translate('Meta Description') }}</label>--}}
+{{--                                            <textarea rows="10" type="text" name="meta_description" class="form-control"></textarea>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-4 form-group">
-                                            <div class="">
-                                                <label class="title-color">{{ \App\CPU\translate('Meta Image') }}</label>
-                                            </div>
-                                            <div class="border border-dashed">
-                                                <div class="row" id="meta_img"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                                        <div class="col-md-4 form-group">--}}
+{{--                                            <div class="">--}}
+{{--                                                <label class="title-color">{{ \App\CPU\translate('Meta Image') }}</label>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="border border-dashed">--}}
+{{--                                                <div class="row" id="meta_img"></div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="card mt-2 rest-part">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12 mb-4">
-                                            <div class="mb-2">
-                                                <label class="title-color">{{ \App\CPU\translate('Youtube video link') }}</label>
-                                                <span class="text-info"> (
-                                            {{ \App\CPU\translate('optional, please provide embed link not direct link') }}.
-                                            )</span>
-                                            </div>
-                                            <input type="text" name="video_link"
-                                                   placeholder="{{ \App\CPU\translate('EX') }} : https://www.youtube.com/embed/5R06LRdUCSE"
-                                                   class="form-control" required>
-                                        </div>
+{{--                                        <div class="col-md-12 mb-4">--}}
+{{--                                            <div class="mb-2">--}}
+{{--                                                <label class="title-color">{{ \App\CPU\translate('Youtube video link') }}</label>--}}
+{{--                                                <span class="text-info"> (--}}
+{{--                                            {{ \App\CPU\translate('optional, please provide embed link not direct link') }}.--}}
+{{--                                            )</span>--}}
+{{--                                            </div>--}}
+{{--                                            <input type="text" name="video_link"--}}
+{{--                                                   placeholder="{{ \App\CPU\translate('EX') }} : https://www.youtube.com/embed/5R06LRdUCSE"--}}
+{{--                                                   class="form-control" required>--}}
+{{--                                        </div>--}}
 
                                         <div class="col-md-8 form-group">
                                             <div class="mb-2">

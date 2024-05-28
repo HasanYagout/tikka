@@ -81,18 +81,18 @@
                         </li>
                     @endif
 
-                    <li class="{{Request::is ('chat/seller') || Request::is ('chat/delivery-man') ? 'active' : ''}}">
-                        <a href="{{route('chat', ['type' => 'seller'])}}">
-                            <img width="20" src="{{theme_asset('assets/img/icons/profile-icon7.png')}}" class="dark-support" alt="">
-                            <span>{{translate('Inbox')}}</span>
-                        </a>
-                    </li>
-                    <li class="{{Request::is ('account-tickets') || Request::is('support-ticket*') ? 'active' : ''}}" >
-                        <a href="{{route('account-tickets')}}">
-                            <img width="20" src="{{theme_asset('assets/img/icons/profile-icon8.png')}}" class="dark-support" alt="">
-                            <span>{{translate('Support_Ticket')}}</span>
-                        </a>
-                    </li>
+{{--                    <li class="{{Request::is ('chat/seller') || Request::is ('chat/delivery-man') ? 'active' : ''}}">--}}
+{{--                        <a href="{{route('chat', ['type' => 'seller'])}}">--}}
+{{--                            <img width="20" src="{{theme_asset('assets/img/icons/profile-icon7.png')}}" class="dark-support" alt="">--}}
+{{--                            <span>{{translate('Inbox')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{Request::is ('account-tickets') || Request::is('support-ticket*') ? 'active' : ''}}" >--}}
+{{--                        <a href="{{route('account-tickets')}}">--}}
+{{--                            <img width="20" src="{{theme_asset('assets/img/icons/profile-icon8.png')}}" class="dark-support" alt="">--}}
+{{--                            <span>{{translate('Support_Ticket')}}</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li class="d-lg-none">
                         <a class="d-flex align-items-center" href="javascript:" onclick="route_alert('{{ route('account-delete',[$customer_info['id']]) }}','{{\App\CPU\translate('want_to_delete_this_account?')}}')">
                             <i class="bi bi-trash3-fill text-danger fs-16"></i>

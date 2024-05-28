@@ -137,7 +137,7 @@
                     <div class="card search-card __inline-13 position-absolute z-99 w-100 bg-white top-100 start-0 search-result-box"></div>
                 </div>
                 <a class="logo" href="{{route('home')}}">
-                    <img style="height: 70px; width: 70px"
+                    <img style="height: 7rem; width: 7rem"
                         src="{{asset("public/storage/company")."/".$web_config['web_logo']->value}}"
                         class="dark-support svg h-45"
                         {{--                        onerror="this.src='{{theme_asset('assets/img/image-place-holder-2_1.png')}}'"--}}

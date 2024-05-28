@@ -111,10 +111,10 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-4 mb-0">
-                                        <label for="name" class="title-color text-capitalize">{{ \App\CPU\translate('banner_URL')}}</label>
-                                        <input type="url" name="url" class="form-control" id="url" required placeholder="{{ translate('Enter_url') }}">
-                                    </div>
+{{--                                    <div class="form-group mt-4 mb-0">--}}
+{{--                                        <label for="name" class="title-color text-capitalize">{{ \App\CPU\translate('banner_URL')}}</label>--}}
+{{--                                        <input type="url" name="url" class="form-control" id="url" required placeholder="{{ translate('Enter_url') }}">--}}
+{{--                                    </div>--}}
 
                                     {{-- For Theme Fashion - New input Field - Start --}}
                                     @if(theme_root_path() == 'theme_fashion')

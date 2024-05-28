@@ -212,22 +212,31 @@
                     </div>
                     <!-- End Card -->
                 </div>
-
-                <!-- Top Store By Order Received -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card h-100">
-{{--                        @include('admin.partials._top-store-by-order',['top_store_by_order_received'=>$data['top_store_by_order_received']])--}}
+                @if(auth('admin')->user()->role->name=='superAdmin')
+                    <!-- Top Store By Order Received -->
+                    <div class="col-md-6 col-xl-4">
+                        <div class="card h-100">
+                                                    @include('admin.partials._top-store-by-order',['top_store_by_order_received'=>$data['top_store_by_order_received']])
+                        </div>
                     </div>
-                </div>
-                <!-- End Top Store By Order Received -->
+                    <!-- End Top Store By Order Received -->
 
-                <div class="col-md-6 col-xl-4">
-                    <!-- Card -->
-                    <div class="card h-100">
-{{--                        @include('admin.partials._top-selling-store',['top_store_by_earning'=>$data['top_store_by_earning']])--}}
+                    <div class="col-md-6 col-xl-4">
+                        <!-- Card -->
+                        <div class="card h-100">
+                                                    @include('admin.partials._top-selling-store',['top_store_by_earning'=>$data['top_store_by_earning']])
+                        </div>
+                        <!-- End Card -->
                     </div>
-                    <!-- End Card -->
-                </div>
+                    <div class="col-md-6 col-xl-4">
+                        <!-- Card -->
+                        <div class="card h-100">
+                            @include('admin.partials._top-delivery-man',['top_deliveryman'=>$data['top_deliveryman']])
+                        </div>
+                        <!-- End Card -->
+                    </div>
+
+                @endif
 
                 <div class="col-md-6 col-xl-4">
                     <!-- Card -->
@@ -245,13 +254,7 @@
                     <!-- End Card -->
                 </div>
 
-                <div class="col-md-6 col-xl-4">
-                    <!-- Card -->
-                    <div class="card h-100">
-                        @include('admin.partials._top-delivery-man',['top_deliveryman'=>$data['top_deliveryman']])
-                    </div>
-                    <!-- End Card -->
-                </div>
+
 
             </div>
         </div>

@@ -128,7 +128,6 @@ class RefundController extends Controller
         if($refund->status != 'refunded')
         {
             $order_details = OrderDetail::find($refund->order_details_id);
-
             $refund_status = new RefundStatus;
             $refund_status->refund_request_id = $refund->id;
             $refund_status->change_by = 'admin';

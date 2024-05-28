@@ -295,97 +295,97 @@
 
                             <!--Modal payment start-->
 
-                            @if ($digital_payment['status']==1)
-                                @if($wallet_status==1)
-                                    <!-- wallet modal -->
-                                    <div class="modal fade" id="wallet_submit_button">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{\App\CPU\translate('wallet_payment')}}</h5>
-                                                    <button type="button" class="btn-close outside" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                @php($customer_balance = auth('customer')->user()->wallet_balance)
-                                                @php($remain_balance = $customer_balance - $amount)
-                                                <form action="{{route('checkout-complete-wallet')}}" method="get" class="needs-validation">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <div class="form-row">
-                                                            <div class="form-group col-12">
-                                                                <label for="">{{\App\CPU\translate('your_current_balance')}}</label>
-                                                                <input class="form-control" type="text" value="{{\App\CPU\Helpers::currency_converter($customer_balance)}}" readonly>
-                                                            </div>
-                                                        </div>
+{{--                            @if ($digital_payment['status']==1)--}}
+{{--                                @if($wallet_status==1)--}}
+{{--                                    <!-- wallet modal -->--}}
+{{--                                    <div class="modal fade" id="wallet_submit_button">--}}
+{{--                                        <div class="modal-dialog modal-dialog-centered">--}}
+{{--                                            <div class="modal-content">--}}
+{{--                                                <div class="modal-header">--}}
+{{--                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{\App\CPU\translate('wallet_payment')}}</h5>--}}
+{{--                                                    <button type="button" class="btn-close outside" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+{{--                                                </div>--}}
+{{--                                                @php($customer_balance = auth('customer')->user()->wallet_balance)--}}
+{{--                                                @php($remain_balance = $customer_balance - $amount)--}}
+{{--                                                <form action="{{route('checkout-complete-wallet')}}" method="get" class="needs-validation">--}}
+{{--                                                    @csrf--}}
+{{--                                                    <div class="modal-body">--}}
+{{--                                                        <div class="form-row">--}}
+{{--                                                            <div class="form-group col-12">--}}
+{{--                                                                <label for="">{{\App\CPU\translate('your_current_balance')}}</label>--}}
+{{--                                                                <input class="form-control" type="text" value="{{\App\CPU\Helpers::currency_converter($customer_balance)}}" readonly>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
 
-                                                        <div class="form-row">
-                                                            <div class="form-group col-12">
-                                                                <label for="">{{\App\CPU\translate('order_amount')}}</label>
-                                                                <input class="form-control" type="text" value="{{\App\CPU\Helpers::currency_converter($amount)}}" readonly>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-row">
-                                                            <div class="form-group col-12">
-                                                                <label for="">{{\App\CPU\translate('remaining_balance')}}</label>
-                                                                <input class="form-control" type="text" value="{{\App\CPU\Helpers::currency_converter($remain_balance)}}" readonly>
-                                                                @if ($remain_balance<0)
-                                                                    <label class="__color-crimson">{{\App\CPU\translate('you do not have sufficient balance for pay this order!!')}}</label>
-                                                                @endif
-                                                            </div>
-                                                        </div>
+{{--                                                        <div class="form-row">--}}
+{{--                                                            <div class="form-group col-12">--}}
+{{--                                                                <label for="">{{\App\CPU\translate('order_amount')}}</label>--}}
+{{--                                                                <input class="form-control" type="text" value="{{\App\CPU\Helpers::currency_converter($amount)}}" readonly>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-row">--}}
+{{--                                                            <div class="form-group col-12">--}}
+{{--                                                                <label for="">{{\App\CPU\translate('remaining_balance')}}</label>--}}
+{{--                                                                <input class="form-control" type="text" value="{{\App\CPU\Helpers::currency_converter($remain_balance)}}" readonly>--}}
+{{--                                                                @if ($remain_balance<0)--}}
+{{--                                                                    <label class="__color-crimson">{{\App\CPU\translate('you do not have sufficient balance for pay this order!!')}}</label>--}}
+{{--                                                                @endif--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
 
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="update_cart_button fs-16 btn btn-secondary" data-dismiss="modal">{{\App\CPU\translate('close')}}</button>
-                                                        <button type="submit" class="update_cart_button fs-16 btn btn-primary" {{$remain_balance>0? '':'disabled'}}>{{\App\CPU\translate('submit')}}</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+{{--                                                    </div>--}}
+{{--                                                    <div class="modal-footer">--}}
+{{--                                                        <button type="button" class="update_cart_button fs-16 btn btn-secondary" data-dismiss="modal">{{\App\CPU\translate('close')}}</button>--}}
+{{--                                                        <button type="submit" class="update_cart_button fs-16 btn btn-primary" {{$remain_balance>0? '':'disabled'}}>{{\App\CPU\translate('submit')}}</button>--}}
+{{--                                                    </div>--}}
+{{--                                                </form>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
 
-                                <!-- offline payment modal -->
-                                @if(isset($offline_payment) && $offline_payment['status'])
-                                    <div class="modal fade" id="offline_payment_submit_button">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{\App\CPU\translate('offline_payment')}}</h5>
-                                                    <button type="button" class="btn-close outside" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <form action="{{route('offline-payment-checkout-complete')}}" method="post" class="needs-validation">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <div class="form-row">
-                                                            <div class="form-group col-12">
-                                                                <label for="">{{\App\CPU\translate('payment_by')}}</label>
-                                                                <input class="form-control" type="text" name="payment_by" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-row">
-                                                            <div class="form-group col-12">
-                                                                <label for="">{{\App\CPU\translate('transaction_ID')}}</label>
-                                                                <input class="form-control" type="text" name="transaction_ref" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-row">
-                                                            <div class="form-group col-12">
-                                                                <label for="">{{\App\CPU\translate('payment_note')}}</label>
-                                                                <textarea name="payment_note" id="" class="form-control"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <input type="hidden" value="offline_payment" name="payment_method">
-                                                        <button type="button" class="update_cart_button fs-16 btn btn-secondary" data-dismiss="modal">{{\App\CPU\translate('close')}}</button>
-                                                        <button type="submit" class="update_cart_button fs-16 btn btn-primary">{{\App\CPU\translate('submit')}}</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endif
+{{--                                <!-- offline payment modal -->--}}
+{{--                                @if(isset($offline_payment) && $offline_payment['status'])--}}
+{{--                                    <div class="modal fade" id="offline_payment_submit_button">--}}
+{{--                                        <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--                                            <div class="modal-content">--}}
+{{--                                                <div class="modal-header">--}}
+{{--                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{\App\CPU\translate('offline_payment')}}</h5>--}}
+{{--                                                    <button type="button" class="btn-close outside" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+{{--                                                </div>--}}
+{{--                                                <form action="{{route('offline-payment-checkout-complete')}}" method="post" class="needs-validation">--}}
+{{--                                                    @csrf--}}
+{{--                                                    <div class="modal-body">--}}
+{{--                                                        <div class="form-row">--}}
+{{--                                                            <div class="form-group col-12">--}}
+{{--                                                                <label for="">{{\App\CPU\translate('payment_by')}}</label>--}}
+{{--                                                                <input class="form-control" type="text" name="payment_by" required>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-row">--}}
+{{--                                                            <div class="form-group col-12">--}}
+{{--                                                                <label for="">{{\App\CPU\translate('transaction_ID')}}</label>--}}
+{{--                                                                <input class="form-control" type="text" name="transaction_ref" required>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-row">--}}
+{{--                                                            <div class="form-group col-12">--}}
+{{--                                                                <label for="">{{\App\CPU\translate('payment_note')}}</label>--}}
+{{--                                                                <textarea name="payment_note" id="" class="form-control"></textarea>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="modal-footer">--}}
+{{--                                                        <input type="hidden" value="offline_payment" name="payment_method">--}}
+{{--                                                        <button type="button" class="update_cart_button fs-16 btn btn-secondary" data-dismiss="modal">{{\App\CPU\translate('close')}}</button>--}}
+{{--                                                        <button type="submit" class="update_cart_button fs-16 btn btn-primary">{{\App\CPU\translate('submit')}}</button>--}}
+{{--                                                    </div>--}}
+{{--                                                </form>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
+{{--                            @endif--}}
                             <!--Modal payment end-->
                             </div>
                         </div>

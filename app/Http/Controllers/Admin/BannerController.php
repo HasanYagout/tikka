@@ -34,10 +34,10 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'url' => 'required',
+//            'url' => 'required',
             'image' => 'required',
         ], [
-            'url.required' => 'url is required!',
+//            'url.required' => 'url is required!',
             'image.required' => 'Image is required!',
 
         ]);
@@ -50,7 +50,7 @@ class BannerController extends Controller
         $banner->sub_title = $request->sub_title;
         $banner->button_text = $request->button_text;
         $banner->background_color = $request->background_color;
-        $banner->url = $request->url;
+        $banner->url = '/';
         $banner->photo = ImageManager::upload('banner/', 'png', $request->file('image'));
         $banner->save();
         Toastr::success('Banner added successfully!');
@@ -76,11 +76,11 @@ class BannerController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'url' => 'required',
-        ], [
-            'url.required' => 'url is required!',
-        ]);
+//        $request->validate([
+//            'url' => 'required',
+//        ], [
+//            'url.required' => 'url is required!',
+//        ]);
 
         $banner = Banner::find($id);
         $banner->banner_type = $request->banner_type;

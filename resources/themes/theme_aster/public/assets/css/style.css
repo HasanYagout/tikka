@@ -4006,7 +4006,7 @@ input[type="checkbox"]:checked::after {
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     position: absolute;
-    inset-inline-start: 50%;
+    inset-inline-start: 30%;
     inset-block-start: 50%;
     -webkit-transform: translate(-50%, -50%) scale(0.3);
     -ms-transform: translate(-50%, -50%) scale(0.3);

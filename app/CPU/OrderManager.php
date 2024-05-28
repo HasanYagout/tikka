@@ -392,7 +392,7 @@ class OrderManager
             $coupon_process = $coupon ? self::coupon_process($data, $coupon) : $coupon_process;
         }
 
-        $order_id = 100000 + Order::all()->count() + 1;
+        $order_id = 1 + Order::all()->count() + 1;
         if (Order::find($order_id)) {
             $order_id = Order::orderBy('id', 'DESC')->first()->id + 1;
         }
@@ -586,6 +586,7 @@ class OrderManager
             }
 
             if ($user->email) {
+
                 Mail::to($user->email)->send(new \App\Mail\OrderPlaced($order_id));
                 Mail::to($seller->email)->send(new \App\Mail\OrderReceivedNotifySeller($order_id));
             }

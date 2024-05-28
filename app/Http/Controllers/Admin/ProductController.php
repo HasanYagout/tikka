@@ -77,9 +77,9 @@ class ProductController extends BaseController
         $validator = Validator::make($request->all(), [
             'name'                 => 'required',
             'category_id'          => 'required',
-            'product_type'         => 'required',
-            'digital_product_type' => 'required_if:product_type,==,digital',
-            'digital_file_ready'   => 'required_if:digital_product_type,==,ready_product|mimes:jpg,jpeg,png,gif,zip,pdf',
+//            'product_type'         => 'required',
+//            'digital_product_type' => 'required_if:product_type,==,digital',
+//            'digital_file_ready'   => 'required_if:digital_product_type,==,ready_product|mimes:jpg,jpeg,png,gif,zip,pdf',
             'unit'                 => 'required_if:product_type,==,physical',
             'image'                => 'required',
             'tax'                  => 'required|min:0',
@@ -201,7 +201,7 @@ class ProductController extends BaseController
         $p->brand_id             = $request->brand_id;
         $p->unit                 = $request->product_type == 'physical' ? $request->unit : null;
         $p->digital_product_type = $request->product_type == 'digital' ? $request->digital_product_type : null;
-        $p->product_type         = $request->product_type;
+        $p->product_type         = 'physical';
         $p->details              = $request->description[array_search('en', $request->lang)];
 
         if ($request->has('colors_active') && $request->has('colors') && count($request->colors) > 0) {

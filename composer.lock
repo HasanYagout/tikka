@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a31cee31101926d497277e1dcc22646",
+    "content-hash": "754375f8b1633a692e11367ddcc588e6",
     "packages": [
         {
             "name": "brian2694/laravel-toastr",
@@ -3006,6 +3006,60 @@
                 }
             ],
             "time": "2024-03-23T07:42:40+00:00"
+        },
+        {
+            "name": "mgp25/whatsapi",
+            "version": "2.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mgp25/Chat-API.git",
+                "reference": "48ecf4f61636ab075301f39413cc2617d063b4dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mgp25/Chat-API/zipball/48ecf4f61636ab075301f39413cc2617d063b4dc",
+                "reference": "48ecf4f61636ab075301f39413cc2617d063b4dc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-gd": "*",
+                "ext-openssl": "*",
+                "ext-pdo": "*",
+                "ext-sockets": "*",
+                "ext-sqlite3": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chat API Contributing Team",
+                    "homepage": "https://github.com/WHAnonymous/Chat-API/graphs/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "The PHP WhatsApp library",
+            "keywords": [
+                "Chat-API",
+                "whatsapi",
+                "whatsapp"
+            ],
+            "support": {
+                "issues": "https://github.com/WHAnonymous/Chat-API/issues",
+                "source": "https://github.com/WHAnonymous/Chat-API",
+                "wiki": "https://github.com/WHAnonymous/Chat-API/wiki"
+            },
+            "abandoned": true,
+            "time": "2015-08-20T23:17:02+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -9920,7 +9974,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mgp25/whatsapi": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

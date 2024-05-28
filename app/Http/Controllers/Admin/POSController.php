@@ -729,7 +729,7 @@ class POSController extends Controller
         $product_price = 0;
         $order_details = [];
 
-        $order_id = 100000 + Order::all()->count() + 1;
+        $order_id = 1 + Order::all()->count() + 1;
         if (Order::find($order_id)) {
             $order_id = Order::orderBy('id', 'DESC')->first()->id + 1;
         }
