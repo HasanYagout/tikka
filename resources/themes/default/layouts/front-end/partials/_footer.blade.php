@@ -76,6 +76,9 @@
                             <img class="{{Session::get('direction') === "rtl" ? 'rightalign' : ''}}" src="{{asset("public/storage/company/")}}/{{ $web_config['footer_logo']->value }}"
                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                 alt="{{ $web_config['name']->value }}"/>
+                            <img class="mb-3" width="150" src="{{asset("public/storage/company/QR.jpeg")}}"
+                                 onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"
+                                 loading="lazy" alt="">
                         </a>
 
                         @if($web_config['ios']['status'] || $web_config['android']['status'])
