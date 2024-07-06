@@ -3681,4 +3681,5 @@
   'Select  Logout  below if you are ready to end your current session' => 'Select  Logout  below if you are ready to end your current session',
   'Sorry  the minimum order quantity does not match' => 'Sorry  the minimum order quantity does not match',
   'Sorry  stock limit exceeded' => 'Sorry  stock limit exceeded',
+  'bfdrand' => 'Bfdrand',
 );

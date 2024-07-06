@@ -82,7 +82,7 @@
                                 <th class="text-right">{{\App\CPU\translate('purchase_price')}}</th>
                                 <th class="text-right">{{\App\CPU\translate('selling_price')}}</th>
                                 <th class="text-center">{{\App\CPU\translate('Show_as_featured')}}</th>
-                                <th class="text-center">{{\App\CPU\translate('Active')}} {{\App\CPU\translate('status')}}</th>
+                                <th class="text-center">{{\App\CPU\translate('Active_status')}}</th>
                                 <th class="text-center">{{\App\CPU\translate('Action')}}</th>
                             </tr>
                         </thead>
