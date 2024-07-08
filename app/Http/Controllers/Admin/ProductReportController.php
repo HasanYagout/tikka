@@ -30,10 +30,10 @@ class ProductReportController extends Controller
         $chart_data = self::all_product_chart_filter($request);
 
         $product_query = Product::with(['reviews', 'order_details' => function ($query) {
-                $query->select(
-                    DB::raw("product_id, SUM(price*qty) as total_sold_amount, sum(qty) as product_quantity")
-                )->where('delivery_status', 'delivered')->groupBy('product_id');
-            }])
+            $query->select(
+                DB::raw("product_id, SUM(price*qty) as total_sold_amount, sum(qty) as product_quantity")
+            )->where('delivery_status', 'delivered')->groupBy('product_id');
+        }])
             ->when($seller_id != 'all', function ($query) use ($seller_id) {
                 $query->when($seller_id == 'inhouse', function ($q) {
                     $q->where(['user_id' => 1, 'added_by' => 'admin']);
@@ -50,15 +50,15 @@ class ProductReportController extends Controller
             ->appends($query_param);
 
         $total_sales_value = 0;
-        foreach($products as $key=>$product){
+        foreach($products as $key => $product){
             $total_sales_value += (isset($product->order_details[0]->total_sold_amount) ? $product->order_details[0]->total_sold_amount : 0) / (isset($product->order_details[0]->product_quantity) ? $product->order_details[0]->product_quantity : 1);
         }
 
         $total_product_sale_query = Product::with(['order_details'=>function($query){
-                $query->select(
-                    DB::raw("product_id, sum(qty*price) as total_sale_amount, sum(qty) as product_quantity, sum(discount) as total_discount")
-                );
-            }])
+            $query->select(
+                DB::raw("product_id, sum(qty*price) as total_sale_amount, sum(qty) as product_quantity, sum(discount) as total_discount")
+            )->groupBy('product_id');
+        }])
             ->whereHas('order_details',function($query){
                 $query->where('delivery_status', 'delivered');
             })
@@ -176,27 +176,47 @@ class ProductReportController extends Controller
 
     public function all_product_same_year($request, $start_date, $end_date, $from_year, $number, $default_inc)
     {
+        // Fetch products grouped by year, month, and product ID
+        $products = $this->all_product_date_common_query($request, $start_date, $end_date)
+            ->selectRaw('count(*) as total_product, YEAR(created_at) as year, MONTH(created_at) as month')
+            ->groupBy(DB::raw('YEAR(created_at), MONTH(created_at), products.id'))
+            ->orderByRaw('YEAR(created_at) DESC, MONTH(created_at) DESC')
+            ->get();
 
-        $products = self::all_product_date_common_query($request, $start_date, $end_date)
-            ->selectRaw('count(*) as total_product, YEAR(created_at) year, MONTH(created_at) month')
-            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))
-            ->latest('created_at')->get();
+        $total_product = [];
 
+        // Initialize the total_product array with default values for each month
         for ($inc = $default_inc; $inc <= $number; $inc++) {
-            $month = date("F", strtotime("2023-$inc-01"));
+            $month = date("F", mktime(0, 0, 0, $inc, 10)); // Get the month name
             $total_product[$month . '-' . $from_year] = 0;
-            foreach ($products as $match) {
-                if ($match['month'] == $inc) {
-                    $total_product[$month . '-' . $from_year] = $match['total_product'];
-                }
-            }
+        }
+
+        // Populate the total_product array with actual data
+        foreach ($products as $match) {
+            $month = date("F", mktime(0, 0, 0, $match->month, 10)); // Get the month name
+            $total_product[$month . '-' . $match->year] = $match->total_product; // Use the year from the query result
         }
 
         return array(
             'total_product' => $total_product,
         );
     }
+    public function all_product_date_common_query($request, $start_date, $end_date)
+    {
+        $seller_id = $request['seller_id'] ?? 'all';
 
+        $query = Product::when($seller_id != 'all', function ($query) use ($seller_id) {
+            $query->when($seller_id == 'inhouse', function ($q) {
+                $q->where(['user_id' => 1, 'added_by' => 'admin']);
+            })->when($seller_id != 'inhouse', function ($q) use ($seller_id) {
+                $q->where(['user_id' => $seller_id, 'added_by' => 'seller']);
+            });
+        })
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date);
+
+        return $query;
+    }
     public function all_product_same_month($request, $start_date, $end_date, $month_date, $number, $default_inc)
     {
         $year_month = date('Y-m', strtotime($start_date));
@@ -279,22 +299,6 @@ class ProductReportController extends Controller
 
     }
 
-    public function all_product_date_common_query($request, $start_date, $end_date)
-    {
-        $seller_id = $request['seller_id'] ?? 'all';
-
-        $query = Product::when($seller_id != 'all', function ($query) use ($seller_id) {
-                $query->when($seller_id == 'inhouse', function ($q) {
-                    $q->where(['user_id' => 1, 'added_by' => 'admin']);
-                })->when($seller_id != 'inhouse', function ($q) use ($seller_id) {
-                    $q->where(['user_id' => $seller_id, 'added_by' => 'seller']);
-                });
-            })
-            ->whereDate('created_at', '>=', $start_date)
-            ->whereDate('created_at', '<=', $end_date);
-
-        return $query;
-    }
 
     public function all_product_export_excel(Request $request){
         $search = $request['search'];

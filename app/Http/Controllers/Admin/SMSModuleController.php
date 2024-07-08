@@ -11,7 +11,15 @@ class SMSModuleController extends Controller
 {
     public function sms_index()
     {
+        if (auth('admin')->user()->role->name=='superAdmin'){
+
         return view('admin.business-settings.sms-index');
+        }
+        else{
+            return view('admin.business-settings.social-media-chat.view');
+
+        }
+
     }
 
     public function sms_update(Request $request, $module)

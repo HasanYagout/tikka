@@ -3700,4 +3700,5 @@
   'Sorry  stock limit exceeded' => 'Sorry  stock limit exceeded',
   'Sorry  the minimum order quantity does not match' => 'Sorry  the minimum order quantity does not match',
   'bfdrand' => 'Bfdrand',
+  'EX of SMS provider s template : your OTP is XXXX here  please check' => 'EX of SMS provider s template : your OTP is XXXX here  please check',
 );

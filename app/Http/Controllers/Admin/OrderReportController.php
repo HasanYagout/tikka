@@ -150,16 +150,19 @@ class OrderReportController extends Controller
     public function order_report_same_year($request, $start_date, $end_date, $from_year, $number, $default_inc)
     {
         $orders = self::order_report_chart_common_query($request, $start_date, $end_date)
-            ->selectRaw('sum(order_amount) as order_amount, YEAR(updated_at) year, MONTH(updated_at) month')
-            ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%M')"))
-            ->latest('updated_at')->get();
+            ->selectRaw('sum(order_amount) as order_amount, YEAR(updated_at) as year, MONTH(updated_at) as month')
+            ->groupBy(DB::raw('YEAR(updated_at), MONTH(updated_at)'))
+            ->orderByRaw('YEAR(updated_at) DESC, MONTH(updated_at) DESC')
+            ->get();
+
+        $order_amount = [];
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
-            $month = date("F", strtotime("2023-$inc-01"));
+            $month = date("F", mktime(0, 0, 0, $inc, 10));
             $order_amount[$month . '-' . $from_year] = 0;
             foreach ($orders as $match) {
-                if ($match['month'] == $inc) {
-                    $order_amount[$month . '-' . $from_year] = $match['order_amount'];
+                if ($match->month == $inc) {
+                    $order_amount[$month . '-' . $from_year] = $match->order_amount;
                 }
             }
         }
@@ -168,7 +171,6 @@ class OrderReportController extends Controller
             'order_amount' => $order_amount,
         );
     }
-
     public function order_report_same_month($request, $start_date, $end_date, $month_date, $number, $default_inc)
     {
         $year_month = date('Y-m', strtotime($start_date));
