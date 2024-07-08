@@ -3669,5 +3669,7 @@
   'All_copy_right_reserved_©_2024_' => 'All copy right reserved © 2024 ',
   'email_not_found' => 'Email not found',
   'Name ' => 'Name ',
+  'Sorry  stock limit exceeded' => 'Sorry  stock limit exceeded',
+  'Sorry  the minimum order quantity does not match' => 'Sorry  the minimum order quantity does not match',
   'Select  Logout  below if you are ready to end your current session' => 'Select  Logout  below if you are ready to end your current session',
 );

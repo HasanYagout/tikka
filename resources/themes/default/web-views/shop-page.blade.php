@@ -12,7 +12,7 @@
         <meta property="og:title" content="{{ $shop['name']}} "/>
         <meta property="og:url" content="{{route('shopView',[$shop['id']])}}">
     @endif
-    <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
+    <meta property="og:description" content="{{ e(substr($web_config['about']->value, 0, 100)) }}">
 
     @if($shop['id'] != 0)
         <meta property="twitter:card" content="{{asset('public/storage/shop')}}/{{$shop->image}}"/>
@@ -25,7 +25,7 @@
         <meta property="twitter:url" content="{{route('shopView',[$shop['id']])}}">
     @endif
 
-    <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
+    <meta property="twitter:description" content="{{ e(substr($web_config['about']->value, 0, 100)) }}">
 
 
     <link href="{{asset('public/assets/front-end')}}/css/home.css" rel="stylesheet">

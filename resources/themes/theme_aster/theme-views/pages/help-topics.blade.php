@@ -6,12 +6,12 @@
     <meta property="og:image" content="{{asset('public/storage/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="FAQ of {{$web_config['name']->value}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
-    <meta property="og:description" content="{!! substr($web_config['about']->value,0,100) !!}">
+    <meta property="og:description" content="{{ e(substr($web_config['about']->value, 0, 100)) }}">
 
     <meta property="twitter:card" content="{{asset('public/storage/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="twitter:title" content="FAQ of {{$web_config['name']->value}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
-    <meta property="twitter:description" content="{!! substr($web_config['about']->value,0,100) !!}">
+    <meta property="twitter:description" content="{{ e(substr($web_config['about']->value, 0, 100)) }}">
 @endpush
 
 @section('content')

@@ -72,8 +72,11 @@
                     class="row text-center {{Session::get('direction') === "rtl" ? 'text-md-right' : 'text-md-left'}} mt-3 pb-3 ">
                     <!-- Grid column -->
                     <div class="col-md-3 footer-web-logo" >
-                        <a class="d-block" href="{{route('home')}}">
-                            <img class="{{Session::get('direction') === "rtl" ? 'rightalign' : ''}}" src="{{asset("public/storage/company/")}}/{{ $web_config['footer_logo']->value }}"
+                        <a class="d-flex" href="{{route('home')}}">
+                            <!--<img class="{{Session::get('direction') === "rtl" ? 'rightalign' : ''}}" src="{{asset("public/storage/company/")}}/{{ $web_config['footer_logo']->value }}"-->
+                            <!--    onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"-->
+                            <!--    alt="{{ $web_config['name']->value }}"/>-->
+                            <img class="{{Session::get('direction') === "rtl" ? '' : ''}}" src="{{asset("public/storage/company/")}}/{{ $web_config['footer_logo']->value }}"
                                 onerror="this.src='{{asset('public/assets/front-end/img/image-place-holder.png')}}'"
                                 alt="{{ $web_config['name']->value }}"/>
                             <img class="mb-3" width="150" src="{{asset("public/storage/company/QR.jpeg")}}"

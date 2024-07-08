@@ -60,10 +60,10 @@
                         </div>
                         <div class="col-sm-3 col-3 ">
                             <div class="widget widget--about text-center text-lg-start absolute-white flex-column align-items-center">
-                                <img class="mb-3" width="150" src="{{asset("public/storage/company/")}}/{{ $web_config['footer_logo']->value }}"
+                                <img class="mb-3" width="120" src="{{asset("public/storage/company/")}}/{{ $web_config['footer_logo']->value }}"
                                      onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"
                                      loading="lazy" alt="">
-                                <img class="mb-3" width="150" src="{{asset("public/storage/company/QR.jpeg")}}"
+                                <img class="mb-3" width="120" src="{{asset("public/storage/company/QR.jpeg")}}"
                                      onerror="this.src='{{theme_asset('assets/img/logo-white.png')}}'"
                                      loading="lazy" alt="">
                                 <p>{{ \App\CPU\Helpers::get_business_settings('shop_address')}}</p>

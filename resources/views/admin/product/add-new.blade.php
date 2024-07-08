@@ -278,7 +278,8 @@
                                         <div class="col-12 form-group sku_combination" id="sku_combination"></div>
 
                                         <div class="col-md-3 form-group physical_product_show" id="quantity">
-                                            <label class="title-color">{{ \App\CPU\translate('total_quantity') }}</label>
+                                          <label class="title-color">{{ \App\CPU\translate('total_quantity') }}</label>
+
                                             <input type="number" min="0" value="0" step="1"
                                                    placeholder="{{ \App\CPU\translate('Quantity') }}" name="current_stock"
                                                    class="form-control" required>
