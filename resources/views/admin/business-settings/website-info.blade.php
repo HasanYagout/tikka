@@ -984,6 +984,8 @@
                         </div>
                     </div>
                 </div>
+                @if(auth('admin')->user()->role->name=='superAdmin')
+
                 <div class="col-xxl-4 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-header">
@@ -1017,6 +1019,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="col-xxl-4 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-header">

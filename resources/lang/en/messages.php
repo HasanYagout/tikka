@@ -3672,4 +3672,6 @@
   'Sorry  stock limit exceeded' => 'Sorry  stock limit exceeded',
   'Sorry  the minimum order quantity does not match' => 'Sorry  the minimum order quantity does not match',
   'Select  Logout  below if you are ready to end your current session' => 'Select  Logout  below if you are ready to end your current session',
+  'Yes  Change it' => 'Yes  Change it',
+  'If the user fails to get the OTP within a certain time  user can request a resend' => 'If the user fails to get the OTP within a certain time  user can request a resend',
 );
