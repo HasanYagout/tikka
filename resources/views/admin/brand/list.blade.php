@@ -83,9 +83,9 @@
                                         <td>
                                             <img class="rounded avatar-60"
                                                  onerror="this.src='{{asset('public/assets/back-end/img/160x160/img2.jpg')}}'"
-                                                 src="{{asset('storage/brand')}}/{{$b['image']}}">
+                                                 src="{{asset('public/storage/brand')}}/{{$b['image']}}">
                                         </td>
-                                        <td>{{$b['defaultname']}}</td>
+                                        <td>{{ $b['defaultname']}}</td>
                                         <td>{{ $b['brand_all_products_count'] }}</td>
                                         <td>{{ $b['brandAllProducts']->sum('order_details_count') }}</td>
                                         <td>

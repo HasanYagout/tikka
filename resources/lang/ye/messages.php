@@ -3701,4 +3701,9 @@
   'Sorry  the minimum order quantity does not match' => 'Sorry  the minimum order quantity does not match',
   'bfdrand' => 'Bfdrand',
   'EX of SMS provider s template : your OTP is XXXX here  please check' => 'EX of SMS provider s template : your OTP is XXXX here  please check',
+  'Yes  Change it' => 'Yes  Change it',
+  'Account has been deleted  you can not change the status!' => 'Account has been deleted  you can not change the status!',
+  'Order is already delivered  You can not change it' => 'Order is already delivered  You can not change it',
+  'Order is already delivered  and transaction amount has been disbursed  changing status can be the reason of miscalculation' => 'Order is already delivered  and transaction amount has been disbursed  changing status can be the reason of miscalculation',
+  'Error   Something went wrong' => 'Error   Something went wrong',
 );

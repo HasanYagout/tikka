@@ -1163,14 +1163,9 @@
     <script>
         $('#featured_products_list').owlCarousel({
             loop: true,
-            autoplay: false,
+            autoplay: true,
             margin: 20,
-            nav: true,
-            navText: ["<i class='czi-arrow-left'></i>", "<i class='czi-arrow-right'></i>"],
-            dots: false,
-            autoplayHoverPause: true,
-            '{{session('direction')}}': false,
-            // center: true,
+            center: true,
             responsive: {
                 //X-Small
                 0: {
